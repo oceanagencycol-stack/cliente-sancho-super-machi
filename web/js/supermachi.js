@@ -16,6 +16,20 @@
     $('.evento__datos')?.append(p);
   }
 
+  // la escena de la portada: el letrero dice qué plato está en pantalla (los tramos los escribe web/tools/videos.py)
+  const letrero = $('.escena__plato[data-tramos]');
+  const clip = $('.escena video');
+  if (letrero && clip) {
+    let tramos = []; try { tramos = JSON.parse(letrero.dataset.tramos); } catch { /* sin letrero */ }
+    const nombre = $('[data-plato]', letrero); let actual = 0;
+    clip.addEventListener('timeupdate', () => {
+      const i = tramos.findIndex((x) => clip.currentTime >= x.d && clip.currentTime < x.h);
+      if (i < 0 || i === actual) return;
+      actual = i; letrero.classList.add('cambia');
+      setTimeout(() => { nombre.textContent = tramos[i].n; letrero.classList.remove('cambia'); }, 260);
+    });
+  }
+
   // la luz del escenario. En el teléfono, el cartel apagado que cruza el centro de la pantalla recupera el color (una
   // franja fina en el medio); con ratón, la luz es el puntero: una luz cálida lo sigue y el cartel de debajo se enciende.
   const conRaton = matchMedia('(hover: hover) and (pointer: fine)').matches;

@@ -3,7 +3,7 @@ import { h, raw, t, precio, cuando } from './util.mjs';
 import { UI, hora, rangoDias, telVisible } from './i18n.mjs';
 
 // <picture> con AVIF y WebP desde el manifest de web/public/media/<sitio>/
-export function foto(ctx, id, { sizes = '100vw', cls = '', eager = false, alt = null, flyer = false } = {}) {
+export function foto(ctx, id, { sizes = '100vw', cls = '', eager = false, alt = null, flyer = false, prioridad = true, alta = false } = {}) {
   const m = flyer ? ctx.media.flyers[id] : ctx.media.fotos[id];
   if (!m) throw new Error(`foto desconocida: ${id}`);
   const base = `/media/${ctx.sitio.id}/${flyer ? 'flyers/' : ''}${id}`;
@@ -11,7 +11,48 @@ export function foto(ctx, id, { sizes = '100vw', cls = '', eager = false, alt = 
   const max = m.anchos[m.anchos.length - 1];
   const alto = Math.round((m.h / m.w) * max);
   const texto = alt ?? (flyer ? '' : t({ es: m.es, en: m.en }, ctx.lang));
-  return h`<picture class="${cls}"><source type="image/avif" srcset="${set('avif')}" sizes="${sizes}"><source type="image/webp" srcset="${set('webp')}" sizes="${sizes}"><img src="${base}-${m.anchos[Math.min(1, m.anchos.length - 1)]}.webp" width="${max}" height="${alto}" alt="${texto}" ${raw(eager ? 'fetchpriority="high"' : 'loading="lazy"')} decoding="async"></picture>`;
+  const clases = [cls, m.foco ? `foco-${id}` : ''].filter(Boolean).join(' ');
+  // eager: la foto que se ve al abrir (LCP); prioridad=false la carga sin pedirla primero. alta: diferida pero, si se
+  // muestra al abrir, pedida primero (el plato de cada día en Sancho: solo se baja el del día, que es el que se ve)
+  const carga = eager ? (prioridad ? 'fetchpriority="high"' : '') : (alta ? 'loading="lazy" fetchpriority="high"' : 'loading="lazy"');
+  return h`<picture class="${clases}"><source type="image/avif" srcset="${set('avif')}" sizes="${sizes}"><source type="image/webp" srcset="${set('webp')}" sizes="${sizes}"><img src="${base}-${m.anchos[Math.min(1, m.anchos.length - 1)]}.webp" width="${max}" height="${alto}" alt="${texto}" ${raw(carga)} decoding="async"></picture>`;
+}
+
+// íconos dibujados (un solo trazo de 2, puntas redondas): nada de glifos de texto haciendo de ícono
+const ICONOS = {
+  flecha: '<path d="M4.5 12h15M13.5 6l6 6-6 6"/>',
+  pausa: '<path d="M9 6.5v11M15 6.5v11"/>',
+  play: '<path d="M8.5 6.2v11.6L18 12z" fill="currentColor"/>',
+  llama: '<path d="M12 2.8c.6 3.3 5.4 5.4 5.4 10.3a5.4 5.4 0 0 1-10.8 0c0-2.6 1.5-4.4 2.6-5.6.2 1.7 1 2.8 2.1 3.2-.2-3 .2-5.7.7-7.9z"/>',
+  estrella: '<path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M5.6 18.4L18.4 5.6"/>',
+};
+export const icono = (nombre, cls = 'icono') => raw(`<svg class="${cls}" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${ICONOS[nombre]}</svg>`);
+
+// video de comida (web/tools/videos.py): el póster se pinta con la página (es lo que mide el LCP) y el video lo carga
+// comun.js cuando se va a ver, sin movimiento reducido ni ahorro de datos. Siempre con botón de pausa (WCAG 2.2.2).
+export function video(ctx, clave, { cls = '', alt = '', eager = false, alta = false } = {}) {
+  const v = ctx.videos[clave];
+  if (!v) throw new Error(`video desconocido: ${clave}`);
+  const base = `/media/${ctx.sitio.id}/video/${clave}`;
+  const ui = ctx.lang === 'en' ? { pausa: 'Pause video', play: 'Play video' } : { pausa: 'Pausar el video', play: 'Reanudar el video' };
+  return h`<div class="video ${cls}" data-video="${clave}">
+    <picture class="video__poster"><source media="(max-width: 47.99rem)" type="image/avif" srcset="${base}-telefono.avif"><source media="(max-width: 47.99rem)" type="image/webp" srcset="${base}-telefono.webp"><source type="image/avif" srcset="${base}-escritorio.avif"><img src="${base}-escritorio.webp" width="${v.escritorio.ancho}" height="${v.escritorio.alto}" alt="${alt}" ${raw(eager ? 'fetchpriority="high"' : (alta ? 'loading="lazy" fetchpriority="high"' : 'loading="lazy"'))} decoding="async"></picture>
+    <video class="video__clip" muted playsinline loop preload="none" disablepictureinpicture data-telefono="${base}-telefono" data-escritorio="${base}-escritorio" aria-hidden="true" tabindex="-1"></video>
+    <button class="video__pausa" type="button" data-video-pausa aria-pressed="false" data-pausa="${ui.pausa}" data-play="${ui.play}" aria-label="${ui.pausa}">${icono('pausa', 'icono icono--pausa')}${icono('play', 'icono icono--play')}</button>
+  </div>`;
+}
+
+// cabeza de una página interior con la comida detrás: foto (o video) a todo lo ancho y el título encima. Es lo primero que se
+// ve al entrar (LCP), así que va sin diferir.
+export function cabezaPlato(ctx, { titulo, entrada = '', foto: f = null, video: v = null, alt = '', extra = '' }) {
+  return h`<header class="cabeza-plato">
+    <div class="cabeza-plato__fondo">${v ? video(ctx, v, { cls: 'cabeza-plato__video', eager: true, alt }) : foto(ctx, f, { sizes: '100vw', eager: true, cls: 'cabeza-plato__foto', ...(alt ? { alt } : {}) })}</div>
+    <div class="cabeza-plato__texto">
+      <h1 class="titulo-1">${titulo}</h1>
+      ${extra}
+      ${cuando(entrada, () => h`<p class="entrada">${entrada}</p>`)}
+    </div>
+  </header>`;
 }
 
 export const precarga = (ctx, id, sizes, flyer = false) => {

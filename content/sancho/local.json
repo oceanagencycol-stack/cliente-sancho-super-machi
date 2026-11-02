@@ -88,7 +88,23 @@
    "id": "cochinillo",
    "es": "Cochinillo segoviano",
    "en": "Segovia-style suckling pig",
-   "foto": "cochinillo"
+   "foto": "cochinillo",
+   "nota": {
+    "es": "¡el famoso!",
+    "en": "the famous one!"
+   }
+  },
+  {
+   "id": "carnes",
+   "es": "Carnes a la brasa",
+   "en": "Grilled meats",
+   "foto": "plancha"
+  },
+  {
+   "id": "calamares",
+   "es": "Calamares fritos",
+   "en": "Fried calamari",
+   "foto": "calamares"
   },
   {
    "id": "paella",
@@ -97,27 +113,27 @@
    "foto": "paella"
   },
   {
-   "id": "pulpo",
-   "es": "Pulpo a la gallega",
-   "en": "Galician octopus"
-  },
-  {
-   "id": "carnes",
-   "es": "Carnes asadas",
-   "en": "Grilled meats",
-   "foto": "carne"
-  },
-  {
-   "id": "tapas",
-   "es": "Tapas",
-   "en": "Tapas",
-   "foto": "croquetas"
+   "id": "mariscos",
+   "es": "Mariscos en cazuela",
+   "en": "Seafood casserole",
+   "foto": "mariscos"
   },
   {
    "id": "langosta",
    "es": "Langosta thermidor",
    "en": "Lobster thermidor",
    "foto": "langosta"
+  },
+  {
+   "id": "tapas",
+   "es": "Croquetas",
+   "en": "Croquetas",
+   "foto": "croquetas"
+  },
+  {
+   "id": "pulpo",
+   "es": "Pulpo a la gallega",
+   "en": "Galician octopus"
   }
  ],
  "musica": {
@@ -132,5 +148,6 @@
   "Tapas"
  ],
  "precio_rango": "$$",
- "acepta_reservas": true
+ "acepta_reservas": true,
+ "especialidades_fuente": "Nombres: los de la web vieja («Paella, pulpo a la gallega, tapas, el famoso cochinillo segoviano y las carnes asadas») y los platos de las fotos de su sesión de 2025-04 (calamares, mariscos en cazuela, langosta thermidor, croquetas)."
 }

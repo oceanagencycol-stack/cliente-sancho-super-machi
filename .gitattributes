@@ -1,1 +1,2 @@
 media/*/originales/** filter=lfs diff=lfs merge=lfs -text
+media/*/derivados/** filter=lfs diff=lfs merge=lfs -text

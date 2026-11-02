@@ -28,37 +28,40 @@
    "w": 1600,
    "h": 1066,
    "anchos": [
-    480,
-    960,
+    640,
+    1080,
     1600
    ],
    "es": "Paellas y tapas servidas en la mesa",
    "en": "Paellas and tapas on the table",
-   "fuente": "media/sancho/originales/2025-04_DSC06396.jpg"
+   "fuente": "media/sancho/originales/2025-04_DSC06396.jpg",
+   "foco": "50% 55%"
   },
   "cochinillo": {
    "w": 1600,
    "h": 1067,
    "anchos": [
-    480,
-    960,
+    640,
+    1080,
     1600
    ],
    "es": "Cochinillo segoviano entero sobre la tabla",
    "en": "Whole Segovia-style suckling pig on the board",
-   "fuente": "media/sancho/originales/2025-04_raul08.png"
+   "fuente": "media/sancho/originales/2025-04_raul08.png",
+   "foco": "48% 55%"
   },
   "carne": {
    "w": 1600,
    "h": 1067,
    "anchos": [
-    480,
-    960,
+    640,
+    1080,
     1600
    ],
    "es": "Carne a la brasa recién salida de la parrilla",
    "en": "Steak fresh off the grill",
-   "fuente": "media/sancho/originales/2025-04_raul06.png"
+   "fuente": "media/sancho/originales/2025-04_raul06.png",
+   "foco": "52% 52%"
   },
   "croquetas": {
    "w": 1600,
@@ -88,13 +91,14 @@
    "w": 1600,
    "h": 900,
    "anchos": [
-    480,
-    960,
+    640,
+    1080,
     1600
    ],
    "es": "Copa de sangría con fruta",
    "en": "A glass of sangria with fruit",
-   "fuente": "media/sancho/originales/2025-04_DSC02771-21-1-scaled.jpg"
+   "fuente": "media/sancho/originales/2025-04_DSC02771-21-1-scaled.jpg",
+   "foco": "58% 50%"
   },
   "martes": {
    "w": 1600,
@@ -112,13 +116,14 @@
    "w": 1577,
    "h": 2560,
    "anchos": [
-    480,
-    960,
+    640,
+    1080,
     1600
    ],
    "es": "Sangría, croquetas y un plato de la casa",
    "en": "Sangria, croquetas and a house plate",
-   "fuente": "media/sancho/originales/2025-04_DSC02775-25-scaled.jpg"
+   "fuente": "media/sancho/originales/2025-04_DSC02775-25-scaled.jpg",
+   "foco": "40% 62%"
   },
   "tapas2": {
    "w": 1600,
@@ -227,6 +232,45 @@
    "es": "Noche de música en vivo en Sancho",
    "en": "A live-music night at Sancho",
    "fuente": "media/sancho/originales/2025-04_evento-.png"
+  },
+  "calamares": {
+   "w": 1600,
+   "h": 900,
+   "anchos": [
+    640,
+    1080,
+    1600
+   ],
+   "es": "Calamares fritos mojados en su salsa, con limón",
+   "en": "Fried calamari dipped in sauce, with lemon",
+   "fuente": "media/sancho/originales/2025-04_DSC06491.jpg",
+   "foco": "30% 50%"
+  },
+  "bistec": {
+   "w": 1600,
+   "h": 900,
+   "anchos": [
+    480,
+    960,
+    1600
+   ],
+   "es": "Bistec a la plancha con vegetales, recién cortado",
+   "en": "Grilled steak with vegetables, just cut",
+   "fuente": "media/sancho/originales/2025-04_DSC06296.jpg",
+   "foco": "70% 60%"
+  },
+  "plancha": {
+   "w": 1600,
+   "h": 1067,
+   "anchos": [
+    480,
+    960,
+    1600
+   ],
+   "es": "Carne en su plancha de hierro con chimichurri",
+   "en": "Steak on its cast-iron sizzler with chimichurri",
+   "fuente": "media/sancho/originales/2025-04_raul10.png",
+   "foco": "55% 50%"
   }
  },
  "flyers": {}

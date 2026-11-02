@@ -10,6 +10,7 @@ const ROOT = path.resolve(WEB, '..');
 const sel = JSON.parse(fs.readFileSync(path.join(WEB, 'media.json'), 'utf8'));
 
 const FOTO = [480, 960, 1600];
+const GRANDE = [640, 1080, 1600, 2400];
 const FLYER = [360, 720];
 const AVIF = { quality: 52, effort: 6 };
 const WEBP = { quality: 74, effort: 6 };
@@ -38,7 +39,8 @@ async function variantes(src, destBase, anchos, recorte = null) {
 async function sitio(id, solo = null) {
   const out = path.join(WEB, 'public', 'media', id);
   const mpath = path.join(out, 'manifest.json');
-  if (!solo) fs.rmSync(out, { recursive: true, force: true });
+  // borrar lo generado antes, menos los videos (los hace web/tools/videos.py)
+  if (!solo && fs.existsSync(out)) for (const f of fs.readdirSync(out)) if (f !== 'video' && f !== 'videos.json') fs.rmSync(path.join(out, f), { recursive: true, force: true });
   fs.mkdirSync(out, { recursive: true });
   const manifest = solo ? JSON.parse(fs.readFileSync(mpath, 'utf8')) : { fotos: {}, flyers: {} };
   for (const [clave, f] of Object.entries(sel[id])) {
@@ -46,8 +48,9 @@ async function sitio(id, solo = null) {
     const src = path.join(ROOT, 'media', id, 'originales', f.src);
     if (!fs.existsSync(src)) throw new Error(`falta ${src}`);
     for (const v of fs.readdirSync(out).filter((x) => x.startsWith(clave + '-'))) fs.rmSync(path.join(out, v));
-    const r = await variantes(src, path.join(out, clave), FOTO, f.recorte);
-    manifest.fotos[clave] = { ...r, es: f.es, en: f.en, fuente: `media/${id}/originales/${f.src}`, ...(f.recorte ? { recorte: f.recorte } : {}) };
+    // las fotos de portada a pantalla completa piden más anchos (`grande: true`); `foco` es el object-position del recorte
+    const r = await variantes(src, path.join(out, clave), f.grande ? GRANDE : FOTO, f.recorte);
+    manifest.fotos[clave] = { ...r, es: f.es, en: f.en, fuente: path.normalize(`media/${id}/originales/${f.src}`), ...(f.recorte ? { recorte: f.recorte } : {}), ...(f.foco ? { foco: f.foco } : {}) };
     process.stdout.write(`  ${clave} ${r.w}×${r.h} → ${r.anchos.join(', ')}\n`);
   }
   if (solo) { fs.writeFileSync(mpath, JSON.stringify(manifest, null, 1)); return; }

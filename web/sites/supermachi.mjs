@@ -1,7 +1,7 @@
 // El Mesón de Súper Machi — la casa de los eventos. Firma: la pared de carteles (ver DESIGN.md).
 import { h, raw, t, cuando, precio } from '../lib/util.mjs';
 import { UI, fechaLarga, sello, mesAnio, hora, rangoDias, telVisible } from '../lib/i18n.mjs';
-import { foto, precarga, horario, direccion, telefono, menu, redes, pedidos, wa, tel } from '../lib/comp.mjs';
+import { foto, precarga, horario, direccion, telefono, menu, redes, pedidos, wa, tel, video, icono, cabezaPlato } from '../lib/comp.mjs';
 import { pagina, idioma, nav } from '../lib/shell.mjs';
 
 const R = {
@@ -29,7 +29,7 @@ export const sitio = {
   nombreCorto: 'Súper Machi',
   tema: '#150D0B',
   esquema: 'dark',
-  fuentes: ['machi-display', 'machi-text'],
+  fuentes: ['machi-serif', 'machi-text', 'machi-display', 'machi-serif-italic'], // las dos primeras se precargan (titular de la escena y texto)
   tituloPortada: { es: 'El Mesón de Súper Machi · Cena con show en Miami', en: 'El Mesón de Súper Machi · Dinner & shows in Miami' },
   cabecera, pie, acciones,
 };
@@ -146,19 +146,91 @@ function reserva(ctx, { evento = null } = {}) {
 }
 
 // ---------------------------------------------------------------- bloques
-function laCasa(ctx) {
-  const { lang } = ctx; const e = ctx.local.especiales;
-  const items = [
-    { foto: 'cochinillo', titulo: { es: 'El cochinillo', en: 'The suckling pig' }, texto: { es: 'Cochinillo segoviano asado entero, para 6 a 8 personas y con dos acompañantes.', en: 'A whole Segovia-style roast suckling pig for 6 to 8, with two sides.' }, dato: '$290', href: R.grupos[lang] },
-    { foto: 'buffet', titulo: { es: 'El buffet del mediodía', en: 'The lunch buffet' }, texto: { es: `Almuerzo cubano estilo buffet, ${rangoDias(e.buffet.dias, 'es').toLowerCase()} de ${hora(e.buffet.desde, 'es')} a ${hora(e.buffet.hasta, 'es')}`, en: `Cuban lunch, buffet-style, ${rangoDias(e.buffet.dias, 'en')} from ${hora(e.buffet.desde, 'en')} to ${hora(e.buffet.hasta, 'en')}` }, dato: precio(e.buffet.precio), href: R.almuerzo[lang] },
-    { foto: 'mojito', titulo: { es: 'El happy hour', en: 'Happy hour' }, texto: { es: 'De lunes a viernes de 4 a 7: cócteles a $6.50, cerveza a $3 y tapas desde $4.', en: 'Monday to Friday, 4 to 7: cocktails at $6.50, beer at $3 and tapas from $4.' }, dato: '4–7 p. m.', href: `${R.menu[lang]}#happy-hour` },
-  ];
-  return h`<section class="casa" aria-labelledby="casa-t">
-    <h2 class="titulo-2" id="casa-t">${lang === 'en' ? 'House favorites' : 'Lo de la casa'}</h2>
-    <ul class="casa__lista">${items.map((it) => h`<li class="casa__item"><a href="${it.href}">
-      ${foto(ctx, it.foto, { sizes: '(min-width: 900px) 33vw, 92vw', cls: 'casa__foto' })}
-      <span class="casa__dato cifra">${lang === 'en' ? it.dato.replace(' p. m.', ' p.m.') : it.dato}</span>
-      <h3>${t(it.titulo, lang)}</h3><p>${t(it.texto, lang)}</p></a></li>`)}</ul>
+// ---------------------------------------------------------------- la comida al frente (portada)
+// un plato del menú por su id (nombre y precio salen de content/supermachi/menu.json: nada se escribe dos veces)
+function platoMenu(ctx, id) {
+  const buscar = (x) => { if (Array.isArray(x)) { for (const v of x) { const r = buscar(v); if (r) return r; } } else if (x && typeof x === 'object') { if (x.id === id && 'p' in x) return x; for (const v of Object.values(x)) { const r = buscar(v); if (r) return r; } } return null; };
+  const p = buscar(ctx.menu);
+  if (!p) throw new Error(`plato desconocido en el menú: ${id}`);
+  return p;
+}
+const sinParentesis = (n) => n.replace(/\s*\(.*?\)/g, '');
+
+// los platos grandes de la portada: foto de la casa, nombre y precio del menú; la nota solo si el menú la trae
+const PLATOS = [
+  { id: 'cochinillo', foto: 'cochinillo-piel', donde: 'grupos' },
+  { id: 'tomahawk', foto: 'tomahawk' },
+  { id: 'cola-langosta', foto: 'langosta' },
+  { id: 'pulpo-brasa', foto: 'pulpo' },
+  { id: 'tabla-mar-y-tierra', foto: 'tabla', donde: 'grupos' },
+  { id: 'chuletas-cordero', foto: 'cordero-brasa' },
+];
+
+function escena(ctx) {
+  const { lang } = ctx; const en = lang === 'en';
+  const tramos = ctx.videos.escena.escritorio.tramos.map((x) => ({ d: x.desde, h: x.hasta, n: x[lang] }));
+  return h`<section class="escena" aria-labelledby="hero-t">
+    ${video(ctx, 'escena', { cls: 'escena__video', eager: true, alt: en ? 'Super Machi’s kitchen: meats off the grill, lobster tail, suckling pig and octopus' : 'La cocina de Súper Machi: carnes a la brasa, cola de langosta, cochinillo y pulpo' })}
+    <div class="escena__texto">
+      <h1 class="escena__titulo" id="hero-t">${en ? h`Fire in the kitchen, a <em>show</em> in the room` : h`Fuego en la cocina, <em>show</em> en la sala`}</h1>
+      <p class="escena__entrada">${en ? 'Whole Segovia-style suckling pig, meats off the grill, lobster tail and the Cuban classics. And a live show almost every Friday and Saturday.' : 'Cochinillo segoviano entero, carnes a la brasa, cola de langosta y la cocina cubana de siempre. Y casi cada viernes y sábado, show en vivo.'}</p>
+      <p class="escena__acciones"><a class="boton boton--grande" href="${wa(ctx.local.whatsapp, t(MSG.reservar, lang))}" rel="noopener" data-ev="click_whatsapp">${en ? 'Reserve a table' : 'Reservar mesa'}</a> <a class="boton boton--claro boton--grande boton--flecha" href="${R.menu[lang]}">${en ? 'See the menu' : 'Ver el menú'}${icono('flecha')}</a></p>
+    </div>
+    <p class="escena__plato" aria-hidden="true" data-tramos='${JSON.stringify(tramos)}'><span data-plato>${tramos[0].n}</span></p>
+  </section>`;
+}
+
+function platos(ctx) {
+  const { lang } = ctx; const en = lang === 'en';
+  return h`<section class="platos" aria-labelledby="platos-t">
+    <div class="platos__cabeza">
+      <h2 class="titulo-2" id="platos-t">${en ? 'What the house is known for' : 'Lo que se pide en la casa'}</h2>
+      <p>${en ? 'Straight from the kitchen to the table, with menu prices.' : 'De la cocina a la mesa, con el precio del menú.'}</p>
+    </div>
+    <ul class="platos__lista" role="list" data-destapa>${PLATOS.map((it, i) => {
+      const p = platoMenu(ctx, it.id);
+      const nota = p.nota ? t(p.nota, lang) : '';
+      const href = it.donde === 'grupos' ? `${R.grupos[lang]}#${it.id}` : `${R.menu[lang]}#p-${it.id}`;
+      return h`<li class="platillo platillo--${i + 1}"><a class="platillo__enlace" href="${href}">
+        ${foto(ctx, it.foto, { sizes: i === 0 ? '(min-width: 62rem) 56vw, 80vw' : '(min-width: 62rem) 40vw, 80vw', cls: 'platillo__foto' })}
+        <span class="platillo__texto"><span class="platillo__nombre">${sinParentesis(p.n)}</span>${cuando(nota, () => h`<span class="platillo__nota">${nota}</span>`)}</span>
+        <span class="platillo__precio cifra">${precio(p.p)}</span>
+      </a></li>`;
+    })}</ul>
+    <p class="platos__mas"><a class="boton boton--sutil boton--flecha" href="${R.menu[lang]}">${en ? 'The whole menu' : 'Todo el menú'}${icono('flecha')}</a></p>
+  </section>`;
+}
+
+// la cinta: los platos pasando despacio (decorativa: los mismos nombres están en el menú)
+function cinta(ctx) {
+  const nombres = ['cochinillo', 'tomahawk', 'cola-langosta', 'pulpo-brasa', 'churrasco', 'tabla-mar-y-tierra', 'crema-catalana', 'mojito'].map((id) => sinParentesis(platoMenu(ctx, id).n));
+  const serie = nombres.map((n) => h`<span class="cinta__plato">${n}</span>${icono('llama', 'cinta__llama')}`);
+  return h`<div class="cinta" aria-hidden="true"><div class="cinta__pista">${serie}${serie}</div></div>`;
+}
+
+function mediodia(ctx) {
+  const { lang } = ctx; const b = ctx.local.especiales.buffet;
+  return h`<section class="mediodia" aria-labelledby="mediodia-t">
+    ${video(ctx, 'buffet', { cls: 'mediodia__video', alt: lang === 'en' ? 'The lunch buffet being served' : 'El buffet del mediodía, servido' })}
+    <div class="mediodia__texto">
+      <h2 class="titulo-2" id="mediodia-t">${t(b, lang).titulo}</h2>
+      <p class="mediodia__precio cifra">${precio(b.precio)}</p>
+      <p class="mediodia__cuando"><strong>${rangoDias(b.dias, lang)}</strong> · ${hora(b.desde, lang)} – ${hora(b.hasta, lang)}</p>
+      <p class="mediodia__nota">${t(b, lang).texto}</p>
+      <p><a class="boton boton--sutil boton--flecha" href="${R.almuerzo[lang]}">${lang === 'en' ? 'About the buffet' : 'El buffet'}${icono('flecha')}</a></p>
+    </div>
+  </section>`;
+}
+
+function barra(ctx) {
+  const { lang } = ctx; const en = lang === 'en';
+  return h`<section class="barra" aria-labelledby="barra-t">
+    <div class="barra__copas" aria-hidden="true">${['coctel', 'coctel3', 'mojito'].map((f, i) => foto(ctx, f, { sizes: '(min-width: 62rem) 16vw, 42vw', cls: `barra__copa barra__copa--${i + 1}`, alt: '' }))}</div>
+    <div class="barra__texto">
+      <h2 class="titulo-2" id="barra-t">${en ? 'Happy hour, 4 to 7' : 'Happy hour, de 4 a 7'}</h2>
+      <p>${en ? 'Monday to Friday at the bar: cocktails at $6.50, beer at $3 and tapas from $4.' : 'De lunes a viernes en la barra: cócteles a $6.50, cerveza a $3 y tapas desde $4.'}</p>
+      <p><a class="boton boton--sutil boton--flecha" href="${R.menu[lang]}#happy-hour">${en ? 'See happy hour' : 'Ver el happy hour'}${icono('flecha')}</a></p>
+    </div>
   </section>`;
 }
 
@@ -199,46 +271,26 @@ export function paginas(ctx0) {
     const ui = UI[lang];
     const L = (o) => t(o, lang);
 
-    // ---- inicio
+    // ---- inicio: la comida primero (video de la cocina), los platos de la casa en grande, y después los shows
     {
+      const en = lang === 'en';
       const recientes = pasados.slice(0, 6);
-      const hero = proximos.length
-        ? h`<section class="hero hero--cartelera" aria-labelledby="hero-t">
-            <div class="hero__texto">
-              <h1 class="titulo-1" id="hero-t">${lang === 'en' ? 'This week at the house' : 'Esta semana en la casa'}</h1>
-              <p class="hero__entrada">${lang === 'en' ? 'Dinner with a show. Book your table on WhatsApp; tickets, when the show has them, on DigitalTike.' : 'Cena con show. Reserva tu mesa por WhatsApp; las entradas, cuando el show las pide, en DigitalTike.'}</p>
-              <p class="hero__acciones"><a class="boton boton--grande" href="${R.cartelera[lang]}">${lang === 'en' ? 'See the lineup' : 'Ver la cartelera'}</a></p>
-            </div>
-            ${pared(ctx, proximos.slice(0, 4), { eager: true, cls: 'pared--hero' })}
-          </section>`
-        : h`<section class="hero" aria-labelledby="hero-t">
-            <div class="hero__texto">
-              <h1 class="titulo-1" id="hero-t">${lang === 'en' ? h`Dinner with a show, almost every <span>Friday and Saturday</span>` : h`Cena con show, casi cada <span>viernes y sábado</span>`}</h1>
-              <p class="hero__entrada">${lang === 'en' ? `${pasados.length} shows since December at El Mesón de Súper Machi, with Spanish and Cuban cooking. The November lineup is announced here first.` : `${pasados.length} shows desde diciembre en El Mesón de Súper Machi, con cocina española y cubana. La cartelera de noviembre se anuncia aquí primero.`}</p>
-              <p class="hero__acciones">
-                <a class="boton boton--grande" href="${wa(ctx.local.whatsapp, L(MSG.reservar))}" rel="noopener" data-ev="click_whatsapp">${lang === 'en' ? 'Reserve a table' : 'Reservar mesa'}</a>
-                <a class="boton boton--sutil boton--grande" href="${R.cartelera[lang]}">${lang === 'en' ? 'Who has played here' : 'Quién ha pasado por la casa'}</a>
-              </p>
-            </div>
-            ${pared(ctx, recientes, { pasado: true, eager: true, eagerN: 2, cls: 'pared--hero', sizes: '(min-width: 1100px) 240px, (min-width: 700px) 28vw, 46vw' })}
-          </section>`;
-      const cuerpo = h`${hero}${laCasa(ctx)}
-        <section class="carta-teaser" aria-labelledby="carta-t">
-          <div><h2 class="titulo-2" id="carta-t">${lang === 'en' ? 'The menu, without the PDF' : 'El menú, sin PDF'}</h2>
-          <p>${lang === 'en' ? 'Starters, mains, drinks and happy hour, with prices, searchable from your phone. Note what you want and show it to your server.' : 'Entradas, platos fuertes, bebidas y happy hour, con precios y buscador desde el teléfono. Anota lo que quieres y enséñaselo al mesero.'}</p>
-          <a class="boton" href="${R.menu[lang]}">${lang === 'en' ? 'Open the menu' : 'Abrir el menú'}</a></div>
-          <ul class="carta-teaser__platos">${ctx.menu.cartas[0].secciones[0].platos.slice(0, 4).map((p) => h`<li><span>${p.n}</span><span class="cifra">${precio(p.p)}</span></li>`)}</ul>
-        </section>
-        ${visita(ctx)}${clubTeaser(ctx)}`;
-      out.push({ ruta: R.inicio[lang], html: pagina(ctx, { ruta: R.inicio[lang], alterna: R.inicio[lang === 'es' ? 'en' : 'es'], titulo: '', descripcion: lang === 'en' ? 'Spanish and Cuban restaurant in Miami with dinner shows almost every Friday and Saturday, Segovia-style suckling pig, a Cuban lunch buffet and happy hour. 7931 NW 2nd St.' : 'Restaurante español y cubano en Miami con cena y show casi cada viernes y sábado, cochinillo segoviano, buffet cubano al mediodía y happy hour. 7931 NW 2nd St.', cuerpo, jsonld: [ctx.jsonldLocal(lang)], cls: 'p-inicio', precargas: recientes[0] ? precarga(ctx, recientes[0].id, '(min-width: 1100px) 240px, (min-width: 700px) 28vw, 46vw', true) : '' }) });
+      const shows = h`<section class="shows" aria-labelledby="shows-t">
+          <div class="shows__cabeza">
+            <h2 class="titulo-2" id="shows-t">${en ? 'And almost every Friday and Saturday, a show' : 'Y casi cada viernes y sábado, show'}</h2>
+            <p>${en ? `Comedy nights, concerts and cabaret: ${pasados.length} shows since December. The November lineup is announced here.` : `Noches de humor, conciertos y cabaret: ${pasados.length} shows desde diciembre. La cartelera de noviembre se anuncia aquí.`}</p>
+            <p class="shows__acciones"><a class="boton boton--flecha" href="${R.cartelera[lang]}">${en ? 'See the lineup' : 'Ver la cartelera'}${icono('flecha')}</a></p>
+          </div>
+          ${proximos.length ? pared(ctx, proximos.slice(0, 6), { cls: 'pared--hero' }) : pared(ctx, recientes, { pasado: true, cls: 'pared--hero', sizes: '(min-width: 1100px) 240px, (min-width: 700px) 28vw, 46vw' })}
+        </section>`;
+      const cuerpo = h`${escena(ctx)}${platos(ctx)}${cinta(ctx)}${shows}${mediodia(ctx)}${barra(ctx)}${visita(ctx)}${clubTeaser(ctx)}`;
+      const pre = (corte, media) => h`<link rel="preload" as="image" type="image/avif" href="/media/supermachi/video/escena-${corte}.avif" media="${media}" fetchpriority="high">`;
+      out.push({ ruta: R.inicio[lang], html: pagina(ctx, { ruta: R.inicio[lang], alterna: R.inicio[lang === 'es' ? 'en' : 'es'], titulo: '', descripcion: lang === 'en' ? 'Spanish and Cuban restaurant in Miami: whole Segovia-style suckling pig, meats off the grill, lobster tail, a Cuban lunch buffet and dinner shows almost every Friday and Saturday. 7931 NW 2nd St.' : 'Restaurante español y cubano en Miami: cochinillo segoviano entero, carnes a la brasa, cola de langosta, buffet cubano al mediodía y cena con show casi cada viernes y sábado. 7931 NW 2nd St.', cuerpo, jsonld: [ctx.jsonldLocal(lang)], cls: 'p-inicio', precargas: h`${pre('telefono', '(max-width: 47.99rem)')}${pre('escritorio', '(min-width: 48rem)')}` }) });
     }
 
     // ---- cartelera
     {
-      const cuerpo = h`<header class="cabeza-pagina">
-          <h1 class="titulo-1">${lang === 'en' ? 'Shows' : 'Cartelera'}</h1>
-          <p class="entrada">${lang === 'en' ? 'Dinner with a show at El Mesón. Reserve your table on WhatsApp; when a show sells tickets, they’re on DigitalTike.' : 'Cena con show en el mesón. Reserva tu mesa por WhatsApp; cuando un show vende entradas, están en DigitalTike.'}</p>
-        </header>
+      const cuerpo = h`${cabezaPlato(ctx, { titulo: lang === 'en' ? 'Shows' : 'Cartelera', entrada: lang === 'en' ? 'Dinner with a show at El Mesón. Reserve your table on WhatsApp; when a show sells tickets, they’re on DigitalTike.' : 'Cena con show en el mesón. Reserva tu mesa por WhatsApp; cuando un show vende entradas, están en DigitalTike.', foto: 'escenario' })}
         <section class="proximos" aria-labelledby="prox-t">
           <h2 class="titulo-2" id="prox-t">${lang === 'en' ? 'Coming up' : 'Próximos shows'}</h2>
           ${proximos.length ? pared(ctx, proximos, { eager: true }) : h`<div class="vacio">
@@ -290,10 +342,7 @@ export function paginas(ctx0) {
 
     // ---- menú
     {
-      const cuerpo = h`<header class="cabeza-pagina cabeza-pagina--menu">
-          <h1 class="titulo-1">${lang === 'en' ? 'Menu' : 'Menú'}</h1>
-          <p class="entrada">${lang === 'en' ? 'Spanish and Cuban cooking, the bar and happy hour. Dish names stay in Spanish; descriptions are in English.' : 'Cocina española y cubana, la barra y el happy hour. Busca un plato, anótalo con «+» y enséñale tu comanda al mesero.'}</p>
-        </header>
+      const cuerpo = h`${cabezaPlato(ctx, { titulo: lang === 'en' ? 'Menu' : 'Menú', entrada: lang === 'en' ? 'Spanish and Cuban cooking, the bar and happy hour. Dish names stay in Spanish; descriptions are in English.' : 'Cocina española y cubana, la barra y el happy hour. Busca un plato, anótalo con «+» y enséñale tu comanda al mesero.', foto: 'tomahawk' })}
         ${menu(ctx, ctx.menu)}`;
       out.push({ ruta: R.menu[lang], html: pagina(ctx, { ruta: R.menu[lang], alterna: R.menu[lang === 'es' ? 'en' : 'es'], titulo: lang === 'en' ? 'Menu' : 'Menú', descripcion: lang === 'en' ? 'The full menu at El Mesón de Súper Machi, Miami: tapas, Segovia-style suckling pig, Cuban classics, cocktails, wine and happy hour, with prices.' : 'El menú completo de El Mesón de Súper Machi, Miami: tapas, cochinillo segoviano, clásicos cubanos, cócteles, vinos y happy hour, con precios.', cuerpo, jsonld: [ctx.jsonldMenu(lang)], cls: 'p-menu' }) });
     }
@@ -301,12 +350,9 @@ export function paginas(ctx0) {
     // ---- grupos
     {
       const recs = ctx.menu.cartas[0].secciones[0].platos;
-      const cuerpo = h`<header class="cabeza-pagina">
-          <h1 class="titulo-1">${lang === 'en' ? 'For the big table' : 'Para la mesa grande'}</h1>
-          <p class="entrada">${lang === 'en' ? 'Birthdays, family, the whole crew. These come to the table to share.' : 'Cumpleaños, la familia, el grupo completo. Esto llega a la mesa para compartir.'}</p>
-        </header>
+      const cuerpo = h`${cabezaPlato(ctx, { titulo: lang === 'en' ? 'For the big table' : 'Para la mesa grande', entrada: lang === 'en' ? 'Birthdays, family, the whole crew. These come to the table to share.' : 'Cumpleaños, la familia, el grupo completo. Esto llega a la mesa para compartir.', foto: 'cochinillo' })}
         <section class="grupos">
-          <div class="grupos__foto">${foto(ctx, 'cochinillo', { sizes: '(min-width: 900px) 50vw, 100vw', eager: true })}</div>
+          <div class="grupos__foto">${foto(ctx, 'cochinillo-piel', { sizes: '(min-width: 900px) 50vw, 100vw' })}</div>
           <ul class="grupos__lista">${recs.map((p) => h`<li id="${p.id}"><h2 class="titulo-3">${p.n}</h2>${cuando(p.d, () => h`<p>${t(p.d, lang)}</p>`)}${cuando(p.nota, () => h`<p class="grupos__nota">${t(p.nota, lang)}</p>`)}<p class="grupos__precio cifra">${precio(p.p)}</p></li>`)}</ul>
         </section>
         <section class="grupos-reserva">
@@ -321,16 +367,14 @@ export function paginas(ctx0) {
     // ---- almuerzo
     {
       const b = ctx.local.especiales.buffet;
-      const cuerpo = h`<section class="almuerzo">
+      const cuerpo = h`${cabezaPlato(ctx, { titulo: L(b).titulo, entrada: L(b).texto, video: 'buffet', alt: lang === 'en' ? 'The lunch buffet being served' : 'El buffet del mediodía, servido', extra: h`<p class="cabeza-plato__precio cifra">${precio(b.precio)}</p>` })}
+        <section class="almuerzo">
           <div class="almuerzo__texto">
-            <h1 class="titulo-1">${L(b).titulo}</h1>
-            <p class="almuerzo__precio cifra">${precio(b.precio)}</p>
-            <p class="entrada">${L(b).texto}</p>
             <p class="almuerzo__cuando"><strong>${rangoDias(b.dias, lang)}</strong> · ${hora(b.desde, lang)} – ${hora(b.hasta, lang)}</p>
             <p class="almuerzo__nota">${L(b.incluye)}</p>
             <p><a class="boton boton--grande" href="${ctx.local.mapa}" rel="noopener" data-ev="click_directions">${ui.comoLlegar}</a></p>
           </div>
-          <div class="almuerzo__fotos">${foto(ctx, 'buffet', { sizes: '(min-width: 900px) 45vw, 100vw', eager: true })}${foto(ctx, 'buffet2', { sizes: '(min-width: 900px) 45vw, 100vw' })}</div>
+          <div class="almuerzo__fotos">${foto(ctx, 'buffet', { sizes: '(min-width: 900px) 45vw, 100vw' })}${foto(ctx, 'frituras', { sizes: '(min-width: 900px) 22vw, 50vw' })}${foto(ctx, 'buffet2', { sizes: '(min-width: 900px) 22vw, 50vw' })}</div>
         </section>`;
       out.push({ ruta: R.almuerzo[lang], html: pagina(ctx, { ruta: R.almuerzo[lang], alterna: R.almuerzo[lang === 'es' ? 'en' : 'es'], titulo: lang === 'en' ? 'Cuban lunch buffet' : 'Buffet cubano', descripcion: lang === 'en' ? 'Cuban lunch buffet at El Mesón de Súper Machi, Miami: Monday to Friday, 11 a.m. to 4 p.m., $12.99.' : 'Almuerzo cubano estilo buffet en El Mesón de Súper Machi, Miami: de lunes a viernes, de 11 a. m. a 4 p. m., $12.99.', cuerpo, jsonld: [ctx.jsonldLocal(lang)], cls: 'p-almuerzo' }) });
     }
@@ -340,9 +384,8 @@ export function paginas(ctx0) {
       const beneficios = lang === 'en'
         ? [['48 hours early', 'Every show goes to the club two days before it’s announced.'], ['A preferred table', 'Members get first pick of the room.'], ['Your birthday', 'Something from the house on your day.']]
         : [['48 horas antes', 'Cada show le llega al club dos días antes de anunciarse.'], ['Mesa preferente', 'Los del club escogen primero dónde sentarse.'], ['Tu cumpleaños', 'Algo de la casa en tu día.']];
-      const cuerpo = h`<section class="club">
-          <h1 class="titulo-1">${lang === 'en' ? 'The house club' : 'El club de la casa'}</h1>
-          <p class="entrada">${lang === 'en' ? 'A card in your phone’s wallet that tells you about each show before anyone else. Opening soon.' : 'Una tarjeta en la billetera de tu teléfono que te avisa de cada show antes que a nadie. Abre muy pronto.'}</p>
+      const cuerpo = h`${cabezaPlato(ctx, { titulo: lang === 'en' ? 'The house club' : 'El club de la casa', entrada: lang === 'en' ? 'A card in your phone’s wallet that tells you about each show before anyone else. Opening soon.' : 'Una tarjeta en la billetera de tu teléfono que te avisa de cada show antes que a nadie. Abre muy pronto.', foto: 'mesa2' })}
+        <section class="club">
           <ol class="club__beneficios">${beneficios.map(([a, b]) => h`<li><h2 class="titulo-3">${a}</h2><p>${b}</p></li>`)}</ol>
           <p class="club__nota">${lang === 'en' ? 'Benefits to be confirmed at launch.' : 'Beneficios por confirmar al abrir.'}</p>
           <p><a class="boton boton--grande" href="${wa(ctx.local.whatsapp, L(MSG.club))}" rel="noopener" data-ev="click_whatsapp">${lang === 'en' ? 'Save me a spot' : 'Quiero entrar'}</a></p>
@@ -352,8 +395,7 @@ export function paginas(ctx0) {
 
     // ---- visita
     {
-      const cuerpo = h`<header class="cabeza-pagina"><h1 class="titulo-1">${lang === 'en' ? 'Visit' : 'Visítanos'}</h1>
-          <p class="entrada">${lang === 'en' ? 'On NW 2nd St, by NW 79th Ave, in Miami.' : 'En la NW 2nd St, a la altura de la NW 79th Ave, en Miami.'}</p></header>
+      const cuerpo = h`${cabezaPlato(ctx, { titulo: lang === 'en' ? 'Visit' : 'Visítanos', entrada: lang === 'en' ? 'On NW 2nd St, by NW 79th Ave, in Miami.' : 'En la NW 2nd St, a la altura de la NW 79th Ave, en Miami.', foto: 'mesa' })}
         ${visita(ctx)}
         <section class="contacto"><h2 class="titulo-2">${lang === 'en' ? 'Talk to us' : 'Escríbenos'}</h2>
           <ul class="contacto__lista">

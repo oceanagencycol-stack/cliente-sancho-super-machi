@@ -6,9 +6,17 @@
   --cabecera-fondo:var(--noche);--pie-fondo:#0E0807;--pie-texto:var(--crema);--pie-texto-2:var(--humo);--pie-linea:var(--junta);
   --campo-fondo:#1C110E;--previa-fondo:var(--brasa);--previa-texto:var(--noche);
   --font-display:'Machi Display','Arial Narrow','Roboto Condensed',sans-serif;--font-text:'Machi Text',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
-  --peso-display:800;--tracking-display:.004em;--radio:2px;--logo-alto:3rem;color-scheme:dark}
+  --peso-display:800;--tracking-display:.004em;--radio:2px;--logo-alto:3rem;color-scheme:dark;
+  --font-serif:'Machi Serif',Georgia,'Times New Roman',serif;
+  --firma-icono:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2.8c.6 3.3 5.4 5.4 5.4 10.3a5.4 5.4 0 0 1-10.8 0c0-2.6 1.5-4.4 2.6-5.6.2 1.7 1 2.8 2.1 3.2-.2-3 .2-5.7.7-7.9z'/%3E%3C/svg%3E")}
 @media (min-width:62rem){:root{--logo-alto:3.5rem}}
-.titulo-1,.titulo-2,.menu__carta-cabeza h2,.menu__seccion-titulo{text-transform:uppercase}
+/* los titulares hablan con la voz cálida (Machi Serif); la de cartel (Machi Display, mayúsculas) queda para fechas, sellos,
+   precios y los nombres de los artistas */
+.titulo-1,.titulo-2,.titulo-3,.menu__carta-cabeza h2,.menu__seccion-titulo,.vacio__titulo,.comanda__cabeza h2,.club__beneficios h2{font-family:var(--font-serif);font-weight:700;letter-spacing:-.02em;text-transform:none}
+.titulo-2{font-size:clamp(2rem,5.6vw,3.4rem);line-height:1}
+.menu__seccion-titulo{font-style:italic;font-weight:600}
+.evento__titulo{font-family:var(--font-display);font-weight:800;letter-spacing:.004em;text-transform:uppercase}
+.pie__titulo{font-family:var(--font-serif);font-style:italic;font-weight:600;letter-spacing:0}
 .titulo-1 span{color:var(--acento-claro)}
 ::selection{background:var(--rojo);color:var(--crema)}
 
@@ -54,31 +62,104 @@
 .pared--hero>.cartel--pasado .cartel__foto img{animation:barrido 1.15s ease-in-out backwards;animation-delay:calc(.8s + var(--n,0) * .15s)}
 .pared--hero>.cartel:nth-child(2){--n:1}.pared--hero>.cartel:nth-child(3){--n:2}.pared--hero>.cartel:nth-child(4){--n:3}.pared--hero>.cartel:nth-child(5){--n:4}.pared--hero>.cartel:nth-child(6){--n:5}
 
-/* ---------- portada: de noche frente a la pared del mesón (ladrillo apenas visible y la luz cálida del escenario arriba) */
-.p-inicio main{background:radial-gradient(56rem 34rem at 82% -4rem,rgba(247,146,43,.16),rgba(247,146,43,0) 70%),
-  linear-gradient(to bottom,rgba(21,13,11,.78),var(--noche) 44rem),
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='36'%3E%3Crect width='72' height='36' fill='%233B241C'/%3E%3Crect x='1.5' y='1.5' width='69' height='15' fill='%23291611'/%3E%3Crect x='-34.5' y='19.5' width='69' height='15' fill='%232E1914'/%3E%3Crect x='37.5' y='19.5' width='69' height='15' fill='%23271510'/%3E%3C/svg%3E") 0 0/72px 36px var(--noche)}
-.hero{display:grid;gap:clamp(1.75rem,4vw,3rem);padding-top:clamp(2rem,6vw,4.5rem);align-items:center}
-@media (max-width:47.99rem){.hero__acciones .boton{flex:1 1 auto}}
-.hero .titulo-1{font-size:clamp(3rem,11vw,6.6rem)}
-.hero__entrada{margin-top:1.25rem;font-size:clamp(1.1rem,2.4vw,1.3rem);color:var(--humo);max-width:34em}
-.hero__acciones{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.75rem}
-.pared--hero{margin-top:0}
-@media (min-width:62rem){.hero{grid-template-columns:minmax(0,1fr) minmax(0,1.05fr)}.pared--hero{--cols:3}.pared--hero>.cartel:nth-child(n){--baja:0}.pared--hero>.cartel:nth-child(3n+2){--baja:calc(50% + var(--junta-ancho)/2)}}
+/* ---------- portada: la comida primero. La escena es un video de la cocina a pantalla completa (el momento de la
+   página); debajo, los platos de la casa en grande con su precio, la cinta de platos, y después los shows. */
+.escena{position:relative;isolation:isolate;width:100%!important;max-width:none;margin-top:0;display:grid;align-items:end;
+  min-height:max(34rem,min(calc(100svh - 11rem),54rem));overflow:hidden;background:var(--noche)}
+.escena__video{position:absolute;inset:0;z-index:-1}
+.escena__video::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(180deg,rgba(21,13,11,.45) 0,rgba(21,13,11,0) 20%,rgba(21,13,11,.1) 34%,rgba(21,13,11,.7) 52%,rgba(21,13,11,.92) 72%,var(--noche) 100%)}
+.escena__texto{width:var(--ancho);margin-inline:auto;padding:4rem 0 4.6rem;pointer-events:none}
+.escena__texto a,.escena__texto button{pointer-events:auto}
+.escena__titulo{font-family:var(--font-serif);font-weight:700;font-size:clamp(3rem,11vw,6rem);line-height:.94;letter-spacing:-.025em;max-width:10.5ch;
+  text-wrap:balance;color:var(--crema);text-shadow:0 .08em .5em rgba(0,0,0,.35)}
+.escena__titulo em{font-style:italic;font-weight:600;color:var(--brasa)}
+.escena__entrada{margin-top:1rem;max-width:31em;font-size:clamp(1rem,2.2vw,1.25rem);line-height:1.5;color:#EDE1CE;text-wrap:pretty}
+.escena__acciones{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.6rem}
+@media (max-width:47.99rem){.escena__acciones .boton{flex:1 1 auto}}
+/* el letrero que dice qué plato está en pantalla (comun.js lo cambia con el video) */
+.escena__plato{position:absolute;left:var(--canal);bottom:clamp(1.15rem,3vw,1.75rem);z-index:1;display:flex;align-items:center;gap:.6rem;margin:0;
+  font-family:var(--font-serif);font-style:italic;font-weight:500;font-size:1.05rem;color:var(--crema);opacity:0;transition:opacity .5s}
+.escena:has(.video.rodando) .escena__plato{opacity:1}
+.escena__plato::before{content:"";width:.5rem;height:.5rem;border-radius:50%;background:var(--brasa);box-shadow:0 0 0 .3rem rgba(247,146,43,.22)}
+.escena__plato span{transition:opacity .35s,transform .35s cubic-bezier(.16,1,.3,1)}
+.escena__plato.cambia span{opacity:0;transform:translateY(.4rem)}
+@media (min-width:62rem){
+  .escena{align-items:center;min-height:min(calc(100svh - 6rem),58rem)}
+  .escena__video::after{background:linear-gradient(90deg,rgba(21,13,11,.9) 0,rgba(21,13,11,.55) 34%,rgba(21,13,11,0) 64%),linear-gradient(0deg,var(--noche) 0,rgba(21,13,11,0) 24%)}
+  .escena__texto{padding:5rem 0 6rem}}
 
-.casa__lista{display:grid;gap:1.25rem;margin-top:1.75rem}
-@media (min-width:48rem){.casa__lista{grid-template-columns:repeat(3,1fr)}}
-.casa__item a{display:grid;gap:.5rem;text-decoration:none;position:relative}
-.casa__foto img{aspect-ratio:4/5;width:100%;object-fit:cover}
-.casa__dato{position:absolute;right:.6rem;top:.6rem;padding:.35rem .6rem;background:var(--noche);border:1px solid var(--junta);font-weight:700}
-.casa__item h3{font-family:var(--font-display);font-size:1.8rem;line-height:1;text-transform:uppercase;margin-top:.6rem}
-.casa__item p{color:var(--humo)}
-@media (hover:hover){.casa__item a:hover h3{color:var(--acento-claro)}}
+/* los platos de la casa: en el teléfono, un carril para deslizar; en escritorio, un mosaico con el cochinillo grande */
+.platos__cabeza{display:grid;gap:.75rem;max-width:44rem}
+.platos__cabeza p{color:var(--humo)}
+.platos__lista{margin:1.75rem calc(-1*var(--canal)) 0;padding:0 var(--canal) .4rem;display:grid;grid-auto-flow:column;grid-auto-columns:min(78vw,22rem);gap:.85rem;
+  overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--canal);overscroll-behavior-x:contain;scrollbar-width:none}
+.platos__lista::-webkit-scrollbar{display:none}
+.platillo{scroll-snap-align:start}
+.platillo__enlace{position:relative;display:block;aspect-ratio:4/5;overflow:hidden;border-radius:var(--radio);background:var(--muro);color:var(--crema);text-decoration:none}
+.platillo__foto,.platillo__foto img{width:100%;height:100%}
+.platillo__foto img{object-fit:cover;transition:transform 1.3s cubic-bezier(.16,1,.3,1)}
+.platillo__enlace::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(0deg,rgba(14,8,7,.94) 0,rgba(14,8,7,.4) 34%,rgba(14,8,7,0) 58%)}
+.platillo__texto{position:absolute;left:1.05rem;right:1.05rem;bottom:1rem;z-index:1;display:grid;gap:.3rem}
+.platillo__nombre{font-family:var(--font-serif);font-style:italic;font-weight:600;font-size:clamp(1.6rem,4.8vw,2.2rem);line-height:1;letter-spacing:-.01em;text-wrap:balance}
+.platillo__nota{font-size:.9rem;line-height:1.35;color:#E8DAC5}
+.platillo__precio{position:absolute;top:.85rem;right:.85rem;z-index:1;padding:.32rem .55rem .26rem;background:var(--rojo);color:var(--crema);font-family:var(--font-display);
+  font-weight:800;font-size:1.4rem;line-height:1;transform:rotate(-4deg);box-shadow:0 .4rem .9rem -.35rem rgba(0,0,0,.7);transition:transform .5s cubic-bezier(.16,1,.3,1)}
+@media (hover:hover){.platillo__enlace:hover .platillo__foto img{transform:scale(1.06)}.platillo__enlace:hover .platillo__precio{transform:rotate(0) translateY(-2px)}}
+.platillo__enlace:focus-visible{outline-offset:3px}
+.platos__mas{margin-top:1.4rem}
+@media (min-width:62rem){
+  .platos__lista{margin:2rem 0 0;padding:0;overflow:visible;scroll-snap-type:none;grid-auto-flow:row;grid-template-columns:repeat(12,minmax(0,1fr));grid-auto-rows:clamp(15rem,21vw,19.5rem);gap:1rem}
+  .platillo__enlace{aspect-ratio:auto;height:100%}
+  .platillo--1{grid-column:span 7;grid-row:span 2}.platillo--2,.platillo--3{grid-column:span 5}.platillo--4,.platillo--5,.platillo--6{grid-column:span 4}
+  .platillo--1 .platillo__nombre{font-size:3.2rem}.platillo--1 .platillo__precio{font-size:1.8rem}}
+/* la cinta: los platos pasando despacio (se detiene fuera de pantalla, con el puntero encima y con movimiento reducido) */
+.cinta{width:100%!important;max-width:none;overflow:hidden;padding:1.1rem 0;border-block:1px solid var(--junta);
+  -webkit-mask:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+.cinta__pista{display:flex;align-items:center;gap:clamp(1rem,2.4vw,1.8rem);width:max-content;animation:cinta 56s linear infinite}
+.cinta__plato{font-family:var(--font-serif);font-style:italic;font-weight:500;font-size:clamp(2.1rem,6.4vw,4.6rem);line-height:1.15;white-space:nowrap;color:var(--crema)}
+.cinta__plato:nth-of-type(3n+2){color:var(--acento-claro)}
+.cinta__llama{width:clamp(1.3rem,3vw,2.1rem);height:auto;color:var(--brasa)}
+@keyframes cinta{to{transform:translateX(-50%)}}
+.cinta.quieta .cinta__pista{animation-play-state:paused}
+@media (hover:hover){.cinta:hover .cinta__pista{animation-play-state:paused}}
+@media (prefers-reduced-motion:reduce){.cinta__pista{animation:none}}
 
-.carta-teaser{display:grid;gap:1.5rem;padding:clamp(1.5rem,4vw,2.75rem);background:var(--muro);border:1px solid var(--junta)}
-.carta-teaser p{color:var(--humo);margin:1rem 0 1.25rem;max-width:34em}
-.carta-teaser__platos li{display:flex;justify-content:space-between;gap:1rem;padding:.6rem 0;border-bottom:1px solid var(--junta);font-weight:600}
-@media (min-width:62rem){.carta-teaser{grid-template-columns:1.1fr 1fr;align-items:center}}
+/* los shows, después de la comida */
+.shows__cabeza{display:grid;gap:.85rem;max-width:46rem}
+.shows__cabeza p{color:var(--humo)}
+.shows__acciones{margin-top:.4rem}
+@media (min-width:62rem){.shows{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:3.5rem;align-items:center}.shows .pared--hero{--cols:3}
+  .shows .pared--hero>.cartel:nth-child(n){--baja:0}.shows .pared--hero>.cartel:nth-child(3n+2){--baja:calc(50% + var(--junta-ancho)/2)}}
+.pared--hero{margin-top:1.5rem}
+@media (min-width:62rem){.pared--hero{margin-top:0}}
+
+/* el buffet del mediodía, en video */
+.mediodia{display:grid;gap:1.6rem;align-items:center}
+.mediodia__video{aspect-ratio:2/3;max-height:78svh;border-radius:var(--radio)}
+.mediodia__texto{display:grid;gap:.85rem;align-content:start}
+.mediodia__precio{font-family:var(--font-display);font-weight:900;font-size:clamp(4.2rem,15vw,7.5rem);line-height:.85;color:var(--acento-claro)}
+.mediodia__cuando{font-size:1.15rem}
+.mediodia__nota{color:var(--humo);max-width:30em}
+@media (min-width:48rem){.mediodia__video{aspect-ratio:16/10;max-height:none}}
+@media (min-width:62rem){.mediodia{grid-template-columns:1.15fr 1fr;gap:3.5rem}}
+
+/* la barra: las copas en abanico */
+.barra{display:grid;gap:2.5rem;align-items:center}
+.barra__copas{position:relative;height:clamp(21rem,64vw,31rem)}
+.barra__copa{position:absolute;top:0;width:42%;aspect-ratio:9/16;overflow:hidden;border-radius:.6rem;box-shadow:0 1.4rem 2.6rem -1.2rem rgba(0,0,0,.8);transition:transform .7s cubic-bezier(.16,1,.3,1)}
+.barra__copa img{width:100%;height:100%;object-fit:cover}
+.barra__copa--1{left:3%;top:9%;transform:rotate(-8deg)}
+.barra__copa--2{left:29%;z-index:2;transform:rotate(1.5deg)}
+.barra__copa--3{left:55%;top:11%;transform:rotate(9deg)}
+@media (hover:hover){.barra:hover .barra__copa--1{transform:rotate(-11deg) translateX(-5%)}.barra:hover .barra__copa--3{transform:rotate(12deg) translateX(5%)}.barra:hover .barra__copa--2{transform:rotate(0) translateY(-3%)}}
+.barra__texto{display:grid;gap:.9rem;justify-items:start}
+.barra__texto p{color:var(--humo);max-width:30em}
+@media (min-width:62rem){.barra{grid-template-columns:1.05fr 1fr;gap:4rem}}
+
+/* grano de película sobre la noche (quieto, decorativo) */
+body::after{content:"";position:fixed;inset:0;z-index:95;pointer-events:none;opacity:.06;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 .9 0 0 0 0 .8 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23g)'/%3E%3C/svg%3E")}
 
 .visita{display:grid;gap:1.75rem;align-items:start}
 .visita__foto img{width:100%;aspect-ratio:4/3;object-fit:cover}
@@ -155,14 +236,14 @@
 .grupos-reserva p{color:var(--humo);margin:1rem 0 1.4rem;max-width:34em}
 @media (min-width:62rem){.grupos,.grupos-reserva{grid-template-columns:1fr 1fr;gap:3.5rem}}
 
-.almuerzo{display:grid;gap:2rem;padding-top:clamp(2rem,6vw,4.5rem)}
-.almuerzo__precio{font-family:var(--font-display);font-size:clamp(4rem,14vw,7.5rem);font-weight:900;line-height:.9;color:var(--acento-claro);margin-top:.75rem}
-.almuerzo__texto{display:grid;gap:1rem;align-content:start}
+.almuerzo{display:grid;gap:1.75rem;padding-top:clamp(2rem,6vw,4.5rem)}
+.almuerzo__texto{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem 2rem}
 .almuerzo__cuando{font-size:1.15rem}
 .almuerzo__nota{color:var(--humo);font-size:.95rem}
-.almuerzo__fotos{display:grid;gap:.75rem}
-.almuerzo__fotos img{width:100%;aspect-ratio:16/10;object-fit:cover}
-@media (min-width:62rem){.almuerzo{grid-template-columns:1fr 1.15fr;gap:3.5rem}}
+.almuerzo__fotos{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.almuerzo__fotos>picture:first-child{grid-column:1/-1}
+.almuerzo__fotos>picture{min-height:0;overflow:hidden}.almuerzo__fotos img{width:100%;height:100%;aspect-ratio:16/10;object-fit:cover}
+@media (min-width:62rem){.almuerzo__fotos{grid-template-columns:2fr 1fr 1fr;height:clamp(18rem,30vw,27rem)}.almuerzo__fotos>picture:first-child{grid-column:auto}.almuerzo__fotos img{aspect-ratio:auto}}
 
 .club{padding-top:clamp(2.5rem,7vw,5rem);display:grid;gap:1.4rem;justify-items:start}
 .club__beneficios{display:grid;gap:1rem;width:100%;margin-top:.5rem}
@@ -175,6 +256,6 @@
 
 /* fotos que se acercan al entrar en pantalla (solo con animaciones por scroll y sin movimiento reducido) */
 @supports (animation-timeline:view()){@media (prefers-reduced-motion:no-preference){
-  .casa__foto,.visita__foto,.grupos__foto,.grupos-reserva>picture,.almuerzo__fotos>picture{overflow:hidden}
-  .casa__foto img,.visita__foto img,.grupos__foto img,.grupos-reserva>picture img,.almuerzo__fotos>picture img{animation:acercar linear both;animation-timeline:view();animation-range:entry 0% cover 55%}
+  .visita__foto,.grupos__foto,.grupos-reserva>picture,.almuerzo__fotos>picture{overflow:hidden}
+  .visita__foto img,.grupos__foto img,.grupos-reserva>picture img,.almuerzo__fotos>picture img{animation:acercar linear both;animation-timeline:view();animation-range:entry 0% cover 55%}
 }}

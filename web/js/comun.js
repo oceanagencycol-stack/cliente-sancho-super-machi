@@ -58,6 +58,56 @@ for (const el of $$('[data-abierto]')) {
   pintar(); setInterval(pintar, 60000);
 }
 
+// ---------- videos de comida: el póster ya está pintado; el video se pide cuando se va a ver (después del load, para no
+// pelear con la página), corre solo en pantalla y con la pestaña visible, y nunca con movimiento reducido ni ahorro de datos
+const AHORRO = !!(navigator.connection && navigator.connection.saveData);
+const TELEFONO = matchMedia('(max-width: 47.99rem)');
+const videos = $$('[data-video]');
+// MP4 (H.264) donde se puede; si no, WebM (VP9)
+const FORMATO = document.createElement('video').canPlayType('video/mp4; codecs="avc1.640028"') ? '.mp4' : '.webm';
+function armarVideo(caja) {
+  const v = $('video', caja); const boton = $('[data-video-pausa]', caja);
+  if (!v || REDUCIDO || AHORRO) { caja.classList.add('quieto'); return; }
+  let visible = false;
+  const cargar = () => { if (v.getAttribute('src')) return; v.src = (TELEFONO.matches ? v.dataset.telefono : v.dataset.escritorio) + FORMATO; };
+  const correr = () => { if (!visible || caja.classList.contains('pausado') || document.hidden || caja.offsetParent === null) return; cargar(); v.play().catch(() => {}); };
+  v.addEventListener('playing', () => caja.classList.add('rodando'));
+  boton?.addEventListener('click', () => {
+    const pausar = !caja.classList.contains('pausado');
+    caja.classList.toggle('pausado', pausar); boton.setAttribute('aria-pressed', String(pausar));
+    boton.setAttribute('aria-label', pausar ? boton.dataset.play : boton.dataset.pausa);
+    if (pausar) v.pause(); else correr();
+  });
+  new IntersectionObserver(([e]) => { visible = e.isIntersecting; if (visible) correr(); else v.pause(); }, { rootMargin: '150px 0px' }).observe(caja);
+  document.addEventListener('visibilitychange', () => (document.hidden ? v.pause() : correr()));
+  caja.correr = correr;  // el sol de Sancho lo llama al mostrar el lunes
+}
+if (videos.length && 'IntersectionObserver' in window) {
+  const arrancar = () => videos.forEach(armarVideo);
+  if (document.readyState === 'complete') arrancar(); else addEventListener('load', arrancar, { once: true });
+}
+
+// ---------- las fotos diferidas entran con un fundido al llegar (las que ya están, quietas)
+for (const img of $$('img[loading="lazy"]')) {
+  if (img.complete) continue;
+  img.classList.add('espera');
+  const listo = () => { img.classList.add('llega'); img.classList.remove('espera'); };
+  img.addEventListener('load', listo, { once: true }); img.addEventListener('error', listo, { once: true });
+}
+
+// ---------- listas que se destapan en orden al llegar (los platos de la casa); sin IntersectionObserver, a la vista
+const destapar = $$('[data-destapa] > li');
+if (destapar.length && !REDUCIDO && 'IntersectionObserver' in window) {
+  const io = new IntersectionObserver((es) => { for (const e of es) if (e.isIntersecting) { e.target.classList.remove('revela'); io.unobserve(e.target); } }, { rootMargin: '0px 0px -12% 0px' });
+  for (const li of destapar) { const r = li.getBoundingClientRect(); if (r.top > innerHeight * 0.92) { li.classList.add('revela'); io.observe(li); } }
+}
+
+// ---------- cintas en movimiento: quietas fuera de pantalla
+for (const c of $$('.cinta')) {
+  if (!('IntersectionObserver' in window)) break;
+  new IntersectionObserver(([e]) => c.classList.toggle('quieta', !e.isIntersecting)).observe(c);
+}
+
 // ---------- menú del teléfono
 const abrir = $('[data-nav-abrir]');
 const movil = $('#menu-movil');

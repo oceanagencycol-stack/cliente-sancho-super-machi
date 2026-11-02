@@ -1,0 +1,106 @@
+{
+ "escena": {
+  "escritorio": {
+   "ancho": 1920,
+   "alto": 1080,
+   "duracion": 11.27,
+   "tramos": [
+    {
+     "desde": 0,
+     "hasta": 2.77,
+     "es": "Carnes a la brasa",
+     "en": "Off the grill"
+    },
+    {
+     "desde": 2.77,
+     "hasta": 5.72,
+     "es": "Cola de langosta",
+     "en": "Lobster tail"
+    },
+    {
+     "desde": 5.72,
+     "hasta": 8.68,
+     "es": "Cochinillo segoviano",
+     "en": "Segovia-style suckling pig"
+    },
+    {
+     "desde": 8.68,
+     "hasta": 11.25,
+     "es": "Pulpo a la brasa",
+     "en": "Grilled octopus"
+    }
+   ]
+  },
+  "telefono": {
+   "ancho": 720,
+   "alto": 1080,
+   "duracion": 11.27,
+   "tramos": [
+    {
+     "desde": 0,
+     "hasta": 2.77,
+     "es": "Carnes a la brasa",
+     "en": "Off the grill"
+    },
+    {
+     "desde": 2.77,
+     "hasta": 5.72,
+     "es": "Cola de langosta",
+     "en": "Lobster tail"
+    },
+    {
+     "desde": 5.72,
+     "hasta": 8.68,
+     "es": "Cochinillo segoviano",
+     "en": "Segovia-style suckling pig"
+    },
+    {
+     "desde": 8.68,
+     "hasta": 11.25,
+     "es": "Pulpo a la brasa",
+     "en": "Grilled octopus"
+    }
+   ]
+  },
+  "fuentes": [
+   "media/supermachi/originales/2025-01_VID-2.mp4",
+   "media/supermachi/originales/2025-01_cochinillo-.mp4",
+   "media/supermachi/originales/2025-01_fondo-banner-carne-web-.mp4"
+  ]
+ },
+ "buffet": {
+  "escritorio": {
+   "ancho": 1920,
+   "alto": 1080,
+   "duracion": 2.97,
+   "tramos": [
+    {
+     "desde": 0,
+     "hasta": 1.28
+    },
+    {
+     "desde": 1.28,
+     "hasta": 2.95
+    }
+   ]
+  },
+  "telefono": {
+   "ancho": 720,
+   "alto": 1080,
+   "duracion": 2.97,
+   "tramos": [
+    {
+     "desde": 0,
+     "hasta": 1.28
+    },
+    {
+     "desde": 1.28,
+     "hasta": 2.95
+    }
+   ]
+  },
+  "fuentes": [
+   "media/supermachi/originales/2025-01_BUFF.mp4"
+  ]
+ }
+}

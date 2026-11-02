@@ -6,6 +6,8 @@ Las cuatro fuentes de las dos webs, cortadas a lo que dibujan (OFL; ver web/publ
   Machi Text     ← Instrument Sans, peso 400–700, ancho normal (texto de Súper Machi)
   Sancho Display ← Archivo con el ancho fijo en 125 % (expandida), peso 700–900 (precios y títulos de Sancho)
   Sancho Text    ← Archivo, peso 400–700, ancho normal (texto de Sancho)
+  Machi Serif    ← Fraunces, redonda e itálica, opsz 72, SOFT 100 (cálida), peso 400–800 (platos y titulares de Súper Machi)
+  Sancho Mano    ← Caveat, peso 600 (notas a mano de Sancho: «¡hoy!», «la favorita»)
 
 Solo los caracteres de español e inglés (latín básico, Latin-1, comillas, rayas, €, flechas) y las cifras tabulares.
 Se renombran porque son versiones modificadas. Escribe web/public/fuentes/*.woff2 y web/css/fuentes.css.
@@ -40,6 +42,12 @@ FUENTES = [
      {'wdth': 125, 'wght': (700, 900)}, '700 900'),
     ('sancho-text', 'Sancho Text', 'archivo/files/archivo-latin-wght-normal.woff2',
      {'wght': (400, 700)}, '400 700'),
+    ('machi-serif', 'Machi Serif', 'fraunces/files/fraunces-latin-full-normal.woff2',
+     {'opsz': 72, 'SOFT': 100, 'WONK': 0, 'wght': (400, 800)}, '400 800'),
+    ('machi-serif-italic', 'Machi Serif', 'fraunces/files/fraunces-latin-full-italic.woff2',
+     {'opsz': 72, 'SOFT': 100, 'WONK': 1, 'wght': (400, 800)}, '400 800', 'italic'),
+    ('sancho-mano', 'Sancho Mano', 'caveat/files/caveat-latin-wght-normal.woff2',
+     {'wght': 600}, '600'),
 ]
 
 
@@ -56,7 +64,7 @@ def renombrar(f: TTFont, familia: str) -> None:
 def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
     css = ['/* Generado por web/tools/fuentes.py: no editar a mano. */']
-    for slug, familia, src, ejes, peso in FUENTES:
+    for slug, familia, src, ejes, peso, *estilo in FUENTES:
         f = TTFont(NM / src)
         f = instancer.instantiateVariableFont(f, ejes)
         buf = io.BytesIO(); f.save(buf); buf.seek(0); f = TTFont(buf)  # recargar antes de cortar
@@ -75,7 +83,7 @@ def main() -> None:
         print(f'  {dest.name}: {dest.stat().st_size / 1024:.1f} KB')
         css.append(
             f"@font-face{{font-family:'{familia}';src:url(/fuentes/{slug}.woff2) format('woff2');"
-            f"font-weight:{peso};font-style:normal;font-display:swap}}")
+            f"font-weight:{peso};font-style:{estilo[0] if estilo else 'normal'};font-display:swap}}")
     CSS.parent.mkdir(parents=True, exist_ok=True)
     CSS.write_text('\n'.join(css) + '\n')
     lic = NM / 'archivo' / 'LICENSE'

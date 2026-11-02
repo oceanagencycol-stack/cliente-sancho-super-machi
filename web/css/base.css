@@ -64,9 +64,23 @@ p{text-wrap:pretty}
 body{padding-bottom:calc(3.5rem + env(safe-area-inset-bottom))}
 @media (min-width:62rem){.acciones{display:none}body{padding-bottom:0}}
 
-/* cabeza de página interior */
-.cabeza-pagina{padding-top:clamp(2.5rem,7vw,5rem)}
-.cabeza-pagina .entrada{margin-top:1.1rem}
+/* cabeza de página interior con la comida detrás (comp.mjs → cabezaPlato): el plato a todo lo ancho, el título abajo sobre la sombra */
+.cabeza-plato{position:relative;isolation:isolate;width:100%!important;max-width:none;margin-top:0;display:grid;align-items:end;
+  min-height:clamp(22rem,62svh,36rem);background:#120B09;color:#FFF8EC;overflow:hidden;overflow:clip}
+.cabeza-plato__fondo{position:absolute;inset:0;z-index:-1}
+.cabeza-plato__fondo::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(0deg,rgba(14,9,8,.94) 0,rgba(14,9,8,.6) 34%,rgba(14,9,8,.08) 68%,rgba(14,9,8,.28) 100%)}
+.cabeza-plato__foto,.cabeza-plato__foto img,.cabeza-plato__video{position:absolute;inset:0;width:100%;height:100%}
+.cabeza-plato__foto img{object-fit:cover}
+.cabeza-plato__video .video__pausa{top:1rem;bottom:auto}
+.cabeza-plato__texto{width:var(--ancho);margin-inline:auto;padding:5rem 0 clamp(1.9rem,5vw,3.25rem)}
+.cabeza-plato .titulo-1{color:#FFF8EC;text-shadow:0 .1em 1.4em rgba(0,0,0,.35)}
+.cabeza-plato .entrada{margin-top:1rem;color:#EFE5DA}
+@media (min-width:62rem){.cabeza-plato{min-height:clamp(24rem,64svh,40rem)}
+  .cabeza-plato__fondo::after{background:linear-gradient(0deg,rgba(14,9,8,.9) 0,rgba(14,9,8,.45) 30%,rgba(14,9,8,0) 60%),linear-gradient(90deg,rgba(14,9,8,.55) 0,rgba(14,9,8,0) 55%)}}
+@media (prefers-reduced-motion:no-preference){.cabeza-plato__foto img{animation:acercar 12s cubic-bezier(.16,1,.3,1) both}}
+.cabeza-plato__precio{font-family:var(--font-display);font-weight:900;font-size:clamp(3.4rem,12vw,6.5rem);line-height:.9;letter-spacing:-.02em;color:var(--acento-claro,var(--acento));margin-top:.8rem}
+.cabeza-plato+.club,.cabeza-plato+.almuerzo{padding-top:0}
 
 /* horario, dirección, redes, pedidos */
 .horario__vivo{display:inline-flex;align-items:center;gap:.5rem;font-weight:700;margin-bottom:.6rem}
@@ -82,7 +96,6 @@ body{padding-bottom:calc(3.5rem + env(safe-area-inset-bottom))}
 .pedidos{display:grid;gap:.5rem}
 .pedidos a{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:3.25rem;padding:.75rem 1rem;border:1px solid var(--linea-fuerte);border-radius:var(--radio,.25rem);font-weight:700;text-decoration:none}
 .pedidos a small{display:block;font-weight:400;font-size:.875rem;color:var(--texto-2)}
-.pedidos a::after{content:"→";font-weight:400}
 @media (hover:hover){.pedidos a:hover{border-color:var(--acento)}}
 
 /* pie */
@@ -139,10 +152,12 @@ body{padding-bottom:calc(3.5rem + env(safe-area-inset-bottom))}
 .plato__mas{width:2.5rem;height:2.5rem;border-radius:50%;border:1.5px solid var(--linea-fuerte);background:transparent;font-weight:700;font-size:1.1rem;cursor:pointer;line-height:1}
 .plato__mas.en-comanda{background:var(--acento);border-color:var(--acento);color:var(--acento-texto)}
 html:not(.js) .plato__mas{display:none}
-.plato--foto{grid-template-columns:5.5rem 1fr auto auto}
-.plato__foto{grid-row:span 1}
-.plato__foto img{width:5.5rem;height:5.5rem;object-fit:cover;border-radius:var(--radio,.25rem)}
-.plato--firma .plato__nombre::after{content:"★";margin-left:.35rem;color:var(--acento-claro,var(--acento));font-size:.85em}
+.plato--foto{grid-template-columns:clamp(5.5rem,22vw,7rem) 1fr auto auto;align-items:center}
+.plato__foto{grid-row:span 1;overflow:hidden;border-radius:var(--radio,.25rem)}
+.plato__foto img{width:100%;aspect-ratio:1;object-fit:cover;transition:transform .6s cubic-bezier(.16,1,.3,1)}
+@media (hover:hover){.plato--foto:hover .plato__foto img{transform:scale(1.07)}}
+.plato--firma .plato__nombre::after{content:"";display:inline-block;width:.95em;height:.95em;margin-left:.35rem;vertical-align:-.12em;background:var(--acento-claro,var(--acento));
+  -webkit-mask:var(--firma-icono) center/contain no-repeat;mask:var(--firma-icono) center/contain no-repeat}
 .menu__extras{margin-top:.75rem;padding:.9rem 1rem;background:var(--superficie);border-radius:var(--radio,.25rem)}
 .menu__extras p{font-weight:700}
 .menu__extras ul{display:flex;flex-wrap:wrap;gap:.25rem 1.5rem;margin-top:.35rem}
@@ -189,6 +204,49 @@ body.hoja-abierta{overflow:hidden}
 .contacto__lista li{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.25rem 1rem;padding:.6rem 0;border-bottom:1px solid var(--linea);max-width:36rem}
 .contacto__lista span{color:var(--texto-2)}
 
+/* superficies del navegador con la paleta de cada sitio */
+html{scrollbar-color:var(--linea-fuerte) var(--fondo)}
+input,select,textarea{caret-color:var(--acento)}
+.icono{width:1.1em;height:1.1em;flex:none}
+
+/* botones con flecha (la flecha avanza al pasar) y botón claro sobre foto o video */
+.boton--flecha .icono{width:1.15rem;height:1.15rem;transition:transform .35s cubic-bezier(.16,1,.3,1)}
+@media (hover:hover){.boton--flecha:hover .icono{transform:translateX(.25rem)}}
+.boton--claro{background:rgba(14,9,8,.38);border-color:rgba(255,248,236,.62);color:#FFF8EC}
+@media (hover:hover){.boton--claro:hover{background:#FFF8EC;border-color:#FFF8EC;color:#140C0A}}
+.pedidos a::after{content:"";width:1.15rem;height:1.15rem;flex:none;background:currentColor;
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4.5 12h15M13.5 6l6 6-6 6'/%3E%3C/svg%3E") center/contain no-repeat;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4.5 12h15M13.5 6l6 6-6 6'/%3E%3C/svg%3E") center/contain no-repeat}
+
+/* enlace con flecha */
+.enlace-flecha{display:inline-flex;align-items:center;gap:.4rem;font-weight:700;text-decoration:none;border-bottom:1.5px solid currentColor;padding-bottom:.1rem}
+.enlace-flecha .icono{transition:transform .35s cubic-bezier(.16,1,.3,1)}
+@media (hover:hover){.enlace-flecha:hover .icono{transform:translateX(.25rem)}}
+
+/* listas que se destapan en orden al llegar (comun.js marca .revela a las que aún no se ven; sin JS, a la vista) */
+@media (prefers-reduced-motion:no-preference){
+  html.js [data-destapa]>li{transition:clip-path 1s cubic-bezier(.16,1,.3,1),opacity .6s ease,transform 1s cubic-bezier(.16,1,.3,1);transition-delay:calc(var(--n,0) * 70ms)}
+  html.js [data-destapa]>li.revela{clip-path:inset(14% 0 0 0 round var(--radio,0));opacity:0;transform:translateY(1.2rem)}
+  [data-destapa]>li:nth-child(2){--n:1}[data-destapa]>li:nth-child(3){--n:2}[data-destapa]>li:nth-child(4){--n:3}[data-destapa]>li:nth-child(5){--n:4}[data-destapa]>li:nth-child(6){--n:5}[data-destapa]>li:nth-child(7){--n:6}}
+
+/* las fotos diferidas aparecen con un fundido cuando llegan (comun.js marca .espera; sin JS se ven de una) */
+img.espera{opacity:0}
+img.llega{transition:opacity .7s cubic-bezier(.16,1,.3,1)}
+
+/* video de comida (comp.mjs → video()): el póster se pinta con la página; el video entra encima cuando corre */
+.video{position:relative;overflow:hidden;background:#120B09}
+.video__poster,.video__poster img,.video__clip{position:absolute;inset:0;width:100%;height:100%}
+.video__poster img,.video__clip{object-fit:cover}
+.video__clip{opacity:0;transition:opacity .9s cubic-bezier(.16,1,.3,1)}
+.video.rodando .video__clip{opacity:1}
+.video__pausa{position:absolute;right:var(--canal);bottom:clamp(1rem,3vw,1.5rem);z-index:3;width:2.75rem;height:2.75rem;display:grid;place-items:center;padding:0;border-radius:50%;
+  border:1px solid rgba(255,248,236,.5);background:rgba(14,9,8,.4);color:#FFF8EC;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .4s,background-color .2s}
+.video.rodando .video__pausa,.video.pausado .video__pausa{opacity:1;pointer-events:auto}
+@media (hover:hover){.video__pausa:hover{background:rgba(14,9,8,.7)}}
+.video__pausa .icono{width:1.1rem;height:1.1rem}
+.video__pausa .icono--play,.video.pausado .icono--pausa{display:none}
+.video.pausado .icono--play{display:block}
+
 /* inmersión común: de una página a otra no hay corte (View Transitions entre documentos); la cabecera y la barra de
    acciones se quedan quietas y el contenido entra con un fundido corto. Sin soporte, se navega como siempre. */
 @view-transition{navigation:auto}
@@ -200,6 +258,11 @@ body.hoja-abierta{overflow:hidden}
 @keyframes vt-entra{from{opacity:0;transform:translateY(.9rem)}}
 /* fotos que se acercan al entrar en pantalla (cada sitio dice cuáles, con la clase de su <picture>) */
 @keyframes acercar{from{transform:scale(1.1)}to{transform:scale(1)}}
+/* las fotos de comida se acercan un poco mientras pasan por la pantalla (con «scale», que se suma al acercamiento del
+   :hover en vez de pisarlo); sin soporte o con movimiento reducido, quietas */
+@keyframes acercar-s{from{scale:1.13}to{scale:1}}
+@supports (animation-timeline:view()){@media (prefers-reduced-motion:no-preference){
+  .platillo__foto img,.bocado__foto img,.semana__foto img,.plato__foto img{animation:acercar-s linear both;animation-timeline:view();animation-range:entry 0% cover 55%}}}
 
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
   ::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}}

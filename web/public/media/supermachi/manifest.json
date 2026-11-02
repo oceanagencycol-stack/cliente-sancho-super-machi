@@ -51,19 +51,27 @@
    ],
    "es": "Cochinillo segoviano asado entero, recién salido del horno",
    "en": "Whole Segovia-style roast suckling pig, fresh from the oven",
-   "fuente": "media/supermachi/originales/2025-01_cochinillo-3.png"
+   "fuente": "media/supermachi/originales/2025-01_cochinillo-3.png",
+   "foco": "50% 55%"
   },
   "tabla": {
-   "w": 1600,
-   "h": 1067,
+   "w": 1488,
+   "h": 395,
    "anchos": [
     480,
     960,
-    1600
+    1488
    ],
    "es": "La Tabla Mar y Tierra servida para un grupo",
    "en": "The Surf & Turf board served for a group",
-   "fuente": "media/supermachi/originales/2025-01_super-machi-tabla.png"
+   "fuente": "media/supermachi/originales/2025-01_super-machi-tabla.png",
+   "recorte": [
+    0.025,
+    0.31,
+    0.93,
+    0.37
+   ],
+   "foco": "50% 50%"
   },
   "tomahawk": {
    "w": 1600,
@@ -75,7 +83,8 @@
    ],
    "es": "Tomahawk steak cortado sobre tabla de madera",
    "en": "Sliced tomahawk steak on a wooden board",
-   "fuente": "media/supermachi/originales/2025-01_DSC00713-1.jpg"
+   "fuente": "media/supermachi/originales/2025-01_DSC00713-1.jpg",
+   "foco": "45% 50%"
   },
   "cordero-brasa": {
    "w": 1152,
@@ -195,6 +204,97 @@
    "es": "Café cubano recién servido",
    "en": "Freshly poured Cuban coffee",
    "fuente": "media/supermachi/originales/2025-01_cafe-4.png"
+  },
+  "langosta": {
+   "w": 1920,
+   "h": 1080,
+   "anchos": [
+    480,
+    960,
+    1600
+   ],
+   "es": "Cola de langosta bañada en mantequilla",
+   "en": "Lobster tail bathed in butter",
+   "fuente": "media/supermachi/derivados/langosta-mantequilla.jpg",
+   "foco": "50% 55%"
+  },
+  "cochinillo-piel": {
+   "w": 2534,
+   "h": 1080,
+   "anchos": [
+    480,
+    960,
+    1600
+   ],
+   "es": "La piel dorada del cochinillo segoviano",
+   "en": "The golden skin of the Segovia-style suckling pig",
+   "fuente": "media/supermachi/derivados/cochinillo-piel.jpg",
+   "foco": "40% 50%"
+  },
+  "carne-soplete": {
+   "w": 1920,
+   "h": 1080,
+   "anchos": [
+    480,
+    960,
+    1600
+   ],
+   "es": "Carne a la brasa con romero, terminada al fuego",
+   "en": "Grilled steak with rosemary, finished over the flame",
+   "fuente": "media/supermachi/derivados/carne-soplete.jpg",
+   "foco": "45% 50%"
+  },
+  "pulpo": {
+   "w": 1600,
+   "h": 900,
+   "anchos": [
+    480,
+    960,
+    1600
+   ],
+   "es": "Pulpo a la brasa con calabacín y papas",
+   "en": "Grilled octopus with zucchini and potatoes",
+   "fuente": "media/supermachi/originales/VID-2_5.jpeg",
+   "foco": "50% 50%"
+  },
+  "coctel2": {
+   "w": 1152,
+   "h": 2048,
+   "anchos": [
+    480,
+    960,
+    1152
+   ],
+   "es": "Un cóctel preparado en la barra",
+   "en": "A cocktail being made at the bar",
+   "fuente": "media/supermachi/originales/2025-01_DSC00280.jpg",
+   "foco": "50% 40%"
+  },
+  "coctel3": {
+   "w": 1151,
+   "h": 2048,
+   "anchos": [
+    480,
+    960,
+    1151
+   ],
+   "es": "Cóctel frappé de fresa",
+   "en": "Frozen strawberry cocktail",
+   "fuente": "media/supermachi/originales/2025-01_DSC00612.jpg",
+   "foco": "50% 55%"
+  },
+  "frituras": {
+   "w": 1600,
+   "h": 900,
+   "anchos": [
+    480,
+    960,
+    1600
+   ],
+   "es": "Frituras recién hechas en el buffet",
+   "en": "Freshly fried bites at the buffet",
+   "fuente": "media/supermachi/originales/2025-01_DSC00266.jpg",
+   "foco": "50% 50%"
   }
  },
  "flyers": {

@@ -4,7 +4,9 @@ import { UI } from './i18n.mjs';
 
 // Corre antes de pintar (su hash va en la CSP): marca que hay JS y el día de hoy en Miami (0 = domingo) para que el
 // sol de Sancho y «hoy» de la cartelera salgan bien desde el primer cuadro.
-export const ARRANQUE = "(function(d){d.className+=' js';try{var w=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',weekday:'short'}).format(new Date());d.setAttribute('data-hoy',['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].indexOf(w))}catch(e){}})(document.documentElement)";
+// el día de hoy en Miami (data-hoy) antes de pintar; si la página trae <script id="precarga-hoy" type="application/json"> con
+// la foto de cada día ({"1": [[srcset o url, sizes, media], …]}), pide primero la de hoy (es el LCP de la portada de Sancho)
+export const ARRANQUE = "(function(d){var e=d.documentElement;e.className+=' js';try{var w=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',weekday:'short'}).format(new Date()),n=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].indexOf(w),j=d.getElementById('precarga-hoy');e.setAttribute('data-hoy',n);if(j)(JSON.parse(j.textContent)[n]||[]).forEach(function(p){var l=d.createElement('link');l.rel='preload';l.as='image';l.type='image/avif';l.setAttribute('fetchpriority','high');if(p[1]){l.setAttribute('imagesrcset',p[0]);l.setAttribute('imagesizes',p[1])}else l.href=p[0];if(p[2])l.media=p[2];d.head.appendChild(l)})}catch(x){}})(document)";
 
 export function pagina(ctx, { ruta, alterna, titulo, descripcion, cuerpo, jsonld = [], og = null, cls = '', precargas = '' }) {
   const { sitio, lang, assets } = ctx;

@@ -1,0 +1,72 @@
+{
+ "paella": {
+  "escritorio": {
+   "ancho": 1920,
+   "alto": 1080,
+   "duracion": 3.93,
+   "tramos": [
+    {
+     "desde": 0,
+     "hasta": 3.9
+    }
+   ]
+  },
+  "telefono": {
+   "ancho": 720,
+   "alto": 1080,
+   "duracion": 3.93,
+   "tramos": [
+    {
+     "desde": 0,
+     "hasta": 3.9
+    }
+   ]
+  },
+  "fuentes": [
+   "media/sancho/originales/2025-04_paella-.mp4"
+  ]
+ },
+ "fuego": {
+  "escritorio": {
+   "ancho": 1920,
+   "alto": 1080,
+   "duracion": 6.87,
+   "tramos": [
+    {
+     "desde": 0,
+     "hasta": 1.68
+    },
+    {
+     "desde": 1.68,
+     "hasta": 5.12
+    },
+    {
+     "desde": 5.12,
+     "hasta": 6.85
+    }
+   ]
+  },
+  "telefono": {
+   "ancho": 720,
+   "alto": 1080,
+   "duracion": 6.87,
+   "tramos": [
+    {
+     "desde": 0,
+     "hasta": 1.68
+    },
+    {
+     "desde": 1.68,
+     "hasta": 5.12
+    },
+    {
+     "desde": 5.12,
+     "hasta": 6.85
+    }
+   ]
+  },
+  "fuentes": [
+   "media/sancho/originales/2025-04_banner-principal-.mp4"
+  ]
+ }
+}

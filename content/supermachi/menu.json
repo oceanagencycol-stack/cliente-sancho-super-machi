@@ -162,9 +162,9 @@
               "es": "Pescados y mariscos",
               "en": "Fish & seafood",
               "platos": [
-                {"id": "cola-langosta", "n": "Cola de langosta (1 lb)", "crudo": true, "d": {"en": "One-pound lobster tail"}, "p": 69},
+                {"id": "cola-langosta", "n": "Cola de langosta (1 lb)", "crudo": true, "d": {"en": "One-pound lobster tail"}, "p": 69, "foto": "langosta"},
                 {"id": "camarones-enchilados", "n": "Camarones enchilados", "crudo": true, "d": {"en": "Shrimp creole"}, "p": 18},
-                {"id": "pulpo-brasa", "n": "Pulpo a la brasa", "crudo": true, "d": {"en": "Grilled octopus"}, "p": 36},
+                {"id": "pulpo-brasa", "n": "Pulpo a la brasa", "crudo": true, "d": {"en": "Grilled octopus"}, "p": 36, "foto": "pulpo"},
                 {"id": "pargo-plancha", "n": "Filete de pargo a la plancha", "crudo": true, "d": {"en": "Grilled red snapper fillet"}, "p": 28},
                 {"id": "salmon-plancha", "n": "Salmón a la plancha", "crudo": true, "d": {"en": "Grilled salmon fillet"}, "p": 24},
                 {"id": "pescado-canciller", "n": "Filete de pescado canciller", "crudo": true, "d": {"en": "Canciller fish fillet"}, "p": 19}
@@ -244,7 +244,7 @@
           "en": "Coffee",
           "platos": [
             {"id": "espresso", "n": "Café espresso", "d": {"en": "A single shot of espresso"}, "p": 3},
-            {"id": "cafe-cubano", "n": "Café cubano", "d": {"en": "Cuban-style espresso with sugar"}, "p": 3},
+            {"id": "cafe-cubano", "n": "Café cubano", "d": {"en": "Cuban-style espresso with sugar"}, "p": 3, "foto": "cafe"},
             {"id": "cafe-bombon", "n": "Café bombón", "d": {"en": "Espresso with sweetened condensed milk"}, "p": 6},
             {"id": "descafeinado", "n": "Café descafeinado", "d": {"en": "Decaf coffee"}, "p": 4},
             {"id": "cortadito", "n": "Cortadito", "d": {"en": "Espresso with a little steamed milk"}, "p": 4},
@@ -266,7 +266,7 @@
           "en": "Cocktails",
           "platos": [
             {"id": "coctel-supermachi", "n": "Supermachi", "firma": true, "d": {"es": "Coñac, triple sec, jugo de limón y azúcar.", "en": "Cognac, triple sec, lime juice, sugar."}, "p": 16},
-            {"id": "mojito", "n": "Mojito", "d": {"es": "Ron blanco, limón, soda y hierbabuena.", "en": "White rum, lime juice, soda water and mint."}, "p": 13},
+            {"id": "mojito", "n": "Mojito", "d": {"es": "Ron blanco, limón, soda y hierbabuena.", "en": "White rum, lime juice, soda water and mint."}, "p": 13, "foto": "mojito"},
             {"id": "daiquiri", "n": "Daiquirí", "d": {"es": "Ron blanco, limón y azúcar.", "en": "White rum, lime juice, sugar."}, "p": 13},
             {"id": "cuba-libre", "n": "Cuba libre", "d": {"es": "Ron blanco, limón y Coca-Cola.", "en": "White rum, lime juice, Coca-Cola."}, "p": 13},
             {"id": "pina-colada", "n": "Piña colada", "d": {"es": "Ron blanco, piña y crema de coco.", "en": "White rum, pineapple juice, coconut cream."}, "p": 13},

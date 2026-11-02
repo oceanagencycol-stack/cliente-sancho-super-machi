@@ -1,7 +1,7 @@
 // Sancho Restaurant — cocina española de calidad al mejor precio. Firma: el sol de la semana (ver DESIGN.md).
 import { h, raw, t, cuando, precio } from '../lib/util.mjs';
 import { UI, DIAS, INICIAL, hora, rangoDias, telVisible } from '../lib/i18n.mjs';
-import { foto, precarga, horario, direccion, telefono, redes, pedidos, tel } from '../lib/comp.mjs';
+import { foto, precarga, horario, direccion, telefono, redes, pedidos, tel, video, icono, cabezaPlato } from '../lib/comp.mjs';
 import { pagina, idioma, nav } from '../lib/shell.mjs';
 
 const R = {
@@ -27,26 +27,9 @@ const DISCO = {
 };
 const ORDEN = [1, 2, 3, 4, 5, 6, 0];
 
-// el cielo de Miró alrededor del sol: astros chicos entre los días (coordenadas de la rueda, 0–100; el SVG cubre -14…114).
-// Tres capas de profundidad que se mueven distinto con el scroll y, con ratón, con el puntero. Decorativo: aria-hidden.
-const ASTROS = [
-  // [capa, forma, color, x, y, tamaño]
-  [3, 'estrella', 'blanco', 69.3, 9.9, 3.4], [1, 'punto', 'rojo', 93.4, 40.1, 1.3], [2, 'estrella', 'sol', 84.8, 77.7, 2.3],
-  [2, 'luna', 'blanco', 15.2, 77.7, 4.2], [3, 'punto', 'sol', 6.6, 40.1, 1.5], [1, 'anillo', 'rojo', 30.7, 9.9, 2.1],
-  [1, 'estrella', 'blanco', 50, 97, 1.9], [2, 'constelacion', 'blanco', 0, 6, 1], [3, 'estrella', 'sol', 101, 101, 2.5],
-];
-function astro([, forma, color, x, y, r]) {
-  const c = `astro astro--${color}`;
-  const n = (v) => +v.toFixed(2);
-  if (forma === 'punto') return `<circle class="${c}" cx="${x}" cy="${y}" r="${r}"/>`;
-  if (forma === 'anillo') return `<circle class="${c} astro--trazo" cx="${x}" cy="${y}" r="${r}"/>`;
-  // media luna: borde exterior en semicírculo y el interior en un arco más abierto (abre hacia la derecha)
-  if (forma === 'luna') return `<path class="${c}" d="M${n(x + r * 0.55)} ${n(y - r)}a${r} ${r} 0 1 0 0 ${n(2 * r)}a${n(r * 1.25)} ${n(r * 1.25)} 0 0 1 0 -${n(2 * r)}z"/>`;
-  if (forma === 'constelacion') return `<g class="${c}"><path class="astro--trazo" d="M${x - 3} ${y + 3}L${x + 3} ${y - 3}L${x + 10} ${y - 1}"/><circle cx="${x - 3}" cy="${y + 3}" r=".9"/><circle cx="${x + 3}" cy="${y - 3}" r="1.2"/><circle cx="${x + 10}" cy="${y - 1}" r=".8"/></g>`;
-  const d = n(r * 0.7071);
-  return `<g class="${c}"><path class="astro--trazo" d="M${x} ${n(y - r)}V${n(y + r)}M${n(x - r)} ${y}H${n(x + r)}M${n(x - d)} ${n(y - d)}L${n(x + d)} ${n(y + d)}M${n(x - d)} ${n(y + d)}L${n(x + d)} ${n(y - d)}"/><circle cx="${x}" cy="${y}" r="${n(r * 0.28)}"/></g>`;
-}
-const cielo = () => raw(`<svg class="cielo" viewBox="-14 -14 128 128" aria-hidden="true" focusable="false">${[1, 2, 3].map((capa) => `<g class="cielo__capa cielo__capa--${capa}">${ASTROS.filter((a) => a[0] === capa).map(astro).join('')}</g>`).join('')}</svg>`);
+// el plato de cada día, a pantalla completa detrás del sol (el lunes, la paella en video). Solo se baja el del día que
+// se ve; los demás llegan cuando la página ya está quieta (sancho.js) o al tocar su día.
+const FONDO = { 1: { video: 'paella' }, 2: 'sangria', 3: 'tapas', 4: 'calamares', 5: 'carne', 6: 'cochinillo', 0: 'paella' };
 
 export const sitio = {
   id: 'sancho',
@@ -54,7 +37,7 @@ export const sitio = {
   nombreCorto: 'Sancho',
   tema: '#0F0B0A',
   esquema: 'light',
-  fuentes: ['sancho-display', 'sancho-text'],
+  fuentes: ['sancho-display', 'sancho-text', 'sancho-mano'],
   tituloPortada: { es: 'Sancho Restaurant · Cocina española en la Calle Ocho, Miami', en: 'Sancho Restaurant · Spanish cooking on Calle Ocho, Miami' },
   cabecera, pie, acciones,
 };
@@ -102,41 +85,67 @@ function acciones(ctx) {
 
 // ---------------------------------------------------------------- la firma: el sol de la semana
 function sol(ctx) {
-  const { lang } = ctx; const sem = ctx.promos.semana; const hh = ctx.promos.happy_hour;
+  const { lang } = ctx; const sem = ctx.promos.semana; const hh = ctx.promos.happy_hour; const en = lang === 'en';
   const porDia = Object.fromEntries(sem.map((p) => [p.dia, p]));
-  return h`<section class="sol" data-sol aria-labelledby="sol-t">
-    <div class="sol__rueda">
-      <span class="sol__halo" aria-hidden="true"></span>
-      ${cielo()}
-      <img class="sol__arte" src="/marca/sancho-sol.svg" alt="" width="1471" height="1303">
-      <div class="sol__disco" aria-hidden="true">${ORDEN.map((d) => { const g = DISCO[d][lang][0]; return h`<p class="sol__cara" data-dia="${d}"><b class="${g.length >= 9 ? 'muy-largo' : g.length >= 7 ? 'largo' : ''}">${g}</b><span>${DISCO[d][lang][1]}</span></p>`; })}</div>
-      <div class="sol__dias" role="tablist" aria-label="${lang === 'en' ? 'Day of the week' : 'Día de la semana'}">
-        ${ORDEN.map((d, i) => h`<button type="button" role="tab" class="sol__dia sol__dia--${i}" data-dia="${d}" id="tab-${d}" aria-controls="panel-${d}" aria-label="${DIAS[lang][d]}" aria-selected="false" tabindex="-1">${INICIAL[lang][d]}</button>`)}
+  const fondo = (d) => {
+    const f = FONDO[d];
+    if (typeof f === 'object') return video(ctx, f.video, { cls: 'dia__video', alta: true, alt: en ? 'Seafood paella, up close' : 'Paella de mariscos, de cerca' });
+    return foto(ctx, f, { sizes: '(min-width: 62rem) 64vw, 100vw', cls: 'dia__foto', alta: true });
+  };
+  return h`<section class="dia" data-sol aria-labelledby="sol-t">
+    <div class="dia__fondos">${ORDEN.map((d) => h`<div class="dia__fondo" data-dia="${d}">${fondo(d)}</div>`)}</div>
+    <div class="sol">
+      <div class="sol__rueda">
+        <span class="sol__halo" aria-hidden="true"></span>
+        <img class="sol__arte" src="/marca/sancho-sol.svg" alt="" width="1471" height="1303">
+        <div class="sol__disco" aria-hidden="true">${ORDEN.map((d) => { const g = DISCO[d][lang][0]; return h`<p class="sol__cara" data-dia="${d}"><b class="${g.length >= 9 ? 'muy-largo' : g.length >= 7 ? 'largo' : ''}">${g}</b><span>${DISCO[d][lang][1]}</span></p>`; })}</div>
+        <div class="sol__dias" role="tablist" aria-label="${en ? 'Day of the week' : 'Día de la semana'}">
+          ${ORDEN.map((d, i) => h`<button type="button" role="tab" class="sol__dia sol__dia--${i}" data-dia="${d}" id="tab-${d}" aria-controls="panel-${d}" aria-label="${DIAS[lang][d]}" aria-selected="false" tabindex="-1">${INICIAL[lang][d]}</button>`)}
+        </div>
       </div>
-    </div>
-    <div class="sol__paneles">
-      <h1 class="sr" id="sol-t">${lang === 'en' ? 'Sancho Restaurant: what’s on today' : 'Sancho Restaurant: lo que hay hoy'}</h1>
-      ${ORDEN.map((d) => { const p = porDia[d]; const x = t(p, lang); return h`<div class="sol__panel" role="tabpanel" id="panel-${d}" aria-labelledby="tab-${d}" data-dia="${d}">
-        <p class="sol__cuando"><span class="sol__hoy">${lang === 'en' ? 'Today' : 'Hoy'} · </span>${x.dia}</p>
-        <h2 class="sol__titulo">${x.titulo}</h2>
-        <p class="sol__precio cifra">${x.precio_txt}</p>
-        <p class="sol__texto">${x.texto}</p>
-        ${cuando(hh.dias.includes(d), () => h`<p class="sol__hh">${t(hh, lang).titulo} · ${hora(hh.desde, lang)} – ${hora(hh.hasta, lang)}</p>`)}
-      </div>`; })}
-      <p class="sol__acciones"><a class="boton boton--grande" href="${tel(ctx.local.telefono)}" data-ev="click_call">${lang === 'en' ? 'Call to reserve' : 'Llamar para reservar'}</a> <a class="boton boton--sutil boton--grande" href="${R.semana[lang]}">${lang === 'en' ? 'The whole week' : 'Toda la semana'}</a></p>
+      <div class="sol__paneles">
+        <h1 class="sr" id="sol-t">${en ? 'Sancho Restaurant: what’s on today' : 'Sancho Restaurant: lo que hay hoy'}</h1>
+        ${ORDEN.map((d) => { const p = porDia[d]; const x = t(p, lang); return h`<div class="sol__panel" role="tabpanel" id="panel-${d}" aria-labelledby="tab-${d}" data-dia="${d}">
+          <h2 class="sol__titulo">${x.titulo}</h2>
+          <p class="sol__precio cifra">${x.precio_txt}<span class="sol__mano sol__mano--hoy" aria-hidden="true">${en ? 'today!' : '¡hoy!'}</span><span class="sol__mano sol__mano--dia" aria-hidden="true">${x.dia.toLowerCase()}</span></p>
+          <p class="sol__texto">${x.texto}</p>
+          ${cuando(hh.dias.includes(d), () => h`<p class="sol__hh">${t(hh, lang).titulo} · ${hora(hh.desde, lang)} – ${hora(hh.hasta, lang)}</p>`)}
+        </div>`; })}
+        <p class="sol__acciones"><a class="boton boton--grande" href="${R.pedir[lang]}">${en ? 'Order online' : 'Pedir en línea'}</a> <a class="boton boton--sutil boton--grande" href="${tel(ctx.local.telefono)}" data-ev="click_call">${en ? 'Call to reserve' : 'Llamar para reservar'}</a></p>
+      </div>
     </div>
   </section>`;
 }
 
-// nivel: el título de cada día es h3 bajo un h2 (portada) y h2 cuando la lista va directo bajo el h1 (la semana)
-function semanaLista(ctx, { fotos = false, nivel = 3 } = {}) {
-  const { lang } = ctx;
+// el plato de cada día para el script de arranque (shell.mjs → ARRANQUE): pide primero el de hoy, que es el LCP
+function precargaHoy(ctx) {
+  const mapa = {};
+  for (const d of ORDEN) {
+    const f = FONDO[d];
+    if (typeof f === 'object') {
+      const base = `/media/sancho/video/${f.video}`;
+      mapa[d] = [[`${base}-telefono.avif`, '', '(max-width: 47.99rem)'], [`${base}-escritorio.avif`, '', '(min-width: 48rem)']];
+    } else {
+      const m = ctx.media.fotos[f];
+      mapa[d] = [[m.anchos.map((w) => `/media/sancho/${f}-${w}.avif ${w}w`).join(', '), '(min-width: 62rem) 64vw, 100vw', '']];
+    }
+  }
+  return h`<script id="precarga-hoy" type="application/json">${raw(JSON.stringify(mapa))}</script>`;
+}
+
+// la semana: en la portada, un carril de fotos para deslizar; en «La semana», la cuadrícula. El precio en cifra va en
+// un sello con la forma del sol (disco rojo, anillo amarillo); el día, escrito a mano sobre la foto.
+function semanaLista(ctx, { fotos = false, nivel = 3, riel = false } = {}) {
+  const { lang } = ctx; const en = lang === 'en';
   const porDia = Object.fromEntries(ctx.promos.semana.map((p) => [p.dia, p]));
-  return h`<ol class="semana${fotos ? ' semana--fotos' : ''}">${ORDEN.map((d, i) => { const p = porDia[d]; const x = t(p, lang); return h`<li class="semana__dia${[1, 2, 3, 4].includes(d) ? ' semana__dia--promo' : ''}" data-dia="${d}">
-      ${cuando(fotos && p.foto && ctx.media.fotos[p.foto], () => foto(ctx, p.foto, { sizes: '(min-width: 900px) 30vw, 100vw', cls: 'semana__foto', eager: i === 0 }))}
-      <p class="semana__nombre">${x.dia}</p>${raw(`<h${nivel} class="semana__titulo">`)}${x.titulo}${raw(`</h${nivel}>`)}<p class="semana__precio cifra${/^\$\d/.test(x.precio_txt) ? '' : ' semana__precio--texto'}">${x.precio_txt}</p>
+  const cifra = (txt) => /^\$\d/.test(txt);
+  return h`<ol class="semana${fotos ? ' semana--fotos' : ''}${riel ? ' semana--riel' : ''}">${ORDEN.map((d, i) => { const p = porDia[d]; const x = t(p, lang); const conFoto = fotos && p.foto && ctx.media.fotos[p.foto]; return h`<li class="semana__dia${[1, 2, 3, 4].includes(d) ? ' semana__dia--promo' : ''}" data-dia="${d}">
+      ${cuando(conFoto, () => h`<div class="semana__marco">${foto(ctx, p.foto, { sizes: riel ? '(min-width: 62rem) 26vw, 72vw' : '(min-width: 900px) 30vw, 100vw', cls: 'semana__foto', eager: !riel && i === 0 })}
+        <span class="semana__mano" aria-hidden="true"><span class="semana__mano-dia">${x.dia.toLowerCase()}</span><span class="semana__mano-hoy">${en ? 'today!' : '¡hoy!'}</span></span>
+        ${cuando(cifra(x.precio_txt), () => h`<span class="sello-sol cifra" aria-hidden="true">${x.precio_txt}</span>`)}</div>`)}
+      <p class="semana__nombre">${x.dia}</p>${raw(`<h${nivel} class="semana__titulo">`)}${x.titulo}${raw(`</h${nivel}>`)}<p class="semana__precio cifra${cifra(x.precio_txt) ? '' : ' semana__precio--texto'}">${x.precio_txt}</p>
       <p class="semana__texto">${x.texto}</p>
-      ${cuando(fotos && p.por_confirmar, () => h`<p class="semana__nota">${lang === 'en' ? 'To be confirmed with the restaurant.' : 'Por confirmar con el restaurante.'}</p>`)}
+      ${cuando(fotos && p.por_confirmar, () => h`<p class="semana__nota">${en ? 'To be confirmed with the restaurant.' : 'Por confirmar con el restaurante.'}</p>`)}
     </li>`; })}</ol>`;
 }
 
@@ -159,12 +168,29 @@ function almuerzo(ctx, { titulo = 'h2', eager = false } = {}) {
 }
 
 function especialidades(ctx) {
-  const { lang } = ctx;
+  const { lang } = ctx; const en = lang === 'en';
   const conFoto = ctx.local.especialidades.filter((e) => e.foto);
-  return h`<section class="siempre" aria-labelledby="siempre-t">
-    <div class="siempre__cabeza"><h2 class="titulo-2" id="siempre-t">${lang === 'en' ? 'Always on the table' : 'Lo de siempre'}</h2>
-      <p>${lang === 'en' ? 'Paella, Galician octopus, tapas, the famous Segovia-style suckling pig and meats off the grill.' : 'Paella, pulpo a la gallega, tapas, el famoso cochinillo segoviano y las carnes asadas.'}</p></div>
-    <ul class="siempre__lista">${conFoto.map((e) => h`<li>${foto(ctx, e.foto, { sizes: '(min-width: 900px) 30vw, 46vw', cls: 'siempre__foto' })}<h3>${t(e, lang)}</h3></li>`)}</ul>
+  return h`<section class="cocina" aria-labelledby="cocina-t">
+    <div class="cocina__cabeza"><h2 class="titulo-2" id="cocina-t">${en ? 'From Sancho’s kitchen' : 'De la cocina de Sancho'}</h2>
+      <p>${en ? 'Paella, Galician octopus, tapas, the famous Segovia-style suckling pig and meats off the grill.' : 'Paella, pulpo a la gallega, tapas, el famoso cochinillo segoviano y las carnes asadas.'}</p></div>
+    <ul class="cocina__lista" role="list" data-destapa>${conFoto.map((e, i) => h`<li class="bocado bocado--${i + 1}">
+      ${foto(ctx, e.foto, { sizes: i === 0 ? '(min-width: 62rem) 50vw, 100vw' : '(min-width: 62rem) 25vw, 50vw', cls: 'bocado__foto' })}
+      <h3 class="bocado__nombre">${t(e, lang)}</h3>
+      ${cuando(e.nota, () => h`<span class="bocado__nota" aria-hidden="true">${t(e.nota, lang)}<svg class="bocado__flecha" viewBox="0 0 60 40" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M56 6C40 4 18 10 8 30"/><path d="M5 20l3 11 10-5"/></svg></span>`)}
+    </li>`)}</ul>
+  </section>`;
+}
+
+// con fuego de verdad: la cocina en video a todo lo ancho
+function fuego(ctx) {
+  const { lang } = ctx; const en = lang === 'en';
+  return h`<section class="fuego" aria-labelledby="fuego-t">
+    ${video(ctx, 'fuego', { cls: 'fuego__video', alt: en ? 'Shrimp flambéed in the pan and served sizzling' : 'Camarones flameados en el sartén y servidos chisporroteando' })}
+    <div class="fuego__texto">
+      <h2 class="fuego__titulo" id="fuego-t">${en ? h`Cooked over a <span>real flame</span>` : h`Con fuego <span>de verdad</span>`}</h2>
+      <p>${en ? 'From the pan, through the flame, to your table.' : 'Del sartén a la llama, y de ahí a tu mesa.'}</p>
+      <p><a class="boton boton--grande boton--flecha" href="${R.pedir[lang]}">${en ? 'Order online' : 'Pedir en línea'}${icono('flecha')}</a></p>
+    </div>
   </section>`;
 }
 
@@ -189,13 +215,16 @@ export function paginas(ctx0) {
 
     // ---- inicio
     {
-      const cuerpo = h`<div class="hero">${sol(ctx)}</div>
+      // la comida primero: el plato del día a pantalla completa (el sol lo elige), la cocina, el fuego y la semana en fotos
+      const cuerpo = h`${sol(ctx)}
+        ${especialidades(ctx)}
+        ${fuego(ctx)}
         <section class="semana-bloque" aria-labelledby="sem-t">
           <div class="semana-bloque__cabeza"><h2 class="titulo-2" id="sem-t">${lang === 'en' ? 'Sancho’s week' : 'La semana de Sancho'}</h2>
-          <p>${lang === 'en' ? 'A fixed week you can learn by heart, and happy hour Monday to Friday from 4 to 7.' : 'Una semana fija para aprendérsela de memoria, y happy hour de lunes a viernes de 4 a 7.'}</p></div>
-          ${semanaLista(ctx)}
+          <p>${lang === 'en' ? 'A fixed week you can learn by heart, and happy hour Monday to Friday from 4 to 7.' : 'Una semana fija para aprendérsela de memoria, y happy hour de lunes a viernes de 4 a 7.'}</p>
+          <p><a class="enlace-flecha" href="${R.semana[lang]}">${lang === 'en' ? 'The whole week' : 'Toda la semana'}${icono('flecha')}</a></p></div>
+          ${semanaLista(ctx, { fotos: true, riel: true })}
         </section>
-        ${especialidades(ctx)}
         ${almuerzo(ctx)}
         <section class="musica" aria-labelledby="mus-t">
           ${foto(ctx, 'noche', { sizes: '(min-width: 900px) 50vw, 100vw', cls: 'musica__foto' })}
@@ -206,14 +235,13 @@ export function paginas(ctx0) {
         <section class="club-teaser" aria-labelledby="club-t"><h2 class="titulo-2" id="club-t">${lang === 'en' ? 'Every visit counts' : 'Cada visita cuenta'}</h2>
           <p>${lang === 'en' ? 'The Sancho club is coming: a stamp per visit, a dish on the house when you fill the card, and dessert on your birthday.' : 'Viene el club de Sancho: un sello por visita, un plato de la casa al completar la tarjeta y postre en tu cumpleaños.'}</p>
           <a class="boton" href="${R.club[lang]}">${lang === 'en' ? 'About the club' : 'Así será el club'}</a></section>`;
-      out.push({ ruta: R.inicio[lang], html: pagina(ctx, { ruta: R.inicio[lang], alterna: R.inicio[otro(lang)], titulo: '', descripcion: lang === 'en' ? 'Spanish restaurant on Calle Ocho, Miami: Paella Monday at $12.99, wine Tuesday, bottomless tapas Wednesday, happy hour Monday to Friday, lunch specials from $10.99.' : 'Restaurante español en la Calle Ocho, Miami: lunes de paella a $12.99, martes de vino, miércoles de tapas ilimitadas, happy hour de lunes a viernes y almuerzo desde $10.99.', cuerpo, jsonld: [ctx.jsonldLocal(lang)], cls: 'p-inicio', precargas: h`<link rel="preload" href="/marca/sancho-sol.svg" as="image" fetchpriority="high">` }) });
+      out.push({ ruta: R.inicio[lang], html: pagina(ctx, { ruta: R.inicio[lang], alterna: R.inicio[otro(lang)], titulo: '', descripcion: lang === 'en' ? 'Spanish restaurant on Calle Ocho, Miami: Paella Monday at $12.99, wine Tuesday, bottomless tapas Wednesday, happy hour Monday to Friday, lunch specials from $10.99.' : 'Restaurante español en la Calle Ocho, Miami: lunes de paella a $12.99, martes de vino, miércoles de tapas ilimitadas, happy hour de lunes a viernes y almuerzo desde $10.99.', cuerpo, jsonld: [ctx.jsonldLocal(lang)], cls: 'p-inicio', precargas: h`<link rel="preload" href="/marca/sancho-sol.svg" as="image">${precargaHoy(ctx)}` }) });
     }
 
     // ---- la semana
     {
       const hh = ctx.promos.happy_hour;
-      const cuerpo = h`<header class="cabeza-pagina"><h1 class="titulo-1">${lang === 'en' ? 'Sancho’s week' : 'La semana de Sancho'}</h1>
-          <p class="entrada">${lang === 'en' ? 'Every day has its plate and its price.' : 'Cada día tiene su plato y su precio.'}</p></header>
+      const cuerpo = h`${cabezaPlato(ctx, { titulo: lang === 'en' ? 'Sancho’s week' : 'La semana de Sancho', entrada: lang === 'en' ? 'Every day has its plate and its price.' : 'Cada día tiene su plato y su precio.', foto: 'jamon' })}
         ${semanaLista(ctx, { fotos: true, nivel: 2 })}
         <section class="hh" aria-labelledby="hh-t">${foto(ctx, 'sangria', { sizes: '(min-width: 900px) 30vw, 60vw', cls: 'hh__foto' })}
           <div><h2 class="titulo-2" id="hh-t">${t(hh, lang).titulo}</h2><p class="hh__cuando">${rangoDias(hh.dias, lang)} · ${hora(hh.desde, lang)} – ${hora(hh.hasta, lang)}</p>
@@ -224,9 +252,8 @@ export function paginas(ctx0) {
 
     // ---- menú
     {
-      const cuerpo = h`<header class="cabeza-pagina"><h1 class="titulo-1">${lang === 'en' ? 'Menu' : 'Menú'}</h1>
-          <p class="entrada">${lang === 'en' ? 'What’s on every day, and the full menu online.' : 'Lo que hay cada día, y la carta completa en línea.'}</p></header>
-        ${almuerzo(ctx, { eager: true })}
+      const cuerpo = h`${cabezaPlato(ctx, { titulo: lang === 'en' ? 'Menu' : 'Menú', entrada: lang === 'en' ? 'What’s on every day, and the full menu online.' : 'Lo que hay cada día, y la carta completa en línea.', foto: 'bistec' })}
+        ${almuerzo(ctx)}
         <section class="carta-pendiente" aria-labelledby="cp-t">
           <h2 class="titulo-2" id="cp-t">${lang === 'en' ? 'The full menu' : 'La carta completa'}</h2>
           <p>${lang === 'en' ? 'Tapas, paella, cochinillo, meats and seafood: the whole menu is coming to this page soon, with photos. Meanwhile you can browse it in our online ordering.' : 'Tapas, paella, cochinillo, carnes y mariscos: la carta entera llega pronto a esta página, con fotos. Mientras tanto la ves completa en nuestro pedido en línea.'}</p>
@@ -238,8 +265,7 @@ export function paginas(ctx0) {
 
     // ---- pedir
     {
-      const cuerpo = h`<header class="cabeza-pagina"><h1 class="titulo-1">${lang === 'en' ? 'Order' : 'Pedir'}</h1>
-          <p class="entrada">${lang === 'en' ? 'Pick it up or get it delivered. Our own online ordering is the first option.' : 'Para recoger o a domicilio. Nuestro pedido en línea es la primera opción.'}</p></header>
+      const cuerpo = h`${cabezaPlato(ctx, { titulo: lang === 'en' ? 'Order' : 'Pedir', entrada: lang === 'en' ? 'Pick it up or get it delivered. Our own online ordering is the first option.' : 'Para recoger o a domicilio. Nuestro pedido en línea es la primera opción.', foto: 'calamares' })}
         <section class="pedir">${pedidos(ctx)}<p class="pedir__llamar">${lang === 'en' ? 'Or call us to order for pickup: ' : 'O llámanos y pide para recoger: '}${telefono(ctx)}</p></section>`;
       out.push({ ruta: R.pedir[lang], html: pagina(ctx, { ruta: R.pedir[lang], alterna: R.pedir[otro(lang)], titulo: lang === 'en' ? 'Order' : 'Pedir', descripcion: lang === 'en' ? 'Order Sancho for pickup or delivery: online ordering, DoorDash, Uber Eats and Grubhub.' : 'Pide Sancho para recoger o a domicilio: pedido en línea, DoorDash, Uber Eats y Grubhub.', cuerpo, jsonld: [ctx.jsonldLocal(lang)], cls: 'p-pedir' }) });
     }
@@ -249,9 +275,8 @@ export function paginas(ctx0) {
       const beneficios = lang === 'en'
         ? [['A stamp per visit', 'Every meal adds a stamp to the card in your phone.'], ['A dish on the house', 'Fill the card and the next dish is on us.'], ['Birthday dessert', 'Dessert on your day.']]
         : [['Un sello por visita', 'Cada comida suma un sello a la tarjeta de tu teléfono.'], ['Un plato de la casa', 'Completa la tarjeta y el siguiente plato va por nosotros.'], ['Postre de cumpleaños', 'El postre en tu día.']];
-      const cuerpo = h`<section class="club">
-          <h1 class="titulo-1">${lang === 'en' ? 'The Sancho club' : 'El club de Sancho'}</h1>
-          <p class="entrada">${lang === 'en' ? 'A card in your phone’s wallet. Opening soon: follow us to hear first.' : 'Una tarjeta en la billetera de tu teléfono. Abre muy pronto: síguenos para enterarte primero.'}</p>
+      const cuerpo = h`${cabezaPlato(ctx, { titulo: lang === 'en' ? 'The Sancho club' : 'El club de Sancho', entrada: lang === 'en' ? 'A card in your phone’s wallet. Opening soon: follow us to hear first.' : 'Una tarjeta en la billetera de tu teléfono. Abre muy pronto: síguenos para enterarte primero.', foto: 'postre' })}
+        <section class="club">
           <ol class="club__beneficios">${beneficios.map(([a, b]) => h`<li><h2 class="titulo-3">${a}</h2><p>${b}</p></li>`)}</ol>
           <p class="club__nota">${lang === 'en' ? 'Benefits to be confirmed at launch.' : 'Beneficios por confirmar al abrir.'}</p>
           <p><a class="boton boton--grande" href="${ctx.local.redes.instagram}" rel="noopener" data-ev="click_social">${lang === 'en' ? 'Follow @sanchorestaurant_' : 'Seguir a @sanchorestaurant_'}</a></p>
@@ -261,8 +286,7 @@ export function paginas(ctx0) {
 
     // ---- visita
     {
-      const cuerpo = h`<header class="cabeza-pagina"><h1 class="titulo-1">${lang === 'en' ? 'Visit' : 'Visítanos'}</h1>
-          <p class="entrada">${lang === 'en' ? 'On SW 8th Street, Calle Ocho, at SW 132nd Ave.' : 'En la SW 8th Street, la Calle Ocho, a la altura de la SW 132nd Ave.'}</p></header>
+      const cuerpo = h`${cabezaPlato(ctx, { titulo: lang === 'en' ? 'Visit' : 'Visítanos', entrada: lang === 'en' ? 'On SW 8th Street, Calle Ocho, at SW 132nd Ave.' : 'En la SW 8th Street, la Calle Ocho, a la altura de la SW 132nd Ave.', foto: 'paella' })}
         ${visita(ctx)}
         <section class="contacto"><h2 class="titulo-2">${lang === 'en' ? 'Reservations and questions' : 'Reservas y preguntas'}</h2>
           <ul class="contacto__lista"><li><span>${ui.telefono}</span> ${telefono(ctx)}</li></ul>${redes(ctx)}</section>`;

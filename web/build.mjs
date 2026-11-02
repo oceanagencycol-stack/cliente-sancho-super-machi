@@ -37,6 +37,9 @@ const local = leer(`content/${id}/local.json`);
 const BASE = previa && local.vista_previa ? local.vista_previa : local.dominio;
 sitio.dominio = BASE;
 const media = JSON.parse(fs.readFileSync(path.join(WEB, 'public', 'media', id, 'manifest.json'), 'utf8'));
+// los videos de comida (web/tools/videos.py): duración y tramos de cada corte
+const vpath = path.join(WEB, 'public', 'media', id, 'videos.json');
+const videos = fs.existsSync(vpath) ? JSON.parse(fs.readFileSync(vpath, 'utf8')) : {};
 
 // hoy en Miami (para separar próximos de pasados; el navegador lo vuelve a revisar)
 const hoy = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/New_York', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
@@ -61,6 +64,8 @@ let css = fs.readFileSync(path.join(WEB, 'css', 'fuentes.css'), 'utf8')
   .split('\n').filter((l) => !l.startsWith('@font-face') || Object.keys(nombresFuente).some((f) => l.includes(`/fuentes/${f}.woff2`))).join('\n');
 for (const [f, n] of Object.entries(nombresFuente)) css = css.replace(`/fuentes/${f}.woff2`, `/fuentes/${n}`);
 css += fs.readFileSync(path.join(WEB, 'css', 'base.css'), 'utf8') + fs.readFileSync(path.join(WEB, 'css', `${id}.css`), 'utf8');
+// el recorte de cada foto (`foco` en web/media.json): una clase por foto, porque la CSP no deja estilos en línea
+for (const [clave, f] of Object.entries(media.fotos)) if (f.foco) css += `.foco-${clave} img{object-position:${f.foco}}`;
 css = minCss(css);
 const cssNombre = `assets/${id}.${hash(css)}.css`;
 fs.writeFileSync(path.join(salida, cssNombre), css);
@@ -95,7 +100,7 @@ const lugar = () => ({
   address: { '@type': 'PostalAddress', streetAddress: local.direccion.calle, addressLocality: local.direccion.ciudad, addressRegion: local.direccion.estado, postalCode: local.direccion.cp, addressCountry: 'US' },
 });
 const ctx0 = {
-  sitio, local, media, previa, hoy,
+  sitio, local, media, videos, previa, hoy,
   assets: { css: '/' + cssNombre, js: '/' + jsNombre },
   menu: id === 'supermachi' ? leer('content/supermachi/menu.json') : null,
   eventos: id === 'supermachi' ? leer('content/supermachi/eventos.json') : null,
