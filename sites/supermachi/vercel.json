@@ -34,7 +34,7 @@
       "permanent": true
     },
     {
-      "source": "/categoria-producto/:rest*",
+      "source": "/categoria-producto/(.*)",
       "destination": "/eventos/",
       "permanent": true
     },
@@ -49,7 +49,7 @@
       "permanent": true
     },
     {
-      "source": "/mi-cuenta/:rest*",
+      "source": "/mi-cuenta/(.*)",
       "destination": "/",
       "permanent": true
     },
@@ -79,17 +79,17 @@
       "permanent": true
     },
     {
-      "source": "/category/:rest*",
+      "source": "/category/(.*)",
       "destination": "/",
       "permanent": true
     },
     {
-      "source": "/author/:rest*",
+      "source": "/author/(.*)",
       "destination": "/",
       "permanent": true
     },
     {
-      "source": "/blocks/:rest*",
+      "source": "/blocks/(.*)",
       "destination": "/",
       "permanent": true
     },
@@ -184,7 +184,7 @@
       "permanent": true
     },
     {
-      "source": "/producto/:rest*",
+      "source": "/producto/(.*)",
       "destination": "/eventos/",
       "permanent": true
     }

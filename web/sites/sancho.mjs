@@ -257,7 +257,7 @@ export function paginas(ctx0) {
 
   const redirecciones = [
     ['/nuestro-menu/', '/menu/'], ['/almuerzos-especiales/', '/menu/#almuerzo'], ['/nuestro-restaurante/', '/visita/'], ['/ubicacion/', '/visita/'],
-    ['/contactanos/', '/visita/'], ['/trabajando/', '/'], ['/hello-world/', '/'], ['/category/:rest*', '/'], ['/author/:rest*', '/'], ['/blocks/:rest*', '/'],
+    ['/contactanos/', '/visita/'], ['/trabajando/', '/'], ['/hello-world/', '/'], ['/category/(.*)', '/'], ['/author/(.*)', '/'], ['/blocks/(.*)', '/'],
   ];
   return { paginas: out, extras: [], redirecciones };
 }

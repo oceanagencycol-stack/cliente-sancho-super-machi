@@ -39,17 +39,17 @@
       "permanent": true
     },
     {
-      "source": "/category/:rest*",
+      "source": "/category/(.*)",
       "destination": "/",
       "permanent": true
     },
     {
-      "source": "/author/:rest*",
+      "source": "/author/(.*)",
       "destination": "/",
       "permanent": true
     },
     {
-      "source": "/blocks/:rest*",
+      "source": "/blocks/(.*)",
       "destination": "/",
       "permanent": true
     }

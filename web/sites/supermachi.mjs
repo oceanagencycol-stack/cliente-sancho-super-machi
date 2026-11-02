@@ -383,16 +383,16 @@ export function paginas(ctx0) {
 function redirecciones(todos) {
   const r = [
     ['/nuestro-menu/', '/menu/'], ['/platos-especiales/', '/grupos/'], ['/buffet-cubano/', '/almuerzo/'], ['/tickets/', '/eventos/'],
-    ['/tienda/', '/eventos/'], ['/tienda/page/:n/', '/eventos/'], ['/categoria-producto/:rest*', '/eventos/'], ['/carrito/', '/eventos/'],
-    ['/finalizar-compra/', '/eventos/'], ['/mi-cuenta/:rest*', '/'], ['/contactanos/', '/visita/'], ['/ubicacion/', '/visita/'],
-    ['/construccion/', '/'], ['/prueba-imc/', '/'], ['/hello-world/', '/'], ['/category/:rest*', '/'], ['/author/:rest*', '/'],
-    ['/blocks/:rest*', '/'], ['/producto/cochinillo-segoviano/', '/grupos/#cochinillo'], ['/producto/tabla-mar-y-tierra/', '/grupos/#tabla-mar-y-tierra'],
+    ['/tienda/', '/eventos/'], ['/tienda/page/:n/', '/eventos/'], ['/categoria-producto/(.*)', '/eventos/'], ['/carrito/', '/eventos/'],
+    ['/finalizar-compra/', '/eventos/'], ['/mi-cuenta/(.*)', '/'], ['/contactanos/', '/visita/'], ['/ubicacion/', '/visita/'],
+    ['/construccion/', '/'], ['/prueba-imc/', '/'], ['/hello-world/', '/'], ['/category/(.*)', '/'], ['/author/(.*)', '/'],
+    ['/blocks/(.*)', '/'], ['/producto/cochinillo-segoviano/', '/grupos/#cochinillo'], ['/producto/tabla-mar-y-tierra/', '/grupos/#tabla-mar-y-tierra'],
     ['/producto/tabla-mar-tierra/', '/grupos/#tabla-mar-y-tierra'], ['/producto/ticket/', '/eventos/'],
   ];
   for (const e of todos) {
     if (e.url_vieja) r.push([new URL(e.url_vieja).pathname, `/eventos/${e.id}/`]);
     if (e.url_vieja_tambien) r.push([new URL(e.url_vieja_tambien).pathname, `/eventos/${e.id}/`]);
   }
-  r.push(['/producto/:rest*', '/eventos/']);
+  r.push(['/producto/(.*)', '/eventos/']);
   return r;
 }

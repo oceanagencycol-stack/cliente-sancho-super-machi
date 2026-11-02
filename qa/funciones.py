@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """Pruebas de lo que hace cada web, en un navegador de verdad, contra los servidores locales (qa/serve.py) o una vista previa.
 Uso: python3 qa/funciones.py [url-supermachi] [url-sancho]      (por defecto http://localhost:4302 y http://localhost:4301)
-Termina en «todo en verde» o lista los fallos."""
+Contra una vista previa protegida de Vercel: COMPARTIR_SM y COMPARTIR_SA con el enlace para compartir de cada una
+(no se imprimen ni se guardan). Termina en «todo en verde» o lista los fallos."""
+import os
 import json
 import re
 import sys
@@ -25,39 +27,33 @@ def comprobar(cond, msg):
         print('  ✗', msg)
 
 
-class NoRedir(urllib.request.HTTPRedirectHandler):
-    def redirect_request(self, *a, **k):
-        return None
-
-
-def estado(url):
-    op = urllib.request.build_opener(NoRedir)
-    try:
-        r = op.open(url, timeout=20)
-        return r.status, r.headers.get('Location')
-    except urllib.error.HTTPError as e:
-        return e.code, e.headers.get('Location')
-
-
 hoy = datetime.now(ZoneInfo('America/New_York'))
 dow = (hoy.weekday() + 1) % 7  # 0 = domingo
-
-print('redirecciones y estados')
-for base, viejo, nuevo in [(SM, '/nuestro-menu/', '/menu/'), (SM, '/producto/2-de-octubre-anselmo-el-mudo-ronny/', '/eventos/2026-10-02-anselmo-el-mudo-y-ronny/'),
-                           (SM, '/producto/17-de-julio-qva-libre/', '/eventos/2026-07-31-qva-libre/'), (SM, '/buffet-cubano/', '/almuerzo/'),
-                           (SM, '/platos-especiales/', '/grupos/'), (SM, '/tickets/', '/eventos/'), (SM, '/producto/algo-que-no-existe/', '/eventos/'),
-                           (SA, '/nuestro-menu/', '/menu/'), (SA, '/nuestro-restaurante/', '/visita/'), (SA, '/contactanos/', '/visita/')]:
-    s, loc = estado(base + viejo)
-    comprobar(s in (301, 308) and loc and loc.endswith(nuevo), f'{base}{viejo} → {s} {loc} (esperaba {nuevo})')
-for base in (SM, SA):
-    comprobar(estado(base + '/esto-no-existe/')[0] == 404, f'{base}/esto-no-existe/ no da 404')
-    comprobar(estado(base + '/robots.txt')[0] == 200, f'{base}/robots.txt')
 
 with sync_playwright() as p:
     b = p.chromium.launch()
     movil = dict(viewport={'width': 390, 'height': 844}, device_scale_factor=2, is_mobile=True, has_touch=True, locale='es-US')
     ctx = b.new_context(**movil)
     ctx.route('https://wa.me/**', lambda r: r.fulfill(status=200, body='wa'))
+    for clave in ('COMPARTIR_SM', 'COMPARTIR_SA'):
+        if os.environ.get(clave):  # deja la cookie de acceso de Vercel en el contexto
+            pg0 = ctx.new_page(); pg0.goto(os.environ[clave], wait_until='domcontentloaded'); pg0.close()
+
+    def estado(url):
+        r = ctx.request.get(url, max_redirects=0)
+        return r.status, r.headers.get('location')
+
+    print('redirecciones y estados')
+    for base, viejo, nuevo in [(SM, '/nuestro-menu/', '/menu/'), (SM, '/producto/2-de-octubre-anselmo-el-mudo-ronny/', '/eventos/2026-10-02-anselmo-el-mudo-y-ronny/'),
+                               (SM, '/producto/17-de-julio-qva-libre/', '/eventos/2026-07-31-qva-libre/'), (SM, '/buffet-cubano/', '/almuerzo/'),
+                               (SM, '/platos-especiales/', '/grupos/'), (SM, '/tickets/', '/eventos/'), (SM, '/producto/algo-que-no-existe/', '/eventos/'),
+                               (SA, '/nuestro-menu/', '/menu/'), (SA, '/nuestro-restaurante/', '/visita/'), (SA, '/contactanos/', '/visita/')]:
+        s, loc = estado(base + viejo)
+        comprobar(s in (301, 308) and loc and loc.endswith(nuevo), f'{base}{viejo} → {s} {loc} (esperaba {nuevo})')
+    for base in (SM, SA):
+        comprobar(estado(base + '/esto-no-existe/')[0] == 404, f'{base}/esto-no-existe/ no da 404')
+        comprobar(estado(base + '/robots.txt')[0] == 200, f'{base}/robots.txt')
+
 
     print('Súper Machi · portada')
     pg = ctx.new_page(); errores = []
@@ -134,10 +130,12 @@ with sync_playwright() as p:
     pg.goto(SA + '/pedir/', wait_until='networkidle')
     hrefs = pg.locator('.pedidos a').evaluate_all('as => as.map(a => a.href)')
     comprobar(len(hrefs) == 4 and 'order.online' in hrefs[0], f'pedidos: {hrefs}')
+    cookies = ctx.cookies()
     ctx.close()
 
     print('sin JavaScript')
     nojs = b.new_context(java_script_enabled=False, **movil)
+    nojs.add_cookies(cookies) if cookies else None  # el acceso a la vista previa, si lo hay
     pg = nojs.new_page()
     pg.goto(SM + '/menu/')
     comprobar(pg.locator('.plato').count() > 200 and pg.locator('.plato__mas').first.is_hidden(), 'sin JS el menú se ve entero y sin botones de comanda')
