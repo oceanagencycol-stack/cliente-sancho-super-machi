@@ -15,10 +15,10 @@ española de calidad al mejor precio** (centro de promociones: la promo de hoy s
    en el restaurante» o no lo muestra. Nada de precios, horarios, eventos ni reseñas inventados.
 4. **Eventos:** solo los que el restaurante confirma. Los pasados quedan como archivo («ya pasó») y nunca se venden.
 5. **Fotos:** solo las del restaurante (su biblioteca de medios o lo que entregue). Las de bancos de imágenes que traía
-   la plantilla vieja no se reutilizan (`stock: true` en el inventario). Nada generado con IA que muestre un plato.
+   la plantilla vieja no se reutilizan (lista en `web/media.json`, clave `stock`). Nada generado con IA que muestre un plato.
 6. **Reseñas con nombre** (las de Google que mostraba Trustindex) no se copian: se enlaza a Google.
 7. Las webs nuevas son **vistas previas privadas** (noindex) hasta el visto bueno del cliente; cambiar el dominio a la
-   web nueva lo confirma Juan. Las URL viejas redirigen con 301 a su equivalente (`web/sites/<sitio>/redirects.json`).
+   web nueva lo confirma Juan. Las URL viejas redirigen con 301 a su equivalente (las listas al final de `web/sites/<sitio>.mjs`).
 8. Commits con identidad `oceanagencycol-stack <oceanagencycol@gmail.com>`. Cero secretos en el repo y en el frontend.
 
 ## Dónde está cada cosa
