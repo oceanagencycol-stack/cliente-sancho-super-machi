@@ -8,8 +8,8 @@
 | `sancho-web` | `sites/sancho` | `node ../../web/build.mjs sancho` | `dist` | `echo sin dependencias` |
 
 Framework: *Other*. «Include source files outside of the Root Directory»: activado (el build lee `web/` y `content/`).
-Cada push a `main` publica las dos. El build no instala nada: las fotos, fuentes y logos ya van optimizados en
-`web/public/`. `sites/<sitio>/vercel.json` lo escribe el build y se commitea: si cambias redirecciones o la CSP, corre el
+Cada push a `main` publica las dos. El build no instala nada: las fotos, los videos, las fuentes y los logos ya van
+optimizados en `web/public/` (los videos, unos 9–10 MB por web, van en git normal y no en LFS: Vercel no baja LFS). `sites/<sitio>/vercel.json` lo escribe el build y se commitea: si cambias redirecciones o la CSP, corre el
 build en local y commitea el `vercel.json` nuevo (Vercel lo lee antes de construir).
 
 ## Vista previa (hoy)
@@ -40,7 +40,11 @@ build en local y commitea el `vercel.json` nuevo (Vercel lo lee antes de constru
 2. **La cartelera de noviembre y diciembre** de Súper Machi: fecha, artista, flyer, hora, y el enlace de DigitalTike de
    cada show que venda entradas.
 3. **La carta completa de Sancho** (no existe en su web: el menú daba 404 y el PDF estaba en blanco).
-4. **Lanzar** (con el visto bueno del cliente):
+4. **Fotos y videos en alta** (si los tienen): los originales de su biblioteca llegan hasta 1600 px y el video de la
+   paella dura 2 s y está desenfocado. Con una toma nítida de la paella (y las fotos en su tamaño original) el lunes de
+   Sancho se ve tan nítido como la portada de Súper Machi. Se ponen en `media/<sitio>/originales/` y se corren
+   `node web/tools/imagenes.mjs` y `python3 web/tools/videos.py`.
+5. **Lanzar** (con el visto bueno del cliente):
    - `node web/build.mjs <sitio> --lanzar` en el build de Vercel (cambiar el Build Command) quita el banner y el noindex.
    - Agregar los dominios en cada proyecto de Vercel (`supermachirestaurante.com` y `www.`; `sanchorestaurantemiami.com`
      y `www.`) y cambiar los DNS donde estén registrados (hoy apuntan al hosting de WordPress). Antes, guardar una copia
@@ -48,7 +52,7 @@ build en local y commitea el `vercel.json` nuevo (Vercel lo lee antes de constru
    - Después del cambio: Google Search Console de cada dominio, enviar `sitemap.xml`, revisar que las URL viejas
      redirijan (`qa/funciones.py https://supermachirestaurante.com https://sanchorestaurantemiami.com`).
    - Actualizar el enlace de la web en Google Business Profile, Instagram y las apps de domicilio.
-5. Opcional: un *deploy hook* diario para que la portada mueva sola los shows del día anterior al archivo (la web ya lo
+6. Opcional: un *deploy hook* diario para que la portada mueva sola los shows del día anterior al archivo (la web ya lo
    hace en el navegador; el hook lo deja también en el HTML).
 
 ## Comprobar un deploy
