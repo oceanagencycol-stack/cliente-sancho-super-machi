@@ -9,7 +9,7 @@ Repo de Ocean Industries para rehacer desde cero las webs de **Sancho Restaurant
 - **Sancho** = cocina española de calidad al mejor precio: el sol de la semana (la promo de hoy con la hora de Miami),
   la semana completa, almuerzo y menú ejecutivo, pedidos en línea y a domicilio, club y visita.
 - Las dos en español (`/`) e inglés (`/en/`), HTML estático, sin cookies ni rastreadores, con datos estructurados
-  (Restaurant, Menu, Event) y redirecciones 301 desde cada URL vieja. El diseño de cada una está en `DESIGN.md`.
+  (Restaurant, Menu, Event) y redirecciones permanentes (308) desde cada URL vieja. El diseño de cada una está en `DESIGN.md`.
 
 ## Qué hay
 
