@@ -53,6 +53,8 @@ with sync_playwright() as p:
     for base in (SM, SA):
         comprobar(estado(base + '/esto-no-existe/')[0] == 404, f'{base}/esto-no-existe/ no da 404')
         comprobar(estado(base + '/robots.txt')[0] == 200, f'{base}/robots.txt')
+        rob = ctx.request.get(base + '/robots.txt').text()
+        comprobar('Disallow: /' not in rob or 'facebookexternalhit' in rob, f'{base}/robots.txt deja leer la página a las tarjetas de enlace (WhatsApp, Facebook)')
 
 
     print('Súper Machi · portada')
@@ -67,6 +69,11 @@ with sync_playwright() as p:
     lds = [json.loads(x) for x in pg.locator('script[type="application/ld+json"]').all_inner_texts()]
     comprobar(any(l.get('@type') == 'Restaurant' and l.get('hasMenu') for l in lds), 'JSON-LD Restaurant con hasMenu')
     comprobar(not errores, f'errores en la portada: {errores[:3]}')
+    og = pg.locator('meta[property="og:image"]').get_attribute('content') or ''
+    comprobar(og.startswith('https://') and 'supermachirestaurante.com' not in og if pg.locator('meta[name="robots"]').count() else og.startswith('https://supermachirestaurante.com'), f'og:image de la vista previa apunta a la vista previa, no a la web vieja ({og})')
+    pg.evaluate("window.scrollTo(0, document.querySelector('.pared--hero').getBoundingClientRect().top + scrollY - innerHeight / 2 + 80)"); pg.wait_for_timeout(2600)
+    comprobar(pg.locator('.pared--hero .cartel--luz').count() >= 1, 'la luz del escenario enciende el cartel que cruza el centro de la pantalla')
+    comprobar(pg.locator('.pared__luz').count() == 0, 'en el teléfono no hay luz de puntero')
 
     print('Súper Machi · menú: buscador y comanda')
     pg.goto(SM + '/menu/', wait_until='networkidle')
@@ -108,6 +115,8 @@ with sync_playwright() as p:
     print('Súper Machi · página de un show pasado e inglés')
     pg.goto(SM + '/eventos/2026-10-02-anselmo-el-mudo-y-ronny/', wait_until='networkidle')
     comprobar(pg.locator('.evento__estado').is_visible() and pg.locator('#reservar').count() == 0, 'un show pasado no ofrece reservar')
+    comprobar(pg.locator('.evento__aura[aria-hidden="true"]').count() == 1, 'el aura del flyer detrás del show (decorativa)')
+    comprobar(pg.evaluate("getComputedStyle(document.querySelector('.evento__flyer img')).viewTransitionName") == 'flyer', 'el flyer del show recibe el cartel de la pared (View Transitions)')
     lds = [json.loads(x) for x in pg.locator('script[type="application/ld+json"]').all_inner_texts()]
     comprobar(any(l.get('@type') == 'Event' and l.get('startDate') == '2026-10-02' for l in lds), 'JSON-LD Event con su fecha')
     pg.goto(SM + '/en/shows/', wait_until='networkidle')
@@ -122,6 +131,10 @@ with sync_playwright() as p:
     pg.click('.sol__dia[data-dia="3"]'); pg.wait_for_timeout(1000)
     comprobar(pg.locator('.sol__panel[data-dia="3"]').is_visible() and '$30' in pg.locator('.sol__panel[data-dia="3"]').inner_text(), 'el miércoles dice $30')
     comprobar(pg.locator('.sol__panel:visible').count() == 1, 'un solo panel a la vez')
+    comprobar(pg.locator('.sol.sol--cambio').count() == 1 and pg.locator('.sol__halo.pulso').count() == 1, 'al tocar un día el texto entra y el halo late')
+    comprobar(pg.locator('svg.cielo[aria-hidden="true"] .astro').count() >= 9, 'el cielo de Miró alrededor del sol (decorativo)')
+    caja = pg.evaluate("(() => { const c = document.querySelector('.cielo').getBoundingClientRect(), r = document.querySelector('.sol__rueda').getBoundingClientRect(); return [c.width / r.width, document.documentElement.scrollWidth <= innerWidth]; })()")
+    comprobar(abs(caja[0] - 1.28) < 0.02 and caja[1], f'el cielo mide 128 % de la rueda y no ensancha la página ({caja})')
     pg.focus('.sol__dia[data-dia="3"]'); pg.keyboard.press('ArrowRight'); pg.wait_for_timeout(300)
     comprobar(pg.locator('.sol__dia[data-dia="4"]').get_attribute('aria-selected') == 'true', 'la flecha pasa al jueves')
     giro = pg.evaluate("getComputedStyle(document.querySelector('.sol__arte')).getPropertyValue('--giro')")

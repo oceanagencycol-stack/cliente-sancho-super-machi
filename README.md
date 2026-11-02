@@ -9,7 +9,10 @@ Repo de Ocean Industries para rehacer desde cero las webs de **Sancho Restaurant
 - **Sancho** = cocina española de calidad al mejor precio: el sol de la semana (la promo de hoy con la hora de Miami),
   la semana completa, almuerzo y menú ejecutivo, pedidos en línea y a domicilio, club y visita.
 - Las dos en español (`/`) e inglés (`/en/`), HTML estático, sin cookies ni rastreadores, con datos estructurados
-  (Restaurant, Menu, Event) y redirecciones permanentes (308) desde cada URL vieja. El diseño de cada una está en `DESIGN.md`.
+  (Restaurant, Menu, Event) y redirecciones permanentes (308) desde cada URL vieja. El diseño de cada una está en `DESIGN.md`;
+  la capa «un poquito inmersiva» (2-nov) es la luz del escenario y el paso del muro al show en Súper Machi, y el cielo de
+  Miró en Sancho, más el paso sin cortes de una página a otra.
+- **Vista previa pública** (noindex, para mandarle al cliente): https://supermachi-web.vercel.app y https://sancho-miami.vercel.app.
 
 ## Qué hay
 
@@ -21,7 +24,7 @@ Repo de Ocean Industries para rehacer desde cero las webs de **Sancho Restaurant
 | `archivo/<sitio>/` | Cada web vieja tal como estaba el 2026-11-02 (HTML, API de WordPress, `robots.txt`). No se edita. |
 | `media/<sitio>/originales/` | Los originales de su biblioteca de medios y los PDF del menú (Git LFS). `media/<sitio>/marca/` los logos que mandó Juan. |
 | `data/` | Lo extraído en limpio y `fuentes.json`: cada dato con fuente, fecha y estado (lo dudoso, `por_confirmar`). |
-| `qa/` | `serve.py` (sirve `dist/` como Vercel), `funciones.py` (48 pruebas en navegador), `ver.py` (capturas de teléfono y escritorio). |
+| `qa/` | `serve.py` (sirve `dist/` como Vercel), `funciones.py` (58 pruebas en navegador), `ver.py` (capturas de teléfono y escritorio). |
 | `tools/` | `extraer.py` (la extracción) y `logos.py` (los logos vectoriales). |
 
 ## Comandos

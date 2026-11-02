@@ -3,6 +3,7 @@
  "nombre": "Sancho Restaurant",
  "nombre_corto": "Sancho",
  "dominio": "https://sanchorestaurantemiami.com",
+ "vista_previa": "https://sancho-miami.vercel.app",
  "lema": {
   "es": "Cocina española de calidad al mejor precio",
   "en": "Real Spanish cooking at an honest price"

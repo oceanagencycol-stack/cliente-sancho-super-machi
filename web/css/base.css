@@ -189,4 +189,17 @@ body.hoja-abierta{overflow:hidden}
 .contacto__lista li{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.25rem 1rem;padding:.6rem 0;border-bottom:1px solid var(--linea);max-width:36rem}
 .contacto__lista span{color:var(--texto-2)}
 
-@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+/* inmersión común: de una página a otra no hay corte (View Transitions entre documentos); la cabecera y la barra de
+   acciones se quedan quietas y el contenido entra con un fundido corto. Sin soporte, se navega como siempre. */
+@view-transition{navigation:auto}
+.cabecera{view-transition-name:cabecera}
+.acciones{view-transition-name:acciones}
+::view-transition-old(root){animation:vt-sale .2s cubic-bezier(.4,0,1,1) both}
+::view-transition-new(root){animation:vt-entra .42s cubic-bezier(.2,.7,.2,1) both}
+@keyframes vt-sale{to{opacity:0}}
+@keyframes vt-entra{from{opacity:0;transform:translateY(.9rem)}}
+/* fotos que se acercan al entrar en pantalla (cada sitio dice cuáles, con la clase de su <picture>) */
+@keyframes acercar{from{transform:scale(1.1)}to{transform:scale(1)}}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+  ::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}}

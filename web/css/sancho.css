@@ -25,7 +25,7 @@
 .pie .horario__vivo.es-abierto::before{background:var(--sol)}
 
 /* ---------- la firma: el sol de la semana */
-.hero{width:100%!important;max-width:none;background:var(--tinta);padding:clamp(1.5rem,5vw,3.5rem) var(--canal) clamp(2.5rem,6vw,4.5rem);margin-top:0}
+.hero{width:100%!important;max-width:none;background:var(--tinta);padding:clamp(1.5rem,5vw,3.5rem) var(--canal) clamp(2.5rem,6vw,4.5rem);margin-top:0;overflow:hidden;overflow:clip}
 .sol{width:min(75rem,100%);margin-inline:auto;display:grid;gap:clamp(1.5rem,4vw,3rem);align-items:center;
   --giro-hoy:50deg}
 html[data-hoy="2"] .sol{--giro-hoy:101.43deg}html[data-hoy="3"] .sol{--giro-hoy:152.86deg}html[data-hoy="4"] .sol{--giro-hoy:204.29deg}
@@ -44,6 +44,29 @@ html[data-hoy="5"] .sol{--giro-hoy:255.71deg}html[data-hoy="6"] .sol{--giro-hoy:
 .sol__dia--4{left:30.69%;top:90.09%}.sol__dia--5{left:6.62%;top:59.9%}.sol__dia--6{left:15.21%;top:22.25%}
 .sol__dia.es-hoy{border-color:var(--rojo)}
 @media (hover:hover){.sol__dia:hover{border-color:var(--sol)}}
+/* inmersión, un poquito: el halo del sol (late una vez al cambiar de día) y el cielo de Miró alrededor (astros en tres
+   capas que se mueven distinto con el scroll y, con ratón, con el puntero; el sol se inclina hacia él) */
+.sol__halo{position:absolute;left:50%;top:50%;width:82%;aspect-ratio:1;border-radius:50%;transform:translate(-50%,-50%);pointer-events:none;
+  background:radial-gradient(closest-side,rgba(240,232,61,.2),rgba(240,232,61,.07) 55%,rgba(240,232,61,0))}
+.sol__halo.pulso{animation:pulso .95s cubic-bezier(.2,.7,.2,1)}
+@keyframes pulso{0%{opacity:.4;transform:translate(-50%,-50%) scale(.8)}40%{opacity:1;transform:translate(-50%,-50%) scale(1.14)}100%{opacity:1;transform:translate(-50%,-50%) scale(1)}}
+.cielo{position:absolute;left:-14%;top:-14%;width:128%;height:128%;max-width:none;pointer-events:none;overflow:visible}
+.astro{stroke-width:0}
+.astro--blanco{fill:var(--papel);stroke:var(--papel);opacity:.78}
+.astro--sol{fill:var(--sol);stroke:var(--sol)}
+.astro--rojo{fill:#E0393B;stroke:#E0393B}
+.astro--trazo{fill:none;stroke-width:.75;stroke-linecap:round;stroke-linejoin:round}
+@keyframes deriva{to{transform:translateY(var(--dy,0))}}
+@supports (animation-timeline:scroll()){@media (prefers-reduced-motion:no-preference){
+  .cielo__capa{animation:deriva linear both;animation-timeline:scroll(root);animation-range:0 100vh}
+  .cielo__capa--1{--dy:9px}.cielo__capa--2{--dy:3px}.cielo__capa--3{--dy:-11px}
+}}
+@media (min-width:62rem){.sol{perspective:1100px}}
+/* al tocar otro día, el texto entra (solo después del primer toque: lo que ya se veía no parpadea) */
+@keyframes entra-panel{from{opacity:0;transform:translateY(.6rem)}}
+@keyframes entra-cara{from{opacity:0;transform:scale(.72)}}
+.sol--cambio .sol__panel{animation:entra-panel .45s cubic-bezier(.2,.7,.2,1)}
+.sol--cambio .sol__cara{animation:entra-cara .5s cubic-bezier(.2,.75,.15,1)}
 .sol__panel{display:none}
 .sol__panel{max-width:34rem}
 .sol__cuando{font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:.9rem;color:var(--sol)}
@@ -56,7 +79,8 @@ html[data-hoy="5"] .sol{--giro-hoy:255.71deg}html[data-hoy="6"] .sol{--giro-hoy:
 .sol__acciones .boton{background:var(--sol);border-color:var(--sol);color:var(--tinta)}
 .sol__acciones .boton--sutil{background:transparent;color:var(--papel);border-color:#5A4E48}
 @media (hover:hover){.sol__acciones .boton:hover{background:#fff;border-color:#fff;color:var(--tinta)}.sol__acciones .boton--sutil:hover{background:#1F1917;border-color:var(--papel);color:var(--papel)}}
-@media (min-width:62rem){.sol{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.sol__rueda{order:2}}
+@media (min-width:62rem){.sol{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.sol__rueda{order:2;width:min(100%,38rem,62svh)}}
+@media (max-width:47.99rem){.sol__acciones .boton{flex:1 1 auto}}
 /* qué día se ve: antes del JS lo dice <html data-hoy> (el script de arranque); después, .sol[data-activo] */
 html:not([data-hoy]) .sol:not([data-activo]) [data-dia="1"]:is(.sol__panel,.sol__cara){display:block}
 html:not([data-hoy]) .sol:not([data-activo]) .sol__dia[data-dia="1"]{background:var(--sol);border-color:var(--sol);color:var(--tinta)}
@@ -89,6 +113,12 @@ html[data-hoy="6"] .sol__panel[data-dia="6"] .sol__hoy{display:inline}
 .semana__texto{grid-column:2/-1;color:var(--gris);font-size:.95rem}
 .semana__nota{font-size:.8125rem;color:var(--gris);font-style:italic}
 .semana__dia:not(.semana__dia--promo) .semana__precio{color:var(--gris);font-family:var(--font-text);font-weight:600;font-size:.9rem}
+/* un precio que no es cifra («Gratis con $20», «Pregunta el precio») va en texto, no en el display grande */
+.semana__precio--texto{font-family:var(--font-text);font-weight:700;font-size:.95rem;letter-spacing:0;line-height:1.25}
+@media (max-width:47.99rem){
+  .semana:not(.semana--fotos) .semana__dia{grid-template-columns:minmax(0,1fr) auto;gap:.25rem 1rem}
+  .semana:not(.semana--fotos) .semana__nombre,.semana:not(.semana--fotos) .semana__texto{grid-column:1/-1}
+  .semana:not(.semana--fotos) .semana__precio--texto{max-width:9.5rem}}
 html[data-hoy="0"] .semana__dia[data-dia="0"],html[data-hoy="1"] .semana__dia[data-dia="1"],html[data-hoy="2"] .semana__dia[data-dia="2"],html[data-hoy="3"] .semana__dia[data-dia="3"],
 html[data-hoy="4"] .semana__dia[data-dia="4"],html[data-hoy="5"] .semana__dia[data-dia="5"],html[data-hoy="6"] .semana__dia[data-dia="6"]{background:linear-gradient(90deg,rgba(240,232,61,.38),rgba(240,232,61,0) 80%);box-shadow:inset 4px 0 0 var(--sol);padding-left:.9rem}
 .semana--fotos{border-top:0;gap:1.5rem;grid-template-columns:1fr}
@@ -97,6 +127,7 @@ html[data-hoy="0"] .semana--fotos [data-dia="0"] .semana__nombre::after,html[dat
 html[lang=en] .semana--fotos{--hoy-txt:" · today"}
 .semana--fotos .semana__dia{grid-template-columns:1fr;padding:0 0 1.25rem;align-items:start}
 .semana--fotos .semana__precio{text-align:left;font-size:1.6rem}
+.semana--fotos .semana__precio--texto{font-size:1.15rem}
 .semana--fotos .semana__foto{grid-column:1/-1;margin-bottom:.9rem}
 .semana--fotos .semana__foto img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:var(--radio)}
 .semana--fotos .semana__nombre{grid-column:1/-1}
@@ -113,6 +144,7 @@ html[lang=en] .semana--fotos{--hoy-txt:" · today"}
 .siempre__foto img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:var(--radio)}
 .siempre__lista li:first-child .siempre__foto img{aspect-ratio:auto;height:100%}
 .siempre__lista li{display:grid;grid-template-rows:1fr auto;gap:.5rem}
+.siempre__lista li:not(:first-child){grid-template-rows:auto auto;align-content:start}
 .siempre__lista h3{font-family:var(--font-display);font-weight:800;font-size:1.15rem;letter-spacing:-.02em}
 
 /* ---------- almuerzo */
@@ -163,3 +195,9 @@ html[lang=en] .semana--fotos{--hoy-txt:" · today"}
 .pedir{max-width:36rem;margin-top:2rem}
 .pedir__llamar{margin-top:1.25rem}
 .pedidos a{border-radius:999px;padding-inline:1.4rem}
+
+/* fotos que se acercan al entrar en pantalla (solo con animaciones por scroll y sin movimiento reducido) */
+@supports (animation-timeline:view()){@media (prefers-reduced-motion:no-preference){
+  .semana__foto,.siempre__foto,.almuerzo__foto,.musica__foto,.visita__foto,.hh__foto{overflow:hidden;border-radius:var(--radio)}
+  .semana__foto img,.siempre__foto img,.almuerzo__foto img,.musica__foto img,.visita__foto img,.hh__foto img{animation:acercar linear both;animation-timeline:view();animation-range:entry 0% cover 55%}
+}}

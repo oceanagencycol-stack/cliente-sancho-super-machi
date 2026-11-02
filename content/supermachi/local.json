@@ -3,6 +3,7 @@
  "nombre": "El Mesón de Súper Machi",
  "nombre_corto": "Súper Machi",
  "dominio": "https://supermachirestaurante.com",
+ "vista_previa": "https://supermachi-web.vercel.app",
  "lema": {
   "es": "La casa de los eventos",
   "en": "Miami’s house of shows"

@@ -27,6 +27,27 @@ const DISCO = {
 };
 const ORDEN = [1, 2, 3, 4, 5, 6, 0];
 
+// el cielo de Miró alrededor del sol: astros chicos entre los días (coordenadas de la rueda, 0–100; el SVG cubre -14…114).
+// Tres capas de profundidad que se mueven distinto con el scroll y, con ratón, con el puntero. Decorativo: aria-hidden.
+const ASTROS = [
+  // [capa, forma, color, x, y, tamaño]
+  [3, 'estrella', 'blanco', 69.3, 9.9, 3.4], [1, 'punto', 'rojo', 93.4, 40.1, 1.3], [2, 'estrella', 'sol', 84.8, 77.7, 2.3],
+  [2, 'luna', 'blanco', 15.2, 77.7, 4.2], [3, 'punto', 'sol', 6.6, 40.1, 1.5], [1, 'anillo', 'rojo', 30.7, 9.9, 2.1],
+  [1, 'estrella', 'blanco', 50, 97, 1.9], [2, 'constelacion', 'blanco', 0, 6, 1], [3, 'estrella', 'sol', 101, 101, 2.5],
+];
+function astro([, forma, color, x, y, r]) {
+  const c = `astro astro--${color}`;
+  const n = (v) => +v.toFixed(2);
+  if (forma === 'punto') return `<circle class="${c}" cx="${x}" cy="${y}" r="${r}"/>`;
+  if (forma === 'anillo') return `<circle class="${c} astro--trazo" cx="${x}" cy="${y}" r="${r}"/>`;
+  // media luna: borde exterior en semicírculo y el interior en un arco más abierto (abre hacia la derecha)
+  if (forma === 'luna') return `<path class="${c}" d="M${n(x + r * 0.55)} ${n(y - r)}a${r} ${r} 0 1 0 0 ${n(2 * r)}a${n(r * 1.25)} ${n(r * 1.25)} 0 0 1 0 -${n(2 * r)}z"/>`;
+  if (forma === 'constelacion') return `<g class="${c}"><path class="astro--trazo" d="M${x - 3} ${y + 3}L${x + 3} ${y - 3}L${x + 10} ${y - 1}"/><circle cx="${x - 3}" cy="${y + 3}" r=".9"/><circle cx="${x + 3}" cy="${y - 3}" r="1.2"/><circle cx="${x + 10}" cy="${y - 1}" r=".8"/></g>`;
+  const d = n(r * 0.7071);
+  return `<g class="${c}"><path class="astro--trazo" d="M${x} ${n(y - r)}V${n(y + r)}M${n(x - r)} ${y}H${n(x + r)}M${n(x - d)} ${n(y - d)}L${n(x + d)} ${n(y + d)}M${n(x - d)} ${n(y + d)}L${n(x + d)} ${n(y - d)}"/><circle cx="${x}" cy="${y}" r="${n(r * 0.28)}"/></g>`;
+}
+const cielo = () => raw(`<svg class="cielo" viewBox="-14 -14 128 128" aria-hidden="true" focusable="false">${[1, 2, 3].map((capa) => `<g class="cielo__capa cielo__capa--${capa}">${ASTROS.filter((a) => a[0] === capa).map(astro).join('')}</g>`).join('')}</svg>`);
+
 export const sitio = {
   id: 'sancho',
   nombre: 'Sancho Restaurant',
@@ -85,6 +106,8 @@ function sol(ctx) {
   const porDia = Object.fromEntries(sem.map((p) => [p.dia, p]));
   return h`<section class="sol" data-sol aria-labelledby="sol-t">
     <div class="sol__rueda">
+      <span class="sol__halo" aria-hidden="true"></span>
+      ${cielo()}
       <img class="sol__arte" src="/marca/sancho-sol.svg" alt="" width="1471" height="1303">
       <div class="sol__disco" aria-hidden="true">${ORDEN.map((d) => { const g = DISCO[d][lang][0]; return h`<p class="sol__cara" data-dia="${d}"><b class="${g.length >= 9 ? 'muy-largo' : g.length >= 7 ? 'largo' : ''}">${g}</b><span>${DISCO[d][lang][1]}</span></p>`; })}</div>
       <div class="sol__dias" role="tablist" aria-label="${lang === 'en' ? 'Day of the week' : 'Día de la semana'}">
@@ -110,7 +133,7 @@ function semanaLista(ctx, { fotos = false } = {}) {
   const porDia = Object.fromEntries(ctx.promos.semana.map((p) => [p.dia, p]));
   return h`<ol class="semana${fotos ? ' semana--fotos' : ''}">${ORDEN.map((d) => { const p = porDia[d]; const x = t(p, lang); return h`<li class="semana__dia${[1, 2, 3, 4].includes(d) ? ' semana__dia--promo' : ''}" data-dia="${d}">
       ${cuando(fotos && p.foto && ctx.media.fotos[p.foto], () => foto(ctx, p.foto, { sizes: '(min-width: 900px) 30vw, 100vw', cls: 'semana__foto' }))}
-      <p class="semana__nombre">${x.dia}</p><h3 class="semana__titulo">${x.titulo}</h3><p class="semana__precio cifra">${x.precio_txt}</p>
+      <p class="semana__nombre">${x.dia}</p><h3 class="semana__titulo">${x.titulo}</h3><p class="semana__precio cifra${/^\$\d/.test(x.precio_txt) ? '' : ' semana__precio--texto'}">${x.precio_txt}</p>
       <p class="semana__texto">${x.texto}</p>
       ${cuando(fotos && p.por_confirmar, () => h`<p class="semana__nota">${lang === 'en' ? 'To be confirmed with the restaurant.' : 'Por confirmar con el restaurante.'}</p>`)}
     </li>`; })}</ol>`;

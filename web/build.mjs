@@ -32,7 +32,10 @@ if (!previa) {
 
 const { sitio, paginas } = await import(`./sites/${id}.mjs`);
 const local = leer(`content/${id}/local.json`);
-sitio.dominio = local.dominio;
+// la vista previa se comparte por su propia dirección (canonical, og:url y og:image apuntan a ella): las webs viejas siguen
+// en el dominio del restaurante hasta el lanzamiento y una tarjeta de WhatsApp no debe mostrar la web vieja.
+const BASE = previa && local.vista_previa ? local.vista_previa : local.dominio;
+sitio.dominio = BASE;
 const media = JSON.parse(fs.readFileSync(path.join(WEB, 'public', 'media', id, 'manifest.json'), 'utf8'));
 
 // hoy en Miami (para separar próximos de pasados; el navegador lo vuelve a revisar)
@@ -81,7 +84,7 @@ fs.writeFileSync(path.join(salida, 'site.webmanifest'), JSON.stringify({
 }));
 
 // ---------------------------------------------------------------- datos estructurados y textos compartidos
-const D = local.dominio;
+const D = BASE;
 const RUTA_MENU = { es: '/menu/', en: '/en/menu/' };
 function horasSchema() {
   const nombres = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -166,7 +169,7 @@ for (const x of extras) {
 // ---------------------------------------------------------------- sitemap y robots
 const indexables = lista.filter((p) => !p.archivo);
 fs.writeFileSync(path.join(salida, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${indexables.map((p) => `<url><loc>${D}${p.ruta}</loc></url>`).join('\n')}\n</urlset>\n`);
-fs.writeFileSync(path.join(salida, 'robots.txt'), previa ? 'User-agent: *\nDisallow: /\n' : `User-agent: *\nAllow: /\n\nSitemap: ${D}/sitemap.xml\n`);
+fs.writeFileSync(path.join(salida, 'robots.txt'), previa ? 'User-agent: *\nDisallow: /\n\n# las tarjetas de vista previa de los enlaces (WhatsApp, iMessage, Facebook, X, Slack, Telegram, LinkedIn)\nUser-agent: facebookexternalhit\nUser-agent: Facebot\nUser-agent: WhatsApp\nUser-agent: Twitterbot\nUser-agent: Slackbot-LinkExpanding\nUser-agent: TelegramBot\nUser-agent: LinkedInBot\nAllow: /\n' : `User-agent: *\nAllow: /\n\nSitemap: ${D}/sitemap.xml\n`);
 
 // ---------------------------------------------------------------- vercel.json (redirecciones, cabeceras, CSP)
 const csp = ["default-src 'self'", `script-src 'self' 'sha256-${sha256b64(ARRANQUE)}'`, "style-src 'self'", "img-src 'self' data:", "font-src 'self'",

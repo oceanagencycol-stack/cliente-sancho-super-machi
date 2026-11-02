@@ -28,8 +28,21 @@ siguen en la pared, apagados y con «Ya pasó»: la prueba de que aquí hay show
 **Tipografía.** *Machi Display* (Big Shoulders Display 600–900): fechas, artistas y títulos, en mayúsculas, como la
 caja de fecha de sus flyers. *Machi Text* (Instrument Sans 400–700): todo lo demás. Precios con cifras tabulares.
 
-**Diales.** Variancia 6 · Motion 4 · Densidad 5. Movimiento: en la portada los carteles se pegan una vez al cargar (60 ms
-entre uno y otro); hover y foco. Con movimiento reducido, nada se mueve.
+**Diales.** Variancia 6 · Motion 6 · Densidad 5. Motion subió de 4 a 6 el 2-nov-2026 (Juan: «hazlas un poquito
+inmersivas»). La inmersión sale de la firma; no se suma otra:
+- **La noche frente al mesón.** En la portada, el ladrillo apenas se ve detrás del texto y arriba a la derecha está la luz
+  cálida del escenario.
+- **Se prueban las luces.** Los carteles se pegan una vez al cargar, con 60 ms entre uno y otro. Después, un barrido
+  enciende una vez, en orden, cada cartel apagado.
+- **La luz del escenario.** En el teléfono, el cartel apagado que cruza el centro de la pantalla recupera el color (una
+  franja fina, con `IntersectionObserver`). Con ratón, la luz es el puntero: una luz cálida lo sigue y el cartel de
+  debajo se enciende.
+- **Del muro al show.** El cartel que se toca se vuelve el flyer de la página del show (View Transitions entre
+  documentos), y ese flyer tiñe la página con un aura difusa.
+- **Las fotos se acercan** al entrar en pantalla, con una animación por scroll que es solo CSS.
+
+Con movimiento reducido no hay barrido, ni transiciones, ni fotos que se acercan. La franja de luz sigue: es un cambio
+de color, no de movimiento.
 
 ## Sancho — cocina española de calidad al mejor precio
 
@@ -55,8 +68,16 @@ Hoy se calcula con la hora de Miami.
 **Tipografía.** *Sancho Display* (Archivo expandida al 125 %, 700–900): precios y títulos, el precio sin vergüenza.
 *Sancho Text* (Archivo 400–700): todo lo demás. Una familia, dos anchos.
 
-**Diales.** Variancia 6 · Motion 4 · Densidad 5. Movimiento: el sol gira hasta hoy al cargar (una vez, 700 ms) y entre
-días al tocarlos. Con movimiento reducido, salta sin girar.
+**Diales.** Variancia 6 · Motion 6 · Densidad 5. Motion subió de 4 a 6 el 2-nov-2026. El sol gira hasta hoy una vez al
+cargar y gira de un día a otro cuando se tocan. La inmersión vive alrededor de la firma:
+- **El cielo de Miró.** Entre los días hay astros chicos: estrellas, puntos, una luna y una constelación, en los colores
+  del logo. Están en tres capas que se mueven distinto con el scroll (solo CSS). Con ratón, también se mueven con el
+  puntero, y el sol se inclina un poco hacia él (como mucho 6°).
+- **El halo.** El sol tiene un resplandor amarillo que late una vez cuando llega a hoy y cada vez que se toca otro día.
+  El texto del día nuevo entra con un fundido corto; lo que ya se veía al cargar no parpadea.
+- **Las fotos se acercan** al entrar en pantalla.
+
+Con movimiento reducido, el sol salta sin girar y el cielo y el halo se quedan quietos.
 
 ## Común
 
@@ -66,3 +87,12 @@ días al tocarlos. Con movimiento reducido, salta sin girar.
   la idea del producto menu-digital de Ocean) y el aviso de crudos.
 - Español en `/` e inglés en `/en/`; los nombres de los platos se quedan en español.
 - Nada inventado: lo que está por confirmar lo dice el banner de vista previa y `data/fuentes.json`.
+- **De una página a otra no hay corte.** Se usan View Transitions entre documentos (`@view-transition` en `base.css`): la
+  cabecera y la barra de acciones se quedan quietas y el contenido entra con un fundido de 0,42 s. En un navegador sin
+  soporte, se navega como siempre.
+- **Reglas de oficio del movimiento:**
+  - Lo que se mueve usa solo `transform`, `translate`, `rotate`, `opacity` y `filter`.
+  - En reposo no se pide ningún cuadro: los bucles del puntero se detienen al llegar.
+  - Lo decorativo va con `aria-hidden`.
+  - Todo respeta `prefers-reduced-motion`.
+  - Las animaciones por scroll van dentro de `@supports (animation-timeline: …)`.

@@ -16,6 +16,37 @@
     $('.evento__datos')?.append(p);
   }
 
+  // la luz del escenario. En el teléfono, el cartel apagado que cruza el centro de la pantalla recupera el color (una
+  // franja fina en el medio); con ratón, la luz es el puntero: una luz cálida lo sigue y el cartel de debajo se enciende.
+  const conRaton = matchMedia('(hover: hover) and (pointer: fine)').matches;
+  if (!conRaton && 'IntersectionObserver' in window) {
+    const luz = new IntersectionObserver((es) => { for (const e of es) e.target.classList.toggle('cartel--luz', e.isIntersecting); }, { rootMargin: '-46% 0px -46% 0px' });
+    for (const c of $$('.cartel--pasado')) luz.observe(c);
+  }
+  if (conRaton && !REDUCIDO) {
+    for (const pared of $$('.pared')) {
+      const luz = document.createElement('li'); luz.className = 'pared__luz'; luz.setAttribute('aria-hidden', 'true'); pared.append(luz);
+      let x = 0, y = 0, tx = 0, ty = 0, raf = 0;
+      const pintar = () => { luz.style.transform = `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px)`; };
+      const paso = () => { x += (tx - x) * 0.2; y += (ty - y) * 0.2; pintar(); raf = Math.abs(tx - x) + Math.abs(ty - y) > 0.5 ? requestAnimationFrame(paso) : 0; };
+      const donde = (e) => { const r = pared.getBoundingClientRect(); tx = e.clientX - r.left; ty = e.clientY - r.top; };
+      pared.addEventListener('pointerenter', (e) => { donde(e); x = tx; y = ty; pintar(); pared.classList.add('con-luz'); });
+      pared.addEventListener('pointermove', (e) => { donde(e); if (!raf) raf = requestAnimationFrame(paso); });
+      pared.addEventListener('pointerleave', () => pared.classList.remove('con-luz'));
+    }
+  }
+  // del muro al show: el cartel que se toca se vuelve el flyer de la página del show (View Transitions entre páginas).
+  // Un solo elemento puede llevar el nombre: se limpia antes, también el flyer de la página actual.
+  if (window.CSS && CSS.supports('view-transition-name: none')) {
+    document.addEventListener('click', (e) => {
+      const a = e.target.closest('.cartel__enlace');
+      if (!a || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      for (const img of $$('.cartel__enlace img, .evento__flyer img')) img.style.viewTransitionName = 'none';
+      const img = $('img', a); if (img) img.style.viewTransitionName = 'flyer';
+    });
+    addEventListener('pageshow', (e) => { if (!e.persisted) return; setTimeout(() => { for (const img of $$('.cartel__enlace img, .evento__flyer img')) img.style.viewTransitionName = ''; }, 900); });
+  }
+
   // reserva: zona en el plano + personas + fecha → mensaje de WhatsApp
   const form = $('[data-reserva]');
   if (!form) return;

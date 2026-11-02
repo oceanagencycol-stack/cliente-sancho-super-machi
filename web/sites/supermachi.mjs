@@ -263,6 +263,7 @@ export function paginas(ctx0) {
       const siguientes = proximos.filter((x) => x.id !== e.id).slice(0, 4);
       const mismos = pasados.filter((x) => x.id !== e.id && x.artista === e.artista).slice(0, 4);
       const cuerpo = h`<article class="evento${pasado ? ' evento--pasado' : ''}" data-fecha="${e.fecha}">
+          <img class="evento__aura" src="/media/supermachi/flyers/${e.id}-${ctx.media.flyers[e.id].anchos[0]}.webp" alt="" aria-hidden="true" decoding="async">
           <div class="evento__flyer">${foto(ctx, e.id, { flyer: true, sizes: '(min-width: 900px) 520px, 92vw', eager: true, alt: `${e.artista} · ${fechaLarga(e.fecha, lang)}` })}</div>
           <div class="evento__datos">
             <p class="evento__sello" aria-hidden="true"><span>${s.dia}</span><b>${s.num}</b><span>${s.mes}</span></p>

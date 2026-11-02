@@ -15,13 +15,14 @@
 /* ---------- la firma: la pared de carteles (aparejo de ladrillo: las columnas alternas bajan medio cartel) */
 .pared{--cols:2;--junta-ancho:6px;display:grid;grid-template-columns:repeat(var(--cols),minmax(0,1fr));gap:var(--junta-ancho);padding:var(--junta-ancho);background:#2A1813 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='36'%3E%3Crect width='72' height='36' fill='%233B241C'/%3E%3Crect x='1.5' y='1.5' width='69' height='15' fill='%23291611'/%3E%3Crect x='-34.5' y='19.5' width='69' height='15' fill='%232E1914'/%3E%3Crect x='37.5' y='19.5' width='69' height='15' fill='%23271510'/%3E%3C/svg%3E") 0 0/72px 36px;
   padding-bottom:calc(var(--junta-ancho) + (100% - (var(--cols) + 1) * var(--junta-ancho)) / var(--cols) / 2);margin-top:1.5rem}
+.pared{position:relative;overflow:hidden}
 .cartel{position:relative;transform:translateY(var(--baja,0));min-width:0}
 .pared>.cartel:nth-child(2n){--baja:calc(50% + var(--junta-ancho)/2)}
 @media (min-width:48rem){.pared{--cols:3}.pared>.cartel:nth-child(2n){--baja:0}.pared>.cartel:nth-child(3n+2){--baja:calc(50% + var(--junta-ancho)/2)}}
 @media (min-width:72rem){.pared{--cols:4}.pared>.cartel:nth-child(3n+2){--baja:0}.pared>.cartel:nth-child(4n+2),.pared>.cartel:nth-child(4n+4){--baja:calc(50% + var(--junta-ancho)/2)}}
 .cartel__enlace{display:block;position:relative;aspect-ratio:1;overflow:hidden;background:var(--muro);text-decoration:none;color:var(--crema)}
 .cartel__foto,.cartel__foto img{width:100%;height:100%}
-.cartel__foto img{object-fit:cover;object-position:50% 32%;transition:filter .35s,transform .5s cubic-bezier(.2,.7,.2,1)}
+.cartel__foto img{object-fit:cover;object-position:50% 32%;transition:filter .6s ease,transform .5s cubic-bezier(.2,.7,.2,1)}
 .cartel__sello{position:absolute;left:.45rem;top:.45rem;display:grid;justify-items:center;min-width:3.1rem;padding:.3rem .4rem .35rem;background:var(--rojo);color:var(--crema);font-family:var(--font-display);text-transform:uppercase;line-height:.9;box-shadow:0 .3rem .8rem -.2rem rgba(0,0,0,.6)}
 .cartel__sello span{font-size:.72rem;font-weight:700;letter-spacing:.08em}
 .cartel__sello b{font-size:1.75rem;font-weight:900}
@@ -31,17 +32,34 @@
 .cartel__ya{position:absolute;right:.45rem;top:.55rem;transform:rotate(5deg);padding:.15rem .45rem;border:1.5px solid var(--crema);color:var(--crema);background:rgba(21,13,11,.6);font-family:var(--font-display);font-weight:800;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
 .cartel--pasado .cartel__foto img{filter:grayscale(.92) brightness(.62) contrast(1.05)}
 .cartel--pasado .cartel__sello{background:var(--junta);color:var(--humo);box-shadow:none}
-@media (hover:hover){.cartel__enlace:hover .cartel__foto img{transform:scale(1.035)}.cartel--pasado .cartel__enlace:hover .cartel__foto img{filter:grayscale(.15) brightness(.85)}}
+@media (hover:hover){.cartel__enlace:hover .cartel__foto img{transform:scale(1.035)}.cartel--pasado .cartel__enlace:hover .cartel__foto img{filter:grayscale(.1) brightness(.94)}
+  .cartel__enlace:hover .cartel__ya{border-color:var(--brasa);color:var(--brasa)}}
 .cartel__enlace:focus-visible{outline-offset:-3px}
 .cartel__enlace:focus-visible .cartel__foto img{filter:none}
+/* la luz del escenario: el cartel que cruza el centro de la pantalla recupera el color (supermachi.js lo marca) y, con
+   ratón, una luz cálida sigue al puntero sobre la pared */
+.cartel--pasado.cartel--luz .cartel__foto img{filter:grayscale(.12) brightness(.94)}
+.cartel--luz .cartel__ya{border-color:var(--brasa);color:var(--brasa)}
+.cartel__ya{transition:color .6s,border-color .6s}
+.pared__luz{position:absolute;left:0;top:0;z-index:3;width:30rem;height:30rem;margin:-15rem 0 0 -15rem;border-radius:50%;pointer-events:none;opacity:0;transition:opacity .45s;
+  background:radial-gradient(closest-side,rgba(255,200,130,.30),rgba(247,146,43,.12) 50%,rgba(247,146,43,0));mix-blend-mode:screen}
+.pared.con-luz .pared__luz{opacity:1}
 /* entrada de la portada: los carteles se pegan una vez al cargar */
 @keyframes pegar{from{opacity:0;transform:translateY(var(--baja,0)) rotate(-2.2deg) scale(1.035)}to{opacity:1;transform:translateY(var(--baja,0))}}
 .pared--hero>.cartel{animation:pegar .7s cubic-bezier(.2,.7,.2,1) both}
 .pared--hero>.cartel:nth-child(2){animation-delay:.06s}.pared--hero>.cartel:nth-child(3){animation-delay:.12s}.pared--hero>.cartel:nth-child(4){animation-delay:.18s}
 .pared--hero>.cartel:nth-child(5){animation-delay:.24s}.pared--hero>.cartel:nth-child(6){animation-delay:.3s}
+/* y se prueban las luces: un barrido enciende cada cartel apagado de la portada una vez, en orden */
+@keyframes barrido{0%,100%{filter:grayscale(.92) brightness(.62) contrast(1.05)}45%{filter:grayscale(.08) brightness(.96) contrast(1)}}
+.pared--hero>.cartel--pasado .cartel__foto img{animation:barrido 1.15s ease-in-out backwards;animation-delay:calc(.8s + var(--n,0) * .15s)}
+.pared--hero>.cartel:nth-child(2){--n:1}.pared--hero>.cartel:nth-child(3){--n:2}.pared--hero>.cartel:nth-child(4){--n:3}.pared--hero>.cartel:nth-child(5){--n:4}.pared--hero>.cartel:nth-child(6){--n:5}
 
-/* ---------- portada */
+/* ---------- portada: de noche frente a la pared del mesón (ladrillo apenas visible y la luz cálida del escenario arriba) */
+.p-inicio main{background:radial-gradient(56rem 34rem at 82% -4rem,rgba(247,146,43,.16),rgba(247,146,43,0) 70%),
+  linear-gradient(to bottom,rgba(21,13,11,.78),var(--noche) 44rem),
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='36'%3E%3Crect width='72' height='36' fill='%233B241C'/%3E%3Crect x='1.5' y='1.5' width='69' height='15' fill='%23291611'/%3E%3Crect x='-34.5' y='19.5' width='69' height='15' fill='%232E1914'/%3E%3Crect x='37.5' y='19.5' width='69' height='15' fill='%23271510'/%3E%3C/svg%3E") 0 0/72px 36px var(--noche)}
 .hero{display:grid;gap:clamp(1.75rem,4vw,3rem);padding-top:clamp(2rem,6vw,4.5rem);align-items:center}
+@media (max-width:47.99rem){.hero__acciones .boton{flex:1 1 auto}}
 .hero .titulo-1{font-size:clamp(3rem,11vw,6.6rem)}
 .hero__entrada{margin-top:1.25rem;font-size:clamp(1.1rem,2.4vw,1.3rem);color:var(--humo);max-width:34em}
 .hero__acciones{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.75rem}
@@ -102,8 +120,14 @@
 @media (hover:hover){.plano__zona:hover .plano__area{stroke:var(--crema)}}
 @media (min-width:62rem){.reserva{grid-template-columns:1.1fr 1fr;align-items:center}}
 
-/* ---------- un show */
-.evento{display:grid;gap:2rem;padding-top:clamp(1.5rem,5vw,3.5rem)}
+/* ---------- un show: el flyer tiñe la página (aura) y llega desde la pared (View Transitions: el cartel tocado se vuelve
+   este flyer; supermachi.js le pone el nombre al cartel) */
+.evento{display:grid;gap:2rem;padding-top:clamp(1.5rem,5vw,3.5rem);position:relative;isolation:isolate}
+.evento__aura{position:absolute;z-index:-1;left:0;top:0;width:100%;height:min(100%,44rem);object-fit:cover;filter:blur(72px) saturate(1.45);opacity:.42;pointer-events:none}
+.evento--pasado .evento__aura{opacity:.24;filter:blur(72px) saturate(.55)}
+.evento__flyer img{view-transition-name:flyer}
+::view-transition-old(flyer),::view-transition-new(flyer){height:100%;object-fit:cover}
+::view-transition-group(flyer){animation-duration:.5s;animation-timing-function:cubic-bezier(.2,.75,.15,1)}
 .evento__flyer img{width:100%;height:auto;box-shadow:0 1.5rem 3rem -1.5rem rgba(0,0,0,.8)}
 .evento--pasado .evento__flyer img{filter:grayscale(.7) brightness(.8)}
 .evento__datos{display:grid;gap:1rem;align-content:start}
@@ -148,3 +172,9 @@
 @media (min-width:48rem){.club__beneficios{grid-template-columns:repeat(3,1fr)}}
 
 .contacto .redes{margin-top:.5rem}
+
+/* fotos que se acercan al entrar en pantalla (solo con animaciones por scroll y sin movimiento reducido) */
+@supports (animation-timeline:view()){@media (prefers-reduced-motion:no-preference){
+  .casa__foto,.visita__foto,.grupos__foto,.grupos-reserva>picture,.almuerzo__fotos>picture{overflow:hidden}
+  .casa__foto img,.visita__foto img,.grupos__foto img,.grupos-reserva>picture img,.almuerzo__fotos>picture img{animation:acercar linear both;animation-timeline:view();animation-range:entry 0% cover 55%}
+}}

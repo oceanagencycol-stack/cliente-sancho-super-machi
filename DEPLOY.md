@@ -14,8 +14,20 @@ build en local y commitea el `vercel.json` nuevo (Vercel lo lee antes de constru
 
 ## Vista previa (hoy)
 
-- Banner «Vista previa privada», `noindex` en cada página, `X-Robots-Tag: noindex` y `robots.txt` que lo bloquea todo.
-- Las URL `*.vercel.app` pueden pedir inicio de sesión de Vercel; para mostrarlas, un enlace para compartir (caduca).
+- **Lo que lleva la vista previa:**
+  - el banner «Vista previa privada»;
+  - `noindex` en cada página y la cabecera `X-Robots-Tag: noindex`;
+  - un `robots.txt` que lo bloquea todo menos a los lectores de tarjetas de enlace (WhatsApp, Facebook, X, Slack,
+    Telegram, LinkedIn), para que el enlace se vea con su imagen al compartirlo.
+- **Las direcciones para compartir son públicas** (desde el 2-nov-2026; Juan pidió enlaces para mandarle al cliente):
+  - https://supermachi-web.vercel.app
+  - https://sancho-miami.vercel.app (también responde `sancho-web-tawny.vercel.app`)
+
+  Son los dominios de producción de cada proyecto, y la protección estándar de Vercel no los cubre. Las URL de cada
+  deploy y las `*-ocean-agency.vercel.app` sí piden sesión de Vercel.
+- **Canonical y `og:*`:** en la vista previa apuntan a la dirección pública, que está en `vista_previa` de
+  `content/<sitio>/local.json`. Así la tarjeta de WhatsApp no muestra la web vieja. Al lanzar (`--lanzar`) pasan al dominio
+  del restaurante.
 
 ## Acciones de consola que solo hace Juan (o el cliente)
 
