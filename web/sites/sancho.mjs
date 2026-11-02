@@ -128,12 +128,13 @@ function sol(ctx) {
   </section>`;
 }
 
-function semanaLista(ctx, { fotos = false } = {}) {
+// nivel: el título de cada día es h3 bajo un h2 (portada) y h2 cuando la lista va directo bajo el h1 (la semana)
+function semanaLista(ctx, { fotos = false, nivel = 3 } = {}) {
   const { lang } = ctx;
   const porDia = Object.fromEntries(ctx.promos.semana.map((p) => [p.dia, p]));
-  return h`<ol class="semana${fotos ? ' semana--fotos' : ''}">${ORDEN.map((d) => { const p = porDia[d]; const x = t(p, lang); return h`<li class="semana__dia${[1, 2, 3, 4].includes(d) ? ' semana__dia--promo' : ''}" data-dia="${d}">
-      ${cuando(fotos && p.foto && ctx.media.fotos[p.foto], () => foto(ctx, p.foto, { sizes: '(min-width: 900px) 30vw, 100vw', cls: 'semana__foto' }))}
-      <p class="semana__nombre">${x.dia}</p><h3 class="semana__titulo">${x.titulo}</h3><p class="semana__precio cifra${/^\$\d/.test(x.precio_txt) ? '' : ' semana__precio--texto'}">${x.precio_txt}</p>
+  return h`<ol class="semana${fotos ? ' semana--fotos' : ''}">${ORDEN.map((d, i) => { const p = porDia[d]; const x = t(p, lang); return h`<li class="semana__dia${[1, 2, 3, 4].includes(d) ? ' semana__dia--promo' : ''}" data-dia="${d}">
+      ${cuando(fotos && p.foto && ctx.media.fotos[p.foto], () => foto(ctx, p.foto, { sizes: '(min-width: 900px) 30vw, 100vw', cls: 'semana__foto', eager: i === 0 }))}
+      <p class="semana__nombre">${x.dia}</p>${raw(`<h${nivel} class="semana__titulo">`)}${x.titulo}${raw(`</h${nivel}>`)}<p class="semana__precio cifra${/^\$\d/.test(x.precio_txt) ? '' : ' semana__precio--texto'}">${x.precio_txt}</p>
       <p class="semana__texto">${x.texto}</p>
       ${cuando(fotos && p.por_confirmar, () => h`<p class="semana__nota">${lang === 'en' ? 'To be confirmed with the restaurant.' : 'Por confirmar con el restaurante.'}</p>`)}
     </li>`; })}</ol>`;
@@ -213,7 +214,7 @@ export function paginas(ctx0) {
       const hh = ctx.promos.happy_hour;
       const cuerpo = h`<header class="cabeza-pagina"><h1 class="titulo-1">${lang === 'en' ? 'Sancho’s week' : 'La semana de Sancho'}</h1>
           <p class="entrada">${lang === 'en' ? 'Every day has its plate and its price.' : 'Cada día tiene su plato y su precio.'}</p></header>
-        ${semanaLista(ctx, { fotos: true })}
+        ${semanaLista(ctx, { fotos: true, nivel: 2 })}
         <section class="hh" aria-labelledby="hh-t">${foto(ctx, 'sangria', { sizes: '(min-width: 900px) 30vw, 60vw', cls: 'hh__foto' })}
           <div><h2 class="titulo-2" id="hh-t">${t(hh, lang).titulo}</h2><p class="hh__cuando">${rangoDias(hh.dias, lang)} · ${hora(hh.desde, lang)} – ${hora(hh.hasta, lang)}</p>
           <p class="semana__nota">${lang === 'en' ? 'Ask what’s included.' : 'Pregunta qué incluye.'}</p></div></section>
