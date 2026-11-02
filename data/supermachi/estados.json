@@ -1,0 +1,233 @@
+{
+ "sitio": "https://supermachirestaurante.com",
+ "extraido": "2026-11-02",
+ "urls": {
+  "https://supermachirestaurante.com/hello-world/": {
+   "estado": 200,
+   "final": "https://supermachirestaurante.com/hello-world/",
+   "tipo": "text/html; charset=UTF-8"
+  },
+  "https://supermachirestaurante.com/tienda/": {
+   "estado": 200,
+   "final": "https://supermachirestaurante.com/tienda/",
+   "tipo": "text/html; charset=UTF-8"
+  },
+  "https://supermachirestaurante.com/carrito/": {
+   "estado": "no se sigue (carrito, cuenta, feed o API)"
+  },
+  "https://supermachirestaurante.com/finalizar-compra/": {
+   "estado": "no se sigue (carrito, cuenta, feed o API)"
+  },
+  "https://supermachirestaurante.com/mi-cuenta/": {
+   "estado": "no se sigue (carrito, cuenta, feed o API)"
+  },
+  "https://supermachirestaurante.com/construccion/": {
+   "estado": 200,
+   "final": "https://supermachirestaurante.com/construccion/",
+   "tipo": "text/html; charset=UTF-8"
+  },
+  "https://supermachirestaurante.com/": {
+   "estado": 200,
+   "final": "https://supermachirestaurante.com/",
+   "tipo": "text/html; charset=UTF-8"
+  },
+  "https://supermachirestaurante.com/nuestro-menu/": {
+   "estado": 200,
+   "final": "https://supermachirestaurante.com/nuestro-menu/",
+   "tipo": "text/html; charset=UTF-8"
+  },
+  "https://supermachirestaurante.com/buffet-cubano/": {
+   "estado": 200,
+   "final": "https://supermachirestaurante.com/buffet-cubano/",
+   "tipo": "text/html; charset=UTF-8"
+  },
+  "https://supermachirestaurante.com/eventos/": {
+   "estado": 200,
+   "final": "https://supermachirestaurante.com/eventos/",
+   "tipo": "text/html; charset=UTF-8"
+  },
+  "https://supermachirestaurante.com/contactanos/": {
+   "estado": 200,
+   "final": "https://supermachirestaurante.com/contactanos/",
+   "tipo": "text/html; charset=UTF-8"
+  },
+  "https://supermachirestaurante.com/ubicacion/": {
+   "estado": 200,
+   "final": "https://supermachirestaurante.com/ubicacion/",
+   "tipo": "text/html; charset=UTF-8"
+  },
+  "https://supermachirestaurante.com/platos-especiales/": {
+   "estado": 200,
+   "final": "https://supermachirestaurante.com/platos-especiales/",
+   "tipo": "text/html; charset=UTF-8"
+  },
+  "https://supermachirestaurante.com/tickets/": {
+   "estado": 200,
+   "final": "https://supermachirestaurante.com/tickets/",
+   "tipo": "text/html; charset=UTF-8"
+  },
+  "https://supermachirestaurante.com/prueba-imc/": {
+   "estado": 200,
+   "final": "https://supermachirestaurante.com/prueba-imc/",
+   "tipo": "text/html; charset=UTF-8"
+  },
+  "https://supermachirestaurante.com/blocks/borrador-automatico/": {
+   "estado": 200,
+   "final": "https://supermachirestaurante.com/blocks/borrador-automatico/",
+   "tipo": "text/html; charset=UTF-8"
+  },
+  "https://supermachirestaurante.com/blocks/especiales/": {
+   "estado": 200,
+   "final": "https://supermachirestaurante.com/blocks/especiales/",
+   "tipo": "text/html; charset=UTF-8"
+  },
+  "https://supermachirestaurante.com/blocks/footer/": {
+   "estado": 200,
+   "final": "https://supermachirestaurante.com/blocks/footer/",
+   "tipo": "text/html; charset=UTF-8"
+  },
+  "https://supermachirestaurante.com/blocks/compra-tus-entradas/": {
+   "estado": 200,
+   "final": "https://supermachirestaurante.com/blocks/compra-tus-entradas/",
+   "tipo": "text/html; charset=UTF-8"
+  },
+  "https://supermachirestaurante.com/producto/cochinillo-segoviano/": {
+   "estado": 200,
+   "final": "https://supermachirestaurante.com/producto/cochinillo-segoviano/",
+   "tipo": "text/html; charset=UTF-8"
+  },
+  "https://supermachirestaurante.com/producto/tabla-mar-y-tierra/": {
+   "estado": 200,
+   "final": "https://supermachirestaurante.com/producto/tabla-mar-y-tierra/",
+   "tipo": "text/html; charset=UTF-8"
+  },
+  "https://supermachirestaurante.com/producto/31-de-diciembre-los-3-de-la-habana-y-band/": {
+   "estado": 200,
+   "final": "https://supermachirestaurante.com/producto/31-de-diciembre-los-3-de-la-habana-y-band/",
+   "tipo": "text/html; charset=UTF-8"
+  },
+  "https://supermachirestaurante.com/producto/06-de-diciembre-gio-anaisa/": {
+   "estado": 200,
+   "final": "https://supermachirestaurante.com/producto/06-de-diciembre-gio-anaisa/",
+   "tipo": "text/html; charset=UTF-8"
+  },
+  "https://supermachirestaurante.com/producto/05-de-diciembre-maylus-cabaret/": {
+   "estado": 200,
+   "final": "https://supermachirestaurante.com/producto/05-de-diciembre-maylus-cabaret/",
+   "tipo": "text/html; charset=UTF-8"
+  },
+  "https://supermachirestaurante.com/producto/28-de-marzo-laritza-bacallao/": {
+   "estado": 200,
+   "final": "https://supermachirestaurante.com/producto/28-de-marzo-laritza-bacallao/",
+   "tipo": "text/html; charset=UTF-8"
+  },
+  "https://supermachirestaurante.com/producto/13-de-junio-laritza-bacallao/": {
+   "estado": 200,
+   "final": "https://supermachirestaurante.com/producto/13-de-junio-laritza-bacallao/",
+   "tipo": "text/html; charset=UTF-8"
+  },
+  "https://supermachirestaurante.com/producto/26-de-junio-ruperto/": {
+   "estado": 200,
+   "final": "https://supermachirestaurante.com/producto/26-de-junio-ruperto/",
+   "tipo": "text/html; charset=UTF-8"
+  },
+  "https://supermachirestaurante.com/producto/11-de-julio-alain-daniel/": {
+   "estado": 200,
+   "final": "https://supermachirestaurante.com/producto/11-de-julio-alain-daniel/",
+   "tipo": "text/html; charset=UTF-8"
+  },
+  "https://supermachirestaurante.com/producto/17-de-julio-qva-libre/": {
+   "estado": 200,
+   "final": "https://supermachirestaurante.com/producto/17-de-julio-qva-libre/",
+   "tipo": "text/html; charset=UTF-8"
+  },
+  "https://supermachirestaurante.com/producto/18-de-julio-antolin-el-pichon/": {
+   "estado": 200,
+   "final": "https://supermachirestaurante.com/producto/18-de-julio-antolin-el-pichon/",
+   "tipo": "text/html; charset=UTF-8"
+  },
+  "https://supermachirestaurante.com/producto/19-de-julio-maylus-cabaret/": {
+   "estado": 200,
+   "final": "https://supermachirestaurante.com/producto/19-de-julio-maylus-cabaret/",
+   "tipo": "text/html; charset=UTF-8"
+  },
+  "https://supermachirestaurante.com/producto/24-de-julio-sanky-panky/": {
+   "estado": 200,
+   "final": "https://supermachirestaurante.com/producto/24-de-julio-sanky-panky/",
+   "tipo": "text/html; charset=UTF-8"
+  },
+  "https://supermachirestaurante.com/producto/25-de-julio-laritza-bacallao/": {
+   "estado": 200,
+   "final": "https://supermachirestaurante.com/producto/25-de-julio-laritza-bacallao/",
+   "tipo": "text/html; charset=UTF-8"
+  },
+  "https://supermachirestaurante.com/producto/17-de-julio-lazarito-valdez-y-bamboleo/": {
+   "estado": 200,
+   "final": "https://supermachirestaurante.com/producto/17-de-julio-lazarito-valdez-y-bamboleo/",
+   "tipo": "text/html; charset=UTF-8"
+  },
+  "https://supermachirestaurante.com/producto/2-de-octubre-anselmo-el-mudo-ronny/": {
+   "estado": 200,
+   "final": "https://supermachirestaurante.com/producto/2-de-octubre-anselmo-el-mudo-ronny/",
+   "tipo": "text/html; charset=UTF-8"
+  },
+  "https://supermachirestaurante.com/category/uncategorized/": {
+   "estado": 200,
+   "final": "https://supermachirestaurante.com/category/uncategorized/",
+   "tipo": "text/html; charset=UTF-8"
+  },
+  "https://supermachirestaurante.com/categoria-producto/sin-categorizar/": {
+   "estado": 200,
+   "final": "https://supermachirestaurante.com/categoria-producto/sin-categorizar/",
+   "tipo": "text/html; charset=UTF-8"
+  },
+  "https://supermachirestaurante.com/producto/tabla-mar-tierra/": {
+   "estado": 404,
+   "final": "https://supermachirestaurante.com/producto/tabla-mar-tierra/",
+   "tipo": "text/html; charset=UTF-8"
+  },
+  "https://supermachirestaurante.com/author/supermachillcgmail-com/": {
+   "estado": 200,
+   "final": "https://supermachirestaurante.com/author/supermachillcgmail-com/",
+   "tipo": "text/html; charset=UTF-8"
+  },
+  "https://supermachirestaurante.com/hello-world/?replytocom=1": {
+   "estado": 200,
+   "final": "https://supermachirestaurante.com/hello-world/?replytocom=1",
+   "tipo": "text/html; charset=UTF-8"
+  },
+  "https://supermachirestaurante.com/producto/ticket/": {
+   "estado": 404,
+   "final": "https://supermachirestaurante.com/producto/ticket/",
+   "tipo": "text/html; charset=UTF-8"
+  },
+  "https://supermachirestaurante.com/mi-cuenta/lost-password/": {
+   "estado": "no se sigue (carrito, cuenta, feed o API)"
+  },
+  "https://supermachirestaurante.com": {
+   "estado": 200,
+   "final": "https://supermachirestaurante.com/",
+   "tipo": "text/html; charset=UTF-8"
+  },
+  "https://supermachirestaurante.com/tienda/page/2/": {
+   "estado": 200,
+   "final": "https://supermachirestaurante.com/tienda/page/2/",
+   "tipo": "text/html; charset=UTF-8"
+  },
+  "https://supermachirestaurante.com/categoria-producto/sin-categorizar/page/2/": {
+   "estado": 200,
+   "final": "https://supermachirestaurante.com/categoria-producto/sin-categorizar/page/2/",
+   "tipo": "text/html; charset=UTF-8"
+  },
+  "https://supermachirestaurante.com/tienda/page/1/": {
+   "estado": 200,
+   "final": "https://supermachirestaurante.com/tienda/",
+   "tipo": "text/html; charset=UTF-8"
+  },
+  "https://supermachirestaurante.com/categoria-producto/sin-categorizar/page/1/": {
+   "estado": 200,
+   "final": "https://supermachirestaurante.com/categoria-producto/sin-categorizar/",
+   "tipo": "text/html; charset=UTF-8"
+  }
+ }
+}

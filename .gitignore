@@ -1,0 +1,14 @@
+node_modules/
+.env
+.env.*
+!.env.example
+.vercel/
+dist/
+web/dist/
+web/.cache/
+__pycache__/
+*.pyc
+.DS_Store
+# Los originales del sitio viejo van por Git LFS (.gitattributes); los temporales de trabajo, nunca.
+tmp/
+qa/out/

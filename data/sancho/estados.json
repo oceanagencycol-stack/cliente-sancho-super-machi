@@ -1,0 +1,71 @@
+{
+ "sitio": "https://sanchorestaurantemiami.com",
+ "extraido": "2026-11-02",
+ "urls": {
+  "https://sanchorestaurantemiami.com/hello-world/": {
+   "estado": 200,
+   "final": "https://sanchorestaurantemiami.com/hello-world/",
+   "tipo": "text/html; charset=UTF-8"
+  },
+  "https://sanchorestaurantemiami.com/trabajando/": {
+   "estado": 200,
+   "final": "https://sanchorestaurantemiami.com/trabajando/",
+   "tipo": "text/html; charset=UTF-8"
+  },
+  "https://sanchorestaurantemiami.com/": {
+   "estado": 200,
+   "final": "https://sanchorestaurantemiami.com/",
+   "tipo": "text/html; charset=UTF-8"
+  },
+  "https://sanchorestaurantemiami.com/nuestro-restaurante/": {
+   "estado": 200,
+   "final": "https://sanchorestaurantemiami.com/nuestro-restaurante/",
+   "tipo": "text/html; charset=UTF-8"
+  },
+  "https://sanchorestaurantemiami.com/almuerzos-especiales/": {
+   "estado": 200,
+   "final": "https://sanchorestaurantemiami.com/almuerzos-especiales/",
+   "tipo": "text/html; charset=UTF-8"
+  },
+  "https://sanchorestaurantemiami.com/contactanos/": {
+   "estado": 200,
+   "final": "https://sanchorestaurantemiami.com/contactanos/",
+   "tipo": "text/html; charset=UTF-8"
+  },
+  "https://sanchorestaurantemiami.com/blocks/footer/": {
+   "estado": 200,
+   "final": "https://sanchorestaurantemiami.com/blocks/footer/",
+   "tipo": "text/html; charset=UTF-8"
+  },
+  "https://sanchorestaurantemiami.com/category/uncategorized/": {
+   "estado": 200,
+   "final": "https://sanchorestaurantemiami.com/category/uncategorized/",
+   "tipo": "text/html; charset=UTF-8"
+  },
+  "https://sanchorestaurantemiami.com/author/joancg161gmail-com/": {
+   "estado": 200,
+   "final": "https://sanchorestaurantemiami.com/author/joancg161gmail-com/",
+   "tipo": "text/html; charset=UTF-8"
+  },
+  "https://sanchorestaurantemiami.com/hello-world/?replytocom=1": {
+   "estado": 200,
+   "final": "https://sanchorestaurantemiami.com/hello-world/?replytocom=1",
+   "tipo": "text/html; charset=UTF-8"
+  },
+  "https://sanchorestaurantemiami.com/nuestro-menu/": {
+   "estado": 404,
+   "final": "https://sanchorestaurantemiami.com/nuestro-menu/",
+   "tipo": "text/html; charset=UTF-8"
+  },
+  "https://sanchorestaurantemiami.com/ubicacion/": {
+   "estado": 404,
+   "final": "https://sanchorestaurantemiami.com/ubicacion/",
+   "tipo": "text/html; charset=UTF-8"
+  },
+  "https://sanchorestaurantemiami.com/contactanos/_wp_link_placeholder": {
+   "estado": 404,
+   "final": "https://sanchorestaurantemiami.com/contactanos/_wp_link_placeholder",
+   "tipo": "text/html; charset=UTF-8"
+  }
+ }
+}

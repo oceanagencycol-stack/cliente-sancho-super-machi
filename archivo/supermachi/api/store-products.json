@@ -1,0 +1,3276 @@
+[
+ {
+  "id": 2324,
+  "name": "2 de Octubre | Anselmo el Mudo &#038; Ronny",
+  "slug": "2-de-octubre-anselmo-el-mudo-ronny",
+  "parent": 0,
+  "type": "simple",
+  "variation": "",
+  "permalink": "https://supermachirestaurante.com/producto/2-de-octubre-anselmo-el-mudo-ronny/",
+  "sku": "",
+  "short_description": "",
+  "description": "",
+  "on_sale": false,
+  "prices": {
+   "price": "0",
+   "regular_price": "0",
+   "sale_price": "0",
+   "price_range": null,
+   "currency_code": "USD",
+   "currency_symbol": "$",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ".",
+   "currency_thousand_separator": ",",
+   "currency_prefix": "$",
+   "currency_suffix": ""
+  },
+  "price_html": "",
+  "average_rating": "0",
+  "review_count": 0,
+  "images": [
+   {
+    "id": 2334,
+    "src": "https://supermachirestaurante.com/wp-content/uploads/2026/08/super_machi_mudo.jpg",
+    "thumbnail": "https://supermachirestaurante.com/wp-content/uploads/2026/08/super_machi_mudo-300x375.jpg",
+    "srcset": "https://supermachirestaurante.com/wp-content/uploads/2026/08/super_machi_mudo.jpg 1080w, https://supermachirestaurante.com/wp-content/uploads/2026/08/super_machi_mudo-240x300.jpg 240w, https://supermachirestaurante.com/wp-content/uploads/2026/08/super_machi_mudo-819x1024.jpg 819w, https://supermachirestaurante.com/wp-content/uploads/2026/08/super_machi_mudo-768x960.jpg 768w, https://supermachirestaurante.com/wp-content/uploads/2026/08/super_machi_mudo-300x375.jpg 300w, https://supermachirestaurante.com/wp-content/uploads/2026/08/super_machi_mudo-600x750.jpg 600w",
+    "sizes": "(max-width: 1080px) 100vw, 1080px",
+    "name": "super_machi_mudo",
+    "alt": ""
+   },
+   {
+    "id": 2334,
+    "src": "https://supermachirestaurante.com/wp-content/uploads/2026/08/super_machi_mudo.jpg",
+    "thumbnail": "https://supermachirestaurante.com/wp-content/uploads/2026/08/super_machi_mudo-300x375.jpg",
+    "srcset": "https://supermachirestaurante.com/wp-content/uploads/2026/08/super_machi_mudo.jpg 1080w, https://supermachirestaurante.com/wp-content/uploads/2026/08/super_machi_mudo-240x300.jpg 240w, https://supermachirestaurante.com/wp-content/uploads/2026/08/super_machi_mudo-819x1024.jpg 819w, https://supermachirestaurante.com/wp-content/uploads/2026/08/super_machi_mudo-768x960.jpg 768w, https://supermachirestaurante.com/wp-content/uploads/2026/08/super_machi_mudo-300x375.jpg 300w, https://supermachirestaurante.com/wp-content/uploads/2026/08/super_machi_mudo-600x750.jpg 600w",
+    "sizes": "(max-width: 1080px) 100vw, 1080px",
+    "name": "super_machi_mudo",
+    "alt": ""
+   }
+  ],
+  "categories": [],
+  "tags": [],
+  "brands": [],
+  "attributes": [],
+  "variations": [],
+  "grouped_products": [],
+  "has_options": false,
+  "is_purchasable": false,
+  "is_in_stock": true,
+  "is_on_backorder": false,
+  "low_stock_remaining": null,
+  "stock_availability": {
+   "text": "",
+   "class": "in-stock"
+  },
+  "sold_individually": false,
+  "add_to_cart": {
+   "text": "Leer más",
+   "description": "Lee más sobre &ldquo;2 de Octubre | Anselmo el Mudo &#038; Ronny&rdquo;",
+   "url": "https://supermachirestaurante.com/producto/2-de-octubre-anselmo-el-mudo-ronny/",
+   "single_text": "Añadir al carrito",
+   "minimum": 2,
+   "maximum": 9999,
+   "multiple_of": 1
+  },
+  "extensions": {}
+ },
+ {
+  "id": 2256,
+  "name": "17 de Julio | Lazarito Valdez y Bamboleo",
+  "slug": "17-de-julio-lazarito-valdez-y-bamboleo",
+  "parent": 0,
+  "type": "simple",
+  "variation": "",
+  "permalink": "https://supermachirestaurante.com/producto/17-de-julio-lazarito-valdez-y-bamboleo/",
+  "sku": "",
+  "short_description": "",
+  "description": "",
+  "on_sale": false,
+  "prices": {
+   "price": "0",
+   "regular_price": "0",
+   "sale_price": "0",
+   "price_range": null,
+   "currency_code": "USD",
+   "currency_symbol": "$",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ".",
+   "currency_thousand_separator": ",",
+   "currency_prefix": "$",
+   "currency_suffix": ""
+  },
+  "price_html": "",
+  "average_rating": "0",
+  "review_count": 0,
+  "images": [
+   {
+    "id": 2252,
+    "src": "https://supermachirestaurante.com/wp-content/uploads/2026/07/super_machi_BAMBOLEO512.jpg",
+    "thumbnail": "https://supermachirestaurante.com/wp-content/uploads/2026/07/super_machi_BAMBOLEO512-300x300.jpg",
+    "srcset": "https://supermachirestaurante.com/wp-content/uploads/2026/07/super_machi_BAMBOLEO512.jpg 512w, https://supermachirestaurante.com/wp-content/uploads/2026/07/super_machi_BAMBOLEO512-300x300.jpg 300w, https://supermachirestaurante.com/wp-content/uploads/2026/07/super_machi_BAMBOLEO512-150x150.jpg 150w, https://supermachirestaurante.com/wp-content/uploads/2026/07/super_machi_BAMBOLEO512-100x100.jpg 100w",
+    "sizes": "(max-width: 512px) 100vw, 512px",
+    "name": "super_machi_BAMBOLEO+512",
+    "alt": ""
+   }
+  ],
+  "categories": [],
+  "tags": [],
+  "brands": [],
+  "attributes": [],
+  "variations": [],
+  "grouped_products": [],
+  "has_options": false,
+  "is_purchasable": false,
+  "is_in_stock": true,
+  "is_on_backorder": false,
+  "low_stock_remaining": null,
+  "stock_availability": {
+   "text": "",
+   "class": "in-stock"
+  },
+  "sold_individually": false,
+  "add_to_cart": {
+   "text": "Leer más",
+   "description": "Lee más sobre &ldquo;17 de Julio | Lazarito Valdez y Bamboleo&rdquo;",
+   "url": "https://supermachirestaurante.com/producto/17-de-julio-lazarito-valdez-y-bamboleo/",
+   "single_text": "Añadir al carrito",
+   "minimum": 2,
+   "maximum": 9999,
+   "multiple_of": 1
+  },
+  "extensions": {}
+ },
+ {
+  "id": 2244,
+  "name": "25 de Julio | Laritza Bacallao",
+  "slug": "25-de-julio-laritza-bacallao",
+  "parent": 0,
+  "type": "simple",
+  "variation": "",
+  "permalink": "https://supermachirestaurante.com/producto/25-de-julio-laritza-bacallao/",
+  "sku": "",
+  "short_description": "",
+  "description": "",
+  "on_sale": false,
+  "prices": {
+   "price": "0",
+   "regular_price": "0",
+   "sale_price": "0",
+   "price_range": null,
+   "currency_code": "USD",
+   "currency_symbol": "$",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ".",
+   "currency_thousand_separator": ",",
+   "currency_prefix": "$",
+   "currency_suffix": ""
+  },
+  "price_html": "",
+  "average_rating": "0",
+  "review_count": 0,
+  "images": [
+   {
+    "id": 2245,
+    "src": "https://supermachirestaurante.com/wp-content/uploads/2026/06/super_machi_lartiza25.jpg",
+    "thumbnail": "https://supermachirestaurante.com/wp-content/uploads/2026/06/super_machi_lartiza25-300x300.jpg",
+    "srcset": "https://supermachirestaurante.com/wp-content/uploads/2026/06/super_machi_lartiza25.jpg 512w, https://supermachirestaurante.com/wp-content/uploads/2026/06/super_machi_lartiza25-300x300.jpg 300w, https://supermachirestaurante.com/wp-content/uploads/2026/06/super_machi_lartiza25-150x150.jpg 150w, https://supermachirestaurante.com/wp-content/uploads/2026/06/super_machi_lartiza25-100x100.jpg 100w",
+    "sizes": "(max-width: 512px) 100vw, 512px",
+    "name": "super_machi_lartiza25",
+    "alt": ""
+   }
+  ],
+  "categories": [],
+  "tags": [],
+  "brands": [],
+  "attributes": [],
+  "variations": [],
+  "grouped_products": [],
+  "has_options": false,
+  "is_purchasable": false,
+  "is_in_stock": true,
+  "is_on_backorder": false,
+  "low_stock_remaining": null,
+  "stock_availability": {
+   "text": "",
+   "class": "in-stock"
+  },
+  "sold_individually": false,
+  "add_to_cart": {
+   "text": "Leer más",
+   "description": "Lee más sobre &ldquo;25 de Julio | Laritza Bacallao&rdquo;",
+   "url": "https://supermachirestaurante.com/producto/25-de-julio-laritza-bacallao/",
+   "single_text": "Añadir al carrito",
+   "minimum": 2,
+   "maximum": 9999,
+   "multiple_of": 1
+  },
+  "extensions": {}
+ },
+ {
+  "id": 2242,
+  "name": "24 de Julio | Sanky Panky",
+  "slug": "24-de-julio-sanky-panky",
+  "parent": 0,
+  "type": "simple",
+  "variation": "",
+  "permalink": "https://supermachirestaurante.com/producto/24-de-julio-sanky-panky/",
+  "sku": "",
+  "short_description": "",
+  "description": "",
+  "on_sale": false,
+  "prices": {
+   "price": "0",
+   "regular_price": "0",
+   "sale_price": "0",
+   "price_range": null,
+   "currency_code": "USD",
+   "currency_symbol": "$",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ".",
+   "currency_thousand_separator": ",",
+   "currency_prefix": "$",
+   "currency_suffix": ""
+  },
+  "price_html": "",
+  "average_rating": "0",
+  "review_count": 0,
+  "images": [
+   {
+    "id": 2243,
+    "src": "https://supermachirestaurante.com/wp-content/uploads/2026/06/super_mach_SANKY_PANKY512.jpg",
+    "thumbnail": "https://supermachirestaurante.com/wp-content/uploads/2026/06/super_mach_SANKY_PANKY512-300x300.jpg",
+    "srcset": "https://supermachirestaurante.com/wp-content/uploads/2026/06/super_mach_SANKY_PANKY512.jpg 512w, https://supermachirestaurante.com/wp-content/uploads/2026/06/super_mach_SANKY_PANKY512-300x300.jpg 300w, https://supermachirestaurante.com/wp-content/uploads/2026/06/super_mach_SANKY_PANKY512-150x150.jpg 150w, https://supermachirestaurante.com/wp-content/uploads/2026/06/super_mach_SANKY_PANKY512-100x100.jpg 100w",
+    "sizes": "(max-width: 512px) 100vw, 512px",
+    "name": "super_mach_SANKY_PANKY+512",
+    "alt": ""
+   }
+  ],
+  "categories": [],
+  "tags": [],
+  "brands": [],
+  "attributes": [],
+  "variations": [],
+  "grouped_products": [],
+  "has_options": false,
+  "is_purchasable": false,
+  "is_in_stock": true,
+  "is_on_backorder": false,
+  "low_stock_remaining": null,
+  "stock_availability": {
+   "text": "",
+   "class": "in-stock"
+  },
+  "sold_individually": false,
+  "add_to_cart": {
+   "text": "Leer más",
+   "description": "Lee más sobre &ldquo;24 de Julio | Sanky Panky&rdquo;",
+   "url": "https://supermachirestaurante.com/producto/24-de-julio-sanky-panky/",
+   "single_text": "Añadir al carrito",
+   "minimum": 2,
+   "maximum": 9999,
+   "multiple_of": 1
+  },
+  "extensions": {}
+ },
+ {
+  "id": 2240,
+  "name": "19 de Julio | Maylu&#8217;s Cabaret",
+  "slug": "19-de-julio-maylus-cabaret",
+  "parent": 0,
+  "type": "simple",
+  "variation": "",
+  "permalink": "https://supermachirestaurante.com/producto/19-de-julio-maylus-cabaret/",
+  "sku": "",
+  "short_description": "",
+  "description": "",
+  "on_sale": false,
+  "prices": {
+   "price": "0",
+   "regular_price": "0",
+   "sale_price": "0",
+   "price_range": null,
+   "currency_code": "USD",
+   "currency_symbol": "$",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ".",
+   "currency_thousand_separator": ",",
+   "currency_prefix": "$",
+   "currency_suffix": ""
+  },
+  "price_html": "",
+  "average_rating": "0",
+  "review_count": 0,
+  "images": [
+   {
+    "id": 2241,
+    "src": "https://supermachirestaurante.com/wp-content/uploads/2026/06/mayu512.jpg",
+    "thumbnail": "https://supermachirestaurante.com/wp-content/uploads/2026/06/mayu512-300x300.jpg",
+    "srcset": "https://supermachirestaurante.com/wp-content/uploads/2026/06/mayu512.jpg 512w, https://supermachirestaurante.com/wp-content/uploads/2026/06/mayu512-300x300.jpg 300w, https://supermachirestaurante.com/wp-content/uploads/2026/06/mayu512-150x150.jpg 150w, https://supermachirestaurante.com/wp-content/uploads/2026/06/mayu512-100x100.jpg 100w",
+    "sizes": "(max-width: 512px) 100vw, 512px",
+    "name": "mayu512",
+    "alt": ""
+   }
+  ],
+  "categories": [],
+  "tags": [],
+  "brands": [],
+  "attributes": [],
+  "variations": [],
+  "grouped_products": [],
+  "has_options": false,
+  "is_purchasable": false,
+  "is_in_stock": true,
+  "is_on_backorder": false,
+  "low_stock_remaining": null,
+  "stock_availability": {
+   "text": "",
+   "class": "in-stock"
+  },
+  "sold_individually": false,
+  "add_to_cart": {
+   "text": "Leer más",
+   "description": "Lee más sobre &ldquo;19 de Julio | Maylu&#8217;s Cabaret&rdquo;",
+   "url": "https://supermachirestaurante.com/producto/19-de-julio-maylus-cabaret/",
+   "single_text": "Añadir al carrito",
+   "minimum": 2,
+   "maximum": 9999,
+   "multiple_of": 1
+  },
+  "extensions": {}
+ },
+ {
+  "id": 2238,
+  "name": "18 de Julio | Antolin El Pichon",
+  "slug": "18-de-julio-antolin-el-pichon",
+  "parent": 0,
+  "type": "simple",
+  "variation": "",
+  "permalink": "https://supermachirestaurante.com/producto/18-de-julio-antolin-el-pichon/",
+  "sku": "",
+  "short_description": "",
+  "description": "",
+  "on_sale": false,
+  "prices": {
+   "price": "0",
+   "regular_price": "0",
+   "sale_price": "0",
+   "price_range": null,
+   "currency_code": "USD",
+   "currency_symbol": "$",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ".",
+   "currency_thousand_separator": ",",
+   "currency_prefix": "$",
+   "currency_suffix": ""
+  },
+  "price_html": "",
+  "average_rating": "0",
+  "review_count": 0,
+  "images": [
+   {
+    "id": 2239,
+    "src": "https://supermachirestaurante.com/wp-content/uploads/2026/06/super_machi_antolinn512.jpg",
+    "thumbnail": "https://supermachirestaurante.com/wp-content/uploads/2026/06/super_machi_antolinn512-300x300.jpg",
+    "srcset": "https://supermachirestaurante.com/wp-content/uploads/2026/06/super_machi_antolinn512.jpg 512w, https://supermachirestaurante.com/wp-content/uploads/2026/06/super_machi_antolinn512-300x300.jpg 300w, https://supermachirestaurante.com/wp-content/uploads/2026/06/super_machi_antolinn512-150x150.jpg 150w, https://supermachirestaurante.com/wp-content/uploads/2026/06/super_machi_antolinn512-100x100.jpg 100w",
+    "sizes": "(max-width: 512px) 100vw, 512px",
+    "name": "super_machi_antolinn+512",
+    "alt": ""
+   }
+  ],
+  "categories": [],
+  "tags": [],
+  "brands": [],
+  "attributes": [],
+  "variations": [],
+  "grouped_products": [],
+  "has_options": false,
+  "is_purchasable": false,
+  "is_in_stock": true,
+  "is_on_backorder": false,
+  "low_stock_remaining": null,
+  "stock_availability": {
+   "text": "",
+   "class": "in-stock"
+  },
+  "sold_individually": false,
+  "add_to_cart": {
+   "text": "Leer más",
+   "description": "Lee más sobre &ldquo;18 de Julio | Antolin El Pichon&rdquo;",
+   "url": "https://supermachirestaurante.com/producto/18-de-julio-antolin-el-pichon/",
+   "single_text": "Añadir al carrito",
+   "minimum": 2,
+   "maximum": 9999,
+   "multiple_of": 1
+  },
+  "extensions": {}
+ },
+ {
+  "id": 2236,
+  "name": "17 de Julio | Qva Libre",
+  "slug": "17-de-julio-qva-libre",
+  "parent": 0,
+  "type": "simple",
+  "variation": "",
+  "permalink": "https://supermachirestaurante.com/producto/17-de-julio-qva-libre/",
+  "sku": "",
+  "short_description": "",
+  "description": "",
+  "on_sale": false,
+  "prices": {
+   "price": "0",
+   "regular_price": "0",
+   "sale_price": "0",
+   "price_range": null,
+   "currency_code": "USD",
+   "currency_symbol": "$",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ".",
+   "currency_thousand_separator": ",",
+   "currency_prefix": "$",
+   "currency_suffix": ""
+  },
+  "price_html": "",
+  "average_rating": "0",
+  "review_count": 0,
+  "images": [
+   {
+    "id": 2237,
+    "src": "https://supermachirestaurante.com/wp-content/uploads/2026/06/super_machi_qvalibre17512.jpg",
+    "thumbnail": "https://supermachirestaurante.com/wp-content/uploads/2026/06/super_machi_qvalibre17512-300x300.jpg",
+    "srcset": "https://supermachirestaurante.com/wp-content/uploads/2026/06/super_machi_qvalibre17512.jpg 512w, https://supermachirestaurante.com/wp-content/uploads/2026/06/super_machi_qvalibre17512-300x300.jpg 300w, https://supermachirestaurante.com/wp-content/uploads/2026/06/super_machi_qvalibre17512-150x150.jpg 150w, https://supermachirestaurante.com/wp-content/uploads/2026/06/super_machi_qvalibre17512-100x100.jpg 100w",
+    "sizes": "(max-width: 512px) 100vw, 512px",
+    "name": "super_machi_qva+libre17+512",
+    "alt": ""
+   }
+  ],
+  "categories": [],
+  "tags": [],
+  "brands": [],
+  "attributes": [],
+  "variations": [],
+  "grouped_products": [],
+  "has_options": false,
+  "is_purchasable": false,
+  "is_in_stock": true,
+  "is_on_backorder": false,
+  "low_stock_remaining": null,
+  "stock_availability": {
+   "text": "",
+   "class": "in-stock"
+  },
+  "sold_individually": false,
+  "add_to_cart": {
+   "text": "Leer más",
+   "description": "Lee más sobre &ldquo;17 de Julio | Qva Libre&rdquo;",
+   "url": "https://supermachirestaurante.com/producto/17-de-julio-qva-libre/",
+   "single_text": "Añadir al carrito",
+   "minimum": 2,
+   "maximum": 9999,
+   "multiple_of": 1
+  },
+  "extensions": {}
+ },
+ {
+  "id": 2181,
+  "name": "11 de Julio | Alain Daniel",
+  "slug": "11-de-julio-alain-daniel",
+  "parent": 0,
+  "type": "simple",
+  "variation": "",
+  "permalink": "https://supermachirestaurante.com/producto/11-de-julio-alain-daniel/",
+  "sku": "",
+  "short_description": "",
+  "description": "",
+  "on_sale": false,
+  "prices": {
+   "price": "0",
+   "regular_price": "0",
+   "sale_price": "0",
+   "price_range": null,
+   "currency_code": "USD",
+   "currency_symbol": "$",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ".",
+   "currency_thousand_separator": ",",
+   "currency_prefix": "$",
+   "currency_suffix": ""
+  },
+  "price_html": "",
+  "average_rating": "0",
+  "review_count": 0,
+  "images": [
+   {
+    "id": 2184,
+    "src": "https://supermachirestaurante.com/wp-content/uploads/2026/06/512-alain-daniel.jpg",
+    "thumbnail": "https://supermachirestaurante.com/wp-content/uploads/2026/06/512-alain-daniel-300x300.jpg",
+    "srcset": "https://supermachirestaurante.com/wp-content/uploads/2026/06/512-alain-daniel.jpg 512w, https://supermachirestaurante.com/wp-content/uploads/2026/06/512-alain-daniel-300x300.jpg 300w, https://supermachirestaurante.com/wp-content/uploads/2026/06/512-alain-daniel-150x150.jpg 150w, https://supermachirestaurante.com/wp-content/uploads/2026/06/512-alain-daniel-100x100.jpg 100w",
+    "sizes": "(max-width: 512px) 100vw, 512px",
+    "name": "512-alain daniel",
+    "alt": ""
+   }
+  ],
+  "categories": [],
+  "tags": [],
+  "brands": [],
+  "attributes": [],
+  "variations": [],
+  "grouped_products": [],
+  "has_options": false,
+  "is_purchasable": false,
+  "is_in_stock": true,
+  "is_on_backorder": false,
+  "low_stock_remaining": null,
+  "stock_availability": {
+   "text": "",
+   "class": "in-stock"
+  },
+  "sold_individually": false,
+  "add_to_cart": {
+   "text": "Leer más",
+   "description": "Lee más sobre &ldquo;11 de Julio | Alain Daniel&rdquo;",
+   "url": "https://supermachirestaurante.com/producto/11-de-julio-alain-daniel/",
+   "single_text": "Añadir al carrito",
+   "minimum": 2,
+   "maximum": 9999,
+   "multiple_of": 1
+  },
+  "extensions": {}
+ },
+ {
+  "id": 2177,
+  "name": "26 de Junio | Ruperto",
+  "slug": "26-de-junio-ruperto",
+  "parent": 0,
+  "type": "simple",
+  "variation": "",
+  "permalink": "https://supermachirestaurante.com/producto/26-de-junio-ruperto/",
+  "sku": "",
+  "short_description": "",
+  "description": "",
+  "on_sale": false,
+  "prices": {
+   "price": "0",
+   "regular_price": "0",
+   "sale_price": "0",
+   "price_range": null,
+   "currency_code": "USD",
+   "currency_symbol": "$",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ".",
+   "currency_thousand_separator": ",",
+   "currency_prefix": "$",
+   "currency_suffix": ""
+  },
+  "price_html": "",
+  "average_rating": "0",
+  "review_count": 0,
+  "images": [
+   {
+    "id": 2186,
+    "src": "https://supermachirestaurante.com/wp-content/uploads/2026/06/512-ruperto.jpg",
+    "thumbnail": "https://supermachirestaurante.com/wp-content/uploads/2026/06/512-ruperto-300x300.jpg",
+    "srcset": "https://supermachirestaurante.com/wp-content/uploads/2026/06/512-ruperto.jpg 512w, https://supermachirestaurante.com/wp-content/uploads/2026/06/512-ruperto-300x300.jpg 300w, https://supermachirestaurante.com/wp-content/uploads/2026/06/512-ruperto-150x150.jpg 150w, https://supermachirestaurante.com/wp-content/uploads/2026/06/512-ruperto-100x100.jpg 100w",
+    "sizes": "(max-width: 512px) 100vw, 512px",
+    "name": "512-ruperto",
+    "alt": ""
+   }
+  ],
+  "categories": [],
+  "tags": [],
+  "brands": [],
+  "attributes": [],
+  "variations": [],
+  "grouped_products": [],
+  "has_options": false,
+  "is_purchasable": false,
+  "is_in_stock": true,
+  "is_on_backorder": false,
+  "low_stock_remaining": null,
+  "stock_availability": {
+   "text": "",
+   "class": "in-stock"
+  },
+  "sold_individually": false,
+  "add_to_cart": {
+   "text": "Leer más",
+   "description": "Lee más sobre &ldquo;26 de Junio | Ruperto&rdquo;",
+   "url": "https://supermachirestaurante.com/producto/26-de-junio-ruperto/",
+   "single_text": "Añadir al carrito",
+   "minimum": 2,
+   "maximum": 9999,
+   "multiple_of": 1
+  },
+  "extensions": {}
+ },
+ {
+  "id": 2171,
+  "name": "13 de Junio | Laritza Bacallao",
+  "slug": "13-de-junio-laritza-bacallao",
+  "parent": 0,
+  "type": "simple",
+  "variation": "",
+  "permalink": "https://supermachirestaurante.com/producto/13-de-junio-laritza-bacallao/",
+  "sku": "",
+  "short_description": "",
+  "description": "",
+  "on_sale": false,
+  "prices": {
+   "price": "0",
+   "regular_price": "0",
+   "sale_price": "0",
+   "price_range": null,
+   "currency_code": "USD",
+   "currency_symbol": "$",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ".",
+   "currency_thousand_separator": ",",
+   "currency_prefix": "$",
+   "currency_suffix": ""
+  },
+  "price_html": "",
+  "average_rating": "0",
+  "review_count": 0,
+  "images": [
+   {
+    "id": 2189,
+    "src": "https://supermachirestaurante.com/wp-content/uploads/2026/06/laritza-13-junio.jpg",
+    "thumbnail": "https://supermachirestaurante.com/wp-content/uploads/2026/06/laritza-13-junio-300x300.jpg",
+    "srcset": "https://supermachirestaurante.com/wp-content/uploads/2026/06/laritza-13-junio.jpg 512w, https://supermachirestaurante.com/wp-content/uploads/2026/06/laritza-13-junio-300x300.jpg 300w, https://supermachirestaurante.com/wp-content/uploads/2026/06/laritza-13-junio-150x150.jpg 150w, https://supermachirestaurante.com/wp-content/uploads/2026/06/laritza-13-junio-100x100.jpg 100w",
+    "sizes": "(max-width: 512px) 100vw, 512px",
+    "name": "laritza-13-junio",
+    "alt": ""
+   }
+  ],
+  "categories": [],
+  "tags": [],
+  "brands": [],
+  "attributes": [],
+  "variations": [],
+  "grouped_products": [],
+  "has_options": false,
+  "is_purchasable": false,
+  "is_in_stock": true,
+  "is_on_backorder": false,
+  "low_stock_remaining": null,
+  "stock_availability": {
+   "text": "",
+   "class": "in-stock"
+  },
+  "sold_individually": false,
+  "add_to_cart": {
+   "text": "Leer más",
+   "description": "Lee más sobre &ldquo;13 de Junio | Laritza Bacallao&rdquo;",
+   "url": "https://supermachirestaurante.com/producto/13-de-junio-laritza-bacallao/",
+   "single_text": "Añadir al carrito",
+   "minimum": 2,
+   "maximum": 9999,
+   "multiple_of": 1
+  },
+  "extensions": {}
+ },
+ {
+  "id": 1961,
+  "name": "28 de Marzo, Laritza Bacallao",
+  "slug": "28-de-marzo-laritza-bacallao",
+  "parent": 0,
+  "type": "simple",
+  "variation": "",
+  "permalink": "https://supermachirestaurante.com/producto/28-de-marzo-laritza-bacallao/",
+  "sku": "",
+  "short_description": "",
+  "description": "",
+  "on_sale": false,
+  "prices": {
+   "price": "0",
+   "regular_price": "0",
+   "sale_price": "0",
+   "price_range": null,
+   "currency_code": "USD",
+   "currency_symbol": "$",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ".",
+   "currency_thousand_separator": ",",
+   "currency_prefix": "$",
+   "currency_suffix": ""
+  },
+  "price_html": "",
+  "average_rating": "0",
+  "review_count": 0,
+  "images": [
+   {
+    "id": 1962,
+    "src": "https://supermachirestaurante.com/wp-content/uploads/2026/03/larizta512x512-2.jpg.jpeg",
+    "thumbnail": "https://supermachirestaurante.com/wp-content/uploads/2026/03/larizta512x512-2.jpg-300x300.jpeg",
+    "srcset": "https://supermachirestaurante.com/wp-content/uploads/2026/03/larizta512x512-2.jpg.jpeg 512w, https://supermachirestaurante.com/wp-content/uploads/2026/03/larizta512x512-2.jpg-300x300.jpeg 300w, https://supermachirestaurante.com/wp-content/uploads/2026/03/larizta512x512-2.jpg-150x150.jpeg 150w, https://supermachirestaurante.com/wp-content/uploads/2026/03/larizta512x512-2.jpg-100x100.jpeg 100w",
+    "sizes": "(max-width: 512px) 100vw, 512px",
+    "name": "larizta(512&#215;512) 2.jpg",
+    "alt": ""
+   },
+   {
+    "id": 1962,
+    "src": "https://supermachirestaurante.com/wp-content/uploads/2026/03/larizta512x512-2.jpg.jpeg",
+    "thumbnail": "https://supermachirestaurante.com/wp-content/uploads/2026/03/larizta512x512-2.jpg-300x300.jpeg",
+    "srcset": "https://supermachirestaurante.com/wp-content/uploads/2026/03/larizta512x512-2.jpg.jpeg 512w, https://supermachirestaurante.com/wp-content/uploads/2026/03/larizta512x512-2.jpg-300x300.jpeg 300w, https://supermachirestaurante.com/wp-content/uploads/2026/03/larizta512x512-2.jpg-150x150.jpeg 150w, https://supermachirestaurante.com/wp-content/uploads/2026/03/larizta512x512-2.jpg-100x100.jpeg 100w",
+    "sizes": "(max-width: 512px) 100vw, 512px",
+    "name": "larizta(512&#215;512) 2.jpg",
+    "alt": ""
+   }
+  ],
+  "categories": [],
+  "tags": [],
+  "brands": [],
+  "attributes": [],
+  "variations": [],
+  "grouped_products": [],
+  "has_options": false,
+  "is_purchasable": false,
+  "is_in_stock": true,
+  "is_on_backorder": false,
+  "low_stock_remaining": null,
+  "stock_availability": {
+   "text": "",
+   "class": "in-stock"
+  },
+  "sold_individually": false,
+  "add_to_cart": {
+   "text": "Leer más",
+   "description": "Lee más sobre &ldquo;28 de Marzo, Laritza Bacallao&rdquo;",
+   "url": "https://supermachirestaurante.com/producto/28-de-marzo-laritza-bacallao/",
+   "single_text": "Añadir al carrito",
+   "minimum": 2,
+   "maximum": 9999,
+   "multiple_of": 1
+  },
+  "extensions": {}
+ },
+ {
+  "id": 1755,
+  "name": "05 De Diciembre Maylu&#8217;s Cabaret",
+  "slug": "05-de-diciembre-maylus-cabaret",
+  "parent": 0,
+  "type": "simple",
+  "variation": "",
+  "permalink": "https://supermachirestaurante.com/producto/05-de-diciembre-maylus-cabaret/",
+  "sku": "",
+  "short_description": "",
+  "description": "",
+  "on_sale": false,
+  "prices": {
+   "price": "0",
+   "regular_price": "0",
+   "sale_price": "0",
+   "price_range": null,
+   "currency_code": "USD",
+   "currency_symbol": "$",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ".",
+   "currency_thousand_separator": ",",
+   "currency_prefix": "$",
+   "currency_suffix": ""
+  },
+  "price_html": "",
+  "average_rating": "0",
+  "review_count": 0,
+  "images": [
+   {
+    "id": 1760,
+    "src": "https://supermachirestaurante.com/wp-content/uploads/2025/12/WhatsApp-Image-2025-12-04-at-15.14.09_80160d11.jpg",
+    "thumbnail": "https://supermachirestaurante.com/wp-content/uploads/2025/12/WhatsApp-Image-2025-12-04-at-15.14.09_80160d11-300x375.jpg",
+    "srcset": "https://supermachirestaurante.com/wp-content/uploads/2025/12/WhatsApp-Image-2025-12-04-at-15.14.09_80160d11.jpg 1080w, https://supermachirestaurante.com/wp-content/uploads/2025/12/WhatsApp-Image-2025-12-04-at-15.14.09_80160d11-240x300.jpg 240w, https://supermachirestaurante.com/wp-content/uploads/2025/12/WhatsApp-Image-2025-12-04-at-15.14.09_80160d11-819x1024.jpg 819w, https://supermachirestaurante.com/wp-content/uploads/2025/12/WhatsApp-Image-2025-12-04-at-15.14.09_80160d11-768x960.jpg 768w, https://supermachirestaurante.com/wp-content/uploads/2025/12/WhatsApp-Image-2025-12-04-at-15.14.09_80160d11-300x375.jpg 300w, https://supermachirestaurante.com/wp-content/uploads/2025/12/WhatsApp-Image-2025-12-04-at-15.14.09_80160d11-600x750.jpg 600w",
+    "sizes": "(max-width: 1080px) 100vw, 1080px",
+    "name": "WhatsApp Image 2025-12-04 at 15.14.09_80160d11",
+    "alt": ""
+   }
+  ],
+  "categories": [],
+  "tags": [],
+  "brands": [],
+  "attributes": [
+   {
+    "id": 0,
+    "name": "Ubicacion",
+    "taxonomy": null,
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 0,
+      "name": "VIP",
+      "slug": "VIP",
+      "default": true
+     },
+     {
+      "id": 0,
+      "name": "Salon 1",
+      "slug": "Salon 1",
+      "default": false
+     },
+     {
+      "id": 0,
+      "name": "Salon 2",
+      "slug": "Salon 2",
+      "default": false
+     },
+     {
+      "id": 0,
+      "name": "Barra",
+      "slug": "Barra",
+      "default": false
+     }
+    ]
+   }
+  ],
+  "variations": [],
+  "grouped_products": [],
+  "has_options": false,
+  "is_purchasable": false,
+  "is_in_stock": true,
+  "is_on_backorder": false,
+  "low_stock_remaining": null,
+  "stock_availability": {
+   "text": "Hay existencias",
+   "class": "in-stock"
+  },
+  "sold_individually": false,
+  "add_to_cart": {
+   "text": "Leer más",
+   "description": "Lee más sobre &ldquo;05 De Diciembre Maylu&#8217;s Cabaret&rdquo;",
+   "url": "https://supermachirestaurante.com/producto/05-de-diciembre-maylus-cabaret/",
+   "single_text": "Añadir al carrito",
+   "minimum": 2,
+   "maximum": 10,
+   "multiple_of": 1
+  },
+  "extensions": {}
+ },
+ {
+  "id": 1749,
+  "name": "06 De Diciembre Gio &#038; Anaisa",
+  "slug": "06-de-diciembre-gio-anaisa",
+  "parent": 0,
+  "type": "variable",
+  "variation": "",
+  "permalink": "https://supermachirestaurante.com/producto/06-de-diciembre-gio-anaisa/",
+  "sku": "",
+  "short_description": "",
+  "description": "",
+  "on_sale": false,
+  "prices": {
+   "price": "1000",
+   "regular_price": "1000",
+   "sale_price": "1000",
+   "price_range": {
+    "min_amount": "1000",
+    "max_amount": "3000"
+   },
+   "currency_code": "USD",
+   "currency_symbol": "$",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ".",
+   "currency_thousand_separator": ",",
+   "currency_prefix": "$",
+   "currency_suffix": ""
+  },
+  "price_html": "<span class=\"woocommerce-Price-amount amount\" aria-hidden=\"true\"><span class=\"woocommerce-Price-currencySymbol\">&#036;</span>10.00</span> <span aria-hidden=\"true\">&#8211;</span> <span class=\"woocommerce-Price-amount amount\" aria-hidden=\"true\"><span class=\"woocommerce-Price-currencySymbol\">&#036;</span>30.00</span><span class=\"screen-reader-text\">Rango de precios: desde &#036;10.00 hasta &#036;30.00</span>",
+  "average_rating": "0",
+  "review_count": 0,
+  "images": [
+   {
+    "id": 1754,
+    "src": "https://supermachirestaurante.com/wp-content/uploads/2025/12/IMG_9885.png",
+    "thumbnail": "https://supermachirestaurante.com/wp-content/uploads/2025/12/IMG_9885-300x375.png",
+    "srcset": "https://supermachirestaurante.com/wp-content/uploads/2025/12/IMG_9885.png 1080w, https://supermachirestaurante.com/wp-content/uploads/2025/12/IMG_9885-240x300.png 240w, https://supermachirestaurante.com/wp-content/uploads/2025/12/IMG_9885-819x1024.png 819w, https://supermachirestaurante.com/wp-content/uploads/2025/12/IMG_9885-768x960.png 768w, https://supermachirestaurante.com/wp-content/uploads/2025/12/IMG_9885-300x375.png 300w, https://supermachirestaurante.com/wp-content/uploads/2025/12/IMG_9885-600x750.png 600w",
+    "sizes": "(max-width: 1080px) 100vw, 1080px",
+    "name": "IMG_9885",
+    "alt": ""
+   }
+  ],
+  "categories": [],
+  "tags": [],
+  "brands": [],
+  "attributes": [
+   {
+    "id": 0,
+    "name": "Ubicacion",
+    "taxonomy": null,
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 0,
+      "name": "VIP",
+      "slug": "VIP",
+      "default": true
+     },
+     {
+      "id": 0,
+      "name": "Salon 1",
+      "slug": "Salon 1",
+      "default": false
+     },
+     {
+      "id": 0,
+      "name": "Salon 2",
+      "slug": "Salon 2",
+      "default": false
+     },
+     {
+      "id": 0,
+      "name": "Barra",
+      "slug": "Barra",
+      "default": false
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 1750,
+    "attributes": [
+     {
+      "name": "Ubicacion",
+      "value": "VIP"
+     }
+    ]
+   },
+   {
+    "id": 1751,
+    "attributes": [
+     {
+      "name": "Ubicacion",
+      "value": "Salon 1"
+     }
+    ]
+   },
+   {
+    "id": 1752,
+    "attributes": [
+     {
+      "name": "Ubicacion",
+      "value": "Salon 2"
+     }
+    ]
+   },
+   {
+    "id": 1753,
+    "attributes": [
+     {
+      "name": "Ubicacion",
+      "value": "Barra"
+     }
+    ]
+   }
+  ],
+  "grouped_products": [],
+  "has_options": true,
+  "is_purchasable": false,
+  "is_in_stock": true,
+  "is_on_backorder": false,
+  "low_stock_remaining": null,
+  "stock_availability": {
+   "text": "Sin existencias",
+   "class": "out-of-stock"
+  },
+  "sold_individually": false,
+  "add_to_cart": {
+   "text": "Leer más",
+   "description": "Elige las opciones para &ldquo;06 De Diciembre Gio &#038; Anaisa&rdquo;",
+   "url": "https://supermachirestaurante.com/producto/06-de-diciembre-gio-anaisa/",
+   "single_text": "Añadir al carrito",
+   "minimum": 2,
+   "maximum": 10,
+   "multiple_of": 1
+  },
+  "extensions": {}
+ },
+ {
+  "id": 1613,
+  "name": "31 De Diciembre Los 3 De La Habana y Band",
+  "slug": "31-de-diciembre-los-3-de-la-habana-y-band",
+  "parent": 0,
+  "type": "variable",
+  "variation": "",
+  "permalink": "https://supermachirestaurante.com/producto/31-de-diciembre-los-3-de-la-habana-y-band/",
+  "sku": "",
+  "short_description": "",
+  "description": "",
+  "on_sale": false,
+  "prices": {
+   "price": "13000",
+   "regular_price": "13000",
+   "sale_price": "13000",
+   "price_range": {
+    "min_amount": "13000",
+    "max_amount": "18000"
+   },
+   "currency_code": "USD",
+   "currency_symbol": "$",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ".",
+   "currency_thousand_separator": ",",
+   "currency_prefix": "$",
+   "currency_suffix": ""
+  },
+  "price_html": "<span class=\"woocommerce-Price-amount amount\" aria-hidden=\"true\"><span class=\"woocommerce-Price-currencySymbol\">&#036;</span>130.00</span> <span aria-hidden=\"true\">&#8211;</span> <span class=\"woocommerce-Price-amount amount\" aria-hidden=\"true\"><span class=\"woocommerce-Price-currencySymbol\">&#036;</span>180.00</span><span class=\"screen-reader-text\">Rango de precios: desde &#036;130.00 hasta &#036;180.00</span>",
+  "average_rating": "0",
+  "review_count": 0,
+  "images": [
+   {
+    "id": 1643,
+    "src": "https://supermachirestaurante.com/wp-content/uploads/2025/10/supermachi_carlos_Los3-31512.jpg",
+    "thumbnail": "https://supermachirestaurante.com/wp-content/uploads/2025/10/supermachi_carlos_Los3-31512-300x300.jpg",
+    "srcset": "https://supermachirestaurante.com/wp-content/uploads/2025/10/supermachi_carlos_Los3-31512.jpg 512w, https://supermachirestaurante.com/wp-content/uploads/2025/10/supermachi_carlos_Los3-31512-300x300.jpg 300w, https://supermachirestaurante.com/wp-content/uploads/2025/10/supermachi_carlos_Los3-31512-150x150.jpg 150w, https://supermachirestaurante.com/wp-content/uploads/2025/10/supermachi_carlos_Los3-31512-100x100.jpg 100w",
+    "sizes": "(max-width: 512px) 100vw, 512px",
+    "name": "supermachi_carlos_Los3-31512",
+    "alt": ""
+   }
+  ],
+  "categories": [],
+  "tags": [],
+  "brands": [],
+  "attributes": [
+   {
+    "id": 0,
+    "name": "Ubicacion",
+    "taxonomy": null,
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 0,
+      "name": "VIP",
+      "slug": "VIP",
+      "default": true
+     },
+     {
+      "id": 0,
+      "name": "Salon 1",
+      "slug": "Salon 1",
+      "default": false
+     },
+     {
+      "id": 0,
+      "name": "Salon 2",
+      "slug": "Salon 2",
+      "default": false
+     },
+     {
+      "id": 0,
+      "name": "Barra",
+      "slug": "Barra",
+      "default": false
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 1614,
+    "attributes": [
+     {
+      "name": "Ubicacion",
+      "value": "VIP"
+     }
+    ]
+   },
+   {
+    "id": 1615,
+    "attributes": [
+     {
+      "name": "Ubicacion",
+      "value": "Salon 1"
+     }
+    ]
+   },
+   {
+    "id": 1616,
+    "attributes": [
+     {
+      "name": "Ubicacion",
+      "value": "Salon 2"
+     }
+    ]
+   },
+   {
+    "id": 1617,
+    "attributes": [
+     {
+      "name": "Ubicacion",
+      "value": "Barra"
+     }
+    ]
+   }
+  ],
+  "grouped_products": [],
+  "has_options": true,
+  "is_purchasable": false,
+  "is_in_stock": true,
+  "is_on_backorder": false,
+  "low_stock_remaining": null,
+  "stock_availability": {
+   "text": "Sin existencias",
+   "class": "out-of-stock"
+  },
+  "sold_individually": false,
+  "add_to_cart": {
+   "text": "Leer más",
+   "description": "Elige las opciones para &ldquo;31 De Diciembre Los 3 De La Habana y Band&rdquo;",
+   "url": "https://supermachirestaurante.com/producto/31-de-diciembre-los-3-de-la-habana-y-band/",
+   "single_text": "Añadir al carrito",
+   "minimum": 2,
+   "maximum": 10,
+   "multiple_of": 1
+  },
+  "extensions": {}
+ },
+ {
+  "id": 771,
+  "name": "Tabla Mar Y Tierra",
+  "slug": "tabla-mar-y-tierra",
+  "parent": 0,
+  "type": "variable",
+  "variation": "",
+  "permalink": "https://supermachirestaurante.com/producto/tabla-mar-y-tierra/",
+  "sku": "",
+  "short_description": "<p><span style=\"color: #333333;font-size: 140%\"><strong>Un festín diseñado para deleitar a los paladares más exigentes.</strong></span></p>\n<p><img class=\"alignnone wp-image-245\" src=\"https://supermachirestaurante.com/wp-content/uploads/2025/01/ORNAMENTO-300x43.png\" alt=\"\" width=\"216\" height=\"31\" /></p>\n<p><span style=\"color: #333333\">Langosta, camarón, filete de pargo, bistec de churrasco, pollo a la plancha, masa de puerco, chorizo, morcilla, tamales, tostones, dado de corvina.</span></p>\n<p><span style=\"color: #993366\"> <em><strong><span style=\"font-size: 160%\">PARA 10 &#8211; 14 PERSONAS</span></strong></em></span></p>\n<p><span style=\"color: #808080\">Esta exquisita combinación reúne lo mejor del mar y la tierra en una selección única que incluye filetes de pargo, langostas, camarones, carne de res, pollo, cerdo, chorizos, morcillas, tostones, tamales</span></p>",
+  "description": "",
+  "on_sale": false,
+  "prices": {
+   "price": "0",
+   "regular_price": "0",
+   "sale_price": "0",
+   "price_range": null,
+   "currency_code": "USD",
+   "currency_symbol": "$",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ".",
+   "currency_thousand_separator": ",",
+   "currency_prefix": "$",
+   "currency_suffix": ""
+  },
+  "price_html": "",
+  "average_rating": "0",
+  "review_count": 0,
+  "images": [
+   {
+    "id": 734,
+    "src": "https://supermachirestaurante.com/wp-content/uploads/2025/01/super-machi-tabla.png",
+    "thumbnail": "https://supermachirestaurante.com/wp-content/uploads/2025/01/super-machi-tabla-300x200.png",
+    "srcset": "https://supermachirestaurante.com/wp-content/uploads/2025/01/super-machi-tabla.png 7008w, https://supermachirestaurante.com/wp-content/uploads/2025/01/super-machi-tabla-300x200.png 300w, https://supermachirestaurante.com/wp-content/uploads/2025/01/super-machi-tabla-1024x683.png 1024w, https://supermachirestaurante.com/wp-content/uploads/2025/01/super-machi-tabla-768x512.png 768w, https://supermachirestaurante.com/wp-content/uploads/2025/01/super-machi-tabla-1536x1024.png 1536w, https://supermachirestaurante.com/wp-content/uploads/2025/01/super-machi-tabla-2048x1365.png 2048w, https://supermachirestaurante.com/wp-content/uploads/2025/01/super-machi-tabla-600x400.png 600w",
+    "sizes": "(max-width: 7008px) 100vw, 7008px",
+    "name": "super machi &#8211; tabla",
+    "alt": ""
+   }
+  ],
+  "categories": [],
+  "tags": [],
+  "brands": [],
+  "attributes": [
+   {
+    "id": 0,
+    "name": "Tamaño",
+    "taxonomy": null,
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 0,
+      "name": "10 - 14 Personas",
+      "slug": "10 - 14 Personas"
+     }
+    ]
+   },
+   {
+    "id": 0,
+    "name": "Acompañante 1",
+    "taxonomy": null,
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 0,
+      "name": "Moro",
+      "slug": "Moro"
+     },
+     {
+      "id": 0,
+      "name": "Yuca Con Mojo",
+      "slug": "Yuca Con Mojo"
+     },
+     {
+      "id": 0,
+      "name": "Maduros",
+      "slug": "Maduros"
+     },
+     {
+      "id": 0,
+      "name": "Arroz Blanco",
+      "slug": "Arroz Blanco"
+     },
+     {
+      "id": 0,
+      "name": "Ensalada Mixta",
+      "slug": "Ensalada Mixta"
+     },
+     {
+      "id": 0,
+      "name": "Papás Fritas",
+      "slug": "Papás Fritas"
+     }
+    ]
+   },
+   {
+    "id": 0,
+    "name": "Acompañante 2",
+    "taxonomy": null,
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 0,
+      "name": "Moro",
+      "slug": "Moro"
+     },
+     {
+      "id": 0,
+      "name": "Yuca Con Mojo",
+      "slug": "Yuca Con Mojo"
+     },
+     {
+      "id": 0,
+      "name": "Maduros",
+      "slug": "Maduros"
+     },
+     {
+      "id": 0,
+      "name": "Arroz Blanco",
+      "slug": "Arroz Blanco"
+     },
+     {
+      "id": 0,
+      "name": "Ensalada Mixta",
+      "slug": "Ensalada Mixta"
+     },
+     {
+      "id": 0,
+      "name": "Papás Fritas",
+      "slug": "Papás Fritas"
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 1021,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "10 - 14 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": null
+     },
+     {
+      "name": "Acompañante 2",
+      "value": null
+     }
+    ]
+   },
+   {
+    "id": 1031,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "10 - 14 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": null
+     },
+     {
+      "name": "Acompañante 2",
+      "value": null
+     }
+    ]
+   },
+   {
+    "id": 1033,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "10 - 14 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": null
+     },
+     {
+      "name": "Acompañante 2",
+      "value": null
+     }
+    ]
+   },
+   {
+    "id": 1034,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "10 - 14 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": null
+     },
+     {
+      "name": "Acompañante 2",
+      "value": null
+     }
+    ]
+   },
+   {
+    "id": 1035,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "10 - 14 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": null
+     },
+     {
+      "name": "Acompañante 2",
+      "value": null
+     }
+    ]
+   }
+  ],
+  "grouped_products": [],
+  "has_options": true,
+  "is_purchasable": false,
+  "is_in_stock": true,
+  "is_on_backorder": false,
+  "low_stock_remaining": null,
+  "stock_availability": {
+   "text": "Sin existencias",
+   "class": "out-of-stock"
+  },
+  "sold_individually": false,
+  "add_to_cart": {
+   "text": "Leer más",
+   "description": "Elige las opciones para &ldquo;Tabla Mar Y Tierra&rdquo;",
+   "url": "https://supermachirestaurante.com/producto/tabla-mar-y-tierra/",
+   "single_text": "Añadir al carrito",
+   "minimum": 1,
+   "maximum": 100,
+   "multiple_of": 1
+  },
+  "extensions": {}
+ },
+ {
+  "id": 19,
+  "name": "Cochinillo Segoviano",
+  "slug": "cochinillo-segoviano",
+  "parent": 0,
+  "type": "variable",
+  "variation": "",
+  "permalink": "https://supermachirestaurante.com/producto/cochinillo-segoviano/",
+  "sku": "",
+  "short_description": "<p><span style=\"color: #808080\"><strong><span style=\"font-size: 130%\">llevamos hasta tu mesa la experiencia única del auténtico cochinillo lechal segoviano, preparado con la más alta calidad y tradición culinaria.</span></strong></span></p>\n<p><img class=\"alignnone wp-image-245\" src=\"https://supermachirestaurante.com/wp-content/uploads/2025/01/ORNAMENTO-300x43.png\" alt=\"\" width=\"160\" height=\"23\" /></p>\n<p><span style=\"color: #808080\"> Este manjar, famoso por su piel dorada y crujiente, acompañado de una carne tierna y jugosa que se deshace en el paladar, es ideal para los amantes de la gastronomía española.</span></p>",
+  "description": "",
+  "on_sale": false,
+  "prices": {
+   "price": "29000",
+   "regular_price": "29000",
+   "sale_price": "29000",
+   "price_range": {
+    "min_amount": "29000",
+    "max_amount": "38000"
+   },
+   "currency_code": "USD",
+   "currency_symbol": "$",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ".",
+   "currency_thousand_separator": ",",
+   "currency_prefix": "$",
+   "currency_suffix": ""
+  },
+  "price_html": "<span class=\"woocommerce-Price-amount amount\" aria-hidden=\"true\"><span class=\"woocommerce-Price-currencySymbol\">&#036;</span>290.00</span> <span aria-hidden=\"true\">&#8211;</span> <span class=\"woocommerce-Price-amount amount\" aria-hidden=\"true\"><span class=\"woocommerce-Price-currencySymbol\">&#036;</span>380.00</span><span class=\"screen-reader-text\">Rango de precios: desde &#036;290.00 hasta &#036;380.00</span>",
+  "average_rating": "0",
+  "review_count": 0,
+  "images": [
+   {
+    "id": 177,
+    "src": "https://supermachirestaurante.com/wp-content/uploads/2025/01/cochinillo-3.png",
+    "thumbnail": "https://supermachirestaurante.com/wp-content/uploads/2025/01/cochinillo-3-300x235.png",
+    "srcset": "https://supermachirestaurante.com/wp-content/uploads/2025/01/cochinillo-3.png 1833w, https://supermachirestaurante.com/wp-content/uploads/2025/01/cochinillo-3-300x235.png 300w, https://supermachirestaurante.com/wp-content/uploads/2025/01/cochinillo-3-600x469.png 600w, https://supermachirestaurante.com/wp-content/uploads/2025/01/cochinillo-3-1024x801.png 1024w, https://supermachirestaurante.com/wp-content/uploads/2025/01/cochinillo-3-768x601.png 768w, https://supermachirestaurante.com/wp-content/uploads/2025/01/cochinillo-3-1536x1202.png 1536w",
+    "sizes": "(max-width: 1833px) 100vw, 1833px",
+    "name": "cochinillo-3",
+    "alt": ""
+   }
+  ],
+  "categories": [],
+  "tags": [],
+  "brands": [],
+  "attributes": [
+   {
+    "id": 0,
+    "name": "Tamaño",
+    "taxonomy": null,
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 0,
+      "name": "hasta 10 Personas",
+      "slug": "hasta 10 Personas"
+     }
+    ]
+   },
+   {
+    "id": 0,
+    "name": "Acompañante 1",
+    "taxonomy": null,
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 0,
+      "name": "Moro",
+      "slug": "Moro"
+     },
+     {
+      "id": 0,
+      "name": "Yuca Con Mojo",
+      "slug": "Yuca Con Mojo"
+     },
+     {
+      "id": 0,
+      "name": "Maduros",
+      "slug": "Maduros"
+     },
+     {
+      "id": 0,
+      "name": "Arroz Blanco",
+      "slug": "Arroz Blanco"
+     },
+     {
+      "id": 0,
+      "name": "Ensalada Mixta",
+      "slug": "Ensalada Mixta"
+     },
+     {
+      "id": 0,
+      "name": "Papás Fritas",
+      "slug": "Papás Fritas"
+     }
+    ]
+   },
+   {
+    "id": 0,
+    "name": "Acompañante 2",
+    "taxonomy": null,
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 0,
+      "name": "Moro",
+      "slug": "Moro"
+     },
+     {
+      "id": 0,
+      "name": "Yuca Con Mojo",
+      "slug": "Yuca Con Mojo"
+     },
+     {
+      "id": 0,
+      "name": "Maduros",
+      "slug": "Maduros"
+     },
+     {
+      "id": 0,
+      "name": "Arroz Blanco",
+      "slug": "Arroz Blanco"
+     },
+     {
+      "id": 0,
+      "name": "Ensalada Mixta",
+      "slug": "Ensalada Mixta"
+     },
+     {
+      "id": 0,
+      "name": "Papás Fritas",
+      "slug": "Papás Fritas"
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 2195,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": null
+     },
+     {
+      "name": "Acompañante 1",
+      "value": null
+     },
+     {
+      "name": "Acompañante 2",
+      "value": null
+     }
+    ]
+   },
+   {
+    "id": 2196,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "hasta 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Moro"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Moro"
+     }
+    ]
+   },
+   {
+    "id": 2197,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "hasta 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Moro"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Yuca Con Mojo"
+     }
+    ]
+   },
+   {
+    "id": 2198,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "hasta 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Moro"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Maduros"
+     }
+    ]
+   },
+   {
+    "id": 2199,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "hasta 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Moro"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Arroz Blanco"
+     }
+    ]
+   },
+   {
+    "id": 2200,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "hasta 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Moro"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Ensalada Mixta"
+     }
+    ]
+   },
+   {
+    "id": 2201,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "hasta 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Moro"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Papás Fritas"
+     }
+    ]
+   },
+   {
+    "id": 2202,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "hasta 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Yuca Con Mojo"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Moro"
+     }
+    ]
+   },
+   {
+    "id": 2203,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "hasta 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Yuca Con Mojo"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Yuca Con Mojo"
+     }
+    ]
+   },
+   {
+    "id": 2204,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "hasta 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Yuca Con Mojo"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Maduros"
+     }
+    ]
+   },
+   {
+    "id": 2205,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "hasta 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Yuca Con Mojo"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Arroz Blanco"
+     }
+    ]
+   },
+   {
+    "id": 2206,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "hasta 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Yuca Con Mojo"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Ensalada Mixta"
+     }
+    ]
+   },
+   {
+    "id": 2207,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "hasta 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Yuca Con Mojo"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Papás Fritas"
+     }
+    ]
+   },
+   {
+    "id": 2208,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "hasta 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Maduros"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Moro"
+     }
+    ]
+   },
+   {
+    "id": 2209,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "hasta 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Maduros"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Yuca Con Mojo"
+     }
+    ]
+   },
+   {
+    "id": 2210,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "hasta 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Maduros"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Maduros"
+     }
+    ]
+   },
+   {
+    "id": 2211,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "hasta 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Maduros"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Arroz Blanco"
+     }
+    ]
+   },
+   {
+    "id": 2212,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "hasta 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Maduros"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Ensalada Mixta"
+     }
+    ]
+   },
+   {
+    "id": 2213,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "hasta 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Maduros"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Papás Fritas"
+     }
+    ]
+   },
+   {
+    "id": 2214,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "hasta 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Arroz Blanco"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Moro"
+     }
+    ]
+   },
+   {
+    "id": 2215,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "hasta 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Arroz Blanco"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Yuca Con Mojo"
+     }
+    ]
+   },
+   {
+    "id": 2216,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "hasta 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Arroz Blanco"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Maduros"
+     }
+    ]
+   },
+   {
+    "id": 2217,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "hasta 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Arroz Blanco"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Arroz Blanco"
+     }
+    ]
+   },
+   {
+    "id": 2218,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "hasta 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Arroz Blanco"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Ensalada Mixta"
+     }
+    ]
+   },
+   {
+    "id": 2219,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "hasta 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Arroz Blanco"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Papás Fritas"
+     }
+    ]
+   },
+   {
+    "id": 2220,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "hasta 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Ensalada Mixta"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Moro"
+     }
+    ]
+   },
+   {
+    "id": 2221,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "hasta 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Ensalada Mixta"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Yuca Con Mojo"
+     }
+    ]
+   },
+   {
+    "id": 2222,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "hasta 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Ensalada Mixta"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Maduros"
+     }
+    ]
+   },
+   {
+    "id": 2223,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "hasta 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Ensalada Mixta"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Arroz Blanco"
+     }
+    ]
+   },
+   {
+    "id": 2224,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "hasta 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Ensalada Mixta"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Ensalada Mixta"
+     }
+    ]
+   },
+   {
+    "id": 2225,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "hasta 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Ensalada Mixta"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Papás Fritas"
+     }
+    ]
+   },
+   {
+    "id": 2226,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "hasta 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Papás Fritas"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Moro"
+     }
+    ]
+   },
+   {
+    "id": 2227,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "hasta 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Papás Fritas"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Yuca Con Mojo"
+     }
+    ]
+   },
+   {
+    "id": 2228,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "hasta 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Papás Fritas"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Maduros"
+     }
+    ]
+   },
+   {
+    "id": 2229,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "hasta 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Papás Fritas"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Arroz Blanco"
+     }
+    ]
+   },
+   {
+    "id": 2230,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "hasta 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Papás Fritas"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Ensalada Mixta"
+     }
+    ]
+   },
+   {
+    "id": 2231,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "hasta 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Papás Fritas"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Papás Fritas"
+     }
+    ]
+   },
+   {
+    "id": 2025,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "8 a 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Arroz Blanco"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Maduros"
+     }
+    ]
+   },
+   {
+    "id": 2026,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "8 a 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Arroz Blanco"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Arroz Blanco"
+     }
+    ]
+   },
+   {
+    "id": 2027,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "8 a 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Arroz Blanco"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Ensalada Mixta"
+     }
+    ]
+   },
+   {
+    "id": 2028,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "8 a 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Arroz Blanco"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Papás Fritas"
+     }
+    ]
+   },
+   {
+    "id": 2029,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "8 a 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Ensalada Mixta"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Moro"
+     }
+    ]
+   },
+   {
+    "id": 2030,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "8 a 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Ensalada Mixta"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Yuca Con Mojo"
+     }
+    ]
+   },
+   {
+    "id": 2031,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "8 a 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Ensalada Mixta"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Maduros"
+     }
+    ]
+   },
+   {
+    "id": 2032,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "8 a 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Ensalada Mixta"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Arroz Blanco"
+     }
+    ]
+   },
+   {
+    "id": 2033,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "8 a 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Ensalada Mixta"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Ensalada Mixta"
+     }
+    ]
+   },
+   {
+    "id": 2034,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "8 a 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Ensalada Mixta"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Papás Fritas"
+     }
+    ]
+   },
+   {
+    "id": 2035,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "8 a 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Papás Fritas"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Moro"
+     }
+    ]
+   },
+   {
+    "id": 2036,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "8 a 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Papás Fritas"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Yuca Con Mojo"
+     }
+    ]
+   },
+   {
+    "id": 2037,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "8 a 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Papás Fritas"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Maduros"
+     }
+    ]
+   },
+   {
+    "id": 2038,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "8 a 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Papás Fritas"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Arroz Blanco"
+     }
+    ]
+   },
+   {
+    "id": 2039,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "8 a 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Papás Fritas"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Ensalada Mixta"
+     }
+    ]
+   },
+   {
+    "id": 2040,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "8 a 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Papás Fritas"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Papás Fritas"
+     }
+    ]
+   },
+   {
+    "id": 1969,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "4 a 6 personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Moro"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Moro"
+     }
+    ]
+   },
+   {
+    "id": 1970,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "4 a 6 personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Moro"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Yuca Con Mojo"
+     }
+    ]
+   },
+   {
+    "id": 1971,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "4 a 6 personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Moro"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Maduros"
+     }
+    ]
+   },
+   {
+    "id": 1972,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "4 a 6 personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Moro"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Arroz Blanco"
+     }
+    ]
+   },
+   {
+    "id": 1973,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "4 a 6 personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Moro"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Ensalada Mixta"
+     }
+    ]
+   },
+   {
+    "id": 1974,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "4 a 6 personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Moro"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Papás Fritas"
+     }
+    ]
+   },
+   {
+    "id": 1975,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "4 a 6 personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Yuca Con Mojo"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Moro"
+     }
+    ]
+   },
+   {
+    "id": 1976,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "4 a 6 personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Yuca Con Mojo"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Yuca Con Mojo"
+     }
+    ]
+   },
+   {
+    "id": 1977,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "4 a 6 personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Yuca Con Mojo"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Maduros"
+     }
+    ]
+   },
+   {
+    "id": 1978,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "4 a 6 personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Yuca Con Mojo"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Arroz Blanco"
+     }
+    ]
+   },
+   {
+    "id": 1979,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "4 a 6 personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Yuca Con Mojo"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Ensalada Mixta"
+     }
+    ]
+   },
+   {
+    "id": 1980,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "4 a 6 personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Yuca Con Mojo"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Papás Fritas"
+     }
+    ]
+   },
+   {
+    "id": 1981,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "4 a 6 personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Maduros"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Moro"
+     }
+    ]
+   },
+   {
+    "id": 1982,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "4 a 6 personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Maduros"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Yuca Con Mojo"
+     }
+    ]
+   },
+   {
+    "id": 1983,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "4 a 6 personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Maduros"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Maduros"
+     }
+    ]
+   },
+   {
+    "id": 1984,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "4 a 6 personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Maduros"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Arroz Blanco"
+     }
+    ]
+   },
+   {
+    "id": 1985,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "4 a 6 personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Maduros"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Ensalada Mixta"
+     }
+    ]
+   },
+   {
+    "id": 1986,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "4 a 6 personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Maduros"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Papás Fritas"
+     }
+    ]
+   },
+   {
+    "id": 1987,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "4 a 6 personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Arroz Blanco"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Moro"
+     }
+    ]
+   },
+   {
+    "id": 1988,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "4 a 6 personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Arroz Blanco"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Yuca Con Mojo"
+     }
+    ]
+   },
+   {
+    "id": 1989,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "4 a 6 personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Arroz Blanco"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Maduros"
+     }
+    ]
+   },
+   {
+    "id": 1990,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "4 a 6 personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Arroz Blanco"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Arroz Blanco"
+     }
+    ]
+   },
+   {
+    "id": 1991,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "4 a 6 personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Arroz Blanco"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Ensalada Mixta"
+     }
+    ]
+   },
+   {
+    "id": 1992,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "4 a 6 personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Arroz Blanco"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Papás Fritas"
+     }
+    ]
+   },
+   {
+    "id": 1993,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "4 a 6 personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Ensalada Mixta"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Moro"
+     }
+    ]
+   },
+   {
+    "id": 1994,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "4 a 6 personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Ensalada Mixta"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Yuca Con Mojo"
+     }
+    ]
+   },
+   {
+    "id": 1995,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "4 a 6 personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Ensalada Mixta"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Maduros"
+     }
+    ]
+   },
+   {
+    "id": 1996,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "4 a 6 personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Ensalada Mixta"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Arroz Blanco"
+     }
+    ]
+   },
+   {
+    "id": 1997,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "4 a 6 personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Ensalada Mixta"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Ensalada Mixta"
+     }
+    ]
+   },
+   {
+    "id": 1998,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "4 a 6 personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Ensalada Mixta"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Papás Fritas"
+     }
+    ]
+   },
+   {
+    "id": 1999,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "8 a 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Moro"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Moro"
+     }
+    ]
+   },
+   {
+    "id": 2000,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "8 a 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Moro"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Yuca Con Mojo"
+     }
+    ]
+   },
+   {
+    "id": 2001,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "8 a 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Moro"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Maduros"
+     }
+    ]
+   },
+   {
+    "id": 2002,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "8 a 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Moro"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Arroz Blanco"
+     }
+    ]
+   },
+   {
+    "id": 2003,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "8 a 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Moro"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Ensalada Mixta"
+     }
+    ]
+   },
+   {
+    "id": 2004,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "8 a 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Moro"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Papás Fritas"
+     }
+    ]
+   },
+   {
+    "id": 2005,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "8 a 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Yuca Con Mojo"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Moro"
+     }
+    ]
+   },
+   {
+    "id": 2006,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "8 a 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Yuca Con Mojo"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Yuca Con Mojo"
+     }
+    ]
+   },
+   {
+    "id": 2007,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "8 a 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Yuca Con Mojo"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Maduros"
+     }
+    ]
+   },
+   {
+    "id": 2008,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "8 a 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Yuca Con Mojo"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Arroz Blanco"
+     }
+    ]
+   },
+   {
+    "id": 2009,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "8 a 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Yuca Con Mojo"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Ensalada Mixta"
+     }
+    ]
+   },
+   {
+    "id": 2010,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "8 a 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Yuca Con Mojo"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Papás Fritas"
+     }
+    ]
+   },
+   {
+    "id": 2011,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "8 a 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Maduros"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Moro"
+     }
+    ]
+   },
+   {
+    "id": 2012,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "8 a 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Maduros"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Yuca Con Mojo"
+     }
+    ]
+   },
+   {
+    "id": 2013,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "8 a 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Maduros"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Maduros"
+     }
+    ]
+   },
+   {
+    "id": 2014,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "8 a 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Maduros"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Arroz Blanco"
+     }
+    ]
+   },
+   {
+    "id": 2015,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "8 a 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Maduros"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Ensalada Mixta"
+     }
+    ]
+   },
+   {
+    "id": 2016,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "8 a 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Maduros"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Papás Fritas"
+     }
+    ]
+   },
+   {
+    "id": 2017,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "8 a 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Arroz Blanco"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Moro"
+     }
+    ]
+   },
+   {
+    "id": 2018,
+    "attributes": [
+     {
+      "name": "Tamaño",
+      "value": "8 a 10 Personas"
+     },
+     {
+      "name": "Acompañante 1",
+      "value": "Arroz Blanco"
+     },
+     {
+      "name": "Acompañante 2",
+      "value": "Yuca Con Mojo"
+     }
+    ]
+   }
+  ],
+  "grouped_products": [],
+  "has_options": true,
+  "is_purchasable": false,
+  "is_in_stock": true,
+  "is_on_backorder": false,
+  "low_stock_remaining": null,
+  "stock_availability": {
+   "text": "Sin existencias",
+   "class": "out-of-stock"
+  },
+  "sold_individually": false,
+  "add_to_cart": {
+   "text": "Leer más",
+   "description": "Elige las opciones para &ldquo;Cochinillo Segoviano&rdquo;",
+   "url": "https://supermachirestaurante.com/producto/cochinillo-segoviano/",
+   "single_text": "Añadir al carrito",
+   "minimum": 1,
+   "maximum": 9999,
+   "multiple_of": 1
+  },
+  "extensions": {}
+ }
+]
