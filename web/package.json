@@ -1,0 +1,20 @@
+{
+  "name": "sancho-super-machi-web",
+  "private": true,
+  "type": "module",
+  "description": "Generador de las webs de Sancho y Súper Machi: HTML estático desde content/, sin dependencias en el build.",
+  "scripts": {
+    "build": "node build.mjs sancho && node build.mjs supermachi",
+    "build:sancho": "node build.mjs sancho",
+    "build:supermachi": "node build.mjs supermachi",
+    "imagenes": "node tools/imagenes.mjs",
+    "fuentes": "python3 tools/fuentes.py",
+    "serve": "python3 ../qa/serve.py"
+  },
+  "devDependencies": {
+    "@fontsource-variable/archivo": "5.3.0",
+    "@fontsource-variable/big-shoulders-display": "5.3.0",
+    "@fontsource-variable/instrument-sans": "5.3.0",
+    "sharp": "0.34.4"
+  }
+}

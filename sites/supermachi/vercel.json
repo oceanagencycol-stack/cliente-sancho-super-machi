@@ -1,0 +1,259 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
+  "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/nuestro-menu/",
+      "destination": "/menu/",
+      "permanent": true
+    },
+    {
+      "source": "/platos-especiales/",
+      "destination": "/grupos/",
+      "permanent": true
+    },
+    {
+      "source": "/buffet-cubano/",
+      "destination": "/almuerzo/",
+      "permanent": true
+    },
+    {
+      "source": "/tickets/",
+      "destination": "/eventos/",
+      "permanent": true
+    },
+    {
+      "source": "/tienda/",
+      "destination": "/eventos/",
+      "permanent": true
+    },
+    {
+      "source": "/tienda/page/:n/",
+      "destination": "/eventos/",
+      "permanent": true
+    },
+    {
+      "source": "/categoria-producto/:rest*",
+      "destination": "/eventos/",
+      "permanent": true
+    },
+    {
+      "source": "/carrito/",
+      "destination": "/eventos/",
+      "permanent": true
+    },
+    {
+      "source": "/finalizar-compra/",
+      "destination": "/eventos/",
+      "permanent": true
+    },
+    {
+      "source": "/mi-cuenta/:rest*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/contactanos/",
+      "destination": "/visita/",
+      "permanent": true
+    },
+    {
+      "source": "/ubicacion/",
+      "destination": "/visita/",
+      "permanent": true
+    },
+    {
+      "source": "/construccion/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/prueba-imc/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/hello-world/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/category/:rest*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/author/:rest*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/blocks/:rest*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/cochinillo-segoviano/",
+      "destination": "/grupos/#cochinillo",
+      "permanent": true
+    },
+    {
+      "source": "/producto/tabla-mar-y-tierra/",
+      "destination": "/grupos/#tabla-mar-y-tierra",
+      "permanent": true
+    },
+    {
+      "source": "/producto/tabla-mar-tierra/",
+      "destination": "/grupos/#tabla-mar-y-tierra",
+      "permanent": true
+    },
+    {
+      "source": "/producto/ticket/",
+      "destination": "/eventos/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/05-de-diciembre-maylus-cabaret/",
+      "destination": "/eventos/2025-12-05-maylu-s-cabaret/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/06-de-diciembre-gio-anaisa/",
+      "destination": "/eventos/2025-12-06-gio-anaisa/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/31-de-diciembre-los-3-de-la-habana-y-band/",
+      "destination": "/eventos/2025-12-31-los-3-de-la-habana-y-band/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/28-de-marzo-laritza-bacallao/",
+      "destination": "/eventos/2026-03-28-laritza-bacallao/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/13-de-junio-laritza-bacallao/",
+      "destination": "/eventos/2026-06-13-laritza-bacallao/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/26-de-junio-ruperto/",
+      "destination": "/eventos/2026-06-26-ruperto/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/11-de-julio-alain-daniel/",
+      "destination": "/eventos/2026-07-11-alain-daniel/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/17-de-julio-lazarito-valdez-y-bamboleo/",
+      "destination": "/eventos/2026-07-17-lazarito-valdez-y-bamboleo/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/18-de-julio-antolin-el-pichon/",
+      "destination": "/eventos/2026-07-18-antolin-el-pichon/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/19-de-julio-maylus-cabaret/",
+      "destination": "/eventos/2026-07-19-maylu-s-cabaret/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/24-de-julio-sanky-panky/",
+      "destination": "/eventos/2026-07-24-sanky-panky/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/25-de-julio-laritza-bacallao/",
+      "destination": "/eventos/2026-07-25-laritza-bacallao/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/17-de-julio-qva-libre/",
+      "destination": "/eventos/2026-07-31-qva-libre/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/2-de-octubre-anselmo-el-mudo-ronny/",
+      "destination": "/eventos/2026-10-02-anselmo-el-mudo-y-ronny/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/:rest*",
+      "destination": "/eventos/",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; script-src 'self' 'sha256-ExjvxQW7reemNoZhZy+A6O9NCYws5bjR8VBIanusBGU='; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=(), payment=()"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=63072000; includeSubDomains"
+        },
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/fuentes/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/media/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, stale-while-revalidate=86400"
+        }
+      ]
+    },
+    {
+      "source": "/eventos/(.*).ics",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/calendar; charset=utf-8"
+        }
+      ]
+    }
+  ]
+}

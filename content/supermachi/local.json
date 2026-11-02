@@ -1,0 +1,120 @@
+{
+ "id": "supermachi",
+ "nombre": "El Mesón de Súper Machi",
+ "nombre_corto": "Súper Machi",
+ "dominio": "https://supermachirestaurante.com",
+ "lema": {
+  "es": "La casa de los eventos",
+  "en": "Miami’s house of shows"
+ },
+ "cocina": {
+  "es": "Cocina española y cubana",
+  "en": "Spanish & Cuban cuisine"
+ },
+ "direccion": {
+  "calle": "7931 NW 2nd St",
+  "ciudad": "Miami",
+  "estado": "FL",
+  "cp": "33126",
+  "pais": "US"
+ },
+ "geo": {
+  "lat": 25.7728838,
+  "lng": -80.3254618
+ },
+ "mapa": "https://www.google.com/maps?cid=13577768280393773615",
+ "telefono": "+13052663226",
+ "whatsapp": "13052663226",
+ "rsvp": "+17867289006",
+ "horario": {
+  "confirmado": false,
+  "fuente": "slider de la portada de la web vieja (página modificada el 2026-10-16)",
+  "franjas": [
+   {
+    "dias": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "abre": "11:00",
+    "cierra": "22:00"
+   },
+   {
+    "dias": [
+     5,
+     6,
+     0
+    ],
+    "abre": "11:00",
+    "cierra": "02:00"
+   }
+  ]
+ },
+ "redes": {
+  "instagram": "https://www.instagram.com/supermachi_miami/",
+  "facebook": "https://www.facebook.com/supermachirestaurant/"
+ },
+ "pedidos": [
+  {
+   "id": "ubereats",
+   "nombre": "Uber Eats",
+   "url": "https://www.ubereats.com/store/super-machi-grill-&-bar/Stqq_cSJWiyraW-YZXUhAg"
+  },
+  {
+   "id": "doordash",
+   "nombre": "DoorDash",
+   "url": "https://www.doordash.com/store/supermachi-grill-&-bar-miami-23779447/"
+  }
+ ],
+ "especiales": {
+  "buffet": {
+   "precio": 12.99,
+   "dias": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "desde": "11:00",
+   "hasta": "16:00",
+   "es": {
+    "titulo": "Almuerzo cubano estilo buffet",
+    "texto": "El sabor cubano de siempre, servido en buffet al mediodía."
+   },
+   "en": {
+    "titulo": "Cuban lunch buffet",
+    "texto": "Classic Cuban home cooking, served buffet-style at lunchtime."
+   },
+   "incluye": {
+    "es": "Incluye 2 proteínas y 3 platos fuertes (por confirmar)",
+    "en": "Includes 2 proteins and 3 mains (to be confirmed)"
+   },
+   "por_confirmar": "qué incluye exactamente: la web dice «2 proteínas y 3 platos fuertes»"
+  },
+  "happy_hour": {
+   "dias": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "desde": "16:00",
+   "hasta": "19:00",
+   "fuente": "PDF del happy hour (LUNES A VIERNES 4:00PM – 7:00PM); la web vieja decía «4:00 a.m.» por error"
+  },
+  "propina_grupos": {
+   "desde": 6,
+   "porcentaje": 18
+  }
+ },
+ "tipo_schema": "Restaurant",
+ "servesCuisine": [
+  "Spanish",
+  "Cuban"
+ ],
+ "precio_rango": "$$",
+ "acepta_reservas": true
+}

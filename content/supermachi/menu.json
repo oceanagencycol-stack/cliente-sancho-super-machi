@@ -1,0 +1,620 @@
+{
+  "fuente": {
+    "pdf": [
+      "media/supermachi/originales/2025-01_MenuPrincipal-Menu-SuperMachi-8x11-Fixed.pdf",
+      "media/supermachi/originales/2025-01_MenuHappyHour-Menu-SuperMachi-Legal.pdf",
+      "media/supermachi/originales/2025-01_MenuDessertCoffee-Menu-SuperMachi-1.pdf"
+    ],
+    "fecha_pdf": "2024-12-18 (principal y postres) y 2024-10-25 (happy hour)",
+    "publicado_en": "https://supermachirestaurante.com/nuestro-menu/",
+    "visto": "2026-11-02",
+    "transcrito": "a mano desde las páginas renderizadas (los PDF no traen texto: las letras están convertidas en curvas)",
+    "precios": "por_confirmar: son los de los PDF que la web actual publica como menú; el restaurante confirma los vigentes antes de lanzar",
+    "erratas_corregidas": "Sauvignon Blac → Blanc; Sparking → Sparkling; shimps → shrimp; Fried cass → Fried cassava; Frijoles negro → negros; Smoke pork chops → Smoked; Sex and the beach → Sex on the Beach; Arroz moros → Arroz moro; Masitas de puerco en inglés decía «Fried pork chop» → «fried pork chunks»"
+  },
+  "avisos": {
+    "crudo": {
+      "es": "El consumo de carnes, aves, mariscos o huevos crudos o poco cocinados puede aumentar el riesgo de enfermedades transmitidas por los alimentos, especialmente si usted padece de alguna alergia o condición médica.",
+      "en": "Consuming raw or undercooked meats, poultry, seafood, shellfish or eggs may increase your risk of foodborne illness, especially if you have certain allergies or medical conditions."
+    },
+    "propina": {
+      "es": "Para grupos de 6 o más personas, el 18 % de propina se incluye en la factura.",
+      "en": "For groups of 6 or more, an 18% gratuity is included in the bill."
+    }
+  },
+  "cartas": [
+    {
+      "id": "carta",
+      "es": "La carta",
+      "en": "Menu",
+      "secciones": [
+        {
+          "id": "recomendaciones",
+          "es": "Recomendaciones del chef",
+          "en": "Chef’s recommendations",
+          "lema": {"es": "Aquí mis chicharrones truenan", "en": "Aquí mis chicharrones truenan"},
+          "platos": [
+            {"id": "cochinillo", "n": "Cochinillo asado estilo segoviano", "firma": true, "d": {"en": "Whole Segovia-style roast suckling pig"}, "nota": {"es": "Para 6–8 personas · con 2 acompañantes", "en": "Serves 6–8 · with 2 side dishes"}, "p": 290, "foto": "cochinillo"},
+            {"id": "picada-super-machi", "n": "Picada «Super Machi»", "d": {"es": "Churrasco, pollo a la plancha, masas de cerdo fritas, chorizo, morcilla, chuleta de cerdo, tamales, tostones y papas fritas.", "en": "Grilled skirt steak and chicken, fried pork chunks, sausage, Spanish blood sausage, pork chop, Cuban-style tamales, fried green plantains and French fries."}, "nota": {"es": "Para 4 personas", "en": "Serves 4"}, "p": 149},
+            {"id": "tabla-mar-y-tierra", "n": "Tabla Mar y Tierra", "crudo": true, "d": {"es": "Langosta, camarón, filete de pargo, bistec de churrasco, pollo a la plancha, masa de puerco, chorizo, morcilla, tamales, tostones y dados de corvina.", "en": "Lobster, shrimp, snapper fillet, churrasco steak, grilled chicken, fried pork, sausage, Spanish blood sausage, Cuban-style tamales, fried green plantains and corvina bites."}, "nota": {"es": "Para 6–10 personas", "en": "Serves 6–10"}, "p": 349, "foto": "tabla"},
+            {"id": "tomahawk", "n": "Tomahawk steak", "p": 99, "foto": "tomahawk"},
+            {"id": "croqueton", "n": "Croquetón Super Machi", "d": {"es": "Tabla de croquetas de jamón, bacalao, queso manchego, queso azul, pulpo y mariscos.", "en": "A board of ham, cod, Manchego, blue cheese, octopus and seafood croquettes."}, "p": 24}
+          ]
+        },
+        {
+          "id": "entradas",
+          "es": "Entradas",
+          "en": "Appetizers",
+          "grupos": [
+            {
+              "id": "tapas-frias",
+              "es": "Tapas frías",
+              "en": "Cold tapas",
+              "platos": [
+                {"id": "tabla-mixta", "n": "Tabla mixta", "nota": {"es": "Para 4 personas", "en": "Serves 4"}, "d": {"es": "Jamón Serrano Reserva, queso manchego, chorizo español, aceitunas y frutos secos.", "en": "Serrano ham reserve, Manchego cheese, Spanish chorizo, olives and dried fruits."}, "p": 26},
+                {"id": "tabla-jamon-queso", "n": "Tabla de jamón y queso", "nota": {"es": "Para 2 personas", "en": "Serves 2"}, "d": {"es": "Jamón Serrano Reserva y queso manchego.", "en": "Serrano ham reserve and Manchego cheese."}, "p": 15},
+                {"id": "coctel-camarones", "n": "Cóctel de camarones", "crudo": true, "d": {"en": "Shrimp cocktail"}, "p": 14},
+                {"id": "tartar-atun", "n": "Tartar de atún", "d": {"en": "Tuna tartare"}, "p": 16}
+              ]
+            },
+            {
+              "id": "tapas-calientes",
+              "es": "Tapas calientes",
+              "en": "Hot tapas",
+              "platos": [
+                {"id": "combo-super-machi", "n": "Combo Super Machi", "d": {"es": "Masitas de puerco, tamales, croquetas, tostones rellenos y chicharrón de pollo.", "en": "Fried pork chunks, Cuban-style tamales, croquettes, stuffed plantains and fried marinated chicken."}, "p": 28},
+                {"id": "croquetas", "n": "Croquetas", "d": {"es": "De jamón, bacalao, queso manchego, queso azul, pulpo y mariscos.", "en": "Ham, cod, Manchego, blue cheese, octopus and seafood croquettes."}, "p": 8},
+                {"id": "chicharron-cubano", "n": "Chicharrón cubano", "d": {"en": "Cuban pork crackling"}, "p": 12},
+                {"id": "tostones-rellenos", "n": "Tostones rellenos", "d": {"es": "Rellenos de carne, bacalao o camarones.", "en": "Green plantain cups stuffed with meat, cod or shrimp."}, "p": 11},
+                {"id": "garbanzo-frito", "n": "Garbanzo frito", "d": {"en": "Crispy Spanish chickpea tapa"}, "p": 9},
+                {"id": "morcilla-frita", "n": "Morcilla frita", "d": {"en": "Fried Spanish blood sausage"}, "p": 13},
+                {"id": "chistorra-al-vino", "n": "Chistorra al vino", "d": {"en": "Chistorra sausage cooked in wine"}, "p": 13},
+                {"id": "pulpo-gallega", "n": "Pulpo a la gallega", "crudo": true, "d": {"en": "Galician-style octopus"}, "p": 27},
+                {"id": "pulpo-ajillo", "n": "Pulpo al ajillo", "crudo": true, "d": {"en": "Garlic octopus"}, "p": 27},
+                {"id": "gambas-ajillo", "n": "Gambas al ajillo", "crudo": true, "d": {"en": "Garlic shrimp in a sizzling olive oil sauce"}, "p": 14},
+                {"id": "frito-mixto", "n": "Frito mixto", "crudo": true, "d": {"es": "Camarón, calamar y pescado frito.", "en": "Fried shrimp, squid and fish."}, "p": 19},
+                {"id": "eperlan", "n": "Eperlán de pescado", "crudo": true, "d": {"es": "Tiras de pescado frito.", "en": "Crispy fried fish strips."}, "p": 12}
+              ]
+            }
+          ]
+        },
+        {
+          "id": "ensaladas-sopas",
+          "es": "Ensaladas y sopas",
+          "en": "Salads & soups",
+          "grupos": [
+            {
+              "id": "ensaladas",
+              "es": "Ensaladas",
+              "en": "Salads",
+              "platos": [
+                {"id": "ensalada-mixta", "n": "Ensalada mixta", "d": {"es": "Lechuga, tomate, col y cebolla.", "en": "Lettuce, tomato, cabbage and onion."}, "p": 5},
+                {"id": "ensalada-aguacate", "n": "Ensalada de aguacate", "d": {"en": "Avocado salad"}, "p": 6},
+                {"id": "ensalada-cesar", "n": "Ensalada César", "d": {"en": "Caesar salad"}, "p": 7}
+              ],
+              "extras": {
+                "es": "Añade una proteína", "en": "Add a protein",
+                "items": [
+                  {"n": {"es": "Camarones", "en": "Shrimp"}, "p": 14},
+                  {"n": {"es": "Carne", "en": "Beef"}, "p": 12},
+                  {"n": {"es": "Pollo", "en": "Chicken"}, "p": 11}
+                ]
+              }
+            },
+            {
+              "id": "sopas",
+              "es": "Sopas y cremas",
+              "en": "Soups",
+              "platos": [
+                {"id": "sopa-del-dia", "n": "Sopa del día", "d": {"en": "Soup of the day"}, "p": 6},
+                {"id": "crema-del-dia", "n": "Crema del día", "d": {"en": "Cream soup of the day"}, "p": 7},
+                {"id": "ajiaco", "n": "Ajiaco cubano", "d": {"en": "Cuban country-style stew"}, "p": 8.9}
+              ]
+            }
+          ]
+        },
+        {
+          "id": "principales",
+          "es": "Platos principales",
+          "en": "Main courses",
+          "nota": {"es": "Servidos con 2 acompañantes", "en": "Served with 2 side dishes"},
+          "grupos": [
+            {
+              "id": "carnes",
+              "es": "Carnes",
+              "en": "Beef & lamb",
+              "platos": [
+                {"id": "palomilla", "n": "Bistec de palomilla", "d": {"en": "Palomilla steak"}, "p": 19},
+                {"id": "bistec-uruguayo", "n": "Bistec uruguayo", "d": {"en": "Uruguayan steak"}, "p": 23},
+                {"id": "rib-eye", "n": "Prime Angus rib eye steak", "d": {"es": "Filete de costilla sin hueso"}, "p": 49},
+                {"id": "picana", "n": "Picaña", "d": {"en": "Picanha"}, "p": 32},
+                {"id": "churrasco", "n": "Churrasco", "d": {"en": "Grilled skirt steak"}, "p": 28},
+                {"id": "ropa-vieja", "n": "Ropa vieja", "d": {"en": "Shredded flank steak, creole style"}, "p": 16},
+                {"id": "rabo-encendido", "n": "Rabo encendido", "d": {"en": "Cuban oxtail stew cooked in red wine"}, "p": 28},
+                {"id": "chuletas-cordero", "n": "Chuletas de cordero", "d": {"en": "Lamb chops"}, "p": 36, "foto": "cordero-brasa"},
+                {"id": "jarrete-cordero", "n": "Jarrete de cordero al vino", "d": {"en": "Lamb shank braised in wine"}, "p": 26},
+                {"id": "chilindron-chivo", "n": "Chilindrón de chivo", "d": {"en": "Goat stew in red sauce, a classic of Cuban cooking"}, "p": 22}
+              ]
+            },
+            {
+              "id": "cerdo",
+              "es": "Cerdo",
+              "en": "Pork",
+              "platos": [
+                {"id": "bistec-cerdo", "n": "Bistec de cerdo (filete)", "d": {"en": "Pork steak"}, "p": 22},
+                {"id": "chuletas-cerdo", "n": "Chuletas de cerdo a la parrilla", "d": {"en": "Grilled pork chops"}, "p": 17},
+                {"id": "chuletas-ahumadas", "n": "Chuletas de puerco ahumadas", "d": {"en": "Smoked pork chops"}, "p": 17},
+                {"id": "masas-cerdo", "n": "Masas de cerdo fritas", "d": {"en": "Fried pork chunks"}, "p": 14}
+              ]
+            },
+            {
+              "id": "pollo",
+              "es": "Pollo",
+              "en": "Chicken",
+              "platos": [
+                {"id": "pechuga-grille", "n": "Pechuga grillé", "d": {"en": "Grilled chicken breast"}, "p": 14},
+                {"id": "medio-pollo", "n": "1/2 pollo asado", "d": {"en": "Half roast chicken"}, "p": 19},
+                {"id": "cordon-bleu", "n": "Pollo cordon bleu", "d": {"es": "Pollo empanizado relleno de jamón y queso.", "en": "Breaded chicken filled with ham and cheese."}, "p": 16}
+              ]
+            },
+            {
+              "id": "mar",
+              "es": "Pescados y mariscos",
+              "en": "Fish & seafood",
+              "platos": [
+                {"id": "cola-langosta", "n": "Cola de langosta (1 lb)", "crudo": true, "d": {"en": "One-pound lobster tail"}, "p": 69},
+                {"id": "camarones-enchilados", "n": "Camarones enchilados", "crudo": true, "d": {"en": "Shrimp creole"}, "p": 18},
+                {"id": "pulpo-brasa", "n": "Pulpo a la brasa", "crudo": true, "d": {"en": "Grilled octopus"}, "p": 36},
+                {"id": "pargo-plancha", "n": "Filete de pargo a la plancha", "crudo": true, "d": {"en": "Grilled red snapper fillet"}, "p": 28},
+                {"id": "salmon-plancha", "n": "Salmón a la plancha", "crudo": true, "d": {"en": "Grilled salmon fillet"}, "p": 24},
+                {"id": "pescado-canciller", "n": "Filete de pescado canciller", "crudo": true, "d": {"en": "Canciller fish fillet"}, "p": 19}
+              ]
+            }
+          ]
+        },
+        {
+          "id": "acompanantes",
+          "es": "Acompañantes",
+          "en": "Sides",
+          "grupos": [
+            {
+              "id": "guarniciones",
+              "es": "Guarniciones",
+              "en": "Side dishes",
+              "platos": [
+                {"id": "arroz-moro", "n": "Arroz moro", "d": {"en": "White rice and black beans cooked together"}, "p": 3.8},
+                {"id": "arroz-blanco", "n": "Arroz blanco", "d": {"en": "White rice"}, "p": 3},
+                {"id": "frijoles-negros", "n": "Frijoles negros", "d": {"en": "Black beans"}, "p": 5},
+                {"id": "maduros", "n": "Plátanos maduros fritos", "d": {"en": "Fried sweet plantains"}, "p": 3.8},
+                {"id": "yuca-mojo", "n": "Yuca con mojo", "d": {"en": "Boiled cassava with garlic mojo"}, "p": 3.5},
+                {"id": "pure-papas", "n": "Puré de papas", "d": {"en": "Mashed potatoes"}, "p": 3.9},
+                {"id": "papas-fritas", "n": "Papas fritas", "d": {"en": "French fries"}, "p": 4},
+                {"id": "papas-salteadas", "n": "Papas salteadas", "d": {"en": "Sautéed potatoes"}, "p": 4},
+                {"id": "vegetales-salteados", "n": "Vegetales salteados", "d": {"en": "Sautéed vegetables"}, "p": 4}
+              ]
+            },
+            {
+              "id": "individuales",
+              "es": "Órdenes individuales",
+              "en": "À la carte",
+              "platos": [
+                {"id": "tamal", "n": "Tamal", "d": {"en": "Cuban-style cornmeal tamale"}, "p": 5},
+                {"id": "tostones", "n": "Tostones", "d": {"en": "Fried green plantains"}, "p": 5},
+                {"id": "mariquitas", "n": "Mariquitas", "d": {"en": "Homemade green plantain chips"}, "p": 4},
+                {"id": "yuca-frita", "n": "Yuca frita", "d": {"en": "Fried cassava"}, "p": 4}
+              ]
+            },
+            {
+              "id": "ninos",
+              "es": "Menú para niños",
+              "en": "Kids menu",
+              "platos": [
+                {"id": "filetillo", "n": "Filetillo de res con papitas fritas", "d": {"en": "Beef filet bites with French fries"}, "p": 14},
+                {"id": "espaguetis-queso", "n": "Espaguetis con queso", "d": {"en": "Cuban-style spaghetti in a creamy cheese sauce"}, "p": 10},
+                {"id": "nuggets", "n": "Nuggets de pollo con papitas fritas", "d": {"en": "Chicken nuggets with French fries"}, "p": 12}
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "postres",
+      "es": "Postres y café",
+      "en": "Desserts & coffee",
+      "lema": {"es": "Cuando la vida se pone difícil, toca endulzarla", "en": "When life gets hard, sweeten it"},
+      "secciones": [
+        {
+          "id": "postres",
+          "es": "Postres",
+          "en": "Desserts",
+          "platos": [
+            {"id": "el-pecado", "n": "El Pecado", "d": {"es": "Torrejas españolas, helado de vainilla y mermelada de guayaba.", "en": "Spanish torrijas, vanilla ice cream and guava marmalade."}, "p": 13},
+            {"id": "volcan", "n": "Volcán de chocolate con helado", "d": {"en": "Chocolate lava cake with ice cream"}, "p": 10},
+            {"id": "cascos-guayaba", "n": "Cascos de guayaba con queso", "d": {"en": "Guava shells with cheese"}, "p": 8},
+            {"id": "mermelada-guayaba", "n": "Mermelada de guayaba con queso", "d": {"en": "Guava jam with cheese"}, "p": 8},
+            {"id": "crema-catalana", "n": "Crema catalana", "d": {"en": "Catalan cream"}, "p": 7, "foto": "crema-catalana"},
+            {"id": "flan", "n": "Flan de vainilla", "d": {"en": "Vanilla custard"}, "p": 6, "foto": "flan"},
+            {"id": "arroz-con-leche", "n": "Arroz con leche", "crudo": true, "d": {"en": "Rice pudding"}, "p": 8}
+          ]
+        },
+        {
+          "id": "cafe",
+          "es": "Café",
+          "en": "Coffee",
+          "platos": [
+            {"id": "espresso", "n": "Café espresso", "d": {"en": "A single shot of espresso"}, "p": 3},
+            {"id": "cafe-cubano", "n": "Café cubano", "d": {"en": "Cuban-style espresso with sugar"}, "p": 3},
+            {"id": "cafe-bombon", "n": "Café bombón", "d": {"en": "Espresso with sweetened condensed milk"}, "p": 6},
+            {"id": "descafeinado", "n": "Café descafeinado", "d": {"en": "Decaf coffee"}, "p": 4},
+            {"id": "cortadito", "n": "Cortadito", "d": {"en": "Espresso with a little steamed milk"}, "p": 4},
+            {"id": "capuchino", "n": "Capuchino", "d": {"es": "Espresso doble, leche al vapor y espuma, en partes iguales.", "en": "Equal parts double espresso, steamed milk and foam."}, "p": 5},
+            {"id": "infusiones", "n": "Infusiones de hierbas", "d": {"en": "Herbal teas"}, "p": 4}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bebidas",
+      "es": "Bebidas",
+      "en": "Drinks",
+      "lema": {"es": "Con cerveza no hay tristeza", "en": "Con cerveza no hay tristeza"},
+      "secciones": [
+        {
+          "id": "cocteles",
+          "es": "Cócteles",
+          "en": "Cocktails",
+          "platos": [
+            {"id": "coctel-supermachi", "n": "Supermachi", "firma": true, "d": {"es": "Coñac, triple sec, jugo de limón y azúcar.", "en": "Cognac, triple sec, lime juice, sugar."}, "p": 16},
+            {"id": "mojito", "n": "Mojito", "d": {"es": "Ron blanco, limón, soda y hierbabuena.", "en": "White rum, lime juice, soda water and mint."}, "p": 13},
+            {"id": "daiquiri", "n": "Daiquirí", "d": {"es": "Ron blanco, limón y azúcar.", "en": "White rum, lime juice, sugar."}, "p": 13},
+            {"id": "cuba-libre", "n": "Cuba libre", "d": {"es": "Ron blanco, limón y Coca-Cola.", "en": "White rum, lime juice, Coca-Cola."}, "p": 13},
+            {"id": "pina-colada", "n": "Piña colada", "d": {"es": "Ron blanco, piña y crema de coco.", "en": "White rum, pineapple juice, coconut cream."}, "p": 13},
+            {"id": "cubata", "n": "Cubata", "d": {"es": "Ron añejo, limón y Coca-Cola.", "en": "Aged rum, lime juice, Coca-Cola."}, "p": 13},
+            {"id": "malibu-pineapple", "n": "Malibú pineapple", "d": {"en": "Caribbean rum with pineapple liqueur"}, "p": 13},
+            {"id": "bloody-mary", "n": "Bloody Mary", "d": {"en": "Vodka, lime, tomato juice, pepper, salt, Tabasco, Worcestershire"}, "p": 13},
+            {"id": "moscow-mule", "n": "Moscow mule", "d": {"en": "Vodka, lime juice, ginger beer"}, "p": 13},
+            {"id": "screwdriver", "n": "Screwdriver", "d": {"en": "Vodka, orange juice"}, "p": 13},
+            {"id": "sex-on-the-beach", "n": "Sex on the Beach", "d": {"en": "Vodka, orange juice, grenadine, curaçao"}, "p": 13},
+            {"id": "cosmopolitan", "n": "Cosmopolitan", "d": {"en": "Vodka, cranberry juice, triple sec"}, "p": 13},
+            {"id": "vodka-cranberry", "n": "Vodka & cranberry", "d": {"en": "Vodka, cranberry juice, triple sec"}, "p": 13},
+            {"id": "vodka-tonic", "n": "Vodka tonic", "d": {"en": "Vodka and tonic water"}, "p": 13},
+            {"id": "caipiroska", "n": "Caipiroska", "d": {"en": "Vodka, lime, sugar"}, "p": 13},
+            {"id": "caipirinha", "n": "Caipiriña", "d": {"en": "Cane spirit, lime, sugar"}, "p": 13},
+            {"id": "lychee-martini", "n": "Lychee martini", "d": {"en": "Vodka, lychee liqueur, lychee juice"}, "p": 13},
+            {"id": "dry-martini", "n": "Dry martini", "d": {"en": "Vodka, dry vermouth"}, "p": 13},
+            {"id": "dirty-martini", "n": "Dirty martini", "d": {"en": "Vodka or gin, olive brine"}, "p": 13},
+            {"id": "espresso-martini", "n": "Vodka espresso martini", "d": {"en": "Vodka, Kahlúa, a shot of espresso"}, "p": 13},
+            {"id": "long-island", "n": "Long Island iced tea", "d": {"en": "Vodka, white rum, tequila, gin, triple sec, cola"}, "p": 15},
+            {"id": "blue-long-island", "n": "Blue Long Island iced tea", "d": {"en": "Vodka, white rum, tequila, gin, triple sec, cola, blue curaçao"}, "p": 15},
+            {"id": "old-fashioned", "n": "Old fashioned", "d": {"en": "Whiskey, Angostura bitters, sugar"}, "p": 13},
+            {"id": "margarita", "n": "Margarita", "d": {"en": "Silver tequila, lime juice, triple sec"}, "p": 13},
+            {"id": "tequila-sunrise", "n": "Tequila sunrise", "d": {"en": "Silver tequila, orange juice, grenadine"}, "p": 13},
+            {"id": "gin-tonic", "n": "Gin tonic", "d": {"en": "Gin and tonic water"}, "p": 13},
+            {"id": "aperol-spritz", "n": "Aperol spritz", "d": {"en": "Prosecco, club soda, Aperol"}, "p": 15},
+            {"id": "mimosa", "n": "Mimosa", "d": {"en": "Sparkling wine, orange juice"}, "p": 8},
+            {"id": "virgin", "n": "Virgin drinks", "d": {"es": "Sin alcohol", "en": "Non-alcoholic"}, "p": 8}
+          ]
+        },
+        {
+          "id": "sangrias",
+          "es": "Sangrías",
+          "en": "Sangria",
+          "unidades": ["copa", "jarra"],
+          "platos": [
+            {"id": "sangria-tinta", "n": "Sangría tinta", "d": {"en": "Red"}, "p": {"copa": 10, "jarra": 35}},
+            {"id": "sangria-blanca", "n": "Sangría blanca", "d": {"en": "White"}, "p": {"copa": 10, "jarra": 35}}
+          ]
+        },
+        {
+          "id": "cervezas",
+          "es": "Cervezas",
+          "en": "Beer",
+          "grupos": [
+            {
+              "id": "importadas",
+              "es": "Importadas",
+              "en": "Imported",
+              "platos": [
+                {"id": "estrella-galicia", "n": "Estrella Galicia", "p": 7},
+                {"id": "estrella-1906", "n": "1906 Reserva Especial (Estrella Galicia)", "p": 7},
+                {"id": "mahou", "n": "Mahou", "p": 7},
+                {"id": "alhambra", "n": "Alhambra", "p": 7},
+                {"id": "corona", "n": "Corona", "p": 7},
+                {"id": "modelo", "n": "Modelo", "p": 7},
+                {"id": "stella", "n": "Stella Artois", "p": 7},
+                {"id": "heineken", "n": "Heineken", "p": 7},
+                {"id": "miller-lite", "n": "Miller Lite", "p": 6}
+              ]
+            },
+            {
+              "id": "barril",
+              "es": "De barril",
+              "en": "Draft",
+              "platos": [
+                {"id": "barril-estrella", "n": "Estrella Galicia", "p": 6},
+                {"id": "barril-mahou", "n": "Mahou", "p": 6},
+                {"id": "barril-corona", "n": "Corona", "p": 6},
+                {"id": "barril-stella", "n": "Stella Artois", "p": 6}
+              ]
+            }
+          ]
+        },
+        {
+          "id": "vinos",
+          "es": "Vinos",
+          "en": "Wine",
+          "lema": {"es": "Para que el vino sepa a vino, se ha de beber con un amigo", "en": "Para que el vino sepa a vino, se ha de beber con un amigo"},
+          "unidades": ["copa", "botella"],
+          "grupos": [
+            {
+              "id": "blancos",
+              "es": "Blancos",
+              "en": "White",
+              "platos": [
+                {"id": "chardonnay", "n": "Chardonnay", "p": {"copa": 11, "botella": 40}},
+                {"id": "sauvignon-blanc", "n": "Sauvignon Blanc", "p": {"copa": 11, "botella": 40}},
+                {"id": "pinot-grigio", "n": "Pinot Grigio", "p": {"botella": 40}},
+                {"id": "albarino", "n": "Albariño", "p": {"botella": 40}}
+              ]
+            },
+            {
+              "id": "rosados",
+              "es": "Rosados",
+              "en": "Rosé",
+              "platos": [
+                {"id": "rosado-casa", "n": "Vino rosado de la casa", "p": {"copa": 11, "botella": 40}}
+              ]
+            },
+            {
+              "id": "tintos",
+              "es": "Tintos",
+              "en": "Red",
+              "platos": [
+                {"id": "cabernet-clasico", "n": "Cabernet Sauvignon clásico", "p": {"copa": 11, "botella": 40}},
+                {"id": "cabernet-reserva", "n": "Cabernet Sauvignon reserva", "p": {"botella": 45}},
+                {"id": "cabernet-gran-reserva", "n": "Cabernet Sauvignon gran reserva", "p": {"botella": 50}},
+                {"id": "pinot-noir", "n": "Pinot Noir", "p": {"copa": 11, "botella": 40}},
+                {"id": "tempranillo", "n": "Tempranillo", "p": {"botella": 40}},
+                {"id": "merlot-clasico", "n": "Merlot clásico", "p": {"copa": 11, "botella": 40}},
+                {"id": "merlot-reserva", "n": "Merlot reserva", "p": {"botella": 45}}
+              ]
+            },
+            {
+              "id": "espana",
+              "es": "De España",
+              "en": "From Spain",
+              "platos": [
+                {"id": "capellanes-joven", "n": "Pago de los Capellanes Joven", "d": {"es": "Tempranillo", "en": "Tempranillo"}, "p": {"botella": 45}},
+                {"id": "capellanes-crianza", "n": "Pago de los Capellanes Crianza", "d": {"es": "Tempranillo", "en": "Tempranillo"}, "p": {"botella": 60}},
+                {"id": "malleolus", "n": "Emilio Moro Malleolus de Valderramiro", "d": {"es": "Tempranillo · Ribera del Duero", "en": "Tempranillo · Ribera del Duero"}, "p": {"botella": 98}},
+                {"id": "juan-gil", "n": "Juan Gil Blue Label", "d": {"es": "Monastrell", "en": "Monastrell (Mourvèdre)"}, "p": {"botella": 60}},
+                {"id": "el-coto-crianza", "n": "El Coto Crianza", "d": {"es": "Rioja", "en": "Rioja"}, "p": {"botella": 45}}
+              ]
+            },
+            {
+              "id": "california",
+              "es": "De California",
+              "en": "From California",
+              "platos": [
+                {"id": "caymus", "n": "Caymus Cabernet Sauvignon Napa", "p": {"botella": 190}},
+                {"id": "meiomi", "n": "Meiomi Pinot Noir", "p": {"botella": 60}},
+                {"id": "julia-james", "n": "Julia James Pinot Noir", "p": {"botella": 40}},
+                {"id": "emmolo", "n": "Emmolo Merlot", "p": {"botella": 120}}
+              ]
+            },
+            {
+              "id": "espumosos",
+              "es": "Espumosos y champán",
+              "en": "Sparkling & Champagne",
+              "platos": [
+                {"id": "cava-casa", "n": "Cava de la casa", "p": {"copa": 11, "botella": 40}},
+                {"id": "prosecco", "n": "Prosecco I Castelli", "p": {"botella": 45}},
+                {"id": "chandon-brut", "n": "Chandon California Brut", "p": {"botella": 70}},
+                {"id": "chandon-rose", "n": "Chandon California Brut Rosé", "p": {"botella": 70}},
+                {"id": "moet-brut", "n": "Moët & Chandon Brut Impérial", "p": {"botella": 120}},
+                {"id": "moet-ice", "n": "Moët & Chandon Ice Impérial", "p": {"botella": 160}},
+                {"id": "moet-nectar-rose", "n": "Moët & Chandon Nectar Impérial Rosé", "p": {"botella": 160}},
+                {"id": "veuve", "n": "Veuve Clicquot Yellow Label Brut", "p": {"botella": 160}},
+                {"id": "dom-perignon", "n": "Dom Pérignon Brut", "p": {"botella": 750}},
+                {"id": "belle-epoque", "n": "Perrier-Jouët Belle Époque Brut", "p": {"botella": 650}},
+                {"id": "cristal", "n": "Louis Roederer Cristal", "p": {"botella": 978}}
+              ]
+            },
+            {
+              "id": "dulces",
+              "es": "Dulces",
+              "en": "Sweet",
+              "platos": [
+                {"id": "moscato", "n": "Moscato", "p": {"copa": 11, "botella": 40}},
+                {"id": "el-coto-semi", "n": "El Coto Semi Sweet", "p": {"botella": 40}}
+              ]
+            }
+          ]
+        },
+        {
+          "id": "licores",
+          "es": "Licores",
+          "en": "Spirits",
+          "grupos": [
+            {
+              "id": "ron",
+              "es": "Ron",
+              "en": "Rum",
+              "platos": [
+                {"id": "bacardi-superior", "n": "Bacardí Superior", "p": 10},
+                {"id": "bacardi-anejo", "n": "Bacardí Añejo", "p": 12},
+                {"id": "barcelo-imperial", "n": "Barceló Imperial", "p": 16},
+                {"id": "zacapa-23", "n": "Zacapa 23 Centenario", "p": 18}
+              ]
+            },
+            {
+              "id": "whisky",
+              "es": "Whisky",
+              "en": "Whisky",
+              "platos": [
+                {"id": "dewars", "n": "Dewar’s", "p": 10},
+                {"id": "chivas-12", "n": "Chivas Regal 12", "p": 11.99},
+                {"id": "chivas-18", "n": "Chivas Regal 18", "p": 18},
+                {"id": "buchanans-12", "n": "Buchanan’s 12", "p": 11.99},
+                {"id": "jw-black", "n": "Johnnie Walker Black Label", "p": 11.99},
+                {"id": "jw-blue", "n": "Johnnie Walker Blue Label", "p": 35},
+                {"id": "glenlivet", "n": "Glenlivet", "p": 11.99},
+                {"id": "jack-daniels", "n": "Jack Daniel’s", "p": 13},
+                {"id": "jameson", "n": "Jameson", "p": 11},
+                {"id": "dalmore-12", "n": "Dalmore 12", "p": 12},
+                {"id": "macallan-12", "n": "Macallan 12 Double Cask", "p": 14}
+              ]
+            },
+            {
+              "id": "vodka",
+              "es": "Vodka",
+              "en": "Vodka",
+              "platos": [
+                {"id": "vodka-casa", "n": "Vodka de la casa", "p": 8},
+                {"id": "titos", "n": "Tito’s Handmade", "p": 10},
+                {"id": "absolut", "n": "Absolut", "p": 12},
+                {"id": "grey-goose", "n": "Grey Goose", "p": 13}
+              ]
+            },
+            {
+              "id": "tequila",
+              "es": "Tequila",
+              "en": "Tequila",
+              "platos": [
+                {"id": "tequila-casa", "n": "Tequila de la casa", "p": 10},
+                {"id": "tequila-rose", "n": "Tequila rosé", "p": 10},
+                {"id": "herradura-silver", "n": "Herradura Silver", "p": 11},
+                {"id": "patron-silver", "n": "Patrón Silver", "p": 11},
+                {"id": "patron-reposado", "n": "Patrón Reposado", "p": 13},
+                {"id": "don-julio-blanco", "n": "Don Julio Silver", "p": 11},
+                {"id": "don-julio-reposado", "n": "Don Julio Reposado", "p": 13},
+                {"id": "don-julio-anejo", "n": "Don Julio Añejo", "p": 14}
+              ]
+            },
+            {
+              "id": "cordiales",
+              "es": "Licores y digestivos",
+              "en": "Liqueurs",
+              "platos": [
+                {"id": "sambuca", "n": "Sambuca", "p": 8},
+                {"id": "licor-43", "n": "Licor 43", "p": 8},
+                {"id": "kahlua", "n": "Kahlúa", "p": 8},
+                {"id": "malibu", "n": "Malibú", "p": 8},
+                {"id": "pacharan", "n": "Pacharán", "p": 10},
+                {"id": "baileys", "n": "Baileys", "p": 10},
+                {"id": "frangelico", "n": "Frangelico", "p": 10},
+                {"id": "grand-marnier", "n": "Grand Marnier", "p": 10},
+                {"id": "amaretto", "n": "Amaretto", "p": 10},
+                {"id": "cointreau", "n": "Cointreau", "p": 10},
+                {"id": "jagermeister", "n": "Jägermeister", "p": 10},
+                {"id": "hennessy", "n": "Hennessy VS", "p": 15},
+                {"id": "christian-brothers", "n": "The Christian Brothers Brandy", "p": 10}
+              ]
+            }
+          ]
+        },
+        {
+          "id": "sin-alcohol",
+          "es": "Refrescos y jugos",
+          "en": "Soft drinks & juices",
+          "platos": [
+            {"id": "coca-cola", "n": "Coca-Cola", "p": 4.99},
+            {"id": "diet-coke", "n": "Diet Coke", "p": 4.99},
+            {"id": "coke-zero", "n": "Coke Zero", "p": 4.99},
+            {"id": "sprite", "n": "Sprite", "p": 4.99},
+            {"id": "jugo-naranja", "n": "Jugo de naranja natural", "d": {"en": "Fresh orange juice"}, "p": 5.9},
+            {"id": "jugo-mango", "n": "Jugo de mango", "d": {"en": "Mango juice"}, "p": 3.99},
+            {"id": "jugo-manzana", "n": "Jugo de manzana", "d": {"en": "Apple juice"}, "p": 3.99},
+            {"id": "limonada", "n": "Limonada", "d": {"es": "En las rocas", "en": "On the rocks"}, "p": 3.99},
+            {"id": "limonada-frappe", "n": "Limonada frappé", "d": {"en": "Frozen lemonade"}, "p": 4.99}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "happy-hour",
+      "es": "Happy hour",
+      "en": "Happy hour",
+      "horario": {"dias": [1, 2, 3, 4, 5], "desde": "16:00", "hasta": "19:00"},
+      "secciones": [
+        {
+          "id": "hh-tapas",
+          "es": "Tapas",
+          "en": "Tapas",
+          "platos": [
+            {"id": "hh-tabla-mixta", "n": "Tabla mixta", "nota": {"es": "Para 4 personas", "en": "Serves 4"}, "d": {"es": "Jamón Serrano Reserva, queso manchego, chorizo español, aceitunas y frutos secos.", "en": "Serrano ham reserve, Manchego, Spanish chorizo, olives and dried fruits."}, "p": 14},
+            {"id": "hh-combo", "n": "Combo Super Machi", "d": {"es": "Masitas de puerco, tamales, croquetas, tostones rellenos y chicharrón de pollo.", "en": "Fried pork chunks, Cuban-style tamales, croquettes, stuffed plantains and fried chicken bites."}, "p": 14},
+            {"id": "hh-croquetas", "n": "Croquetas", "d": {"es": "De jamón, bacalao y queso.", "en": "Ham, cod and cheese croquettes."}, "p": 4},
+            {"id": "hh-chicharron", "n": "Chicharrón cubano", "d": {"en": "Cuban pork crackling"}, "p": 6},
+            {"id": "hh-tostones-rellenos", "n": "Tostones rellenos", "d": {"es": "De carne, bacalao o camarones.", "en": "Stuffed with meat, cod or shrimp."}, "p": 5.99},
+            {"id": "hh-garbanzo", "n": "Garbanzo frito", "d": {"en": "Crispy Spanish chickpea tapa"}, "p": 4.99},
+            {"id": "hh-gambas", "n": "Gambas al ajillo", "crudo": true, "d": {"en": "Garlic shrimp in olive oil"}, "p": 7},
+            {"id": "hh-eperlan", "n": "Eperlán de pescado", "crudo": true, "d": {"es": "Tiras de pescado frito.", "en": "Crispy fried fish strips."}, "p": 7}
+          ]
+        },
+        {
+          "id": "hh-cocteles",
+          "es": "Cócteles a $6.50",
+          "en": "Cocktails at $6.50",
+          "platos": [
+            {"id": "hh-mojito", "n": "Mojito", "p": 6.5},
+            {"id": "hh-daiquiri", "n": "Daiquirí", "p": 6.5},
+            {"id": "hh-cuba-libre", "n": "Cuba libre", "p": 6.5},
+            {"id": "hh-pina-colada", "n": "Piña colada", "p": 6.5},
+            {"id": "hh-cubata", "n": "Cubata", "p": 6.5},
+            {"id": "hh-gin-tonic", "n": "Gin tonic", "p": 6.5},
+            {"id": "hh-vodka-tonic", "n": "Vodka tonic", "p": 6.5},
+            {"id": "hh-screwdriver", "n": "Screwdriver", "p": 6.5},
+            {"id": "hh-vodka-cranberry", "n": "Vodka & cranberry", "p": 6.5},
+            {"id": "hh-caipiroska", "n": "Caipiroska", "p": 6.5},
+            {"id": "hh-caipirinha", "n": "Caipiriña", "p": 6.5},
+            {"id": "hh-old-fashioned", "n": "Old fashioned", "p": 6.5},
+            {"id": "hh-margarita", "n": "Margarita", "p": 6.5}
+          ]
+        },
+        {
+          "id": "hh-vino",
+          "es": "Vino por copa",
+          "en": "Wine by the glass",
+          "platos": [
+            {"id": "hh-cava", "n": "Cava de la casa", "p": 5.5},
+            {"id": "hh-moscato", "n": "Moscato", "p": 5.5},
+            {"id": "hh-chardonnay", "n": "Chardonnay", "p": 5.5},
+            {"id": "hh-sauvignon", "n": "Sauvignon Blanc", "p": 5.5},
+            {"id": "hh-rosado", "n": "Vino rosado de la casa", "p": 5.5},
+            {"id": "hh-cabernet", "n": "Cabernet Sauvignon clásico", "p": 5.5},
+            {"id": "hh-merlot", "n": "Merlot clásico", "p": 5.5},
+            {"id": "hh-pinot-noir", "n": "Pinot Noir", "p": 5.5}
+          ]
+        },
+        {
+          "id": "hh-cerveza",
+          "es": "Cerveza a $3",
+          "en": "Beer at $3",
+          "platos": [
+            {"id": "hh-estrella", "n": "Estrella Galicia", "p": 3},
+            {"id": "hh-mahou", "n": "Mahou", "p": 3},
+            {"id": "hh-corona", "n": "Corona", "p": 3},
+            {"id": "hh-stella", "n": "Stella Artois", "p": 3}
+          ]
+        },
+        {
+          "id": "hh-licores",
+          "es": "Licores",
+          "en": "Spirits",
+          "platos": [
+            {"id": "hh-vodka-casa", "n": "Vodka de la casa", "p": 4},
+            {"id": "hh-titos", "n": "Tito’s Handmade", "p": 5},
+            {"id": "hh-tequila-casa", "n": "Tequila de la casa", "p": 5},
+            {"id": "hh-patron", "n": "Patrón Silver", "p": 5.99},
+            {"id": "hh-dewars", "n": "Dewar’s", "p": 5},
+            {"id": "hh-jw-black", "n": "Johnnie Walker Black Label", "p": 5.99},
+            {"id": "hh-bacardi", "n": "Bacardí Superior", "p": 5},
+            {"id": "hh-bacardi-anejo", "n": "Bacardí Añejo", "p": 6}
+          ]
+        }
+      ]
+    }
+  ]
+}

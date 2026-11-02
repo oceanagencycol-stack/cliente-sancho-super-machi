@@ -1,0 +1,233 @@
+{
+ "fotos": {
+  "salon": {
+   "w": 1600,
+   "h": 900,
+   "anchos": [
+    480,
+    960,
+    1600
+   ],
+   "es": "El salón y la barra de Sancho",
+   "en": "Sancho’s dining room and bar",
+   "fuente": "media/sancho/originales/2025-04_DSC02740-6-scaled.jpg"
+  },
+  "salon2": {
+   "w": 1600,
+   "h": 900,
+   "anchos": [
+    480,
+    960,
+    1600
+   ],
+   "es": "El salón de Sancho listo para la noche",
+   "en": "Sancho’s dining room set for the evening",
+   "fuente": "media/sancho/originales/2025-04_DSC02739-5-2-scaled.jpg"
+  },
+  "paella": {
+   "w": 1600,
+   "h": 1066,
+   "anchos": [
+    480,
+    960,
+    1600
+   ],
+   "es": "Paellas y tapas servidas en la mesa",
+   "en": "Paellas and tapas on the table",
+   "fuente": "media/sancho/originales/2025-04_DSC06396.jpg"
+  },
+  "cochinillo": {
+   "w": 1600,
+   "h": 1067,
+   "anchos": [
+    480,
+    960,
+    1600
+   ],
+   "es": "Cochinillo segoviano entero sobre la tabla",
+   "en": "Whole Segovia-style suckling pig on the board",
+   "fuente": "media/sancho/originales/2025-04_raul08.png"
+  },
+  "carne": {
+   "w": 1600,
+   "h": 1067,
+   "anchos": [
+    480,
+    960,
+    1600
+   ],
+   "es": "Carne a la brasa recién salida de la parrilla",
+   "en": "Steak fresh off the grill",
+   "fuente": "media/sancho/originales/2025-04_raul06.png"
+  },
+  "croquetas": {
+   "w": 1600,
+   "h": 900,
+   "anchos": [
+    480,
+    960,
+    1600
+   ],
+   "es": "Croquetas con sus salsas",
+   "en": "Croquetas with dipping sauces",
+   "fuente": "media/sancho/originales/2025-04_DSC02786-31-scaled.jpg"
+  },
+  "langosta": {
+   "w": 1600,
+   "h": 900,
+   "anchos": [
+    480,
+    960,
+    1600
+   ],
+   "es": "Langosta thermidor gratinada",
+   "en": "Lobster thermidor, gratinéed",
+   "fuente": "media/sancho/originales/2025-04_LANGOSTA-THERMIDOR.jpg"
+  },
+  "sangria": {
+   "w": 1600,
+   "h": 900,
+   "anchos": [
+    480,
+    960,
+    1600
+   ],
+   "es": "Copa de sangría con fruta",
+   "en": "A glass of sangria with fruit",
+   "fuente": "media/sancho/originales/2025-04_DSC02771-21-1-scaled.jpg"
+  },
+  "martes": {
+   "w": 1600,
+   "h": 1067,
+   "anchos": [
+    480,
+    960,
+    1600
+   ],
+   "es": "Vino, sangría y cerveza en la mesa",
+   "en": "Wine, sangria and beer on the table",
+   "fuente": "media/sancho/originales/2025-04_2-sancho-.png"
+  },
+  "tapas": {
+   "w": 1577,
+   "h": 2560,
+   "anchos": [
+    480,
+    960,
+    1600
+   ],
+   "es": "Sangría, croquetas y un plato de la casa",
+   "en": "Sangria, croquetas and a house plate",
+   "fuente": "media/sancho/originales/2025-04_DSC02775-25-scaled.jpg"
+  },
+  "tapas2": {
+   "w": 1600,
+   "h": 900,
+   "anchos": [
+    480,
+    960,
+    1600
+   ],
+   "es": "Garbanzos en cazuela",
+   "en": "Chickpeas in a clay dish",
+   "fuente": "media/sancho/originales/2025-04_DSC06127.jpg"
+  },
+  "jamon": {
+   "w": 1600,
+   "h": 900,
+   "anchos": [
+    480,
+    960,
+    1600
+   ],
+   "es": "Jamón cortado a cuchillo",
+   "en": "Hand-carved ham",
+   "fuente": "media/sancho/originales/2025-04_DSC06017.jpg"
+  },
+  "almuerzo": {
+   "w": 1600,
+   "h": 950,
+   "anchos": [
+    480,
+    960,
+    1600
+   ],
+   "es": "Plato del almuerzo con arroz y papas",
+   "en": "Lunch plate with rice and potatoes",
+   "fuente": "media/sancho/originales/2025-04_DSC02767-17-1-scaled.jpg"
+  },
+  "mariscos": {
+   "w": 1600,
+   "h": 900,
+   "anchos": [
+    480,
+    960,
+    1600
+   ],
+   "es": "Cazuela de mariscos",
+   "en": "Seafood casserole",
+   "fuente": "media/sancho/originales/2025-04_DSC06350.jpg"
+  },
+  "pescado": {
+   "w": 1600,
+   "h": 900,
+   "anchos": [
+    480,
+    960,
+    1600
+   ],
+   "es": "Pescado entero frito",
+   "en": "Whole fried fish",
+   "fuente": "media/sancho/originales/2025-04_DSC06259.jpg"
+  },
+  "postre": {
+   "w": 1600,
+   "h": 900,
+   "anchos": [
+    480,
+    960,
+    1600
+   ],
+   "es": "Postre con helado de vainilla",
+   "en": "Dessert with vanilla ice cream",
+   "fuente": "media/sancho/originales/2025-04_DSC06143.jpg"
+  },
+  "flan": {
+   "w": 1600,
+   "h": 900,
+   "anchos": [
+    480,
+    960,
+    1600
+   ],
+   "es": "Flan con caramelo",
+   "en": "Flan with caramel",
+   "fuente": "media/sancho/originales/2025-04_DSC06138.jpg"
+  },
+  "vinos": {
+   "w": 1600,
+   "h": 1067,
+   "anchos": [
+    480,
+    960,
+    1600
+   ],
+   "es": "Vinos de la casa",
+   "en": "The house wines",
+   "fuente": "media/sancho/originales/2025-04_raul03.png"
+  },
+  "noche": {
+   "w": 1600,
+   "h": 900,
+   "anchos": [
+    480,
+    960,
+    1600
+   ],
+   "es": "Noche de música en vivo en Sancho",
+   "en": "A live-music night at Sancho",
+   "fuente": "media/sancho/originales/2025-04_evento-.png"
+  }
+ },
+ "flyers": {}
+}

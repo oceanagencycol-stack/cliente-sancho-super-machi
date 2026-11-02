@@ -1,0 +1,135 @@
+{
+ "id": "sancho",
+ "nombre": "Sancho Restaurant",
+ "nombre_corto": "Sancho",
+ "dominio": "https://sanchorestaurantemiami.com",
+ "lema": {
+  "es": "Cocina española de calidad al mejor precio",
+  "en": "Real Spanish cooking at an honest price"
+ },
+ "cocina": {
+  "es": "Cocina española y tapas",
+  "en": "Spanish cuisine & tapas"
+ },
+ "direccion": {
+  "calle": "13202 SW 8th St",
+  "ciudad": "Miami",
+  "estado": "FL",
+  "cp": "33184",
+  "pais": "US"
+ },
+ "geo": {
+  "lat": 25.7600999,
+  "lng": -80.4100418
+ },
+ "mapa": "https://www.google.com/maps?cid=16292965583986121897",
+ "telefono": "+13055536886",
+ "whatsapp": null,
+ "horario": {
+  "confirmado": false,
+  "fuente": "tooltip del reloj en la cabecera de la web vieja: «12:00 M. A 12:00 P.M»",
+  "texto": {
+   "es": "De mediodía a medianoche (por confirmar)",
+   "en": "Noon to midnight (to be confirmed)"
+  },
+  "franjas": [
+   {
+    "dias": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6
+    ],
+    "abre": "12:00",
+    "cierra": "00:00"
+   }
+  ]
+ },
+ "redes": {
+  "instagram": "https://www.instagram.com/sanchorestaurant_/",
+  "facebook": "https://www.facebook.com/sanchosrestaurantmiami/",
+  "tiktok": "https://www.tiktok.com/@sanchorestaurant"
+ },
+ "pedidos": [
+  {
+   "id": "propio",
+   "nombre": {
+    "es": "Pedido en línea",
+    "en": "Order online"
+   },
+   "url": "https://order.online/store/sancho-restaurant-miami-23806842/?pickup=true",
+   "nota": {
+    "es": "Para recoger o a domicilio",
+    "en": "Pickup or delivery"
+   }
+  },
+  {
+   "id": "doordash",
+   "nombre": "DoorDash",
+   "url": "https://www.doordash.com/store/sancho-restaurant-miami-23806842/"
+  },
+  {
+   "id": "ubereats",
+   "nombre": "Uber Eats",
+   "url": "https://www.ubereats.com/store/sancho-restaurant/ozEnXByJXTOH-XxAXq8ziA"
+  },
+  {
+   "id": "grubhub",
+   "nombre": "Grubhub",
+   "url": "https://www.grubhub.com/restaurant/sancho-restaurant-13202-sw-8th-st-miami/5461416"
+  }
+ ],
+ "especialidades": [
+  {
+   "id": "cochinillo",
+   "es": "Cochinillo segoviano",
+   "en": "Segovia-style suckling pig",
+   "foto": "cochinillo"
+  },
+  {
+   "id": "paella",
+   "es": "Paella",
+   "en": "Paella",
+   "foto": "paella"
+  },
+  {
+   "id": "pulpo",
+   "es": "Pulpo a la gallega",
+   "en": "Galician octopus"
+  },
+  {
+   "id": "carnes",
+   "es": "Carnes asadas",
+   "en": "Grilled meats",
+   "foto": "carne"
+  },
+  {
+   "id": "tapas",
+   "es": "Tapas",
+   "en": "Tapas",
+   "foto": "croquetas"
+  },
+  {
+   "id": "langosta",
+   "es": "Langosta thermidor",
+   "en": "Lobster thermidor",
+   "foto": "langosta"
+  }
+ ],
+ "musica": {
+  "es": "Música en vivo y shows especiales",
+  "en": "Live music and special shows",
+  "fuente": "portada y «Nuestro restaurante» de la web vieja",
+  "por_confirmar": "qué noches"
+ },
+ "tipo_schema": "Restaurant",
+ "servesCuisine": [
+  "Spanish",
+  "Tapas"
+ ],
+ "precio_rango": "$$",
+ "acepta_reservas": true
+}

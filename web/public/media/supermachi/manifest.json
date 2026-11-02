@@ -1,0 +1,514 @@
+{
+ "fotos": {
+  "fachada": {
+   "w": 936,
+   "h": 981,
+   "anchos": [
+    480,
+    936
+   ],
+   "es": "La fachada de ladrillo de Súper Machi en la NW 2nd St",
+   "en": "Super Machi’s brick storefront on NW 2nd St",
+   "fuente": "media/supermachi/originales/2025-01_DSC00073-Editar.jpg",
+   "recorte": [
+    0,
+    0.04,
+    0.585,
+    0.92
+   ]
+  },
+  "escenario": {
+   "w": 1600,
+   "h": 900,
+   "anchos": [
+    480,
+    960,
+    1600
+   ],
+   "es": "Banda en vivo en el escenario de Súper Machi",
+   "en": "Live band on Super Machi’s stage",
+   "fuente": "media/supermachi/originales/2025-01_galeria-1.jpg"
+  },
+  "escenario2": {
+   "w": 1600,
+   "h": 900,
+   "anchos": [
+    480,
+    960,
+    1600
+   ],
+   "es": "Noche de show en la sala",
+   "en": "Show night in the room",
+   "fuente": "media/supermachi/originales/2025-01_galeria-2.jpg"
+  },
+  "cochinillo": {
+   "w": 1600,
+   "h": 1252,
+   "anchos": [
+    480,
+    960,
+    1600
+   ],
+   "es": "Cochinillo segoviano asado entero, recién salido del horno",
+   "en": "Whole Segovia-style roast suckling pig, fresh from the oven",
+   "fuente": "media/supermachi/originales/2025-01_cochinillo-3.png"
+  },
+  "tabla": {
+   "w": 1600,
+   "h": 1067,
+   "anchos": [
+    480,
+    960,
+    1600
+   ],
+   "es": "La Tabla Mar y Tierra servida para un grupo",
+   "en": "The Surf & Turf board served for a group",
+   "fuente": "media/supermachi/originales/2025-01_super-machi-tabla.png"
+  },
+  "tomahawk": {
+   "w": 1600,
+   "h": 899,
+   "anchos": [
+    480,
+    960,
+    1600
+   ],
+   "es": "Tomahawk steak cortado sobre tabla de madera",
+   "en": "Sliced tomahawk steak on a wooden board",
+   "fuente": "media/supermachi/originales/2025-01_DSC00713-1.jpg"
+  },
+  "cordero-brasa": {
+   "w": 1152,
+   "h": 2048,
+   "anchos": [
+    480,
+    960,
+    1152
+   ],
+   "es": "Chuletas de cordero sobre la brasa",
+   "en": "Lamb chops over the coals",
+   "fuente": "media/supermachi/originales/2025-01_DSC00295-1.jpg"
+  },
+  "crema-catalana": {
+   "w": 1365,
+   "h": 2048,
+   "anchos": [
+    480,
+    960,
+    1365
+   ],
+   "es": "Crema catalana con su costra de caramelo",
+   "en": "Catalan cream with its caramel crust",
+   "fuente": "media/supermachi/originales/2025-01_DSC00429.jpg"
+  },
+  "flan": {
+   "w": 1365,
+   "h": 2048,
+   "anchos": [
+    480,
+    960,
+    1365
+   ],
+   "es": "Flan de vainilla con caramelo",
+   "en": "Vanilla flan with caramel",
+   "fuente": "media/supermachi/originales/2025-01_DSC00453.jpg"
+  },
+  "mesa": {
+   "w": 1600,
+   "h": 900,
+   "anchos": [
+    480,
+    960,
+    1600
+   ],
+   "es": "Mesa servida con platos y cócteles",
+   "en": "A table set with plates and cocktails",
+   "fuente": "media/supermachi/originales/2025-01_DSC00325-1.jpg"
+  },
+  "mesa2": {
+   "w": 1600,
+   "h": 900,
+   "anchos": [
+    480,
+    960,
+    1600
+   ],
+   "es": "Platos y cócteles de la casa",
+   "en": "House plates and cocktails",
+   "fuente": "media/supermachi/originales/2025-01_DSC00329.jpg"
+  },
+  "buffet": {
+   "w": 1600,
+   "h": 900,
+   "anchos": [
+    480,
+    960,
+    1600
+   ],
+   "es": "Bandejas del almuerzo cubano estilo buffet",
+   "en": "Trays of the Cuban lunch buffet",
+   "fuente": "media/supermachi/originales/2025-01_DSC00270-1.jpg"
+  },
+  "buffet2": {
+   "w": 1600,
+   "h": 900,
+   "anchos": [
+    480,
+    960,
+    1600
+   ],
+   "es": "El buffet de mediodía",
+   "en": "The lunchtime buffet",
+   "fuente": "media/supermachi/originales/2025-01_DSC09094-2-scaled.jpg"
+  },
+  "mojito": {
+   "w": 1152,
+   "h": 2048,
+   "anchos": [
+    480,
+    960,
+    1152
+   ],
+   "es": "Mojito en la barra",
+   "en": "A mojito at the bar",
+   "fuente": "media/supermachi/originales/2025-01_DSC00281.jpg"
+  },
+  "coctel": {
+   "w": 1152,
+   "h": 2048,
+   "anchos": [
+    480,
+    960,
+    1152
+   ],
+   "es": "Cóctel de la casa",
+   "en": "House cocktail",
+   "fuente": "media/supermachi/originales/2025-01_DSC00279.jpg"
+  },
+  "cafe": {
+   "w": 601,
+   "h": 626,
+   "anchos": [
+    480,
+    601
+   ],
+   "es": "Café cubano recién servido",
+   "en": "Freshly poured Cuban coffee",
+   "fuente": "media/supermachi/originales/2025-01_cafe-4.png"
+  }
+ },
+ "flyers": {
+  "2025-12-05-maylu-s-cabaret": {
+   "w": 1080,
+   "h": 1350,
+   "anchos": [
+    360,
+    720
+   ]
+  },
+  "2025-12-06-gio-anaisa": {
+   "w": 1080,
+   "h": 1350,
+   "anchos": [
+    360,
+    720
+   ]
+  },
+  "2025-12-31-los-3-de-la-habana-y-band": {
+   "w": 512,
+   "h": 512,
+   "anchos": [
+    360,
+    512
+   ]
+  },
+  "2026-03-28-laritza-bacallao": {
+   "w": 512,
+   "h": 512,
+   "anchos": [
+    360,
+    512
+   ]
+  },
+  "2026-05-29-mustelier": {
+   "w": 1080,
+   "h": 1350,
+   "anchos": [
+    360,
+    720
+   ]
+  },
+  "2026-06-12-zajaris-vs-chacha": {
+   "w": 1080,
+   "h": 1350,
+   "anchos": [
+    360,
+    720
+   ]
+  },
+  "2026-06-13-laritza-bacallao": {
+   "w": 1080,
+   "h": 1350,
+   "anchos": [
+    360,
+    720
+   ]
+  },
+  "2026-06-14-maylu-s-cabaret": {
+   "w": 1080,
+   "h": 1350,
+   "anchos": [
+    360,
+    720
+   ]
+  },
+  "2026-06-20-antolin-el-pichon": {
+   "w": 1080,
+   "h": 1350,
+   "anchos": [
+    360,
+    720
+   ]
+  },
+  "2026-06-26-ruperto": {
+   "w": 1080,
+   "h": 1350,
+   "anchos": [
+    360,
+    720
+   ]
+  },
+  "2026-06-27-laritza-bacallao": {
+   "w": 1080,
+   "h": 1350,
+   "anchos": [
+    360,
+    720
+   ]
+  },
+  "2026-07-04-anselmo-el-mudo-y-el-ponny": {
+   "w": 512,
+   "h": 512,
+   "anchos": [
+    360,
+    512
+   ]
+  },
+  "2026-07-10-laritza-bacallao": {
+   "w": 512,
+   "h": 512,
+   "anchos": [
+    360,
+    512
+   ]
+  },
+  "2026-07-11-alain-daniel": {
+   "w": 1080,
+   "h": 1350,
+   "anchos": [
+    360,
+    720
+   ]
+  },
+  "2026-07-17-lazarito-valdez-y-bamboleo": {
+   "w": 512,
+   "h": 512,
+   "anchos": [
+    360,
+    512
+   ]
+  },
+  "2026-07-18-antolin-el-pichon": {
+   "w": 512,
+   "h": 512,
+   "anchos": [
+    360,
+    512
+   ]
+  },
+  "2026-07-19-maylu-s-cabaret": {
+   "w": 512,
+   "h": 512,
+   "anchos": [
+    360,
+    512
+   ]
+  },
+  "2026-07-24-sanky-panky": {
+   "w": 512,
+   "h": 512,
+   "anchos": [
+    360,
+    512
+   ]
+  },
+  "2026-07-25-laritza-bacallao": {
+   "w": 512,
+   "h": 512,
+   "anchos": [
+    360,
+    512
+   ]
+  },
+  "2026-07-31-qva-libre": {
+   "w": 512,
+   "h": 512,
+   "anchos": [
+    360,
+    512
+   ]
+  },
+  "2026-08-01-el-show-de-carlucho": {
+   "w": 512,
+   "h": 512,
+   "anchos": [
+    360,
+    512
+   ]
+  },
+  "2026-08-07-laritza-bacallao": {
+   "w": 512,
+   "h": 512,
+   "anchos": [
+    360,
+    512
+   ]
+  },
+  "2026-08-08-alain-daniel": {
+   "w": 512,
+   "h": 512,
+   "anchos": [
+    360,
+    512
+   ]
+  },
+  "2026-08-14-gardi": {
+   "w": 512,
+   "h": 512,
+   "anchos": [
+    360,
+    512
+   ]
+  },
+  "2026-08-15-antolin-el-pichon": {
+   "w": 512,
+   "h": 512,
+   "anchos": [
+    360,
+    512
+   ]
+  },
+  "2026-08-21-qva-libre": {
+   "w": 512,
+   "h": 512,
+   "anchos": [
+    360,
+    512
+   ]
+  },
+  "2026-08-22-laritza-bacallao": {
+   "w": 512,
+   "h": 512,
+   "anchos": [
+    360,
+    512
+   ]
+  },
+  "2026-08-28-dandy": {
+   "w": 512,
+   "h": 512,
+   "anchos": [
+    360,
+    512
+   ]
+  },
+  "2026-08-29-luis-noa": {
+   "w": 512,
+   "h": 512,
+   "anchos": [
+    360,
+    512
+   ]
+  },
+  "2026-08-30-maylu-s-cabaret": {
+   "w": 1254,
+   "h": 1254,
+   "anchos": [
+    360,
+    720
+   ]
+  },
+  "2026-09-04-ruperto": {
+   "w": 1254,
+   "h": 1254,
+   "anchos": [
+    360,
+    720
+   ]
+  },
+  "2026-09-05-laritza-bacallao": {
+   "w": 1254,
+   "h": 1254,
+   "anchos": [
+    360,
+    720
+   ]
+  },
+  "2026-09-11-el-bacan-de-la-vida": {
+   "w": 1024,
+   "h": 1024,
+   "anchos": [
+    360,
+    720
+   ]
+  },
+  "2026-09-12-alain-daniel": {
+   "w": 1024,
+   "h": 1024,
+   "anchos": [
+    360,
+    720
+   ]
+  },
+  "2026-09-18-laritza-bacallao": {
+   "w": 1254,
+   "h": 1254,
+   "anchos": [
+    360,
+    720
+   ]
+  },
+  "2026-09-19-antolin-el-pichon": {
+   "w": 1254,
+   "h": 1254,
+   "anchos": [
+    360,
+    720
+   ]
+  },
+  "2026-09-25-bonco-quinongo": {
+   "w": 1254,
+   "h": 1254,
+   "anchos": [
+    360,
+    720
+   ]
+  },
+  "2026-09-26-punto-y-coma": {
+   "w": 1254,
+   "h": 1254,
+   "anchos": [
+    360,
+    720
+   ]
+  },
+  "2026-10-02-anselmo-el-mudo-y-ronny": {
+   "w": 1080,
+   "h": 1350,
+   "anchos": [
+    360,
+    720
+   ]
+  }
+ }
+}

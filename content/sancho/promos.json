@@ -1,0 +1,243 @@
+{
+ "nota": "La semana de Sancho tal como la publica su web vieja (portada, vista el 2026-11-02) y la propuesta OI-PR-2026-SM. Lo marcado por_confirmar se confirma con el restaurante antes de lanzar.",
+ "semana": [
+  {
+   "dia": 1,
+   "id": "lunes-de-paella",
+   "precio": 12.99,
+   "desde": "12:00",
+   "foto": "paella",
+   "es": {
+    "dia": "Lunes",
+    "titulo": "Lunes de paella",
+    "texto": "Todos los lunes, desde el mediodía hasta el cierre: nuestra paella especial.",
+    "precio_txt": "$12.99"
+   },
+   "en": {
+    "dia": "Monday",
+    "titulo": "Paella Monday",
+    "texto": "Every Monday from noon until close: our house paella.",
+    "precio_txt": "$12.99"
+   },
+   "fuente": "portada de la web vieja"
+  },
+  {
+   "dia": 2,
+   "id": "martes-de-vino",
+   "precio": null,
+   "foto": "martes",
+   "es": {
+    "dia": "Martes",
+    "titulo": "Martes de vino",
+    "texto": "Vino, sangría y cerveza de barril gratis con $20 de consumo.",
+    "precio_txt": "Gratis con $20"
+   },
+   "en": {
+    "dia": "Tuesday",
+    "titulo": "Wine Tuesday",
+    "texto": "Free wine, sangria or draft beer with a $20 check.",
+    "precio_txt": "Free with $20"
+   },
+   "fuente": "portada de la web vieja",
+   "por_confirmar": "cuántas bebidas por cada $20 y a qué horas"
+  },
+  {
+   "dia": 3,
+   "id": "miercoles-de-tapas",
+   "precio": 30,
+   "foto": "tapas",
+   "es": {
+    "dia": "Miércoles",
+    "titulo": "Tapas y vino ilimitados",
+    "texto": "Tapas y vino sin límite toda la noche.",
+    "precio_txt": "$30"
+   },
+   "en": {
+    "dia": "Wednesday",
+    "titulo": "Bottomless tapas & wine",
+    "texto": "Unlimited tapas and wine.",
+    "precio_txt": "$30"
+   },
+   "fuente": "portada de la web vieja ($30); Instagram dice $35 (propuesta OI-PR-2026-SM)",
+   "por_confirmar": "el precio: $30 en la web, $35 en Instagram"
+  },
+  {
+   "dia": 4,
+   "id": "jueves-de-tapas",
+   "precio": null,
+   "foto": "tapas2",
+   "es": {
+    "dia": "Jueves",
+    "titulo": "Jueves de tapas",
+    "texto": "Otra noche de tapas en la Calle Ocho.",
+    "precio_txt": "Pregunta el precio"
+   },
+   "en": {
+    "dia": "Thursday",
+    "titulo": "Tapas Thursday",
+    "texto": "Another tapas night on Calle Ocho.",
+    "precio_txt": "Ask for the price"
+   },
+   "fuente": "propuesta OI-PR-2026-SM («Miércoles y Jueves de Tapas», visto en Instagram)",
+   "por_confirmar": "si sigue, precio y condiciones"
+  },
+  {
+   "dia": 5,
+   "id": "viernes",
+   "precio": null,
+   "foto": "carne",
+   "es": {
+    "dia": "Viernes",
+    "titulo": "Fin de semana a la brasa",
+    "texto": "Carnes asadas, cochinillo segoviano y sangría para empezar el fin de semana.",
+    "precio_txt": "La carta"
+   },
+   "en": {
+    "dia": "Friday",
+    "titulo": "Weekend off the grill",
+    "texto": "Grilled meats, Segovia-style suckling pig and sangria to kick off the weekend.",
+    "precio_txt": "Full menu"
+   },
+   "fuente": "especialidades de la portada vieja (no es una promo)"
+  },
+  {
+   "dia": 6,
+   "id": "sabado",
+   "precio": null,
+   "foto": "cochinillo",
+   "es": {
+    "dia": "Sábado",
+    "titulo": "Cochinillo para la mesa",
+    "texto": "El famoso cochinillo segoviano, para compartir con la familia.",
+    "precio_txt": "La carta"
+   },
+   "en": {
+    "dia": "Saturday",
+    "titulo": "Suckling pig for the table",
+    "texto": "Our famous Segovia-style suckling pig, made for sharing.",
+    "precio_txt": "Full menu"
+   },
+   "fuente": "especialidades de la portada vieja (no es una promo)"
+  },
+  {
+   "dia": 0,
+   "id": "domingo",
+   "precio": null,
+   "foto": "paella2",
+   "es": {
+    "dia": "Domingo",
+    "titulo": "Domingo en familia",
+    "texto": "Paella, tapas y sobremesa larga.",
+    "precio_txt": "La carta"
+   },
+   "en": {
+    "dia": "Sunday",
+    "titulo": "Sunday with family",
+    "texto": "Paella, tapas and a long sobremesa.",
+    "precio_txt": "Full menu"
+   },
+   "fuente": "especialidades de la portada vieja (no es una promo)"
+  }
+ ],
+ "happy_hour": {
+  "dias": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "desde": "16:00",
+  "hasta": "19:00",
+  "es": {
+   "titulo": "Happy hour ilimitado",
+   "texto": "De lunes a viernes, de 4 a 7 p. m."
+  },
+  "en": {
+   "titulo": "Bottomless happy hour",
+   "texto": "Monday to Friday, 4 to 7 p.m."
+  },
+  "fuente": "portada de la web vieja",
+  "por_confirmar": "qué incluye «ilimitado»"
+ },
+ "almuerzo": {
+  "es": {
+   "titulo": "Especial de almuerzo",
+   "texto": "Platos del día a precio de almuerzo."
+  },
+  "en": {
+   "titulo": "Lunch special",
+   "texto": "Home-style plates at lunch prices."
+  },
+  "desde": 10.99,
+  "platos": [
+   {
+    "n": "Fricasé de cerdo",
+    "en": "Pork fricassée",
+    "p": 10.99
+   },
+   {
+    "n": "1/4 de pollo fricasé",
+    "en": "Quarter chicken fricassée",
+    "p": 10.99
+   },
+   {
+    "n": "Aporreado de bacalao",
+    "en": "Shredded salt-cod stew",
+    "p": 10.99
+   },
+   {
+    "n": "Picadillo a la criolla",
+    "en": "Creole-style ground beef",
+    "p": 10.99
+   },
+   {
+    "n": "Pierna asada (cerdo)",
+    "en": "Roast pork leg",
+    "p": 12.99
+   },
+   {
+    "n": "Filete de pescado grillé",
+    "en": "Grilled fish fillet",
+    "p": 12.99
+   },
+   {
+    "n": "Pollo salteado",
+    "en": "Sautéed chicken",
+    "p": 12.99
+   },
+   {
+    "n": "Fajitas de res",
+    "en": "Beef fajitas",
+    "p": 12.99
+   }
+  ],
+  "fuente": "portada de la web vieja (bloque «Especial Lunch»)",
+  "por_confirmar": "días y horas del especial; si incluye guarniciones («INCLUYE 2 GUARNICIONES» aparece junto al menú ejecutivo)"
+ },
+ "ejecutivo": {
+  "precio": 17.99,
+  "es": {
+   "titulo": "Menú ejecutivo",
+   "incluye": [
+    "1 bebida",
+    "1 entrante: tortilla, croqueta o crema",
+    "1 plato fuerte",
+    "2 acompañantes",
+    "Café o flan"
+   ]
+  },
+  "en": {
+   "titulo": "Executive menu",
+   "incluye": [
+    "1 drink",
+    "1 starter: tortilla, croqueta or soup",
+    "1 main",
+    "2 sides",
+    "Coffee or flan"
+   ]
+  },
+  "fuente": "portada de la web vieja",
+  "por_confirmar": "días y horas"
+ }
+}

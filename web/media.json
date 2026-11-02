@@ -1,0 +1,43 @@
+{
+  "nota": "Fotos que usan las webs nuevas: todas del propio restaurante (su biblioteca de medios). Las de bancos de imágenes de la plantilla vieja no entran. «es» y «en» son el texto alternativo. Los flyers de los shows salen de content/supermachi/eventos.json. Uso: node web/tools/imagenes.mjs",
+  "supermachi": {
+    "fachada": {"src": "2025-01_DSC00073-Editar.jpg", "recorte": [0, 0.04, 0.585, 0.92], "es": "La fachada de ladrillo de Súper Machi en la NW 2nd St", "en": "Super Machi’s brick storefront on NW 2nd St"},
+    "escenario": {"src": "2025-01_galeria-1.jpg", "es": "Banda en vivo en el escenario de Súper Machi", "en": "Live band on Super Machi’s stage"},
+    "escenario2": {"src": "2025-01_galeria-2.jpg", "es": "Noche de show en la sala", "en": "Show night in the room"},
+    "cochinillo": {"src": "2025-01_cochinillo-3.png", "es": "Cochinillo segoviano asado entero, recién salido del horno", "en": "Whole Segovia-style roast suckling pig, fresh from the oven"},
+    "tabla": {"src": "2025-01_super-machi-tabla.png", "es": "La Tabla Mar y Tierra servida para un grupo", "en": "The Surf & Turf board served for a group"},
+    "tomahawk": {"src": "2025-01_DSC00713-1.jpg", "es": "Tomahawk steak cortado sobre tabla de madera", "en": "Sliced tomahawk steak on a wooden board"},
+    "cordero-brasa": {"src": "2025-01_DSC00295-1.jpg", "es": "Chuletas de cordero sobre la brasa", "en": "Lamb chops over the coals"},
+    "crema-catalana": {"src": "2025-01_DSC00429.jpg", "es": "Crema catalana con su costra de caramelo", "en": "Catalan cream with its caramel crust"},
+    "flan": {"src": "2025-01_DSC00453.jpg", "es": "Flan de vainilla con caramelo", "en": "Vanilla flan with caramel"},
+    "mesa": {"src": "2025-01_DSC00325-1.jpg", "es": "Mesa servida con platos y cócteles", "en": "A table set with plates and cocktails"},
+    "mesa2": {"src": "2025-01_DSC00329.jpg", "es": "Platos y cócteles de la casa", "en": "House plates and cocktails"},
+    "buffet": {"src": "2025-01_DSC00270-1.jpg", "es": "Bandejas del almuerzo cubano estilo buffet", "en": "Trays of the Cuban lunch buffet"},
+    "buffet2": {"src": "2025-01_DSC09094-2-scaled.jpg", "es": "El buffet de mediodía", "en": "The lunchtime buffet"},
+    "mojito": {"src": "2025-01_DSC00281.jpg", "es": "Mojito en la barra", "en": "A mojito at the bar"},
+    "coctel": {"src": "2025-01_DSC00279.jpg", "es": "Cóctel de la casa", "en": "House cocktail"},
+    "cafe": {"src": "2025-01_cafe-4.png", "es": "Café cubano recién servido", "en": "Freshly poured Cuban coffee"}
+  },
+  "sancho": {
+    "salon": {"src": "2025-04_DSC02740-6-scaled.jpg", "es": "El salón y la barra de Sancho", "en": "Sancho’s dining room and bar"},
+    "salon2": {"src": "2025-04_DSC02739-5-2-scaled.jpg", "es": "El salón de Sancho listo para la noche", "en": "Sancho’s dining room set for the evening"},
+    "paella": {"src": "2025-04_DSC06396.jpg", "es": "Paellas y tapas servidas en la mesa", "en": "Paellas and tapas on the table"},
+    "cochinillo": {"src": "2025-04_raul08.png", "es": "Cochinillo segoviano entero sobre la tabla", "en": "Whole Segovia-style suckling pig on the board"},
+    "carne": {"src": "2025-04_raul06.png", "es": "Carne a la brasa recién salida de la parrilla", "en": "Steak fresh off the grill"},
+    "croquetas": {"src": "2025-04_DSC02786-31-scaled.jpg", "es": "Croquetas con sus salsas", "en": "Croquetas with dipping sauces"},
+    "langosta": {"src": "2025-04_LANGOSTA-THERMIDOR.jpg", "es": "Langosta thermidor gratinada", "en": "Lobster thermidor, gratinéed"},
+    "sangria": {"src": "2025-04_DSC02771-21-1-scaled.jpg", "es": "Copa de sangría con fruta", "en": "A glass of sangria with fruit"},
+    "martes": {"src": "2025-04_2-sancho-.png", "es": "Vino, sangría y cerveza en la mesa", "en": "Wine, sangria and beer on the table"},
+    "tapas": {"src": "2025-04_DSC02775-25-scaled.jpg", "es": "Sangría, croquetas y un plato de la casa", "en": "Sangria, croquetas and a house plate"},
+    "tapas2": {"src": "2025-04_DSC06127.jpg", "es": "Garbanzos en cazuela", "en": "Chickpeas in a clay dish"},
+    "jamon": {"src": "2025-04_DSC06017.jpg", "es": "Jamón cortado a cuchillo", "en": "Hand-carved ham"},
+    "almuerzo": {"src": "2025-04_DSC02767-17-1-scaled.jpg", "es": "Plato del almuerzo con arroz y papas", "en": "Lunch plate with rice and potatoes"},
+    "mariscos": {"src": "2025-04_DSC06350.jpg", "es": "Cazuela de mariscos", "en": "Seafood casserole"},
+    "pescado": {"src": "2025-04_DSC06259.jpg", "es": "Pescado entero frito", "en": "Whole fried fish"},
+    "postre": {"src": "2025-04_DSC06143.jpg", "es": "Postre con helado de vainilla", "en": "Dessert with vanilla ice cream"},
+    "flan": {"src": "2025-04_DSC06138.jpg", "es": "Flan con caramelo", "en": "Flan with caramel"},
+    "vinos": {"src": "2025-04_raul03.png", "es": "Vinos de la casa", "en": "The house wines"},
+    "noche": {"src": "2025-04_evento-.png", "es": "Noche de música en vivo en Sancho", "en": "A live-music night at Sancho"}
+  },
+  "stock": "Fotos de demostración de la plantilla (no se usan): en Súper Machi y Sancho, las de nombre de fotógrafo de Unsplash (mats-speicher, wesual-click, markus-spiske, aleks-marinkovic, ddp, nathan-dumlao, nadya-spetnitskaya, mae-mu, seetha-krishnan, orlova-maria, austin-ban, adrien-olichon, cole-keister, jonas-allert, angelo-pantazis, deconovo, goashape, austin-distel, vadim-kaipov, sarah-mcgaughey, minh-pham, lizzie, linh-le, justin-hu, chandra-oh, alex-loup, dayana-brooke, megan-nixon, pratiksha-mohanty, zachariah-schrueder, mousum-de, timothy-newman, umesh-soni, hue12, chinh-le-duc, thomas-evans), los íconos de línea y los «block-*-info-page-comp»."
+}

@@ -1,0 +1,292 @@
+{
+ "nota": "Cada dato que publican las webs nuevas, con su fuente y la fecha en que se vio. estado: verificado (dos fuentes o una fuente oficial sin contradicción), una_fuente (solo la web vieja), por_confirmar (contradicción o duda: se confirma con el restaurante antes de lanzar), hipotesis (no se publica como hecho).",
+ "supermachi": [
+  {
+   "dato": "nombre",
+   "valor": "El Mesón de Súper Machi (logo: «El Mesón de Super Machi Restaurant»; logo nuevo de sep-2026: «Super Machi Restaurant»)",
+   "fuente": "https://supermachirestaurante.com (título del sitio) y logos que mandó Juan el 2026-11-02",
+   "visto": "2026-11-02",
+   "estado": "verificado"
+  },
+  {
+   "dato": "dirección",
+   "valor": "7931 NW 2nd St, Miami, FL 33126",
+   "fuente": "https://supermachirestaurante.com (pie) + PDF del menú + flyers",
+   "visto": "2026-11-02",
+   "estado": "verificado"
+  },
+  {
+   "dato": "teléfono / WhatsApp",
+   "valor": "305-266-3226 (WhatsApp 13052663226)",
+   "fuente": "https://supermachirestaurante.com (botón «reservar ahora» → api.whatsapp.com/send?phone=13052663226) + PDF del menú («T: 305.266.3226») + flyers 2026",
+   "visto": "2026-11-02",
+   "estado": "verificado"
+  },
+  {
+   "dato": "RSVP de shows",
+   "valor": "786-728-9006",
+   "fuente": "flyers 2025–2026 («RSVP · 786.728.9006»)",
+   "visto": "2026-11-02",
+   "estado": "una_fuente"
+  },
+  {
+   "dato": "horario",
+   "valor": "L–J 11:00–22:00; V–D 11:00–02:00",
+   "fuente": "https://supermachirestaurante.com (slider de la portada, API: página modificada 2026-10-16)",
+   "visto": "2026-11-02",
+   "estado": "por_confirmar",
+   "nota": "solo aparece en el slider; Google Business manda"
+  },
+  {
+   "dato": "happy hour",
+   "valor": "L–V 4:00–7:00 p. m.",
+   "fuente": "PDF del happy hour (2024-10-25)",
+   "visto": "2026-11-02",
+   "estado": "verificado",
+   "nota": "la web vieja decía «4:00 a.m.»: errata"
+  },
+  {
+   "dato": "buffet de almuerzo",
+   "valor": "$12.99, L–V 11:00 a. m.–4:00 p. m.; «incluye 2 proteínas y 3 platos fuertes»",
+   "fuente": "https://supermachirestaurante.com/buffet-cubano/ y portada",
+   "visto": "2026-11-02",
+   "estado": "por_confirmar",
+   "nota": "qué incluye exactamente"
+  },
+  {
+   "dato": "menú (carta, happy hour, postres y café, bebidas)",
+   "valor": "248 ítems en content/supermachi/menu.json",
+   "fuente": "los PDF que enlaza https://supermachirestaurante.com/nuestro-menu/ (diciembre de 2024)",
+   "visto": "2026-11-02",
+   "estado": "por_confirmar",
+   "nota": "precios de hace casi dos años; el restaurante confirma los vigentes. El enlace «Medio Día» apunta al PDF de postres"
+  },
+  {
+   "dato": "cochinillo segoviano",
+   "valor": "$290, 6–8 personas, con 2 acompañantes (PDF dic-2024); la tienda vieja: $290–$380, «hasta 10 personas»",
+   "fuente": "PDF del menú + https://supermachirestaurante.com/producto/cochinillo-segoviano/ (API de la tienda)",
+   "visto": "2026-11-02",
+   "estado": "por_confirmar",
+   "nota": "tamaños y precios vigentes"
+  },
+  {
+   "dato": "Tabla Mar y Tierra",
+   "valor": "$349, 6–10 personas (PDF); la tienda vieja: «10–14 personas», sin precio",
+   "fuente": "PDF del menú + API de la tienda",
+   "visto": "2026-11-02",
+   "estado": "por_confirmar"
+  },
+  {
+   "dato": "propina en grupos",
+   "valor": "18 % incluida desde 6 personas",
+   "fuente": "PDF del menú, pág. 10",
+   "visto": "2026-11-02",
+   "estado": "verificado"
+  },
+  {
+   "dato": "zonas de la sala",
+   "valor": "VIP, Salón 1, Salón 2, Barra",
+   "fuente": "variantes «Ubicación» de la tienda vieja + plano escenario-01.jpg (2025-01)",
+   "visto": "2026-11-02",
+   "estado": "una_fuente"
+  },
+  {
+   "dato": "entradas de los shows",
+   "valor": "DigitalTike (digitaltike.com)",
+   "fuente": "flyers de agosto–octubre de 2026 («Reserva tus entradas en DIGITALTIKE.com»)",
+   "visto": "2026-11-02",
+   "estado": "una_fuente",
+   "nota": "falta el enlace de cada evento: lo da el restaurante"
+  },
+  {
+   "dato": "shows",
+   "valor": "39 shows de dic-2025 a oct-2026 en content/supermachi/eventos.json",
+   "fuente": "tienda WooCommerce de la web vieja (14) + flyers de su biblioteca de medios",
+   "visto": "2026-11-02",
+   "estado": "verificado",
+   "nota": "Qva Libre: la tienda lo ponía el 17-jul; el flyer del 13-jul lo pasa al 31-jul (el 17 es de Bamboleo)"
+  },
+  {
+   "dato": "próximos shows",
+   "valor": "ninguno confirmado al 2026-11-02",
+   "fuente": "la web vieja no tiene eventos futuros; el último es el 2-oct",
+   "visto": "2026-11-02",
+   "estado": "verificado"
+  },
+  {
+   "dato": "Instagram",
+   "valor": "@supermachi_miami",
+   "fuente": "https://supermachirestaurante.com (pie) + flyers 2026",
+   "visto": "2026-11-02",
+   "estado": "verificado",
+   "nota": "el PDF del menú dice «SUPERMACHIMIAMI»"
+  },
+  {
+   "dato": "Facebook",
+   "valor": "facebook.com/supermachirestaurant",
+   "fuente": "https://supermachirestaurante.com (pie)",
+   "visto": "2026-11-02",
+   "estado": "una_fuente",
+   "nota": "el PDF dice «SUPERMACHI»"
+  },
+  {
+   "dato": "delivery",
+   "valor": "Uber Eats y DoorDash (la web); el PDF también nombra Grubhub",
+   "fuente": "https://supermachirestaurante.com (iconos de la cabecera) + PDF",
+   "visto": "2026-11-02",
+   "estado": "una_fuente",
+   "nota": "Grubhub sin enlace"
+  },
+  {
+   "dato": "coordenadas",
+   "valor": "25.7728838, -80.3254618",
+   "fuente": "enlace de Google Maps de la web vieja",
+   "visto": "2026-11-02",
+   "estado": "verificado"
+  },
+  {
+   "dato": "el cochinillo se reserva un día antes",
+   "valor": "«Especialidad de la casa: cochinillo estilo segoviano. Reserva un día antes al 305.266.3226»",
+   "fuente": "letrero de la fachada en la foto media/supermachi/originales/2025-01_DSC00073-Editar.jpg (enero de 2025)",
+   "visto": "2026-11-02",
+   "estado": "por_confirmar",
+   "nota": "la foto es de enero de 2025; el caballete de la misma foto dice «Buffet 9.99», hoy la web dice $12.99, por eso la web nueva recorta la foto sin el caballete"
+  }
+ ],
+ "sancho": [
+  {
+   "dato": "nombre",
+   "valor": "Sancho Restaurant («Fine Spanish Cuisine and Tapas» en el logo que mandó Juan)",
+   "fuente": "https://sanchorestaurantemiami.com + logo del 2026-11-02",
+   "visto": "2026-11-02",
+   "estado": "verificado"
+  },
+  {
+   "dato": "dirección",
+   "valor": "13202 SW 8th St, Miami, FL 33184",
+   "fuente": "https://sanchorestaurantemiami.com/contactanos/ + portada",
+   "visto": "2026-11-02",
+   "estado": "verificado"
+  },
+  {
+   "dato": "teléfono",
+   "valor": "+1 305-553-6886",
+   "fuente": "https://sanchorestaurantemiami.com (cabecera y contacto)",
+   "visto": "2026-11-02",
+   "estado": "verificado"
+  },
+  {
+   "dato": "horario",
+   "valor": "«12:00 M. A 12:00 P.M» (de mediodía a medianoche, se entiende)",
+   "fuente": "https://sanchorestaurantemiami.com (tooltip del reloj de la cabecera)",
+   "visto": "2026-11-02",
+   "estado": "por_confirmar",
+   "nota": "ambiguo; Google Business manda"
+  },
+  {
+   "dato": "Lunes de paella",
+   "valor": "$12.99, todos los lunes desde las 12 del mediodía hasta el cierre",
+   "fuente": "https://sanchorestaurantemiami.com (portada)",
+   "visto": "2026-11-02",
+   "estado": "una_fuente"
+  },
+  {
+   "dato": "Martes de vino",
+   "valor": "vino, sangría y cerveza de barril gratis por $20 de consumo",
+   "fuente": "https://sanchorestaurantemiami.com (portada)",
+   "visto": "2026-11-02",
+   "estado": "por_confirmar",
+   "nota": "cuántas bebidas y a qué horas"
+  },
+  {
+   "dato": "Miércoles de tapas y vino ilimitados",
+   "valor": "$30 en la web; $35 en Instagram",
+   "fuente": "https://sanchorestaurantemiami.com (portada) + Instagram (propuesta OI-PR-2026-SM)",
+   "visto": "2026-11-02",
+   "estado": "por_confirmar"
+  },
+  {
+   "dato": "Jueves de tapas",
+   "valor": "existe según Instagram",
+   "fuente": "propuesta OI-PR-2026-SM",
+   "visto": "2026-11-02",
+   "estado": "por_confirmar",
+   "nota": "precio y condiciones"
+  },
+  {
+   "dato": "happy hour",
+   "valor": "ilimitado, L–V 4:00–7:00 p. m.",
+   "fuente": "https://sanchorestaurantemiami.com (portada)",
+   "visto": "2026-11-02",
+   "estado": "por_confirmar",
+   "nota": "qué incluye «ilimitados»"
+  },
+  {
+   "dato": "especial de almuerzo",
+   "valor": "desde $10.99: 4 platos a $10.99 y 4 a $12.99",
+   "fuente": "https://sanchorestaurantemiami.com (portada)",
+   "visto": "2026-11-02",
+   "estado": "por_confirmar",
+   "nota": "días, horas y guarniciones"
+  },
+  {
+   "dato": "menú ejecutivo",
+   "valor": "$17.99: bebida, entrante (tortilla, croqueta o crema), 2 acompañantes, plato fuerte, café o flan",
+   "fuente": "https://sanchorestaurantemiami.com (portada)",
+   "visto": "2026-11-02",
+   "estado": "por_confirmar",
+   "nota": "días y horas"
+  },
+  {
+   "dato": "carta completa",
+   "valor": "no existe en la web: «Nuestro menú» da 404 y el PDF enlazado (menu-ejemplo.pdf) está en blanco",
+   "fuente": "https://sanchorestaurantemiami.com/nuestro-menu/ (404) + media/sancho/originales/2025-04_menu-ejemplo.pdf",
+   "visto": "2026-11-02",
+   "estado": "verificado",
+   "nota": "la carta la entrega el restaurante; mientras tanto se enlaza su tienda en línea"
+  },
+  {
+   "dato": "especialidades",
+   "valor": "paella, pulpo a la gallega, tapas, carnes y pescados; cochinillo segoviano y carnes asadas",
+   "fuente": "https://sanchorestaurantemiami.com/nuestro-restaurante/ + portada",
+   "visto": "2026-11-02",
+   "estado": "verificado"
+  },
+  {
+   "dato": "música en vivo",
+   "valor": "«Música en vivo, shows especiales»",
+   "fuente": "https://sanchorestaurantemiami.com/nuestro-restaurante/ + portada",
+   "visto": "2026-11-02",
+   "estado": "una_fuente",
+   "nota": "qué noches"
+  },
+  {
+   "dato": "pedidos",
+   "valor": "order.online (tienda propia de DoorDash), DoorDash, Uber Eats, Grubhub",
+   "fuente": "https://sanchorestaurantemiami.com (botones de la portada)",
+   "visto": "2026-11-02",
+   "estado": "verificado"
+  },
+  {
+   "dato": "Instagram / Facebook / TikTok",
+   "valor": "@sanchorestaurant_ · sanchosrestaurantmiami · @sanchorestaurant",
+   "fuente": "https://sanchorestaurantemiami.com (pie)",
+   "visto": "2026-11-02",
+   "estado": "verificado"
+  },
+  {
+   "dato": "coordenadas",
+   "valor": "25.7600999, -80.4100418",
+   "fuente": "enlace de Google Maps de la web vieja",
+   "visto": "2026-11-02",
+   "estado": "verificado"
+  }
+ ],
+ "reseñas": {
+  "nota": "Las dos webs viejas muestran reseñas de Google con nombre (widget Trustindex). No se copian: la web nueva enlaza a Google.",
+  "fuente": "https://supermachirestaurante.com y https://sanchorestaurantemiami.com (portadas)"
+ },
+ "fotos_de_banco": {
+  "nota": "Las bibliotecas de medios traen fotos de demostración de la plantilla (Unsplash: panaderías, plantas, carros, oficinas). No se reutilizan; quedan marcadas en web/media-fuente.json."
+ }
+}

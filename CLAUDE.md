@@ -22,5 +22,7 @@ española de calidad al mejor precio** (centro de promociones: la promo de hoy s
 8. Commits con identidad `oceanagencycol-stack <oceanagencycol@gmail.com>`. Cero secretos en el repo y en el frontend.
 
 ## Dónde está cada cosa
-`README.md` (qué hay y comandos) · `data/` (lo extraído y `fuentes.json`) · `content/<sitio>/` (lo que publica cada
-web: menú, promos, eventos, datos del local) · `web/` (el generador y las dos webs) · `DEPLOY.md` (Vercel y consola).
+`README.md` (qué hay, comandos, cómo se actualiza) · `DESIGN.md` (las dos ideas rectoras, paletas, tipografía y firmas:
+la pared de carteles y el sol de la semana) · `DEPLOY.md` (Vercel, acciones de consola y lanzamiento) · `content/<sitio>/`
+(lo que publica cada web) · `data/fuentes.json` (fuente y estado de cada dato) · `web/` (el generador) · `sites/<sitio>/`
+(lo que despliega Vercel) · `qa/` (`funciones.py` debe terminar en «todo en verde» antes de cada push).

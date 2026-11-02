@@ -1,0 +1,348 @@
+{
+ "nota": "Archivo de shows confirmados por la web vieja (tienda WooCommerce) y por los flyers de su biblioteca de medios, vistos el 2026-11-02. Ninguno es futuro: los próximos los confirma el restaurante (fecha, artista, hora, zonas y precios, enlace de entradas) y se agregan en «proximos».",
+ "contacto_shows": {
+  "rsvp": "+17867289006",
+  "whatsapp": "+13052663226",
+  "entradas": {
+   "plataforma": "DigitalTike",
+   "url": "https://digitaltike.com/",
+   "fuente": "flyers de agosto–octubre de 2026: «Reserva tus entradas en DIGITALTIKE.com»"
+  }
+ },
+ "zonas": [
+  {
+   "id": "vip",
+   "es": "Salón VIP",
+   "en": "VIP room"
+  },
+  {
+   "id": "salon-1",
+   "es": "Salón 1",
+   "en": "Room 1"
+  },
+  {
+   "id": "salon-2",
+   "es": "Salón 2",
+   "en": "Room 2"
+  },
+  {
+   "id": "barra",
+   "es": "Barra",
+   "en": "Bar"
+  }
+ ],
+ "zonas_fuente": "variantes «Ubicación» de la tienda vieja y el plano escenario-01.jpg",
+ "proximos": [],
+ "archivo": [
+  {
+   "id": "2025-12-05-maylu-s-cabaret",
+   "fecha": "2025-12-05",
+   "artista": "Maylu's Cabaret",
+   "flyer": "media/supermachi/originales/2025-12_WhatsApp-Image-2025-12-04-at-15.14.09_80160d11.jpg",
+   "fuente": "tienda de la web vieja: https://supermachirestaurante.com/producto/05-de-diciembre-maylus-cabaret/",
+   "url_vieja": "https://supermachirestaurante.com/producto/05-de-diciembre-maylus-cabaret/"
+  },
+  {
+   "id": "2025-12-06-gio-anaisa",
+   "fecha": "2025-12-06",
+   "artista": "Gio & Anaisa",
+   "flyer": "media/supermachi/originales/2025-12_IMG_9885.png",
+   "fuente": "tienda de la web vieja: https://supermachirestaurante.com/producto/06-de-diciembre-gio-anaisa/",
+   "url_vieja": "https://supermachirestaurante.com/producto/06-de-diciembre-gio-anaisa/",
+   "precios_tienda": "10–30 USD según la zona"
+  },
+  {
+   "id": "2025-12-31-los-3-de-la-habana-y-band",
+   "fecha": "2025-12-31",
+   "artista": "Los 3 de La Habana y Band",
+   "subtitulo": "Nochevieja",
+   "flyer": "media/supermachi/originales/2025-10_supermachi_carlos_Los3-31512.jpg",
+   "fuente": "tienda de la web vieja: https://supermachirestaurante.com/producto/31-de-diciembre-los-3-de-la-habana-y-band/",
+   "url_vieja": "https://supermachirestaurante.com/producto/31-de-diciembre-los-3-de-la-habana-y-band/",
+   "precios_tienda": "130–180 USD según la zona"
+  },
+  {
+   "id": "2026-03-28-laritza-bacallao",
+   "fecha": "2026-03-28",
+   "artista": "Laritza Bacallao",
+   "flyer": "media/supermachi/originales/2026-03_larizta512x512-2.jpg.jpeg",
+   "fuente": "tienda de la web vieja: https://supermachirestaurante.com/producto/28-de-marzo-laritza-bacallao/",
+   "url_vieja": "https://supermachirestaurante.com/producto/28-de-marzo-laritza-bacallao/"
+  },
+  {
+   "id": "2026-05-29-mustelier",
+   "fecha": "2026-05-29",
+   "artista": "Mustelier",
+   "subtitulo": "Humor y más",
+   "flyer": "media/supermachi/originales/2026-05_super_machi_MUSTELIER.jpg",
+   "fuente": "flyer de la biblioteca de medios de la web vieja"
+  },
+  {
+   "id": "2026-06-12-zajaris-vs-chacha",
+   "fecha": "2026-06-12",
+   "artista": "Zajaris vs Chacha",
+   "subtitulo": "Sin piedad",
+   "flyer": "media/supermachi/originales/2026-06_super_machi_zajaris.jpg",
+   "fuente": "flyer de la biblioteca de medios de la web vieja"
+  },
+  {
+   "id": "2026-06-13-laritza-bacallao",
+   "fecha": "2026-06-13",
+   "artista": "Laritza Bacallao",
+   "subtitulo": "Con Fernan Show",
+   "flyer": "media/supermachi/originales/2026-06_super_machi_laritza-3.jpg",
+   "fuente": "tienda de la web vieja: https://supermachirestaurante.com/producto/13-de-junio-laritza-bacallao/",
+   "url_vieja": "https://supermachirestaurante.com/producto/13-de-junio-laritza-bacallao/"
+  },
+  {
+   "id": "2026-06-14-maylu-s-cabaret",
+   "fecha": "2026-06-14",
+   "artista": "Maylu's Cabaret",
+   "subtitulo": "Dos funciones: 6 p. m. y 8 p. m.",
+   "flyer": "media/supermachi/originales/2026-06_1440-maylu.jpg",
+   "fuente": "flyer de la biblioteca de medios de la web vieja",
+   "horas": [
+    "18:00",
+    "20:00"
+   ],
+   "rsvp_artista": "+13059679191"
+  },
+  {
+   "id": "2026-06-20-antolin-el-pichon",
+   "fecha": "2026-06-20",
+   "artista": "Antolín El Pichón",
+   "subtitulo": "Celebrando el Día de los Padres",
+   "flyer": "media/supermachi/originales/2026-06_super_machi_antolin-padre.jpg",
+   "fuente": "flyer de la biblioteca de medios de la web vieja"
+  },
+  {
+   "id": "2026-06-26-ruperto",
+   "fecha": "2026-06-26",
+   "artista": "Ruperto",
+   "subtitulo": "Noche de humor",
+   "flyer": "media/supermachi/originales/2026-06_1440-ruperto.jpg",
+   "fuente": "tienda de la web vieja: https://supermachirestaurante.com/producto/26-de-junio-ruperto/",
+   "url_vieja": "https://supermachirestaurante.com/producto/26-de-junio-ruperto/"
+  },
+  {
+   "id": "2026-06-27-laritza-bacallao",
+   "fecha": "2026-06-27",
+   "artista": "Laritza Bacallao",
+   "subtitulo": "Con Fernan Show",
+   "flyer": "media/supermachi/originales/2026-06_1440-lariza.jpg",
+   "fuente": "flyer de la biblioteca de medios de la web vieja"
+  },
+  {
+   "id": "2026-07-04-anselmo-el-mudo-y-el-ponny",
+   "fecha": "2026-07-04",
+   "artista": "Anselmo El Mudo y El Ponny",
+   "subtitulo": "4 de julio",
+   "flyer": "media/supermachi/originales/2026-06_super_machi_4julio6512.jpg",
+   "fuente": "flyer de la biblioteca de medios de la web vieja"
+  },
+  {
+   "id": "2026-07-10-laritza-bacallao",
+   "fecha": "2026-07-10",
+   "artista": "Laritza Bacallao",
+   "subtitulo": "Con Fernan Show",
+   "flyer": "media/supermachi/originales/2026-06_512.jpg",
+   "fuente": "flyer de la biblioteca de medios de la web vieja"
+  },
+  {
+   "id": "2026-07-11-alain-daniel",
+   "fecha": "2026-07-11",
+   "artista": "Alain Daniel",
+   "flyer": "media/supermachi/originales/2026-06_1440i_alain_daniel.jpg",
+   "fuente": "tienda de la web vieja: https://supermachirestaurante.com/producto/11-de-julio-alain-daniel/",
+   "url_vieja": "https://supermachirestaurante.com/producto/11-de-julio-alain-daniel/"
+  },
+  {
+   "id": "2026-07-17-lazarito-valdez-y-bamboleo",
+   "fecha": "2026-07-17",
+   "artista": "Lazarito Valdez y Bamboleo",
+   "flyer": "media/supermachi/originales/2026-07_super_machi_BAMBOLEO512.jpg",
+   "fuente": "tienda de la web vieja: https://supermachirestaurante.com/producto/17-de-julio-lazarito-valdez-y-bamboleo/",
+   "url_vieja": "https://supermachirestaurante.com/producto/17-de-julio-lazarito-valdez-y-bamboleo/"
+  },
+  {
+   "id": "2026-07-18-antolin-el-pichon",
+   "fecha": "2026-07-18",
+   "artista": "Antolín El Pichón",
+   "flyer": "media/supermachi/originales/2026-06_super_machi_antolinn512.jpg",
+   "fuente": "tienda de la web vieja: https://supermachirestaurante.com/producto/18-de-julio-antolin-el-pichon/",
+   "url_vieja": "https://supermachirestaurante.com/producto/18-de-julio-antolin-el-pichon/"
+  },
+  {
+   "id": "2026-07-19-maylu-s-cabaret",
+   "fecha": "2026-07-19",
+   "artista": "Maylu's Cabaret",
+   "flyer": "media/supermachi/originales/2026-06_mayu512.jpg",
+   "fuente": "tienda de la web vieja: https://supermachirestaurante.com/producto/19-de-julio-maylus-cabaret/",
+   "url_vieja": "https://supermachirestaurante.com/producto/19-de-julio-maylus-cabaret/"
+  },
+  {
+   "id": "2026-07-24-sanky-panky",
+   "fecha": "2026-07-24",
+   "artista": "Sanky Panky",
+   "subtitulo": "De vuelta después de 2 años",
+   "flyer": "media/supermachi/originales/2026-06_super_mach_SANKY_PANKY512.jpg",
+   "fuente": "tienda de la web vieja: https://supermachirestaurante.com/producto/24-de-julio-sanky-panky/",
+   "url_vieja": "https://supermachirestaurante.com/producto/24-de-julio-sanky-panky/"
+  },
+  {
+   "id": "2026-07-25-laritza-bacallao",
+   "fecha": "2026-07-25",
+   "artista": "Laritza Bacallao",
+   "subtitulo": "Con Fernan Show",
+   "flyer": "media/supermachi/originales/2026-06_super_machi_lartiza25.jpg",
+   "fuente": "tienda de la web vieja: https://supermachirestaurante.com/producto/25-de-julio-laritza-bacallao/",
+   "url_vieja": "https://supermachirestaurante.com/producto/25-de-julio-laritza-bacallao/"
+  },
+  {
+   "id": "2026-07-31-qva-libre",
+   "fecha": "2026-07-31",
+   "artista": "Qva Libre",
+   "flyer": "media/supermachi/originales/2026-07_super_machi_qvalibre31512.jpg",
+   "fuente": "flyer de la biblioteca de medios de la web vieja",
+   "nota": "La tienda vieja lo tenía el 17 de julio; el flyer del 13-jul lo pasa al 31 y el 17 queda para Bamboleo.",
+   "url_vieja_tambien": "https://supermachirestaurante.com/producto/17-de-julio-qva-libre/"
+  },
+  {
+   "id": "2026-08-01-el-show-de-carlucho",
+   "fecha": "2026-08-01",
+   "artista": "El show de Carlucho",
+   "flyer": "media/supermachi/originales/2026-07_carluchi-18.jpg",
+   "fuente": "flyer de la biblioteca de medios de la web vieja"
+  },
+  {
+   "id": "2026-08-07-laritza-bacallao",
+   "fecha": "2026-08-07",
+   "artista": "Laritza Bacallao",
+   "flyer": "media/supermachi/originales/2026-07_5127.jpg",
+   "fuente": "flyer de la biblioteca de medios de la web vieja"
+  },
+  {
+   "id": "2026-08-08-alain-daniel",
+   "fecha": "2026-08-08",
+   "artista": "Alain Daniel",
+   "flyer": "media/supermachi/originales/2026-07_5128.jpg",
+   "fuente": "flyer de la biblioteca de medios de la web vieja"
+  },
+  {
+   "id": "2026-08-14-gardi",
+   "fecha": "2026-08-14",
+   "artista": "Gardi",
+   "flyer": "media/supermachi/originales/2026-07_51214.jpg",
+   "fuente": "flyer de la biblioteca de medios de la web vieja"
+  },
+  {
+   "id": "2026-08-15-antolin-el-pichon",
+   "fecha": "2026-08-15",
+   "artista": "Antolín El Pichón",
+   "flyer": "media/supermachi/originales/2026-07_51215.jpg",
+   "fuente": "flyer de la biblioteca de medios de la web vieja"
+  },
+  {
+   "id": "2026-08-21-qva-libre",
+   "fecha": "2026-08-21",
+   "artista": "Qva Libre",
+   "flyer": "media/supermachi/originales/2026-07_512292.jpg",
+   "fuente": "flyer de la biblioteca de medios de la web vieja"
+  },
+  {
+   "id": "2026-08-22-laritza-bacallao",
+   "fecha": "2026-08-22",
+   "artista": "Laritza Bacallao",
+   "flyer": "media/supermachi/originales/2026-07_51222.jpg",
+   "fuente": "flyer de la biblioteca de medios de la web vieja"
+  },
+  {
+   "id": "2026-08-28-dandy",
+   "fecha": "2026-08-28",
+   "artista": "Dandy",
+   "flyer": "media/supermachi/originales/2026-07_51228.jpg",
+   "fuente": "flyer de la biblioteca de medios de la web vieja"
+  },
+  {
+   "id": "2026-08-29-luis-noa",
+   "fecha": "2026-08-29",
+   "artista": "Luis Noa",
+   "flyer": "media/supermachi/originales/2026-07_51229.jpg",
+   "fuente": "flyer de la biblioteca de medios de la web vieja"
+  },
+  {
+   "id": "2026-08-30-maylu-s-cabaret",
+   "fecha": "2026-08-30",
+   "artista": "Maylu's Cabaret",
+   "flyer": "media/supermachi/originales/2026-08_ef74c61a-e30a-4cde-a264-b213d280e083-2026-08-24.png",
+   "fuente": "flyer de la biblioteca de medios de la web vieja"
+  },
+  {
+   "id": "2026-09-04-ruperto",
+   "fecha": "2026-09-04",
+   "artista": "Ruperto",
+   "subtitulo": "Con Omar Franco",
+   "flyer": "media/supermachi/originales/2026-08_ruperto-512.png",
+   "fuente": "flyer de la biblioteca de medios de la web vieja"
+  },
+  {
+   "id": "2026-09-05-laritza-bacallao",
+   "fecha": "2026-09-05",
+   "artista": "Laritza Bacallao",
+   "flyer": "media/supermachi/originales/2026-08_lartiza-1-512.png",
+   "fuente": "flyer de la biblioteca de medios de la web vieja"
+  },
+  {
+   "id": "2026-09-11-el-bacan-de-la-vida",
+   "fecha": "2026-09-11",
+   "artista": "El Bacán de la Vida",
+   "flyer": "media/supermachi/originales/2026-08_bacan-512.jpg",
+   "fuente": "flyer de la biblioteca de medios de la web vieja"
+  },
+  {
+   "id": "2026-09-12-alain-daniel",
+   "fecha": "2026-09-12",
+   "artista": "Alain Daniel",
+   "flyer": "media/supermachi/originales/2026-08_alain-512.png",
+   "fuente": "flyer de la biblioteca de medios de la web vieja"
+  },
+  {
+   "id": "2026-09-18-laritza-bacallao",
+   "fecha": "2026-09-18",
+   "artista": "Laritza Bacallao",
+   "flyer": "media/supermachi/originales/2026-08_lartiza-2-512.png",
+   "fuente": "flyer de la biblioteca de medios de la web vieja"
+  },
+  {
+   "id": "2026-09-19-antolin-el-pichon",
+   "fecha": "2026-09-19",
+   "artista": "Antolín El Pichón",
+   "flyer": "media/supermachi/originales/2026-08_antolin-512.png",
+   "fuente": "flyer de la biblioteca de medios de la web vieja"
+  },
+  {
+   "id": "2026-09-25-bonco-quinongo",
+   "fecha": "2026-09-25",
+   "artista": "Bonco Quiñongo",
+   "flyer": "media/supermachi/originales/2026-08_bonco-512.png",
+   "fuente": "flyer de la biblioteca de medios de la web vieja"
+  },
+  {
+   "id": "2026-09-26-punto-y-coma",
+   "fecha": "2026-09-26",
+   "artista": "Punto y Coma",
+   "subtitulo": "Invitado: Jardiel",
+   "flyer": "media/supermachi/originales/2026-08_4c1fc911-0389-4686-9726-4e273f982f41-2026-08-23.png",
+   "fuente": "flyer de la biblioteca de medios de la web vieja"
+  },
+  {
+   "id": "2026-10-02-anselmo-el-mudo-y-ronny",
+   "fecha": "2026-10-02",
+   "artista": "Anselmo El Mudo y Ronny",
+   "subtitulo": "Cena con show",
+   "flyer": "media/supermachi/originales/2026-08_super_machi_mudo.jpg",
+   "fuente": "tienda de la web vieja: https://supermachirestaurante.com/producto/2-de-octubre-anselmo-el-mudo-ronny/",
+   "url_vieja": "https://supermachirestaurante.com/producto/2-de-octubre-anselmo-el-mudo-ronny/"
+  }
+ ]
+}
