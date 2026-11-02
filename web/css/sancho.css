@@ -93,9 +93,10 @@ html[data-hoy="0"] .semana__dia[data-dia="0"],html[data-hoy="1"] .semana__dia[da
 html[data-hoy="4"] .semana__dia[data-dia="4"],html[data-hoy="5"] .semana__dia[data-dia="5"],html[data-hoy="6"] .semana__dia[data-dia="6"]{background:linear-gradient(90deg,rgba(240,232,61,.38),rgba(240,232,61,0) 80%);box-shadow:inset 4px 0 0 var(--sol);padding-left:.9rem}
 .semana--fotos{border-top:0;gap:1.5rem;grid-template-columns:1fr}
 .semana--fotos .semana__dia{background:none!important;box-shadow:none!important;padding-left:0!important}
-html[data-hoy="0"] .semana--fotos [data-dia="0"] .semana__nombre::after,html[data-hoy="1"] .semana--fotos [data-dia="1"] .semana__nombre::after,html[data-hoy="2"] .semana--fotos [data-dia="2"] .semana__nombre::after,html[data-hoy="3"] .semana--fotos [data-dia="3"] .semana__nombre::after,html[data-hoy="4"] .semana--fotos [data-dia="4"] .semana__nombre::after,html[data-hoy="5"] .semana--fotos [data-dia="5"] .semana__nombre::after,html[data-hoy="6"] .semana--fotos [data-dia="6"] .semana__nombre::after{content:" · hoy";color:var(--rojo)}
-html[lang=en][data-hoy] .semana--fotos .semana__nombre::after{content:" · today"}
-.semana--fotos .semana__dia{grid-template-columns:1fr auto;padding:0 0 1.25rem;align-items:start}
+html[data-hoy="0"] .semana--fotos [data-dia="0"] .semana__nombre::after,html[data-hoy="1"] .semana--fotos [data-dia="1"] .semana__nombre::after,html[data-hoy="2"] .semana--fotos [data-dia="2"] .semana__nombre::after,html[data-hoy="3"] .semana--fotos [data-dia="3"] .semana__nombre::after,html[data-hoy="4"] .semana--fotos [data-dia="4"] .semana__nombre::after,html[data-hoy="5"] .semana--fotos [data-dia="5"] .semana__nombre::after,html[data-hoy="6"] .semana--fotos [data-dia="6"] .semana__nombre::after{content:var(--hoy-txt," · hoy");color:var(--rojo)}
+html[lang=en] .semana--fotos{--hoy-txt:" · today"}
+.semana--fotos .semana__dia{grid-template-columns:1fr;padding:0 0 1.25rem;align-items:start}
+.semana--fotos .semana__precio{text-align:left;font-size:1.6rem}
 .semana--fotos .semana__foto{grid-column:1/-1;margin-bottom:.9rem}
 .semana--fotos .semana__foto img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:var(--radio)}
 .semana--fotos .semana__nombre{grid-column:1/-1}

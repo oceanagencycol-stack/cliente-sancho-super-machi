@@ -16,7 +16,7 @@ main:focus{outline:none}
 
 /* medidas */
 :root{--canal:clamp(1rem,4.5vw,2.5rem);--ancho:min(75rem,100% - 2*var(--canal));--seccion:clamp(3.5rem,9vw,7rem)}
-main>section,main>header,main>article,main>div{width:var(--ancho);margin-inline:auto}
+main>section,main>header,main>article,main>div,main>ol,main>ul{width:var(--ancho);margin-inline:auto}
 main>*+*{margin-top:var(--seccion)}
 main{padding-bottom:var(--seccion)}
 
