@@ -12,7 +12,9 @@ española de calidad al mejor precio** (centro de promociones: la promo de hoy s
    viven en `media/<sitio>/originales/` (Git LFS); el inventario, en `data/<sitio>/medios.json`.
 3. **Todo dato de los restaurantes lleva fuente y fecha** en `data/fuentes.json`. Lo que la web vieja dice se publica
    solo si no se contradice; lo contradictorio o dudoso va en `por_confirmar` y la web lo muestra como «se confirma
-   en el restaurante» o no lo muestra. Nada de precios, horarios, eventos ni reseñas inventados.
+   en el restaurante» o no lo muestra. Nada de precios, horarios, eventos ni reseñas inventados. En la vista previa se
+   ve lo que decía la web vieja bajo el banner «por confirmar»; `--lanzar` se niega mientras quede un dato del sitio en
+   `por_confirmar` (se confirma, `verificado`, o sale de `content/`, `retirado`).
 4. **Eventos:** solo los que el restaurante confirma. Los pasados quedan como archivo («ya pasó») y nunca se venden.
 5. **Fotos:** solo las del restaurante (su biblioteca de medios o lo que entregue). Las de bancos de imágenes que traía
    la plantilla vieja no se reutilizan (lista en `web/media.json`, clave `stock`). Nada generado con IA que muestre un plato.

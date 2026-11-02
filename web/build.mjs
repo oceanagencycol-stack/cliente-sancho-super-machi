@@ -17,6 +17,19 @@ const salida = args.includes('--salida') ? path.resolve(args[args.indexOf('--sal
 const previa = !args.includes('--lanzar');
 
 const leer = (p) => JSON.parse(fs.readFileSync(path.join(ROOT, p), 'utf8'));
+
+// Lanzar no publica nada dudoso: mientras un dato del sitio siga «por_confirmar» en data/fuentes.json, --lanzar se niega.
+// Cada uno se confirma con el restaurante (estado «verificado», con fuente y fecha) o sale de content/ (estado «retirado»).
+if (!previa) {
+  const pendientes = (leer('data/fuentes.json')[id] || []).filter((d) => d.estado === 'por_confirmar');
+  if (pendientes.length) {
+    console.error(`--lanzar se niega: ${pendientes.length} datos de ${id} siguen por confirmar en data/fuentes.json.\n`
+      + 'Confírmalos con el restaurante (estado «verificado», con fuente y fecha) o quítalos de content/ (estado «retirado»):\n'
+      + pendientes.map((d) => `  · ${d.dato}: ${d.valor}`).join('\n'));
+    process.exit(1);
+  }
+}
+
 const { sitio, paginas } = await import(`./sites/${id}.mjs`);
 const local = leer(`content/${id}/local.json`);
 sitio.dominio = local.dominio;

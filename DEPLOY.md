@@ -23,6 +23,8 @@ build en local y commitea el `vercel.json` nuevo (Vercel lo lee antes de constru
    Súper Machi (los PDF son de diciembre de 2024), horarios de los dos locales, qué incluye el buffet, el precio del
    miércoles de Sancho ($30 en la web vieja, $35 en Instagram), si sigue el jueves de tapas, el martes de vino
    (cuántas bebidas), el happy hour «ilimitado», días y horas del almuerzo y del menú ejecutivo, y los beneficios del club.
+   Cada dato confirmado pasa a `verificado` (con fuente y fecha); lo que el restaurante no confirme sale de `content/` y
+   queda `retirado`. Mientras quede uno en `por_confirmar`, `--lanzar` se niega y lista cuáles faltan.
 2. **La cartelera de noviembre y diciembre** de Súper Machi: fecha, artista, flyer, hora, y el enlace de DigitalTike de
    cada show que venda entradas.
 3. **La carta completa de Sancho** (no existe en su web: el menú daba 404 y el PDF estaba en blanco).
