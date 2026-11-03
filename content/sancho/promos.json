@@ -1,5 +1,5 @@
 {
- "nota": "Las ofertas de Sancho tal como las mandó el restaurante (mensaje que reenvió Juan el 2026-11-03): almuerzo especial de lunes a viernes de 12 a 4 desde $10.99, happy hour de lunes a viernes de 4 a 7, tapas y vinos los miércoles y jueves de 7 a 10 por $35 (bebes y comes lo que quieras) y el cochinillo ibérico como especialidad de la casa. El lunes de paella, el martes de vino y el menú ejecutivo de la web vieja no están en esa lista y salieron de la web (data/fuentes.json: «retirado»); si siguen, vuelven con su confirmación. «ofertas» alimenta las listas; «semana» es lo que destaca el sol cada día.",
+ "nota": "Las ofertas de Sancho tal como las mandó el restaurante (mensaje que reenvió Juan el 2026-11-03): almuerzo especial de lunes a viernes de 12 a 4 desde $10.99, happy hour de lunes a viernes de 4 a 7, tapas y vinos los miércoles y jueves de 7 a 10 por $35 (bebes y comes lo que quieras) y el cochinillo ibérico como especialidad de la casa. El lunes de paella y el martes de vino de la web vieja no están en esa lista y salieron de la web (data/fuentes.json: «retirado»; Juan confirmó el mismo día que los lunes ya no hay paella). El menú ejecutivo sigue, a $19.99 (Juan, 2026-11-03). «ofertas» alimenta las listas; «semana» es lo que destaca el sol cada día.",
  "ofertas": [
   {
    "id": "almuerzo",
@@ -334,5 +334,30 @@
   ],
   "desde_hora": "12:00",
   "hasta_hora": "16:00"
+ },
+ "ejecutivo": {
+  "precio": 19.99,
+  "es": {
+   "titulo": "Menú ejecutivo",
+   "incluye": [
+    "1 bebida",
+    "1 entrante: tortilla, croqueta o crema",
+    "1 plato fuerte",
+    "2 acompañantes",
+    "Café o flan"
+   ]
+  },
+  "en": {
+   "titulo": "Executive menu",
+   "incluye": [
+    "1 drink",
+    "1 starter: tortilla, croqueta or soup",
+    "1 main",
+    "2 sides",
+    "Coffee or flan"
+   ]
+  },
+  "fuente": "Juan, 2026-11-03 11:00 («el ejecutivo sí, por 19.99»); qué incluye, de la portada de la web vieja (donde costaba $17.99)",
+  "por_confirmar": "días y horas; que siga incluyendo lo mismo"
  }
 }

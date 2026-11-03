@@ -227,7 +227,15 @@ html[data-hoy="0"] .hoy-0 .semana__mano-dia,html[data-hoy="1"] .hoy-1 .semana__m
 .ofertas__hora{font-family:var(--font-display);font-weight:900;font-size:.95rem;letter-spacing:-.02em;color:var(--rojo);white-space:nowrap}
 .ofertas__que b{display:block;font-weight:700;line-height:1.3}
 .ofertas__que small{display:block;color:var(--gris);font-size:.875rem;margin-top:.1rem}
-@media (min-width:62rem){.almuerzo{grid-template-columns:1fr 1.1fr 1fr;align-items:start}.almuerzo--dos{grid-template-columns:1fr 1.2fr}}
+/* el menú ejecutivo (y en el menú, debajo, las ofertas de corrido) */
+.almuerzo__lado{display:grid;gap:1.25rem;align-self:start}
+.almuerzo__ejecutivo{padding:1.5rem;border:2px solid var(--tinta);border-radius:calc(var(--radio)*2);display:grid;gap:.6rem;background:var(--sol)}
+.almuerzo__ejecutivo-precio{font-family:var(--font-display);font-weight:900;font-size:3rem;line-height:1;color:var(--rojo);letter-spacing:-.03em}
+.almuerzo__ejecutivo ul{display:grid;gap:.35rem}
+.almuerzo__ejecutivo li{padding-left:1.4rem;position:relative}
+.almuerzo__ejecutivo li::before{content:"";position:absolute;left:0;top:.45em;width:.7rem;height:.7rem;border-radius:50%;background:var(--rojo)}
+.almuerzo__ejecutivo .semana__nota{color:var(--tinta)}
+@media (min-width:62rem){.almuerzo{grid-template-columns:1fr 1.1fr 1fr;align-items:start}}
 
 /* ---------- música, visita, club */
 .musica{background:var(--tinta);display:grid;gap:1.5rem;padding:clamp(1.5rem,4vw,2.75rem);border-radius:calc(var(--radio)*2)}
@@ -264,5 +272,3 @@ html[data-hoy="0"] .hoy-0 .semana__mano-dia,html[data-hoy="1"] .hoy-1 .semana__m
   .almuerzo__foto,.musica__foto,.visita__foto{overflow:hidden;border-radius:var(--radio)}
   .almuerzo__foto img,.musica__foto img,.visita__foto img{animation:acercar linear both;animation-timeline:view();animation-range:entry 0% cover 55%}
 }}
-.visita__celular{margin-top:.9rem;color:var(--texto-2)}
-.visita__celular a{font-weight:700;color:var(--texto)}

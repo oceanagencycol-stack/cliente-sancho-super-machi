@@ -26,7 +26,7 @@
  },
  "mapa": "https://www.google.com/maps?cid=16292965583986121897",
  "telefono": "+13055536886",
- "whatsapp": null,
+ "whatsapp": "17868892197",
  "horario": {
   "confirmado": false,
   "fuente": "tooltip del reloj en la cabecera de la web vieja: «12:00 M. A 12:00 P.M»",
@@ -151,6 +151,5 @@
  "precio_rango": "$$",
  "acepta_reservas": true,
  "especialidades_fuente": "Nombres: los de la web vieja («Paella, pulpo a la gallega, tapas, el famoso cochinillo segoviano y las carnes asadas») y los platos de las fotos de su sesión de 2025-04 (calamares, mariscos en cazuela, langosta thermidor, croquetas). El cochinillo es «ibérico» desde el mensaje del restaurante del 2026-11-03 («Especialidad de la casa COCHINILLO IBÉRICO»; la web vieja decía «segoviano»).",
- "celular": "+17868892197",
- "celular_fuente": "mensaje del restaurante que reenvió Juan el 2026-11-03 («📲7868892197»); no dice si es WhatsApp"
+ "whatsapp_fuente": "mensaje del restaurante del 2026-11-03 («📲7868892197») y Juan, 2026-11-03 11:00: «sí, puede ser el WhatsApp de Sancho»"
 }

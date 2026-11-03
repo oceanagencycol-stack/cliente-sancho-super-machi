@@ -131,7 +131,7 @@ with sync_playwright() as p:
     print('Súper Machi · un show de noviembre')
     pg.goto(SM + '/eventos/2026-11-07-manuel-alveraiz/', wait_until='networkidle')
     comprobar(pg.locator('.evento--pasado').count() == 0 and pg.locator('#reservar').count() == 1 and pg.locator('a[href="/eventos/2026-11-07-manuel-alveraiz.ics"]').count() == 1, 'un show próximo ofrece reservar y añadir al calendario')
-    comprobar('Bartolo El Gosador' in pg.locator('.evento__sub').inner_text(), 'el subtítulo del flyer (Deni DJ e invitado)')
+    comprobar('Bartolo El Gozador' in pg.locator('.evento__sub').inner_text(), 'el subtítulo del flyer (Deni DJ e invitado, «Gozador» como lo corrigió Juan)')
     lds = [json.loads(x) for x in pg.locator('script[type="application/ld+json"]').all_inner_texts()]
     comprobar(any(l.get('@type') == 'Event' and l.get('startDate') == '2026-11-07' for l in lds), 'JSON-LD Event del 7 de noviembre')
     ics = ctx.request.get(SM + '/eventos/2026-11-07-manuel-alveraiz.ics')
@@ -171,15 +171,18 @@ with sync_playwright() as p:
     comprobar('$12.99' not in pg.locator('.dia').inner_text() and 'Lunes de paella' not in pg.content() and 'ilimitado' not in pg.content(), 'sin las promos que el restaurante ya no lista (lunes de paella, «ilimitado»)')
     comprobar('cochinillo ibérico' in pg.locator('.cocina').inner_text().lower() and 'La casa del cochinillo en Miami' in pg.locator('.cocina').inner_text(), 'la casa del cochinillo: el cochinillo ibérico')
     comprobar(pg.locator('.bocado').count() >= 6, 'la cocina de Sancho en fotos')
+    comprobar(pg.locator('.sol__acciones a[href^="https://wa.me/17868892197"]').count() == 1, 'el sol ofrece reservar por WhatsApp')
     pg.click('.sol__dia[data-dia="0"]'); pg.wait_for_timeout(2200)
     comprobar(pg.locator('.dia__fondo[data-dia="0"] .video.rodando').count() == 1, 'el domingo la paella corre en video')
     for base, ruta in ((SA, '/promos/'), (SA, '/menu/'), (SA, '/pedir/'), (SA, '/club/'), (SA, '/visita/'), (SM, '/eventos/'), (SM, '/menu/'), (SM, '/grupos/'), (SM, '/almuerzo/'), (SM, '/club/'), (SM, '/visita/')):
         pg.goto(base + ruta, wait_until='domcontentloaded')
         comprobar(pg.locator('.cabeza-plato h1').count() == 1 and pg.locator('h1').count() == 1 and pg.locator('.cabeza-plato img').first.get_attribute('fetchpriority') == 'high', f'{ruta} abre con la comida a todo lo ancho y una sola h1')
     pg.goto(SA + '/visita/', wait_until='networkidle')
-    comprobar(pg.locator('main a[href="tel:+17868892197"]').count() >= 1 and pg.locator('.pie a[href="tel:+17868892197"]').count() == 1, 'el celular 786-889-2197 en la visita y en el pie')
+    wa_sa = 'a[href^="https://wa.me/17868892197"]'
+    comprobar(pg.locator(f'main {wa_sa}').count() >= 2 and pg.locator(f'.pie {wa_sa}').count() == 1 and pg.locator(f'.acciones {wa_sa}').count() == 1, 'el WhatsApp de Sancho (786-889-2197) en la visita, el pie y la barra del teléfono')
     pg.goto(SA + '/menu/', wait_until='networkidle')
     comprobar(pg.locator('.ofertas__lista li').count() == 3 and '7–10' in pg.locator('.ofertas__lista').inner_text(), 'el menú tiene las ofertas de corrido (12–4, 4–7, 7–10)')
+    comprobar('$19.99' in pg.locator('.almuerzo__ejecutivo').inner_text() and '$17.99' not in pg.content(), 'el menú ejecutivo a $19.99 (ya no $17.99)')
     pg.goto(SA + '/pedir/', wait_until='networkidle')
     hrefs = pg.locator('.pedidos a').evaluate_all('as => as.map(a => a.href)')
     comprobar(len(hrefs) == 4 and 'order.online' in hrefs[0], f'pedidos: {hrefs}')

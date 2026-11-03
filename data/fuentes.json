@@ -112,7 +112,7 @@
    "fuente": "flyers de la cartelera de noviembre que mandó Juan el 2026-11-03 (media/supermachi/originales/2026-11_flyer-*.jpg)",
    "visto": "2026-11-03",
    "estado": "verificado",
-   "nota": "los flyers no traen hora, precio ni enlace de entradas; «Bartolo El Gosador» (invitado del 7) va como lo escribe el flyer"
+   "nota": "los flyers no traen hora, precio ni enlace de entradas; el invitado del 7 es «Bartolo El Gozador» (el flyer dice «Gosador»; Juan lo corrige el 2026-11-03)"
   },
   {
    "dato": "Instagram",
@@ -177,12 +177,11 @@
    "estado": "verificado"
   },
   {
-   "dato": "celular",
+   "dato": "WhatsApp",
    "valor": "+1 786-889-2197",
-   "fuente": "mensaje del restaurante que reenvió Juan el 2026-11-03 («📲7868892197»)",
+   "fuente": "mensaje del restaurante («📲7868892197») + Juan, 2026-11-03 11:00: «sí, puede ser el WhatsApp de Sancho»",
    "visto": "2026-11-03",
-   "estado": "verificado",
-   "nota": "el mensaje no dice si es WhatsApp: la web lo muestra como celular"
+   "estado": "verificado"
   },
   {
    "dato": "horario",
@@ -198,7 +197,7 @@
    "fuente": "https://sanchorestaurantemiami.com (portada)",
    "visto": "2026-11-03",
    "estado": "retirado",
-   "nota": "no está en la lista de ofertas del restaurante del 2026-11-03: sale de la web; si sigue, vuelve con su confirmación"
+   "nota": "no está en la lista de ofertas del restaurante del 2026-11-03, y Juan, 2026-11-03 11:00 lo confirma: «los lunes ya no hay paella»"
   },
   {
    "dato": "Martes de vino",
@@ -239,11 +238,11 @@
   },
   {
    "dato": "menú ejecutivo",
-   "valor": "$17.99: bebida, entrante (tortilla, croqueta o crema), 2 acompañantes, plato fuerte, café o flan",
-   "fuente": "https://sanchorestaurantemiami.com (portada)",
+   "valor": "$19.99: bebida, entrante (tortilla, croqueta o crema), plato fuerte, 2 acompañantes, café o flan",
+   "fuente": "Juan, 2026-11-03 11:00 («el ejecutivo sí, por 19.99») + qué incluye, de https://sanchorestaurantemiami.com (portada; ahí costaba $17.99)",
    "visto": "2026-11-03",
-   "estado": "retirado",
-   "nota": "no está en la lista de ofertas del restaurante del 2026-11-03: sale de la web; si sigue, vuelve con días, horas y precio"
+   "estado": "por_confirmar",
+   "nota": "sigue y cuesta $19.99; faltan días y horas, y confirmar que incluye lo mismo"
   },
   {
    "dato": "carta completa",

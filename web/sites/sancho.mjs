@@ -1,7 +1,7 @@
 // Sancho Restaurant — cocina española de calidad al mejor precio. Firma: el sol de la semana (ver DESIGN.md).
 import { h, raw, t, cuando, precio } from '../lib/util.mjs';
 import { UI, DIAS, INICIAL, hora, rangoDias, telVisible } from '../lib/i18n.mjs';
-import { foto, precarga, horario, direccion, telefono, redes, pedidos, tel, video, icono, cabezaPlato } from '../lib/comp.mjs';
+import { foto, precarga, horario, direccion, telefono, redes, pedidos, tel, wa, video, icono, cabezaPlato } from '../lib/comp.mjs';
 import { pagina, idioma, nav } from '../lib/shell.mjs';
 
 const R = {
@@ -14,6 +14,9 @@ const R = {
   privacidad: { es: '/privacidad/', en: '/en/privacy/' },
 };
 const otro = (lang) => (lang === 'es' ? 'en' : 'es');
+// el mensaje con que se abre el WhatsApp de Sancho (786-889-2197) para reservar
+const RESERVAR = { es: 'Hola, Sancho. Quiero reservar una mesa.', en: 'Hi Sancho, I’d like to book a table.' };
+const waReservar = (ctx) => wa(ctx.local.whatsapp, RESERVAR[ctx.lang]);
 
 // lo que dice el disco rojo del sol, día por día (grande + chico)
 const DISCO = {
@@ -67,7 +70,7 @@ function pie(ctx, { alterna }) {
     <p>${t(local.lema, lang)}.</p></div>
   <div><h2 class="pie__titulo">${ui.direccion}</h2>${direccion(ctx)}<p><a href="${local.mapa}" rel="noopener" data-ev="click_directions">${ui.comoLlegar} →</a></p></div>
   <div><h2 class="pie__titulo">${ui.horario}</h2>${horario(ctx)}</div>
-  <div><h2 class="pie__titulo">${ui.telefono}</h2><p>${telefono(ctx)}</p><p>${lang === 'en' ? 'Mobile' : 'Celular'} ${telefono(ctx, local.celular)}</p><h2 class="pie__titulo">${ui.redes}</h2>${redes(ctx)}</div>
+  <div><h2 class="pie__titulo">${ui.telefono}</h2><p>${telefono(ctx)}</p><p>WhatsApp <a class="cifra" href="${waReservar(ctx)}" rel="noopener" data-ev="click_whatsapp">${telVisible('+' + local.whatsapp)}</a></p><h2 class="pie__titulo">${ui.redes}</h2>${redes(ctx)}</div>
   <div class="pie__base">
     <p>© ${new Date().getFullYear()} Sancho Restaurant · 13202 SW 8th St, Miami, FL 33184</p>
     <p><a href="${R.privacidad[lang]}">${ui.privacidad}</a> · <a href="${alterna}" hreflang="${otro(lang)}">${ui.idioma}</a></p>
@@ -79,9 +82,9 @@ function acciones(ctx) {
   const { lang, local } = ctx; const ui = UI[lang];
   return h`<nav class="acciones" aria-label="${lang === 'en' ? 'Quick actions' : 'Acciones rápidas'}">
   <a href="${R.pedir[lang]}" class="acciones__principal">${ui.pedir}</a>
+  <a href="${waReservar(ctx)}" rel="noopener" data-ev="click_whatsapp">WhatsApp</a>
   <a href="${tel(local.telefono)}" data-ev="click_call">${ui.llamar}</a>
   <a href="${local.mapa}" rel="noopener" data-ev="click_directions">${lang === 'en' ? 'Map' : 'Mapa'}</a>
-  <a href="${R.menu[lang]}">${ui.menu}</a>
 </nav>`;
 }
 
@@ -113,7 +116,7 @@ function sol(ctx) {
           <p class="sol__texto">${x.texto}</p>
           ${cuando(hh.dias.includes(d) && p.oferta !== 'happy-hour', () => h`<p class="sol__hh">${t(hh, lang).titulo} · ${hora(hh.desde, lang)} – ${hora(hh.hasta, lang)}</p>`)}
         </div>`; })}
-        <p class="sol__acciones"><a class="boton boton--grande" href="${R.pedir[lang]}">${en ? 'Order online' : 'Pedir en línea'}</a> <a class="boton boton--sutil boton--grande" href="${tel(ctx.local.telefono)}" data-ev="click_call">${en ? 'Call to reserve' : 'Llamar para reservar'}</a></p>
+        <p class="sol__acciones"><a class="boton boton--grande" href="${R.pedir[lang]}">${en ? 'Order online' : 'Pedir en línea'}</a> <a class="boton boton--sutil boton--grande" href="${waReservar(ctx)}" rel="noopener" data-ev="click_whatsapp">${en ? 'Book on WhatsApp' : 'Reservar por WhatsApp'}</a></p>
       </div>
     </div>
   </section>`;
@@ -151,12 +154,13 @@ function ofertasLista(ctx, { nivel = 3, riel = false } = {}) {
     </li>`; })}</ol>`;
 }
 
-// el almuerzo: la foto y los platos con su precio; donde se pide (el menú), también las ofertas del día de corrido
+// el almuerzo: la foto, los platos con su precio y el menú ejecutivo; donde se pide (el menú), también las ofertas del
+// día de corrido
 const hora12 = (hhmm) => String(Number(hhmm.split(':')[0]) % 12 || 12);
 function almuerzo(ctx, { titulo = 'h2', eager = false, ofertas = false } = {}) {
-  const { lang } = ctx; const en = lang === 'en'; const a = ctx.promos.almuerzo;
+  const { lang } = ctx; const en = lang === 'en'; const a = ctx.promos.almuerzo; const e = ctx.promos.ejecutivo;
   const franja = (o) => `${hora12(o.desde)}–${hora12(o.hasta)} ${en ? 'p.m.' : 'p. m.'}`;
-  return h`<section class="almuerzo${ofertas ? '' : ' almuerzo--dos'}" id="almuerzo" aria-labelledby="alm-t">
+  return h`<section class="almuerzo" id="almuerzo" aria-labelledby="alm-t">
     ${foto(ctx, 'almuerzo', { sizes: '(min-width: 900px) 40vw, 100vw', cls: 'almuerzo__foto', eager })}
     <div class="almuerzo__lunch">
       ${raw(`<${titulo} class="titulo-2" id="alm-t">`)}${t(a, lang).titulo}${raw(`</${titulo}>`)}
@@ -164,11 +168,19 @@ function almuerzo(ctx, { titulo = 'h2', eager = false, ofertas = false } = {}) {
       <p class="almuerzo__desde">${en ? 'from' : 'desde'} <span class="cifra">${precio(a.desde)}</span></p>
       <ul class="lista-precios">${a.platos.map((p) => h`<li><span>${p.n}${cuando(en, () => h` <small>${p.en}</small>`)}</span><span class="cifra">${precio(p.p)}</span></li>`)}</ul>
     </div>
+    <div class="almuerzo__lado">
+    ${cuando(e, () => h`<div class="almuerzo__ejecutivo" id="ejecutivo">
+      <h3 class="titulo-3">${t(e, lang).titulo}</h3>
+      <p class="almuerzo__ejecutivo-precio cifra">${precio(e.precio)}</p>
+      <ul>${t(e, lang).incluye.map((x) => h`<li>${x}</li>`)}</ul>
+      ${cuando(e.por_confirmar, () => h`<p class="semana__nota">${en ? 'Days and hours to be confirmed with the restaurant.' : 'Días y horas por confirmar con el restaurante.'}</p>`)}
+    </div>`)}
     ${cuando(ofertas, () => h`<div class="ofertas">
       <h3 class="titulo-3">${en ? 'From noon to night' : 'Del mediodía a la noche'}</h3>
       <ol class="ofertas__lista">${ctx.promos.ofertas.filter((o) => o.desde).map((o) => { const x = t(o, lang); return h`<li><span class="ofertas__hora cifra">${franja(o)}</span><span class="ofertas__que"><b>${x.titulo}${cuando(o.precio != null, () => h` · <span class="cifra">${cuando(x.prefijo, () => `${x.prefijo} `)}${precio(o.precio)}</span>`)}</b><small>${rangoDias(o.dias, lang)}</small></span></li>`; })}</ol>
       <p><a class="enlace-flecha" href="${R.semana[lang]}">${en ? 'The whole week' : 'Toda la semana'}${icono('flecha')}</a></p>
     </div>`)}
+    </div>
   </section>`;
 }
 
@@ -207,8 +219,7 @@ function visita(ctx) {
       <h2 class="titulo-2" id="visita-t">${lang === 'en' ? 'On Calle Ocho' : 'En la Calle Ocho'}</h2>
       ${direccion(ctx)}
       ${horario(ctx)}
-      <p class="visita__acciones"><a class="boton" href="${local.mapa}" rel="noopener" data-ev="click_directions">${ui.comoLlegar}</a> <a class="boton boton--sutil" href="${tel(local.telefono)}" data-ev="click_call">${ui.llamar} ${telVisible(local.telefono)}</a></p>
-      <p class="visita__celular">${lang === 'en' ? 'Mobile' : 'Celular'}: ${telefono(ctx, local.celular)}</p>
+      <p class="visita__acciones"><a class="boton" href="${local.mapa}" rel="noopener" data-ev="click_directions">${ui.comoLlegar}</a> <a class="boton boton--sutil" href="${waReservar(ctx)}" rel="noopener" data-ev="click_whatsapp">WhatsApp ${telVisible('+' + local.whatsapp)}</a> <a class="boton boton--sutil" href="${tel(local.telefono)}" data-ev="click_call">${ui.llamar} ${telVisible(local.telefono)}</a></p>
     </div>
   </section>`;
 }
@@ -262,7 +273,7 @@ export function paginas(ctx0) {
           <p><a class="boton" href="${ctx.local.pedidos[0].url}" rel="noopener" data-ev="click_order">${lang === 'en' ? 'See it in online ordering' : 'Verla en el pedido en línea'}</a></p>
         </section>
         ${especialidades(ctx)}`;
-      out.push({ ruta: R.menu[lang], html: pagina(ctx, { ruta: R.menu[lang], alterna: R.menu[otro(lang)], titulo: lang === 'en' ? 'Menu' : 'Menú', descripcion: lang === 'en' ? 'Lunch Monday to Friday from $10.99 and Sancho’s kitchen: Iberian suckling pig, paella, Galician octopus, tapas and grilled meats on Calle Ocho, Miami.' : 'Almuerzo de lunes a viernes desde $10.99 y la cocina de Sancho: cochinillo ibérico, paella, pulpo a la gallega, tapas y carnes a la brasa en la Calle Ocho, Miami.', cuerpo, jsonld: [ctx.jsonldLocal(lang)], cls: 'p-menu' }) });
+      out.push({ ruta: R.menu[lang], html: pagina(ctx, { ruta: R.menu[lang], alterna: R.menu[otro(lang)], titulo: lang === 'en' ? 'Menu' : 'Menú', descripcion: lang === 'en' ? 'Lunch Monday to Friday from $10.99, the $19.99 executive menu and Sancho’s kitchen: Iberian suckling pig, paella, Galician octopus, tapas and grilled meats on Calle Ocho, Miami.' : 'Almuerzo de lunes a viernes desde $10.99, menú ejecutivo a $19.99 y la cocina de Sancho: cochinillo ibérico, paella, pulpo a la gallega, tapas y carnes a la brasa en la Calle Ocho, Miami.', cuerpo, jsonld: [ctx.jsonldLocal(lang)], cls: 'p-menu' }) });
     }
 
     // ---- pedir
@@ -291,7 +302,7 @@ export function paginas(ctx0) {
       const cuerpo = h`${cabezaPlato(ctx, { titulo: lang === 'en' ? 'Visit' : 'Visítanos', entrada: lang === 'en' ? 'On SW 8th Street, Calle Ocho, at SW 132nd Ave.' : 'En la SW 8th Street, la Calle Ocho, a la altura de la SW 132nd Ave.', foto: 'paella' })}
         ${visita(ctx)}
         <section class="contacto"><h2 class="titulo-2">${lang === 'en' ? 'Reservations and questions' : 'Reservas y preguntas'}</h2>
-          <ul class="contacto__lista"><li><span>${ui.telefono}</span> ${telefono(ctx)}</li><li><span>${lang === 'en' ? 'Mobile' : 'Celular'}</span> ${telefono(ctx, ctx.local.celular)}</li></ul>${redes(ctx)}</section>`;
+          <ul class="contacto__lista"><li><span>${ui.telefono}</span> ${telefono(ctx)}</li><li><span>${lang === 'en' ? 'WhatsApp (bookings)' : 'WhatsApp (reservas)'}</span> <a class="cifra" href="${waReservar(ctx)}" rel="noopener" data-ev="click_whatsapp">${telVisible('+' + ctx.local.whatsapp)}</a></li></ul>${redes(ctx)}</section>`;
       out.push({ ruta: R.visita[lang], html: pagina(ctx, { ruta: R.visita[lang], alterna: R.visita[otro(lang)], titulo: lang === 'en' ? 'Visit' : 'Visítanos', descripcion: lang === 'en' ? 'Address, hours and phones for Sancho Restaurant, Miami’s home of cochinillo: 13202 SW 8th St, Miami, FL 33184. 305-553-6886 · 786-889-2197.' : 'Dirección, horario y teléfonos de Sancho Restaurant, la casa del cochinillo en Miami: 13202 SW 8th St, Miami, FL 33184. 305-553-6886 · 786-889-2197.', cuerpo, jsonld: [ctx.jsonldLocal(lang)], cls: 'p-visita' }) });
     }
 
