@@ -5,8 +5,9 @@
  "dominio": "https://sanchorestaurantemiami.com",
  "vista_previa": "https://sancho-miami.vercel.app",
  "lema": {
-  "es": "Cocina española de calidad al mejor precio",
-  "en": "Real Spanish cooking at an honest price"
+  "es": "La casa del cochinillo en Miami",
+  "en": "Miami’s home of cochinillo",
+  "fuente": "mensaje del restaurante que reenvió Juan el 2026-11-03"
  },
  "cocina": {
   "es": "Cocina española y tapas",
@@ -86,8 +87,8 @@
  "especialidades": [
   {
    "id": "cochinillo",
-   "es": "Cochinillo segoviano",
-   "en": "Segovia-style suckling pig",
+   "es": "Cochinillo ibérico",
+   "en": "Iberian suckling pig",
    "foto": "cochinillo",
    "nota": {
     "es": "¡el famoso!",
@@ -149,5 +150,7 @@
  ],
  "precio_rango": "$$",
  "acepta_reservas": true,
- "especialidades_fuente": "Nombres: los de la web vieja («Paella, pulpo a la gallega, tapas, el famoso cochinillo segoviano y las carnes asadas») y los platos de las fotos de su sesión de 2025-04 (calamares, mariscos en cazuela, langosta thermidor, croquetas)."
+ "especialidades_fuente": "Nombres: los de la web vieja («Paella, pulpo a la gallega, tapas, el famoso cochinillo segoviano y las carnes asadas») y los platos de las fotos de su sesión de 2025-04 (calamares, mariscos en cazuela, langosta thermidor, croquetas). El cochinillo es «ibérico» desde el mensaje del restaurante del 2026-11-03 («Especialidad de la casa COCHINILLO IBÉRICO»; la web vieja decía «segoviano»).",
+ "celular": "+17868892197",
+ "celular_fuente": "mensaje del restaurante que reenvió Juan el 2026-11-03 («📲7868892197»); no dice si es WhatsApp"
 }

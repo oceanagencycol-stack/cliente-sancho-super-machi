@@ -1,5 +1,5 @@
 {
- "nota": "Archivo de shows confirmados por la web vieja (tienda WooCommerce) y por los flyers de su biblioteca de medios, vistos el 2026-11-02. Ninguno es futuro: los próximos los confirma el restaurante (fecha, artista, hora, zonas y precios, enlace de entradas) y se agregan en «proximos».",
+ "nota": "Archivo de shows confirmados por la web vieja (tienda WooCommerce) y por los flyers de su biblioteca de medios, vistos el 2026-11-02. Los próximos (noviembre de 2026) salen de los flyers que mandó Juan el 2026-11-03: fecha, artista y lo que dice el flyer. Hora, precio y enlace de entradas no vienen en los flyers: los da el restaurante y se agregan en «horas», «precio_desde» y «entradas_url».",
  "contacto_shows": {
   "rsvp": "+17867289006",
   "whatsapp": "+13052663226",
@@ -32,7 +32,79 @@
   }
  ],
  "zonas_fuente": "variantes «Ubicación» de la tienda vieja y el plano escenario-01.jpg",
- "proximos": [],
+ "proximos": [
+  {
+   "id": "2026-11-06-mustelier",
+   "fecha": "2026-11-06",
+   "artista": "Mustelier",
+   "subtitulo": "Noche de humor",
+   "subtitulo_en": "Comedy night",
+   "flyer": "media/supermachi/originales/2026-11_flyer-2026-11-06-mustelier.jpg",
+   "fuente": "flyer de la cartelera de noviembre que mandó Juan el 2026-11-03"
+  },
+  {
+   "id": "2026-11-07-manuel-alveraiz",
+   "fecha": "2026-11-07",
+   "artista": "Manuel Alveraiz",
+   "subtitulo": "Con Deni DJ y su show · Invitado: Bartolo El Gosador",
+   "subtitulo_en": "With Deni DJ and his show · Guest: Bartolo El Gosador",
+   "flyer": "media/supermachi/originales/2026-11_flyer-2026-11-07-manuel-alveraiz.jpg",
+   "fuente": "flyer de la cartelera de noviembre que mandó Juan el 2026-11-03"
+  },
+  {
+   "id": "2026-11-13-punto-y-coma",
+   "fecha": "2026-11-13",
+   "artista": "Punto y Coma",
+   "subtitulo": "Noche de humor",
+   "subtitulo_en": "Comedy night",
+   "flyer": "media/supermachi/originales/2026-11_flyer-2026-11-13-punto-y-coma.jpg",
+   "fuente": "flyer de la cartelera de noviembre que mandó Juan el 2026-11-03"
+  },
+  {
+   "id": "2026-11-14-alain-daniel",
+   "fecha": "2026-11-14",
+   "artista": "Alain Daniel",
+   "flyer": "media/supermachi/originales/2026-11_flyer-2026-11-14-alain-daniel.jpg",
+   "fuente": "flyer de la cartelera de noviembre que mandó Juan el 2026-11-03"
+  },
+  {
+   "id": "2026-11-20-anselmo-el-mudo-y-rodney",
+   "fecha": "2026-11-20",
+   "artista": "Anselmo El Mudo y Rodney",
+   "flyer": "media/supermachi/originales/2026-11_flyer-2026-11-20-anselmo-el-mudo-y-rodney.jpg",
+   "fuente": "flyer de la cartelera de noviembre que mandó Juan el 2026-11-03"
+  },
+  {
+   "id": "2026-11-21-antolin-el-pichon",
+   "fecha": "2026-11-21",
+   "artista": "Antolín El Pichón",
+   "flyer": "media/supermachi/originales/2026-11_flyer-2026-11-21-antolin-el-pichon.jpg",
+   "fuente": "flyer de la cartelera de noviembre que mandó Juan el 2026-11-03"
+  },
+  {
+   "id": "2026-11-26-sanky-panky",
+   "fecha": "2026-11-26",
+   "artista": "Sanky Panky",
+   "subtitulo": "Celebrando Thanksgiving",
+   "subtitulo_en": "Celebrating Thanksgiving",
+   "flyer": "media/supermachi/originales/2026-11_flyer-2026-11-26-sanky-panky.jpg",
+   "fuente": "flyer de la cartelera de noviembre que mandó Juan el 2026-11-03"
+  },
+  {
+   "id": "2026-11-27-kola-loka",
+   "fecha": "2026-11-27",
+   "artista": "Kola Loka",
+   "flyer": "media/supermachi/originales/2026-11_flyer-2026-11-27-kola-loka.jpg",
+   "fuente": "flyer de la cartelera de noviembre que mandó Juan el 2026-11-03"
+  },
+  {
+   "id": "2026-11-28-laritza-bacallao",
+   "fecha": "2026-11-28",
+   "artista": "Laritza Bacallao",
+   "flyer": "media/supermachi/originales/2026-11_flyer-2026-11-28-laritza-bacallao.jpg",
+   "fuente": "flyer de la cartelera de noviembre que mandó Juan el 2026-11-03"
+  }
+ ],
  "archivo": [
   {
    "id": "2025-12-05-maylu-s-cabaret",

@@ -1,5 +1,5 @@
 {
- "nota": "Cada dato que publican las webs nuevas, con su fuente y la fecha en que se vio. estado: verificado (dos fuentes o una fuente oficial sin contradicción), una_fuente (solo la web vieja), por_confirmar (contradicción o duda: se confirma con el restaurante antes de lanzar), hipotesis (no se publica como hecho).",
+ "nota": "Cada dato que publican las webs nuevas, con su fuente y la fecha en que se vio. estado: verificado (dos fuentes o una fuente oficial sin contradicción), una_fuente (solo la web vieja), por_confirmar (contradicción o duda: se confirma con el restaurante antes de lanzar), hipotesis (no se publica como hecho), retirado (salió de la web: lo que el restaurante ya no ofrece o no confirmó).",
  "supermachi": [
   {
    "dato": "nombre",
@@ -25,8 +25,8 @@
   {
    "dato": "RSVP de shows",
    "valor": "786-728-9006",
-   "fuente": "flyers 2025–2026 («RSVP · 786.728.9006»)",
-   "visto": "2026-11-02",
+   "fuente": "flyers 2025–2026 («RSVP · 786.728.9006») + flyers de noviembre de 2026",
+   "visto": "2026-11-03",
    "estado": "una_fuente"
   },
   {
@@ -108,10 +108,11 @@
   },
   {
    "dato": "próximos shows",
-   "valor": "ninguno confirmado al 2026-11-02",
-   "fuente": "la web vieja no tiene eventos futuros; el último es el 2-oct",
-   "visto": "2026-11-02",
-   "estado": "verificado"
+   "valor": "9 shows en noviembre de 2026: Mustelier (vie 6), Manuel Alveraiz (sáb 7), Punto y Coma (vie 13), Alain Daniel (sáb 14), Anselmo El Mudo y Rodney (vie 20), Antolín El Pichón (sáb 21), Sanky Panky (jue 26, Thanksgiving), Kola Loka (vie 27) y Laritza Bacallao (sáb 28)",
+   "fuente": "flyers de la cartelera de noviembre que mandó Juan el 2026-11-03 (media/supermachi/originales/2026-11_flyer-*.jpg)",
+   "visto": "2026-11-03",
+   "estado": "verificado",
+   "nota": "los flyers no traen hora, precio ni enlace de entradas; «Bartolo El Gosador» (invitado del 7) va como lo escribe el flyer"
   },
   {
    "dato": "Instagram",
@@ -156,9 +157,9 @@
  "sancho": [
   {
    "dato": "nombre",
-   "valor": "Sancho Restaurant («Fine Spanish Cuisine and Tapas» en el logo que mandó Juan)",
-   "fuente": "https://sanchorestaurantemiami.com + logo del 2026-11-02",
-   "visto": "2026-11-02",
+   "valor": "Sancho Restaurant, «La casa del cochinillo en Miami» («Fine Spanish Cuisine and Tapas» en el logo que mandó Juan)",
+   "fuente": "https://sanchorestaurantemiami.com + logo del 2026-11-02 + mensaje del restaurante que reenvió Juan el 2026-11-03",
+   "visto": "2026-11-03",
    "estado": "verificado"
   },
   {
@@ -176,6 +177,14 @@
    "estado": "verificado"
   },
   {
+   "dato": "celular",
+   "valor": "+1 786-889-2197",
+   "fuente": "mensaje del restaurante que reenvió Juan el 2026-11-03 («📲7868892197»)",
+   "visto": "2026-11-03",
+   "estado": "verificado",
+   "nota": "el mensaje no dice si es WhatsApp: la web lo muestra como celular"
+  },
+  {
    "dato": "horario",
    "valor": "«12:00 M. A 12:00 P.M» (de mediodía a medianoche, se entiende)",
    "fuente": "https://sanchorestaurantemiami.com (tooltip del reloj de la cabecera)",
@@ -187,55 +196,54 @@
    "dato": "Lunes de paella",
    "valor": "$12.99, todos los lunes desde las 12 del mediodía hasta el cierre",
    "fuente": "https://sanchorestaurantemiami.com (portada)",
-   "visto": "2026-11-02",
-   "estado": "una_fuente"
+   "visto": "2026-11-03",
+   "estado": "retirado",
+   "nota": "no está en la lista de ofertas del restaurante del 2026-11-03: sale de la web; si sigue, vuelve con su confirmación"
   },
   {
    "dato": "Martes de vino",
    "valor": "vino, sangría y cerveza de barril gratis por $20 de consumo",
    "fuente": "https://sanchorestaurantemiami.com (portada)",
-   "visto": "2026-11-02",
-   "estado": "por_confirmar",
-   "nota": "cuántas bebidas y a qué horas"
+   "visto": "2026-11-03",
+   "estado": "retirado",
+   "nota": "no está en la lista de ofertas del restaurante del 2026-11-03: sale de la web; si sigue, vuelve con su confirmación"
   },
   {
-   "dato": "Miércoles de tapas y vino ilimitados",
-   "valor": "$30 en la web; $35 en Instagram",
-   "fuente": "https://sanchorestaurantemiami.com (portada) + Instagram (propuesta OI-PR-2026-SM)",
-   "visto": "2026-11-02",
-   "estado": "por_confirmar"
+   "dato": "tapas y vinos (miércoles y jueves)",
+   "valor": "$35, de 7 a 10 p. m.: «bebes y comes lo que quieras»",
+   "fuente": "mensaje del restaurante que reenvió Juan el 2026-11-03; Instagram también decía $35 (la web vieja, $30)",
+   "visto": "2026-11-03",
+   "estado": "verificado"
   },
   {
    "dato": "Jueves de tapas",
-   "valor": "existe según Instagram",
-   "fuente": "propuesta OI-PR-2026-SM",
-   "visto": "2026-11-02",
-   "estado": "por_confirmar",
-   "nota": "precio y condiciones"
+   "valor": "el jueves es igual que el miércoles: tapas y vinos, $35, de 7 a 10 p. m.",
+   "fuente": "mensaje del restaurante que reenvió Juan el 2026-11-03",
+   "visto": "2026-11-03",
+   "estado": "verificado"
   },
   {
    "dato": "happy hour",
-   "valor": "ilimitado, L–V 4:00–7:00 p. m.",
-   "fuente": "https://sanchorestaurantemiami.com (portada)",
-   "visto": "2026-11-02",
-   "estado": "por_confirmar",
-   "nota": "qué incluye «ilimitados»"
+   "valor": "L–V 4:00–7:00 p. m.",
+   "fuente": "mensaje del restaurante que reenvió Juan el 2026-11-03",
+   "visto": "2026-11-03",
+   "estado": "verificado",
+   "nota": "la web vieja decía «ilimitado»: la palabra sale (el restaurante no la usa)"
   },
   {
    "dato": "especial de almuerzo",
-   "valor": "desde $10.99: 4 platos a $10.99 y 4 a $12.99",
-   "fuente": "https://sanchorestaurantemiami.com (portada)",
-   "visto": "2026-11-02",
-   "estado": "por_confirmar",
-   "nota": "días, horas y guarniciones"
+   "valor": "L–V 12:00–4:00 p. m., desde $10.99 (la lista de platos, 4 a $10.99 y 4 a $12.99, es de la web vieja)",
+   "fuente": "mensaje del restaurante que reenvió Juan el 2026-11-03 + https://sanchorestaurantemiami.com (portada)",
+   "visto": "2026-11-03",
+   "estado": "verificado"
   },
   {
    "dato": "menú ejecutivo",
    "valor": "$17.99: bebida, entrante (tortilla, croqueta o crema), 2 acompañantes, plato fuerte, café o flan",
    "fuente": "https://sanchorestaurantemiami.com (portada)",
-   "visto": "2026-11-02",
-   "estado": "por_confirmar",
-   "nota": "días y horas"
+   "visto": "2026-11-03",
+   "estado": "retirado",
+   "nota": "no está en la lista de ofertas del restaurante del 2026-11-03: sale de la web; si sigue, vuelve con días, horas y precio"
   },
   {
    "dato": "carta completa",
@@ -247,10 +255,11 @@
   },
   {
    "dato": "especialidades",
-   "valor": "paella, pulpo a la gallega, tapas, carnes y pescados; cochinillo segoviano y carnes asadas",
-   "fuente": "https://sanchorestaurantemiami.com/nuestro-restaurante/ + portada",
-   "visto": "2026-11-02",
-   "estado": "verificado"
+   "valor": "cochinillo ibérico (especialidad de la casa); paella, pulpo a la gallega, tapas, carnes y pescados",
+   "fuente": "mensaje del restaurante que reenvió Juan el 2026-11-03 («Especialidad de la casa COCHINILLO IBÉRICO») + https://sanchorestaurantemiami.com/nuestro-restaurante/",
+   "visto": "2026-11-03",
+   "estado": "verificado",
+   "nota": "la web vieja decía «cochinillo segoviano»; manda el mensaje del restaurante"
   },
   {
    "dato": "música en vivo",

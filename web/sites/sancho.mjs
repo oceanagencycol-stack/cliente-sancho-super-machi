@@ -17,19 +17,21 @@ const otro = (lang) => (lang === 'es' ? 'en' : 'es');
 
 // lo que dice el disco rojo del sol, día por día (grande + chico)
 const DISCO = {
-  1: { es: ['$12.99', 'paella'], en: ['$12.99', 'paella'] },
-  2: { es: ['Gratis', 'con $20'], en: ['Free', 'with $20'] },
-  3: { es: ['$30', 'sin límite'], en: ['$30', 'bottomless'] },
-  4: { es: ['Tapas', 'jueves'], en: ['Tapas', 'Thursday'] },
-  5: { es: ['Brasa', 'la carta'], en: ['Grill', 'full menu'] },
-  6: { es: ['Cochinillo', 'la carta'], en: ['Suckling pig', 'full menu'] },
+  1: { es: ['$10.99', 'almuerzo'], en: ['$10.99', 'lunch'] },
+  2: { es: ['4 a 7', 'happy hour'], en: ['4 to 7', 'happy hour'] },
+  3: { es: ['$35', 'tapas y vinos'], en: ['$35', 'tapas & wine'] },
+  4: { es: ['$35', 'tapas y vinos'], en: ['$35', 'tapas & wine'] },
+  5: { es: ['4 a 7', 'happy hour'], en: ['4 to 7', 'happy hour'] },
+  6: { es: ['Cochinillo', 'ibérico'], en: ['Cochinillo', 'Iberian'] },
   0: { es: ['Familia', 'la carta'], en: ['Family', 'full menu'] },
 };
 const ORDEN = [1, 2, 3, 4, 5, 6, 0];
 
-// el plato de cada día, a pantalla completa detrás del sol (el lunes, la paella en video). Solo se baja el del día que
-// se ve; los demás llegan cuando la página ya está quieta (sancho.js) o al tocar su día.
-const FONDO = { 1: { video: 'paella' }, 2: 'sangria', 3: 'tapas', 4: 'calamares', 5: 'carne', 6: 'cochinillo', 0: 'paella' };
+// el plato de cada día, a pantalla completa detrás del sol: lo que destaca ese día (el almuerzo, el happy hour, las tapas,
+// el cochinillo) y el domingo la paella en video. Solo se baja el del día que se ve; los demás llegan cuando la página ya
+// está quieta (sancho.js) o al tocar su día.
+const FONDO = { 1: 'almuerzo', 2: 'martes', 3: 'tapas', 4: 'tapas2', 5: 'sangria', 6: 'cochinillo', 0: { video: 'paella' } };
+const FONDO_SIZES = '100vw';
 
 export const sitio = {
   id: 'sancho',
@@ -38,7 +40,7 @@ export const sitio = {
   tema: '#0F0B0A',
   esquema: 'light',
   fuentes: ['sancho-display', 'sancho-text', 'sancho-mano'],
-  tituloPortada: { es: 'Sancho Restaurant · Cocina española en la Calle Ocho, Miami', en: 'Sancho Restaurant · Spanish cooking on Calle Ocho, Miami' },
+  tituloPortada: { es: 'Sancho Restaurant · La casa del cochinillo en Miami', en: 'Sancho Restaurant · Miami’s home of cochinillo' },
   cabecera, pie, acciones,
 };
 
@@ -62,10 +64,10 @@ function pie(ctx, { alterna }) {
   const { lang, local } = ctx; const ui = UI[lang];
   return h`<footer class="pie">
   <div class="pie__marca"><img src="/marca/sancho-logo.svg" width="180" height="162" alt="Sancho Restaurant · Fine Spanish Cuisine and Tapas" loading="lazy">
-    <p>${lang === 'en' ? 'A corner of Spain on Calle Ocho.' : 'Un rincón de España en la Calle Ocho.'}</p></div>
+    <p>${t(local.lema, lang)}.</p></div>
   <div><h2 class="pie__titulo">${ui.direccion}</h2>${direccion(ctx)}<p><a href="${local.mapa}" rel="noopener" data-ev="click_directions">${ui.comoLlegar} →</a></p></div>
   <div><h2 class="pie__titulo">${ui.horario}</h2>${horario(ctx)}</div>
-  <div><h2 class="pie__titulo">${ui.telefono}</h2><p>${telefono(ctx)}</p><h2 class="pie__titulo">${ui.redes}</h2>${redes(ctx)}</div>
+  <div><h2 class="pie__titulo">${ui.telefono}</h2><p>${telefono(ctx)}</p><p>${lang === 'en' ? 'Mobile' : 'Celular'} ${telefono(ctx, local.celular)}</p><h2 class="pie__titulo">${ui.redes}</h2>${redes(ctx)}</div>
   <div class="pie__base">
     <p>© ${new Date().getFullYear()} Sancho Restaurant · 13202 SW 8th St, Miami, FL 33184</p>
     <p><a href="${R.privacidad[lang]}">${ui.privacidad}</a> · <a href="${alterna}" hreflang="${otro(lang)}">${ui.idioma}</a></p>
@@ -90,7 +92,7 @@ function sol(ctx) {
   const fondo = (d) => {
     const f = FONDO[d];
     if (typeof f === 'object') return video(ctx, f.video, { cls: 'dia__video', alta: true, alt: en ? 'Seafood paella, up close' : 'Paella de mariscos, de cerca' });
-    return foto(ctx, f, { sizes: '(min-width: 62rem) 64vw, 100vw', cls: 'dia__foto', alta: true });
+    return foto(ctx, f, { sizes: FONDO_SIZES, cls: 'dia__foto', alta: true });
   };
   return h`<section class="dia" data-sol aria-labelledby="sol-t">
     <div class="dia__fondos">${ORDEN.map((d) => h`<div class="dia__fondo" data-dia="${d}">${fondo(d)}</div>`)}</div>
@@ -107,9 +109,9 @@ function sol(ctx) {
         <h1 class="sr" id="sol-t">${en ? 'Sancho Restaurant: what’s on today' : 'Sancho Restaurant: lo que hay hoy'}</h1>
         ${ORDEN.map((d) => { const p = porDia[d]; const x = t(p, lang); return h`<div class="sol__panel" role="tabpanel" id="panel-${d}" aria-labelledby="tab-${d}" data-dia="${d}">
           <h2 class="sol__titulo">${x.titulo}</h2>
-          <p class="sol__precio cifra">${x.precio_txt}<span class="sol__mano sol__mano--hoy" aria-hidden="true">${en ? 'today!' : '¡hoy!'}</span><span class="sol__mano sol__mano--dia" aria-hidden="true">${x.dia.toLowerCase()}</span></p>
+          <p class="sol__precio cifra">${cuando(x.prefijo, () => h`<small class="sol__prefijo">${x.prefijo}</small> `)}${x.precio_txt}<span class="sol__mano sol__mano--hoy" aria-hidden="true">${en ? 'today!' : '¡hoy!'}</span><span class="sol__mano sol__mano--dia" aria-hidden="true">${x.dia.toLowerCase()}</span></p>
           <p class="sol__texto">${x.texto}</p>
-          ${cuando(hh.dias.includes(d), () => h`<p class="sol__hh">${t(hh, lang).titulo} · ${hora(hh.desde, lang)} – ${hora(hh.hasta, lang)}</p>`)}
+          ${cuando(hh.dias.includes(d) && p.oferta !== 'happy-hour', () => h`<p class="sol__hh">${t(hh, lang).titulo} · ${hora(hh.desde, lang)} – ${hora(hh.hasta, lang)}</p>`)}
         </div>`; })}
         <p class="sol__acciones"><a class="boton boton--grande" href="${R.pedir[lang]}">${en ? 'Order online' : 'Pedir en línea'}</a> <a class="boton boton--sutil boton--grande" href="${tel(ctx.local.telefono)}" data-ev="click_call">${en ? 'Call to reserve' : 'Llamar para reservar'}</a></p>
       </div>
@@ -127,43 +129,46 @@ function precargaHoy(ctx) {
       mapa[d] = [[`${base}-telefono.avif`, '', '(max-width: 47.99rem)'], [`${base}-escritorio.avif`, '', '(min-width: 48rem)']];
     } else {
       const m = ctx.media.fotos[f];
-      mapa[d] = [[m.anchos.map((w) => `/media/sancho/${f}-${w}.avif ${w}w`).join(', '), '(min-width: 62rem) 64vw, 100vw', '']];
+      mapa[d] = [[m.anchos.map((w) => `/media/sancho/${f}-${w}.avif ${w}w`).join(', '), FONDO_SIZES, '']];
     }
   }
   return h`<script id="precarga-hoy" type="application/json">${raw(JSON.stringify(mapa))}</script>`;
 }
 
-// la semana: en la portada, un carril de fotos para deslizar; en «La semana», la cuadrícula. El precio en cifra va en
-// un sello con la forma del sol (disco rojo, anillo amarillo); el día, escrito a mano sobre la foto.
-function semanaLista(ctx, { fotos = false, nivel = 3, riel = false } = {}) {
+// las ofertas: en la portada, un carril de fotos para deslizar (cuatro columnas en escritorio); en «La semana», la
+// cuadrícula. El precio en cifra va en un sello con la forma del sol; los días, escritos a mano sobre la foto, y «¡hoy!»
+// en las que tocan hoy (no en el cochinillo, que es de todos los días).
+function ofertasLista(ctx, { nivel = 3, riel = false } = {}) {
   const { lang } = ctx; const en = lang === 'en';
-  const porDia = Object.fromEntries(ctx.promos.semana.map((p) => [p.dia, p]));
-  const cifra = (txt) => /^\$\d/.test(txt);
-  return h`<ol class="semana${fotos ? ' semana--fotos' : ''}${riel ? ' semana--riel' : ''}">${ORDEN.map((d, i) => { const p = porDia[d]; const x = t(p, lang); const conFoto = fotos && p.foto && ctx.media.fotos[p.foto]; return h`<li class="semana__dia${[1, 2, 3, 4].includes(d) ? ' semana__dia--promo' : ''}" data-dia="${d}">
-      ${cuando(conFoto, () => h`<div class="semana__marco">${foto(ctx, p.foto, { sizes: riel ? '(min-width: 62rem) 26vw, 72vw' : '(min-width: 900px) 30vw, 100vw', cls: 'semana__foto', eager: !riel && i === 0 })}
-        <span class="semana__mano" aria-hidden="true"><span class="semana__mano-dia">${x.dia.toLowerCase()}</span><span class="semana__mano-hoy">${en ? 'today!' : '¡hoy!'}</span></span>
-        ${cuando(cifra(x.precio_txt), () => h`<span class="sello-sol cifra" aria-hidden="true">${x.precio_txt}</span>`)}</div>`)}
-      <p class="semana__nombre">${x.dia}</p>${raw(`<h${nivel} class="semana__titulo">`)}${x.titulo}${raw(`</h${nivel}>`)}<p class="semana__precio cifra${cifra(x.precio_txt) ? '' : ' semana__precio--texto'}">${x.precio_txt}</p>
+  const cifra = (txt) => /^\$\d/.test(txt || '');
+  const cuandoTxt = (o) => [rangoDias(o.dias, lang), o.desde ? `${hora(o.desde, lang)} – ${hora(o.hasta, lang)}` : ''].filter(Boolean).join(' · ');
+  return h`<ol class="semana semana--fotos${riel ? ' semana--riel' : ''}">${ctx.promos.ofertas.map((o, i) => { const x = t(o, lang); const hoy = o.dias.length < 7 ? o.dias.map((d) => ` hoy-${d}`).join('') : ''; return h`<li class="semana__dia${o.precio != null || o.desde ? ' semana__dia--promo' : ''}${hoy}" id="o-${o.id}">
+      <div class="semana__marco">${foto(ctx, o.foto, { sizes: riel ? '(min-width: 62rem) 26vw, 72vw' : '(min-width: 900px) 30vw, 100vw', cls: 'semana__foto', eager: !riel && i === 0 })}
+        <span class="semana__mano" aria-hidden="true"><span class="semana__mano-dia">${x.mano}</span><span class="semana__mano-hoy">${en ? 'today!' : '¡hoy!'}</span></span>
+        ${cuando(cifra(x.precio_txt), () => h`<span class="sello-sol cifra" aria-hidden="true">${x.precio_txt}</span>`)}</div>
+      <p class="semana__nombre">${cuandoTxt(o)}</p>${raw(`<h${nivel} class="semana__titulo">`)}${x.titulo}${raw(`</h${nivel}>`)}${cuando(x.precio_txt, () => h`<p class="semana__precio cifra${cifra(x.precio_txt) ? '' : ' semana__precio--texto'}">${cuando(x.prefijo, () => h`<small>${x.prefijo}</small> `)}${x.precio_txt}</p>`)}
       <p class="semana__texto">${x.texto}</p>
-      ${cuando(fotos && p.por_confirmar, () => h`<p class="semana__nota">${en ? 'To be confirmed with the restaurant.' : 'Por confirmar con el restaurante.'}</p>`)}
     </li>`; })}</ol>`;
 }
 
-function almuerzo(ctx, { titulo = 'h2', eager = false } = {}) {
-  const { lang } = ctx; const a = ctx.promos.almuerzo; const e = ctx.promos.ejecutivo;
-  return h`<section class="almuerzo" id="almuerzo" aria-labelledby="alm-t">
+// el almuerzo: la foto y los platos con su precio; donde se pide (el menú), también las ofertas del día de corrido
+const hora12 = (hhmm) => String(Number(hhmm.split(':')[0]) % 12 || 12);
+function almuerzo(ctx, { titulo = 'h2', eager = false, ofertas = false } = {}) {
+  const { lang } = ctx; const en = lang === 'en'; const a = ctx.promos.almuerzo;
+  const franja = (o) => `${hora12(o.desde)}–${hora12(o.hasta)} ${en ? 'p.m.' : 'p. m.'}`;
+  return h`<section class="almuerzo${ofertas ? '' : ' almuerzo--dos'}" id="almuerzo" aria-labelledby="alm-t">
     ${foto(ctx, 'almuerzo', { sizes: '(min-width: 900px) 40vw, 100vw', cls: 'almuerzo__foto', eager })}
     <div class="almuerzo__lunch">
       ${raw(`<${titulo} class="titulo-2" id="alm-t">`)}${t(a, lang).titulo}${raw(`</${titulo}>`)}
-      <p class="almuerzo__desde">${lang === 'en' ? 'from' : 'desde'} <span class="cifra">${precio(a.desde)}</span></p>
-      <ul class="lista-precios">${a.platos.map((p) => h`<li><span>${p.n}${cuando(lang === 'en', () => h` <small>${p.en}</small>`)}</span><span class="cifra">${precio(p.p)}</span></li>`)}</ul>
+      <p class="almuerzo__cuando">${rangoDias(a.dias, lang)} · ${hora(a.desde_hora, lang)} – ${hora(a.hasta_hora, lang)}</p>
+      <p class="almuerzo__desde">${en ? 'from' : 'desde'} <span class="cifra">${precio(a.desde)}</span></p>
+      <ul class="lista-precios">${a.platos.map((p) => h`<li><span>${p.n}${cuando(en, () => h` <small>${p.en}</small>`)}</span><span class="cifra">${precio(p.p)}</span></li>`)}</ul>
     </div>
-    <div class="almuerzo__ejecutivo">
-      <h3 class="titulo-3">${t(e, lang).titulo}</h3>
-      <p class="almuerzo__ejecutivo-precio cifra">${precio(e.precio)}</p>
-      <ul>${t(e, lang).incluye.map((x) => h`<li>${x}</li>`)}</ul>
-      <p class="semana__nota">${lang === 'en' ? 'Days and hours to be confirmed with the restaurant.' : 'Días y horas por confirmar con el restaurante.'}</p>
-    </div>
+    ${cuando(ofertas, () => h`<div class="ofertas">
+      <h3 class="titulo-3">${en ? 'From noon to night' : 'Del mediodía a la noche'}</h3>
+      <ol class="ofertas__lista">${ctx.promos.ofertas.filter((o) => o.desde).map((o) => { const x = t(o, lang); return h`<li><span class="ofertas__hora cifra">${franja(o)}</span><span class="ofertas__que"><b>${x.titulo}${cuando(o.precio != null, () => h` · <span class="cifra">${cuando(x.prefijo, () => `${x.prefijo} `)}${precio(o.precio)}</span>`)}</b><small>${rangoDias(o.dias, lang)}</small></span></li>`; })}</ol>
+      <p><a class="enlace-flecha" href="${R.semana[lang]}">${en ? 'The whole week' : 'Toda la semana'}${icono('flecha')}</a></p>
+    </div>`)}
   </section>`;
 }
 
@@ -171,8 +176,8 @@ function especialidades(ctx) {
   const { lang } = ctx; const en = lang === 'en';
   const conFoto = ctx.local.especialidades.filter((e) => e.foto);
   return h`<section class="cocina" aria-labelledby="cocina-t">
-    <div class="cocina__cabeza"><h2 class="titulo-2" id="cocina-t">${en ? 'From Sancho’s kitchen' : 'De la cocina de Sancho'}</h2>
-      <p>${en ? 'Paella, Galician octopus, tapas, the famous Segovia-style suckling pig and meats off the grill.' : 'Paella, pulpo a la gallega, tapas, el famoso cochinillo segoviano y las carnes asadas.'}</p></div>
+    <div class="cocina__cabeza"><h2 class="titulo-2" id="cocina-t">${en ? 'Miami’s home of cochinillo' : 'La casa del cochinillo en Miami'}</h2>
+      <p>${en ? 'Iberian suckling pig is the house specialty. And paella, Galician octopus, tapas and meats off the grill.' : 'El cochinillo ibérico es la especialidad de la casa. Y también paella, pulpo a la gallega, tapas y carnes a la brasa.'}</p></div>
     <ul class="cocina__lista" role="list" data-destapa>${conFoto.map((e, i) => h`<li class="bocado bocado--${i + 1}">
       ${foto(ctx, e.foto, { sizes: i === 0 ? '(min-width: 62rem) 50vw, 100vw' : '(min-width: 62rem) 25vw, 50vw', cls: 'bocado__foto' })}
       <h3 class="bocado__nombre">${t(e, lang)}</h3>
@@ -203,6 +208,7 @@ function visita(ctx) {
       ${direccion(ctx)}
       ${horario(ctx)}
       <p class="visita__acciones"><a class="boton" href="${local.mapa}" rel="noopener" data-ev="click_directions">${ui.comoLlegar}</a> <a class="boton boton--sutil" href="${tel(local.telefono)}" data-ev="click_call">${ui.llamar} ${telVisible(local.telefono)}</a></p>
+      <p class="visita__celular">${lang === 'en' ? 'Mobile' : 'Celular'}: ${telefono(ctx, local.celular)}</p>
     </div>
   </section>`;
 }
@@ -221,9 +227,9 @@ export function paginas(ctx0) {
         ${fuego(ctx)}
         <section class="semana-bloque" aria-labelledby="sem-t">
           <div class="semana-bloque__cabeza"><h2 class="titulo-2" id="sem-t">${lang === 'en' ? 'Sancho’s week' : 'La semana de Sancho'}</h2>
-          <p>${lang === 'en' ? 'A fixed week you can learn by heart, and happy hour Monday to Friday from 4 to 7.' : 'Una semana fija para aprendérsela de memoria, y happy hour de lunes a viernes de 4 a 7.'}</p>
+          <p>${lang === 'en' ? 'From noon to night: lunch from $10.99, happy hour 4 to 7 and, on Wednesdays and Thursdays, tapas & wine for $35.' : 'Del mediodía a la noche: almuerzo desde $10.99, happy hour de 4 a 7 y, los miércoles y jueves, tapas y vinos por $35.'}</p>
           <p><a class="enlace-flecha" href="${R.semana[lang]}">${lang === 'en' ? 'The whole week' : 'Toda la semana'}${icono('flecha')}</a></p></div>
-          ${semanaLista(ctx, { fotos: true, riel: true })}
+          ${ofertasLista(ctx, { riel: true })}
         </section>
         ${almuerzo(ctx)}
         <section class="musica" aria-labelledby="mus-t">
@@ -235,32 +241,28 @@ export function paginas(ctx0) {
         <section class="club-teaser" aria-labelledby="club-t"><h2 class="titulo-2" id="club-t">${lang === 'en' ? 'Every visit counts' : 'Cada visita cuenta'}</h2>
           <p>${lang === 'en' ? 'The Sancho club is coming: a stamp per visit, a dish on the house when you fill the card, and dessert on your birthday.' : 'Viene el club de Sancho: un sello por visita, un plato de la casa al completar la tarjeta y postre en tu cumpleaños.'}</p>
           <a class="boton" href="${R.club[lang]}">${lang === 'en' ? 'About the club' : 'Así será el club'}</a></section>`;
-      out.push({ ruta: R.inicio[lang], html: pagina(ctx, { ruta: R.inicio[lang], alterna: R.inicio[otro(lang)], titulo: '', descripcion: lang === 'en' ? 'Spanish restaurant on Calle Ocho, Miami: Paella Monday at $12.99, wine Tuesday, bottomless tapas Wednesday, happy hour Monday to Friday, lunch specials from $10.99.' : 'Restaurante español en la Calle Ocho, Miami: lunes de paella a $12.99, martes de vino, miércoles de tapas ilimitadas, happy hour de lunes a viernes y almuerzo desde $10.99.', cuerpo, jsonld: [ctx.jsonldLocal(lang)], cls: 'p-inicio', precargas: h`<link rel="preload" href="/marca/sancho-sol.svg" as="image">${precargaHoy(ctx)}` }) });
+      out.push({ ruta: R.inicio[lang], html: pagina(ctx, { ruta: R.inicio[lang], alterna: R.inicio[otro(lang)], titulo: '', descripcion: lang === 'en' ? 'Miami’s home of cochinillo, on Calle Ocho: Iberian suckling pig, lunch Monday to Friday from $10.99, happy hour 4 to 7 and tapas & wine on Wednesdays and Thursdays, all you can eat and drink for $35.' : 'La casa del cochinillo en Miami, en la Calle Ocho: cochinillo ibérico, almuerzo de lunes a viernes desde $10.99, happy hour de 4 a 7 y tapas y vinos los miércoles y jueves, bebes y comes lo que quieras por $35.', cuerpo, jsonld: [ctx.jsonldLocal(lang)], cls: 'p-inicio', precargas: h`<link rel="preload" href="/marca/sancho-sol.svg" as="image">${precargaHoy(ctx)}` }) });
     }
 
     // ---- la semana
     {
-      const hh = ctx.promos.happy_hour;
-      const cuerpo = h`${cabezaPlato(ctx, { titulo: lang === 'en' ? 'Sancho’s week' : 'La semana de Sancho', entrada: lang === 'en' ? 'Every day has its plate and its price.' : 'Cada día tiene su plato y su precio.', foto: 'jamon' })}
-        ${semanaLista(ctx, { fotos: true, nivel: 2 })}
-        <section class="hh" aria-labelledby="hh-t">${foto(ctx, 'sangria', { sizes: '(min-width: 900px) 30vw, 60vw', cls: 'hh__foto' })}
-          <div><h2 class="titulo-2" id="hh-t">${t(hh, lang).titulo}</h2><p class="hh__cuando">${rangoDias(hh.dias, lang)} · ${hora(hh.desde, lang)} – ${hora(hh.hasta, lang)}</p>
-          <p class="semana__nota">${lang === 'en' ? 'Ask what’s included.' : 'Pregunta qué incluye.'}</p></div></section>
+      const cuerpo = h`${cabezaPlato(ctx, { titulo: lang === 'en' ? 'Sancho’s week' : 'La semana de Sancho', entrada: lang === 'en' ? 'Every deal with its days, its hours and its price.' : 'Cada oferta con sus días, su hora y su precio.', foto: 'jamon' })}
+        ${ofertasLista(ctx, { nivel: 2 })}
         ${almuerzo(ctx)}`;
-      out.push({ ruta: R.semana[lang], html: pagina(ctx, { ruta: R.semana[lang], alterna: R.semana[otro(lang)], titulo: lang === 'en' ? 'The week' : 'La semana', descripcion: lang === 'en' ? 'Sancho’s weekly deals on Calle Ocho: Paella Monday, wine Tuesday, bottomless tapas Wednesday, tapas Thursday, happy hour and lunch specials.' : 'Las promos de la semana en Sancho, Calle Ocho: lunes de paella, martes de vino, miércoles de tapas ilimitadas, jueves de tapas, happy hour y almuerzo.', cuerpo, jsonld: [ctx.jsonldLocal(lang)], cls: 'p-semana' }) });
+      out.push({ ruta: R.semana[lang], html: pagina(ctx, { ruta: R.semana[lang], alterna: R.semana[otro(lang)], titulo: lang === 'en' ? 'The week' : 'La semana', descripcion: lang === 'en' ? 'Sancho’s deals on Calle Ocho: lunch Monday to Friday, noon to 4, from $10.99; happy hour 4 to 7; tapas & wine on Wednesdays and Thursdays, 7 to 10 p.m., all you can eat and drink for $35.' : 'Las ofertas de Sancho en la Calle Ocho: almuerzo de lunes a viernes de 12 a 4 desde $10.99, happy hour de 4 a 7 y tapas y vinos los miércoles y jueves de 7 a 10, bebes y comes lo que quieras por $35.', cuerpo, jsonld: [ctx.jsonldLocal(lang)], cls: 'p-semana' }) });
     }
 
     // ---- menú
     {
       const cuerpo = h`${cabezaPlato(ctx, { titulo: lang === 'en' ? 'Menu' : 'Menú', entrada: lang === 'en' ? 'What’s on every day, and the full menu online.' : 'Lo que hay cada día, y la carta completa en línea.', foto: 'bistec' })}
-        ${almuerzo(ctx)}
+        ${almuerzo(ctx, { ofertas: true })}
         <section class="carta-pendiente" aria-labelledby="cp-t">
           <h2 class="titulo-2" id="cp-t">${lang === 'en' ? 'The full menu' : 'La carta completa'}</h2>
           <p>${lang === 'en' ? 'Tapas, paella, cochinillo, meats and seafood: the whole menu is coming to this page soon, with photos. Meanwhile you can browse it in our online ordering.' : 'Tapas, paella, cochinillo, carnes y mariscos: la carta entera llega pronto a esta página, con fotos. Mientras tanto la ves completa en nuestro pedido en línea.'}</p>
           <p><a class="boton" href="${ctx.local.pedidos[0].url}" rel="noopener" data-ev="click_order">${lang === 'en' ? 'See it in online ordering' : 'Verla en el pedido en línea'}</a></p>
         </section>
         ${especialidades(ctx)}`;
-      out.push({ ruta: R.menu[lang], html: pagina(ctx, { ruta: R.menu[lang], alterna: R.menu[otro(lang)], titulo: lang === 'en' ? 'Menu' : 'Menú', descripcion: lang === 'en' ? 'Lunch specials from $10.99, the $17.99 executive menu and Sancho’s Spanish classics on Calle Ocho, Miami.' : 'Almuerzo desde $10.99, menú ejecutivo a $17.99 y los clásicos españoles de Sancho en la Calle Ocho, Miami.', cuerpo, jsonld: [ctx.jsonldLocal(lang)], cls: 'p-menu' }) });
+      out.push({ ruta: R.menu[lang], html: pagina(ctx, { ruta: R.menu[lang], alterna: R.menu[otro(lang)], titulo: lang === 'en' ? 'Menu' : 'Menú', descripcion: lang === 'en' ? 'Lunch Monday to Friday from $10.99 and Sancho’s kitchen: Iberian suckling pig, paella, Galician octopus, tapas and grilled meats on Calle Ocho, Miami.' : 'Almuerzo de lunes a viernes desde $10.99 y la cocina de Sancho: cochinillo ibérico, paella, pulpo a la gallega, tapas y carnes a la brasa en la Calle Ocho, Miami.', cuerpo, jsonld: [ctx.jsonldLocal(lang)], cls: 'p-menu' }) });
     }
 
     // ---- pedir
@@ -289,8 +291,8 @@ export function paginas(ctx0) {
       const cuerpo = h`${cabezaPlato(ctx, { titulo: lang === 'en' ? 'Visit' : 'Visítanos', entrada: lang === 'en' ? 'On SW 8th Street, Calle Ocho, at SW 132nd Ave.' : 'En la SW 8th Street, la Calle Ocho, a la altura de la SW 132nd Ave.', foto: 'paella' })}
         ${visita(ctx)}
         <section class="contacto"><h2 class="titulo-2">${lang === 'en' ? 'Reservations and questions' : 'Reservas y preguntas'}</h2>
-          <ul class="contacto__lista"><li><span>${ui.telefono}</span> ${telefono(ctx)}</li></ul>${redes(ctx)}</section>`;
-      out.push({ ruta: R.visita[lang], html: pagina(ctx, { ruta: R.visita[lang], alterna: R.visita[otro(lang)], titulo: lang === 'en' ? 'Visit' : 'Visítanos', descripcion: lang === 'en' ? 'Address, hours and phone for Sancho Restaurant: 13202 SW 8th St, Miami, FL 33184.' : 'Dirección, horario y teléfono de Sancho Restaurant: 13202 SW 8th St, Miami, FL 33184.', cuerpo, jsonld: [ctx.jsonldLocal(lang)], cls: 'p-visita' }) });
+          <ul class="contacto__lista"><li><span>${ui.telefono}</span> ${telefono(ctx)}</li><li><span>${lang === 'en' ? 'Mobile' : 'Celular'}</span> ${telefono(ctx, ctx.local.celular)}</li></ul>${redes(ctx)}</section>`;
+      out.push({ ruta: R.visita[lang], html: pagina(ctx, { ruta: R.visita[lang], alterna: R.visita[otro(lang)], titulo: lang === 'en' ? 'Visit' : 'Visítanos', descripcion: lang === 'en' ? 'Address, hours and phones for Sancho Restaurant, Miami’s home of cochinillo: 13202 SW 8th St, Miami, FL 33184. 305-553-6886 · 786-889-2197.' : 'Dirección, horario y teléfonos de Sancho Restaurant, la casa del cochinillo en Miami: 13202 SW 8th St, Miami, FL 33184. 305-553-6886 · 786-889-2197.', cuerpo, jsonld: [ctx.jsonldLocal(lang)], cls: 'p-visita' }) });
     }
 
     out.push({ ruta: R.privacidad[lang], html: pagina(ctx, { ruta: R.privacidad[lang], alterna: R.privacidad[otro(lang)], titulo: lang === 'en' ? 'Privacy' : 'Privacidad', descripcion: lang === 'en' ? 'How this website handles your information.' : 'Cómo trata esta web tu información.', cuerpo: ctx.privacidad(lang), cls: 'p-texto' }) });

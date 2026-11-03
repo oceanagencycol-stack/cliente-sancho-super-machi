@@ -1,142 +1,237 @@
 {
- "nota": "La semana de Sancho tal como la publica su web vieja (portada, vista el 2026-11-02) y la propuesta OI-PR-2026-SM. Lo marcado por_confirmar se confirma con el restaurante antes de lanzar.",
- "semana": [
+ "nota": "Las ofertas de Sancho tal como las mandó el restaurante (mensaje que reenvió Juan el 2026-11-03): almuerzo especial de lunes a viernes de 12 a 4 desde $10.99, happy hour de lunes a viernes de 4 a 7, tapas y vinos los miércoles y jueves de 7 a 10 por $35 (bebes y comes lo que quieras) y el cochinillo ibérico como especialidad de la casa. El lunes de paella, el martes de vino y el menú ejecutivo de la web vieja no están en esa lista y salieron de la web (data/fuentes.json: «retirado»); si siguen, vuelven con su confirmación. «ofertas» alimenta las listas; «semana» es lo que destaca el sol cada día.",
+ "ofertas": [
   {
-   "dia": 1,
-   "id": "lunes-de-paella",
-   "precio": 12.99,
+   "id": "almuerzo",
+   "dias": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
    "desde": "12:00",
-   "foto": "paella",
+   "hasta": "16:00",
+   "precio": 10.99,
+   "foto": "almuerzo",
    "es": {
-    "dia": "Lunes",
-    "titulo": "Lunes de paella",
-    "texto": "Todos los lunes, desde el mediodía hasta el cierre: nuestra paella especial.",
-    "precio_txt": "$12.99"
+    "titulo": "Especial de almuerzo",
+    "texto": "Platos del día: fricasé, picadillo, pierna asada, pescado grillé y más.",
+    "precio_txt": "$10.99",
+    "prefijo": "desde",
+    "mano": "de lunes a viernes"
    },
    "en": {
-    "dia": "Monday",
-    "titulo": "Paella Monday",
-    "texto": "Every Monday from noon until close: our house paella.",
-    "precio_txt": "$12.99"
+    "titulo": "Lunch special",
+    "texto": "Plates of the day: fricassée, picadillo, roast pork, grilled fish and more.",
+    "precio_txt": "$10.99",
+    "prefijo": "from",
+    "mano": "Monday to Friday"
    },
-   "fuente": "portada de la web vieja"
+   "fuente": "mensaje del restaurante que reenvió Juan el 2026-11-03"
   },
   {
-   "dia": 2,
-   "id": "martes-de-vino",
+   "id": "happy-hour",
+   "dias": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "desde": "16:00",
+   "hasta": "19:00",
    "precio": null,
-   "foto": "martes",
+   "foto": "sangria",
    "es": {
-    "dia": "Martes",
-    "titulo": "Martes de vino",
-    "texto": "Vino, sangría y cerveza de barril gratis con $20 de consumo.",
-    "precio_txt": "Gratis con $20"
+    "titulo": "Happy hour",
+    "texto": "Pregunta qué incluye.",
+    "precio_txt": "De 4 a 7",
+    "mano": "de lunes a viernes"
    },
    "en": {
-    "dia": "Tuesday",
-    "titulo": "Wine Tuesday",
-    "texto": "Free wine, sangria or draft beer with a $20 check.",
-    "precio_txt": "Free with $20"
+    "titulo": "Happy hour",
+    "texto": "Ask what’s included.",
+    "precio_txt": "4 to 7",
+    "mano": "Monday to Friday"
    },
-   "fuente": "portada de la web vieja",
-   "por_confirmar": "cuántas bebidas por cada $20 y a qué horas"
+   "fuente": "mensaje del restaurante que reenvió Juan el 2026-11-03"
   },
   {
-   "dia": 3,
-   "id": "miercoles-de-tapas",
-   "precio": 30,
+   "id": "tapas-y-vinos",
+   "dias": [
+    3,
+    4
+   ],
+   "desde": "19:00",
+   "hasta": "22:00",
+   "precio": 35,
    "foto": "tapas",
    "es": {
-    "dia": "Miércoles",
-    "titulo": "Tapas y vino ilimitados",
-    "texto": "Tapas y vino sin límite toda la noche.",
-    "precio_txt": "$30"
+    "titulo": "Tapas y vinos",
+    "texto": "Por $35 bebes y comes lo que quieras.",
+    "precio_txt": "$35",
+    "mano": "miércoles y jueves"
    },
    "en": {
-    "dia": "Wednesday",
-    "titulo": "Bottomless tapas & wine",
-    "texto": "Unlimited tapas and wine.",
-    "precio_txt": "$30"
+    "titulo": "Tapas & wine",
+    "texto": "Eat and drink all you want for $35.",
+    "precio_txt": "$35",
+    "mano": "Wednesday & Thursday"
    },
-   "fuente": "portada de la web vieja ($30); Instagram dice $35 (propuesta OI-PR-2026-SM)",
-   "por_confirmar": "el precio: $30 en la web, $35 en Instagram"
+   "fuente": "mensaje del restaurante que reenvió Juan el 2026-11-03 («Miércoles y jueves de 7pm a 10pm por solo $35 bebés y comes lo que quieras días de tapas y vinos»)"
   },
   {
-   "dia": 4,
-   "id": "jueves-de-tapas",
-   "precio": null,
-   "foto": "tapas2",
-   "es": {
-    "dia": "Jueves",
-    "titulo": "Jueves de tapas",
-    "texto": "Otra noche de tapas en la Calle Ocho.",
-    "precio_txt": "Pregunta el precio"
-   },
-   "en": {
-    "dia": "Thursday",
-    "titulo": "Tapas Thursday",
-    "texto": "Another tapas night on Calle Ocho.",
-    "precio_txt": "Ask for the price"
-   },
-   "fuente": "propuesta OI-PR-2026-SM («Miércoles y Jueves de Tapas», visto en Instagram)",
-   "por_confirmar": "si sigue, precio y condiciones"
-  },
-  {
-   "dia": 5,
-   "id": "viernes",
-   "precio": null,
-   "foto": "carne",
-   "es": {
-    "dia": "Viernes",
-    "titulo": "Fin de semana a la brasa",
-    "texto": "Carnes asadas, cochinillo segoviano y sangría para empezar el fin de semana.",
-    "precio_txt": "La carta"
-   },
-   "en": {
-    "dia": "Friday",
-    "titulo": "Weekend off the grill",
-    "texto": "Grilled meats, Segovia-style suckling pig and sangria to kick off the weekend.",
-    "precio_txt": "Full menu"
-   },
-   "fuente": "especialidades de la portada vieja (no es una promo)"
-  },
-  {
-   "dia": 6,
-   "id": "sabado",
+   "id": "cochinillo",
+   "dias": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "desde": null,
+   "hasta": null,
    "precio": null,
    "foto": "cochinillo",
    "es": {
+    "titulo": "Cochinillo ibérico",
+    "texto": "La especialidad de la casa del cochinillo en Miami, para compartir en la mesa.",
+    "precio_txt": "La especialidad",
+    "mano": "todos los días"
+   },
+   "en": {
+    "titulo": "Iberian suckling pig",
+    "texto": "The specialty of Miami’s home of cochinillo, made for sharing.",
+    "precio_txt": "House specialty",
+    "mano": "every day"
+   },
+   "fuente": "mensaje del restaurante que reenvió Juan el 2026-11-03 («Especialidad de la casa COCHINILLO IBÉRICO»)"
+  }
+ ],
+ "semana": [
+  {
+   "dia": 1,
+   "oferta": "almuerzo",
+   "promo": true,
+   "es": {
+    "dia": "Lunes",
+    "titulo": "Especial de almuerzo",
+    "texto": "De lunes a viernes, de 12 a 4 p. m.: platos del día desde $10.99.",
+    "precio_txt": "$10.99",
+    "prefijo": "desde"
+   },
+   "en": {
+    "dia": "Monday",
+    "titulo": "Lunch special",
+    "texto": "Monday to Friday, noon to 4 p.m.: plates of the day from $10.99.",
+    "precio_txt": "$10.99",
+    "prefijo": "from"
+   }
+  },
+  {
+   "dia": 2,
+   "oferta": "happy-hour",
+   "promo": true,
+   "es": {
+    "dia": "Martes",
+    "titulo": "Happy hour",
+    "texto": "De lunes a viernes, de 4 a 7 p. m. Y antes, el almuerzo especial desde $10.99, de 12 a 4.",
+    "precio_txt": "De 4 a 7"
+   },
+   "en": {
+    "dia": "Tuesday",
+    "titulo": "Happy hour",
+    "texto": "Monday to Friday, 4 to 7 p.m. And before that, the lunch special from $10.99, noon to 4.",
+    "precio_txt": "4 to 7"
+   }
+  },
+  {
+   "dia": 3,
+   "oferta": "tapas-y-vinos",
+   "promo": true,
+   "es": {
+    "dia": "Miércoles",
+    "titulo": "Tapas y vinos",
+    "texto": "Por $35 bebes y comes lo que quieras, de 7 a 10 p. m. Miércoles y jueves.",
+    "precio_txt": "$35"
+   },
+   "en": {
+    "dia": "Wednesday",
+    "titulo": "Tapas & wine",
+    "texto": "Eat and drink all you want for $35, 7 to 10 p.m. Wednesdays and Thursdays.",
+    "precio_txt": "$35"
+   }
+  },
+  {
+   "dia": 4,
+   "oferta": "tapas-y-vinos",
+   "promo": true,
+   "es": {
+    "dia": "Jueves",
+    "titulo": "Tapas y vinos",
+    "texto": "Por $35 bebes y comes lo que quieras, de 7 a 10 p. m. Miércoles y jueves.",
+    "precio_txt": "$35"
+   },
+   "en": {
+    "dia": "Thursday",
+    "titulo": "Tapas & wine",
+    "texto": "Eat and drink all you want for $35, 7 to 10 p.m. Wednesdays and Thursdays.",
+    "precio_txt": "$35"
+   }
+  },
+  {
+   "dia": 5,
+   "oferta": "happy-hour",
+   "promo": true,
+   "es": {
+    "dia": "Viernes",
+    "titulo": "Happy hour",
+    "texto": "El fin de semana empieza a las 4: happy hour hasta las 7, de lunes a viernes.",
+    "precio_txt": "De 4 a 7"
+   },
+   "en": {
+    "dia": "Friday",
+    "titulo": "Happy hour",
+    "texto": "The weekend starts at 4: happy hour until 7, Monday to Friday.",
+    "precio_txt": "4 to 7"
+   }
+  },
+  {
+   "dia": 6,
+   "oferta": "cochinillo",
+   "promo": false,
+   "es": {
     "dia": "Sábado",
-    "titulo": "Cochinillo para la mesa",
-    "texto": "El famoso cochinillo segoviano, para compartir con la familia.",
-    "precio_txt": "La carta"
+    "titulo": "Cochinillo ibérico",
+    "texto": "La especialidad de la casa del cochinillo en Miami, para compartir en la mesa.",
+    "precio_txt": "La especialidad"
    },
    "en": {
     "dia": "Saturday",
-    "titulo": "Suckling pig for the table",
-    "texto": "Our famous Segovia-style suckling pig, made for sharing.",
-    "precio_txt": "Full menu"
-   },
-   "fuente": "especialidades de la portada vieja (no es una promo)"
+    "titulo": "Iberian suckling pig",
+    "texto": "The specialty of Miami’s home of cochinillo, made for sharing.",
+    "precio_txt": "House specialty"
+   }
   },
   {
    "dia": 0,
-   "id": "domingo",
-   "precio": null,
-   "foto": "paella2",
+   "oferta": null,
+   "promo": false,
    "es": {
     "dia": "Domingo",
     "titulo": "Domingo en familia",
-    "texto": "Paella, tapas y sobremesa larga.",
+    "texto": "Cochinillo ibérico, paella y tapas para una sobremesa larga.",
     "precio_txt": "La carta"
    },
    "en": {
     "dia": "Sunday",
     "titulo": "Sunday with family",
-    "texto": "Paella, tapas and a long sobremesa.",
+    "texto": "Iberian suckling pig, paella and tapas for a long sobremesa.",
     "precio_txt": "Full menu"
-   },
-   "fuente": "especialidades de la portada vieja (no es una promo)"
+   }
   }
  ],
  "happy_hour": {
@@ -150,24 +245,41 @@
   "desde": "16:00",
   "hasta": "19:00",
   "es": {
-   "titulo": "Happy hour ilimitado",
+   "titulo": "Happy hour",
    "texto": "De lunes a viernes, de 4 a 7 p. m."
   },
   "en": {
-   "titulo": "Bottomless happy hour",
+   "titulo": "Happy hour",
    "texto": "Monday to Friday, 4 to 7 p.m."
   },
-  "fuente": "portada de la web vieja",
-  "por_confirmar": "qué incluye «ilimitado»"
+  "fuente": "mensaje del restaurante que reenvió Juan el 2026-11-03 («De lunes a viernes de 4pm a 7pm happy hour»); la web vieja decía «ilimitado», que sale"
+ },
+ "tapas_vinos": {
+  "dias": [
+   3,
+   4
+  ],
+  "desde": "19:00",
+  "hasta": "22:00",
+  "precio": 35,
+  "es": {
+   "titulo": "Tapas y vinos",
+   "texto": "Por $35 bebes y comes lo que quieras."
+  },
+  "en": {
+   "titulo": "Tapas & wine",
+   "texto": "Eat and drink all you want for $35."
+  },
+  "fuente": "mensaje del restaurante que reenvió Juan el 2026-11-03"
  },
  "almuerzo": {
   "es": {
    "titulo": "Especial de almuerzo",
-   "texto": "Platos del día a precio de almuerzo."
+   "texto": "De lunes a viernes, de 12 a 4 p. m.: platos del día desde $10.99."
   },
   "en": {
    "titulo": "Lunch special",
-   "texto": "Home-style plates at lunch prices."
+   "texto": "Monday to Friday, noon to 4 p.m.: plates of the day from $10.99."
   },
   "desde": 10.99,
   "platos": [
@@ -212,32 +324,15 @@
     "p": 12.99
    }
   ],
-  "fuente": "portada de la web vieja (bloque «Especial Lunch»)",
-  "por_confirmar": "días y horas del especial; si incluye guarniciones («INCLUYE 2 GUARNICIONES» aparece junto al menú ejecutivo)"
- },
- "ejecutivo": {
-  "precio": 17.99,
-  "es": {
-   "titulo": "Menú ejecutivo",
-   "incluye": [
-    "1 bebida",
-    "1 entrante: tortilla, croqueta o crema",
-    "1 plato fuerte",
-    "2 acompañantes",
-    "Café o flan"
-   ]
-  },
-  "en": {
-   "titulo": "Executive menu",
-   "incluye": [
-    "1 drink",
-    "1 starter: tortilla, croqueta or soup",
-    "1 main",
-    "2 sides",
-    "Coffee or flan"
-   ]
-  },
-  "fuente": "portada de la web vieja",
-  "por_confirmar": "días y horas"
+  "fuente": "mensaje del restaurante que reenvió Juan el 2026-11-03 («De lunes a viernes de 12 pm a 4 pm especial de Lunch desde $10.99»); los platos y sus precios, de la portada de la web vieja",
+  "dias": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "desde_hora": "12:00",
+  "hasta_hora": "16:00"
  }
 }

@@ -275,10 +275,16 @@ export function paginas(ctx0) {
     {
       const en = lang === 'en';
       const recientes = pasados.slice(0, 6);
+      // el mes de la próxima cartelera y cuántas noches trae (solo las de ese mes)
+      const mesProx = proximos.length ? proximos[0].fecha.slice(0, 7) : null;
+      const nProx = proximos.filter((e) => e.fecha.startsWith(mesProx || '-')).length;
+      const Mes = mesProx ? ((m) => m.charAt(0).toUpperCase() + m.slice(1))(mesAnio(+mesProx.slice(0, 4), +mesProx.slice(5, 7), lang).split(' ')[0]) : '';
       const shows = h`<section class="shows" aria-labelledby="shows-t">
           <div class="shows__cabeza">
             <h2 class="titulo-2" id="shows-t">${en ? 'And almost every Friday and Saturday, a show' : 'Y casi cada viernes y sábado, show'}</h2>
-            <p>${en ? `Comedy nights, concerts and cabaret: ${pasados.length} shows since December. The November lineup is announced here.` : `Noches de humor, conciertos y cabaret: ${pasados.length} shows desde diciembre. La cartelera de noviembre se anuncia aquí.`}</p>
+            <p>${mesProx
+              ? (en ? `${Mes} is on the bill: ${nProx} dinner-show nights. And since December, ${pasados.length} shows have played the house.` : `${Mes} ya tiene cartelera: ${nProx} noches de cena con show. Y desde diciembre, ${pasados.length} shows han pasado por la casa.`)
+              : (en ? `Comedy nights, concerts and cabaret: ${pasados.length} shows since December. The next lineup is announced here.` : `Noches de humor, conciertos y cabaret: ${pasados.length} shows desde diciembre. La próxima cartelera se anuncia aquí.`)}</p>
             <p class="shows__acciones"><a class="boton boton--flecha" href="${R.cartelera[lang]}">${en ? 'See the lineup' : 'Ver la cartelera'}${icono('flecha')}</a></p>
           </div>
           ${proximos.length ? pared(ctx, proximos.slice(0, 6), { cls: 'pared--hero' }) : pared(ctx, recientes, { pasado: true, cls: 'pared--hero', sizes: '(min-width: 1100px) 240px, (min-width: 700px) 28vw, 46vw' })}
@@ -294,7 +300,7 @@ export function paginas(ctx0) {
         <section class="proximos" aria-labelledby="prox-t">
           <h2 class="titulo-2" id="prox-t">${lang === 'en' ? 'Coming up' : 'Próximos shows'}</h2>
           ${proximos.length ? pared(ctx, proximos, { eager: true }) : h`<div class="vacio">
-            <p class="vacio__titulo">${lang === 'en' ? 'The November lineup is about to be announced.' : 'La cartelera de noviembre está por anunciarse.'}</p>
+            <p class="vacio__titulo">${lang === 'en' ? 'The next lineup is about to be announced.' : 'La próxima cartelera está por anunciarse.'}</p>
             <p>${lang === 'en' ? 'It goes up here and on Instagram first. Want a heads-up?' : 'Sale aquí y en Instagram primero. ¿Quieres que te avisemos?'}</p>
             <p class="vacio__acciones"><a class="boton" href="${wa(ctx.local.whatsapp, L(MSG.cartelera))}" rel="noopener" data-ev="click_whatsapp">${lang === 'en' ? 'Let me know on WhatsApp' : 'Avísame por WhatsApp'}</a> <a class="boton boton--sutil" href="${ctx.local.redes.instagram}" rel="noopener" data-ev="click_social">@supermachi_miami</a></p>
           </div>`}
