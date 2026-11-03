@@ -231,6 +231,7 @@ html[data-hoy="0"] .hoy-0 .semana__mano-dia,html[data-hoy="1"] .hoy-1 .semana__m
 .almuerzo__lado{display:grid;gap:1.25rem;align-self:start}
 .almuerzo__ejecutivo{padding:1.5rem;border:2px solid var(--tinta);border-radius:calc(var(--radio)*2);display:grid;gap:.6rem;background:var(--sol)}
 .almuerzo__ejecutivo-precio{font-family:var(--font-display);font-weight:900;font-size:3rem;line-height:1;color:var(--rojo);letter-spacing:-.03em}
+.almuerzo__ejecutivo-cuando{font-weight:700}
 .almuerzo__ejecutivo ul{display:grid;gap:.35rem}
 .almuerzo__ejecutivo li{padding-left:1.4rem;position:relative}
 .almuerzo__ejecutivo li::before{content:"";position:absolute;left:0;top:.45em;width:.7rem;height:.7rem;border-radius:50%;background:var(--rojo)}

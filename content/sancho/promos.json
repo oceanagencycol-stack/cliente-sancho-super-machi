@@ -1,5 +1,5 @@
 {
- "nota": "Las ofertas de Sancho tal como las mandó el restaurante (mensaje que reenvió Juan el 2026-11-03): almuerzo especial de lunes a viernes de 12 a 4 desde $10.99, happy hour de lunes a viernes de 4 a 7, tapas y vinos los miércoles y jueves de 7 a 10 por $35 (bebes y comes lo que quieras) y el cochinillo ibérico como especialidad de la casa. El lunes de paella y el martes de vino de la web vieja no están en esa lista y salieron de la web (data/fuentes.json: «retirado»; Juan confirmó el mismo día que los lunes ya no hay paella). El menú ejecutivo sigue, a $19.99 (Juan, 2026-11-03). «ofertas» alimenta las listas; «semana» es lo que destaca el sol cada día.",
+ "nota": "Las ofertas de Sancho tal como las mandó el restaurante (mensaje que reenvió Juan el 2026-11-03): almuerzo especial de lunes a viernes de 12 a 4 desde $10.99, happy hour de lunes a viernes de 4 a 7, tapas y vinos los miércoles y jueves de 7 a 10 por $35 (bebes y comes lo que quieras) y el cochinillo ibérico como especialidad de la casa. El lunes de paella y el martes de vino de la web vieja no están en esa lista y salieron de la web (data/fuentes.json: «retirado»; Juan confirmó el mismo día que los lunes ya no hay paella). El lunch ejecutivo sigue: $19.99, de lunes a viernes de 12 a 4, con vino o cerveza, tapa, plato fuerte con dos acompañantes y postre o café (Juan, 2026-11-03). «ofertas» alimenta las listas; «semana» es lo que destaca el sol cada día.",
  "ofertas": [
   {
    "id": "almuerzo",
@@ -16,14 +16,14 @@
    "foto": "almuerzo",
    "es": {
     "titulo": "Especial de almuerzo",
-    "texto": "Platos del día: fricasé, picadillo, pierna asada, pescado grillé y más.",
+    "texto": "Platos del día desde $10.99, o el lunch ejecutivo a $19.99: vino o cerveza, tapa, plato fuerte y postre o café.",
     "precio_txt": "$10.99",
     "prefijo": "desde",
     "mano": "de lunes a viernes"
    },
    "en": {
     "titulo": "Lunch special",
-    "texto": "Plates of the day: fricassée, picadillo, roast pork, grilled fish and more.",
+    "texto": "Plates of the day from $10.99, or the $19.99 executive lunch: wine or beer, a tapa, a main and dessert or coffee.",
     "precio_txt": "$10.99",
     "prefijo": "from",
     "mano": "Monday to Friday"
@@ -119,14 +119,14 @@
    "es": {
     "dia": "Lunes",
     "titulo": "Especial de almuerzo",
-    "texto": "De lunes a viernes, de 12 a 4 p. m.: platos del día desde $10.99.",
+    "texto": "De lunes a viernes, de 12 a 4 p. m.: platos del día desde $10.99, o el lunch ejecutivo a $19.99 con vino o cerveza, tapa, plato fuerte y postre o café.",
     "precio_txt": "$10.99",
     "prefijo": "desde"
    },
    "en": {
     "dia": "Monday",
     "titulo": "Lunch special",
-    "texto": "Monday to Friday, noon to 4 p.m.: plates of the day from $10.99.",
+    "texto": "Monday to Friday, noon to 4 p.m.: plates of the day from $10.99, or the $19.99 executive lunch with wine or beer, a tapa, a main and dessert or coffee.",
     "precio_txt": "$10.99",
     "prefijo": "from"
    }
@@ -337,27 +337,33 @@
  },
  "ejecutivo": {
   "precio": 19.99,
+  "dias": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "desde": "12:00",
+  "hasta": "16:00",
   "es": {
-   "titulo": "Menú ejecutivo",
+   "titulo": "Lunch ejecutivo",
    "incluye": [
-    "1 bebida",
-    "1 entrante: tortilla, croqueta o crema",
-    "1 plato fuerte",
-    "2 acompañantes",
-    "Café o flan"
+    "Un vino o cerveza",
+    "Una tapa",
+    "Plato fuerte con dos acompañantes",
+    "Un postre o café"
    ]
   },
   "en": {
-   "titulo": "Executive menu",
+   "titulo": "Executive lunch",
    "incluye": [
-    "1 drink",
-    "1 starter: tortilla, croqueta or soup",
-    "1 main",
-    "2 sides",
-    "Coffee or flan"
+    "A glass of wine or a beer",
+    "A tapa",
+    "A main with two sides",
+    "Dessert or coffee"
    ]
   },
-  "fuente": "Juan, 2026-11-03 11:00 («el ejecutivo sí, por 19.99»); qué incluye, de la portada de la web vieja (donde costaba $17.99)",
-  "por_confirmar": "días y horas; que siga incluyendo lo mismo"
+  "fuente": "Juan, 2026-11-03 15:33 («Lunch Ejecutivo por solo 19.99 … De lunes a viernes 12 pm a 4 pm»)"
  }
 }

@@ -181,8 +181,9 @@ with sync_playwright() as p:
     wa_sa = 'a[href^="https://wa.me/17868892197"]'
     comprobar(pg.locator(f'main {wa_sa}').count() >= 2 and pg.locator(f'.pie {wa_sa}').count() == 1 and pg.locator(f'.acciones {wa_sa}').count() == 1, 'el WhatsApp de Sancho (786-889-2197) en la visita, el pie y la barra del teléfono')
     pg.goto(SA + '/menu/', wait_until='networkidle')
-    comprobar(pg.locator('.ofertas__lista li').count() == 3 and '7–10' in pg.locator('.ofertas__lista').inner_text(), 'el menú tiene las ofertas de corrido (12–4, 4–7, 7–10)')
-    comprobar('$19.99' in pg.locator('.almuerzo__ejecutivo').inner_text() and '$17.99' not in pg.content(), 'el menú ejecutivo a $19.99 (ya no $17.99)')
+    comprobar(pg.locator('.ofertas__lista li').count() == 4 and '7–10' in pg.locator('.ofertas__lista').inner_text() and 'Lunch ejecutivo' in pg.locator('.ofertas__lista').inner_text(), 'el menú tiene las ofertas de corrido (12–4 almuerzo y lunch ejecutivo, 4–7, 7–10)')
+    ej = pg.locator('.almuerzo__ejecutivo').inner_text()
+    comprobar('$19.99' in ej and 'Lunes a viernes' in ej and 'Una tapa' in ej and 'por confirmar' not in ej and '$17.99' not in pg.content(), 'el lunch ejecutivo: $19.99, de lunes a viernes de 12 a 4, con lo que incluye')
     pg.goto(SA + '/pedir/', wait_until='networkidle')
     hrefs = pg.locator('.pedidos a').evaluate_all('as => as.map(a => a.href)')
     comprobar(len(hrefs) == 4 and 'order.online' in hrefs[0], f'pedidos: {hrefs}')

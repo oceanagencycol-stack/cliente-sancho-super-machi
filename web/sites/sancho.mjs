@@ -172,12 +172,13 @@ function almuerzo(ctx, { titulo = 'h2', eager = false, ofertas = false } = {}) {
     ${cuando(e, () => h`<div class="almuerzo__ejecutivo" id="ejecutivo">
       <h3 class="titulo-3">${t(e, lang).titulo}</h3>
       <p class="almuerzo__ejecutivo-precio cifra">${precio(e.precio)}</p>
+      ${cuando(e.desde, () => h`<p class="almuerzo__ejecutivo-cuando">${rangoDias(e.dias, lang)} · ${hora(e.desde, lang)} – ${hora(e.hasta, lang)}</p>`)}
       <ul>${t(e, lang).incluye.map((x) => h`<li>${x}</li>`)}</ul>
       ${cuando(e.por_confirmar, () => h`<p class="semana__nota">${en ? 'Days and hours to be confirmed with the restaurant.' : 'Días y horas por confirmar con el restaurante.'}</p>`)}
     </div>`)}
     ${cuando(ofertas, () => h`<div class="ofertas">
       <h3 class="titulo-3">${en ? 'From noon to night' : 'Del mediodía a la noche'}</h3>
-      <ol class="ofertas__lista">${ctx.promos.ofertas.filter((o) => o.desde).map((o) => { const x = t(o, lang); return h`<li><span class="ofertas__hora cifra">${franja(o)}</span><span class="ofertas__que"><b>${x.titulo}${cuando(o.precio != null, () => h` · <span class="cifra">${cuando(x.prefijo, () => `${x.prefijo} `)}${precio(o.precio)}</span>`)}</b><small>${rangoDias(o.dias, lang)}</small></span></li>`; })}</ol>
+      <ol class="ofertas__lista">${ctx.promos.ofertas.filter((o) => o.desde).flatMap((o) => (o.id === 'almuerzo' && e?.desde ? [o, e] : [o])).map((o) => { const x = t(o, lang); return h`<li><span class="ofertas__hora cifra">${franja(o)}</span><span class="ofertas__que"><b>${x.titulo}${cuando(o.precio != null, () => h` · <span class="cifra">${cuando(x.prefijo, () => `${x.prefijo} `)}${precio(o.precio)}</span>`)}</b><small>${rangoDias(o.dias, lang)}</small></span></li>`; })}</ol>
       <p><a class="enlace-flecha" href="${R.semana[lang]}">${en ? 'The whole week' : 'Toda la semana'}${icono('flecha')}</a></p>
     </div>`)}
     </div>
@@ -273,7 +274,7 @@ export function paginas(ctx0) {
           <p><a class="boton" href="${ctx.local.pedidos[0].url}" rel="noopener" data-ev="click_order">${lang === 'en' ? 'See it in online ordering' : 'Verla en el pedido en línea'}</a></p>
         </section>
         ${especialidades(ctx)}`;
-      out.push({ ruta: R.menu[lang], html: pagina(ctx, { ruta: R.menu[lang], alterna: R.menu[otro(lang)], titulo: lang === 'en' ? 'Menu' : 'Menú', descripcion: lang === 'en' ? 'Lunch Monday to Friday from $10.99, the $19.99 executive menu and Sancho’s kitchen: Iberian suckling pig, paella, Galician octopus, tapas and grilled meats on Calle Ocho, Miami.' : 'Almuerzo de lunes a viernes desde $10.99, menú ejecutivo a $19.99 y la cocina de Sancho: cochinillo ibérico, paella, pulpo a la gallega, tapas y carnes a la brasa en la Calle Ocho, Miami.', cuerpo, jsonld: [ctx.jsonldLocal(lang)], cls: 'p-menu' }) });
+      out.push({ ruta: R.menu[lang], html: pagina(ctx, { ruta: R.menu[lang], alterna: R.menu[otro(lang)], titulo: lang === 'en' ? 'Menu' : 'Menú', descripcion: lang === 'en' ? 'Lunch Monday to Friday from $10.99, the $19.99 executive lunch and Sancho’s kitchen: Iberian suckling pig, paella, Galician octopus, tapas and grilled meats on Calle Ocho, Miami.' : 'Almuerzo de lunes a viernes desde $10.99, lunch ejecutivo a $19.99 y la cocina de Sancho: cochinillo ibérico, paella, pulpo a la gallega, tapas y carnes a la brasa en la Calle Ocho, Miami.', cuerpo, jsonld: [ctx.jsonldLocal(lang)], cls: 'p-menu' }) });
     }
 
     // ---- pedir

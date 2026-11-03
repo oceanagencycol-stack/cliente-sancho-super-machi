@@ -237,12 +237,12 @@
    "estado": "verificado"
   },
   {
-   "dato": "menú ejecutivo",
-   "valor": "$19.99: bebida, entrante (tortilla, croqueta o crema), plato fuerte, 2 acompañantes, café o flan",
-   "fuente": "Juan, 2026-11-03 11:00 («el ejecutivo sí, por 19.99») + qué incluye, de https://sanchorestaurantemiami.com (portada; ahí costaba $17.99)",
+   "dato": "lunch ejecutivo",
+   "valor": "$19.99, de lunes a viernes de 12 a 4 p. m.: un vino o cerveza, una tapa, plato fuerte con dos acompañantes, un postre o café",
+   "fuente": "Juan, 2026-11-03 15:33 («Lunch Ejecutivo por solo 19.99 … De lunes a viernes 12 pm a 4 pm»)",
    "visto": "2026-11-03",
-   "estado": "por_confirmar",
-   "nota": "sigue y cuesta $19.99; faltan días y horas, y confirmar que incluye lo mismo"
+   "estado": "verificado",
+   "nota": "la web vieja lo llamaba «menú ejecutivo», a $17.99 y con otro contenido (bebida, entrante, plato fuerte, 2 acompañantes, café o flan)"
   },
   {
    "dato": "carta completa",
