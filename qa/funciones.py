@@ -180,6 +180,8 @@ with sync_playwright() as p:
     pg.goto(SA + '/visita/', wait_until='networkidle')
     wa_sa = 'a[href^="https://wa.me/17868892197"]'
     comprobar(pg.locator(f'main {wa_sa}').count() >= 2 and pg.locator(f'.pie {wa_sa}').count() == 1 and pg.locator(f'.acciones {wa_sa}').count() == 1, 'el WhatsApp de Sancho (786-889-2197) en la visita, el pie y la barra del teléfono')
+    hz = pg.locator('main .horario__lista').first.inner_text()
+    comprobar('Domingo a jueves' in hz and '10 p. m.' in hz and 'Viernes y sábado' in hz and '11 p. m.' in hz and 'Horario por confirmar' not in pg.content(), 'el horario confirmado de Sancho: domingo a jueves 12–10, viernes y sábado 12–11')
     pg.goto(SA + '/menu/', wait_until='networkidle')
     comprobar(pg.locator('.ofertas__lista li').count() == 4 and '7–10' in pg.locator('.ofertas__lista').inner_text() and 'Lunch ejecutivo' in pg.locator('.ofertas__lista').inner_text(), 'el menú tiene las ofertas de corrido (12–4 almuerzo y lunch ejecutivo, 4–7, 7–10)')
     ej = pg.locator('.almuerzo__ejecutivo').inner_text()

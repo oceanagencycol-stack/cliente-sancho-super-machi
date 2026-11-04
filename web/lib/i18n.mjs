@@ -61,9 +61,14 @@ export function rangoDias(dias, lang) {
     ini = d; prev = d;
   }
   if (ini !== null) tramos.push([ini, prev]);
+  // la semana es un círculo: un tramo que termina el domingo se une al que empieza el lunes («domingo a jueves»)
+  if (tramos.length > 1 && tramos[0][0] === 1 && tramos[tramos.length - 1][1] === 0) {
+    const ultimo = tramos.pop();
+    tramos[0] = [ultimo[0], tramos[0][1]];
+  }
   const nombre = (d) => (lang === 'en' ? DIAS.en[d] : DIAS.es[d]);
   // dos días seguidos se dicen con «y» («miércoles y jueves»); tres o más, como tramo («lunes a viernes»)
-  const junto = (a, b) => (orden.indexOf(b) - orden.indexOf(a) === 1 ? (lang === 'en' ? 'and' : 'y') : (lang === 'en' ? 'to' : 'a'));
+  const junto = (a, b) => ((orden.indexOf(b) - orden.indexOf(a) + 7) % 7 === 1 ? (lang === 'en' ? 'and' : 'y') : (lang === 'en' ? 'to' : 'a'));
   const txt = tramos.map(([a, b]) => (a === b ? nombre(a) : `${nombre(a)} ${junto(a, b)} ${nombre(b)}`))
     .join(lang === 'en' ? ', ' : ', ');
   return txt.charAt(0).toUpperCase() + txt.slice(1);

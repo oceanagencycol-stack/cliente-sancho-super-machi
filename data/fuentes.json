@@ -185,11 +185,11 @@
   },
   {
    "dato": "horario",
-   "valor": "«12:00 M. A 12:00 P.M» (de mediodía a medianoche, se entiende)",
-   "fuente": "https://sanchorestaurantemiami.com (tooltip del reloj de la cabecera)",
-   "visto": "2026-11-02",
-   "estado": "por_confirmar",
-   "nota": "ambiguo; Google Business manda"
+   "valor": "D–J 12:00–22:00; V–S 12:00–23:00",
+   "fuente": "el restaurante, vía Jordan Aragón (Ocean) en la sesión del 2026-11-04 12:00; reemplaza «12:00 M. A 12:00 P.M» del tooltip de la web vieja",
+   "visto": "2026-11-04",
+   "estado": "verificado",
+   "nota": "confirmado"
   },
   {
    "dato": "Lunes de paella",

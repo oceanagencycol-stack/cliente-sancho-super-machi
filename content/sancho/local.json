@@ -28,11 +28,11 @@
  "telefono": "+13055536886",
  "whatsapp": "17868892197",
  "horario": {
-  "confirmado": false,
-  "fuente": "tooltip del reloj en la cabecera de la web vieja: «12:00 M. A 12:00 P.M»",
+  "confirmado": true,
+  "fuente": "el restaurante, vía Jordan Aragón (Ocean), 2026-11-04 12:00",
   "texto": {
-   "es": "De mediodía a medianoche (por confirmar)",
-   "en": "Noon to midnight (to be confirmed)"
+   "es": "Domingo a jueves de 12 m. a 10 p. m.; viernes y sábado de 12 m. a 11 p. m.",
+   "en": "Sunday to Thursday noon to 10 p.m.; Friday and Saturday noon to 11 p.m."
   },
   "franjas": [
    {
@@ -41,12 +41,18 @@
      1,
      2,
      3,
-     4,
+     4
+    ],
+    "abre": "12:00",
+    "cierra": "22:00"
+   },
+   {
+    "dias": [
      5,
      6
     ],
     "abre": "12:00",
-    "cierra": "00:00"
+    "cierra": "23:00"
    }
   ]
  },
