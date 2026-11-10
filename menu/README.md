@@ -17,8 +17,12 @@ desde el QR de las mesas.
 - **Club y Wallet (Pleamar):** el bloque «Club Super Machi» lleva al registro del club en Pleamar
   (`https://pleamar-ochre.vercel.app/go/supermachi-menu`, enlace con origen `qr / mesa / menu-digital`, con
   `utm_source` = el `src` que trae el QR). Ahí el cliente deja sus datos y recibe su tarjeta en Apple Wallet o Google
-  Wallet; la tarjeta, a su vez, trae «Ver la carta» con la dirección del QR. Se enciende con `"club": {"activo": true}`
-  en `carta.json` cuando el club exista en Pleamar (`scripts/seed-restaurants.ts` con `SEED_SOLO=super-machi`).
+  Wallet; la tarjeta, a su vez, enlaza a la carta (la «Web» del negocio en Pleamar es la dirección del QR). El club ya
+  existe en Pleamar producción (creado desde el panel el 2026-11-10): negocio `super-machi-restaurant`, club
+  `club-super-machi` (10 sellos, llamas, icono cerdito), enlace `supermachi-menu` → `/j/super-machi-restaurant/club-super-machi`
+  (comprobado: conserva los `utm_*`). Se enciende con `"club": {"activo": true}` en `carta.json` cuando Juan dé el visto
+  bueno: antes conviene que el restaurante confirme el premio y que Wallet esté activo (Google: llave de la cuenta de
+  servicio en Integraciones; Apple: cuenta Apple Developer). Sin Wallet, el cliente igual recibe su tarjeta web con QR.
 - **Origen del escaneo:** el QR redirige a `…/?src=qr-mesa`; el menú lo conserva al cambiar de idioma y lo pasa al club.
 
 ## Cómo se edita (sin tocar nada impreso)
