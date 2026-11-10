@@ -152,6 +152,62 @@
    "visto": "2026-11-02",
    "estado": "por_confirmar",
    "nota": "la foto es de enero de 2025; el caballete de la misma foto dice «Buffet 9.99», hoy la web dice $12.99, por eso la web nueva recorta la foto sin el caballete"
+  },
+  {
+   "dato": "carta vigente (menú digital)",
+   "valor": "content/supermachi/carta.json: 176 platos y bebidas en 18 secciones",
+   "fuente": "4 fotos de la carta impresa que mandó Juan el 2026-11-10 (carnes y pescados, entrantes, recomendaciones del chef, bebidas); postres y café de los PDF de dic-2024 (content/supermachi/menu.json)",
+   "visto": "2026-11-10",
+   "estado": "una_fuente"
+  },
+  {
+   "dato": "precios de la carta impresa nov-2026",
+   "valor": "guardados en carta.json (campo p); el menú digital no los muestra por pedido de Juan",
+   "fuente": "fotos de la carta impresa, 2026-11-10",
+   "visto": "2026-11-10",
+   "estado": "una_fuente"
+  },
+  {
+   "dato": "menú de grupo: plato «… con Papa» ($15)",
+   "valor": "el nombre está cortado en la foto; no se publica",
+   "fuente": "foto de la carta impresa, 2026-11-10",
+   "visto": "2026-11-10",
+   "estado": "por_confirmar"
+  },
+  {
+   "dato": "menú de grupo: «Pollo Asado estilo a la Abuela»",
+   "valor": "se lee «…Asado estilo a la Abuela / …ther's roast chicken»; se publica como pollo asado",
+   "fuente": "foto de la carta impresa, 2026-11-10",
+   "visto": "2026-11-10",
+   "estado": "por_confirmar"
+  },
+  {
+   "dato": "Ensalada de Tomate: precio",
+   "valor": "no se lee en la foto",
+   "fuente": "foto de la carta impresa, 2026-11-10",
+   "visto": "2026-11-10",
+   "estado": "por_confirmar"
+  },
+  {
+   "dato": "postres y café siguen en la carta",
+   "valor": "la carta impresa nueva no los trae; el menú digital los muestra con los de dic-2024",
+   "fuente": "content/supermachi/menu.json (PDF dic-2024) + pedido de Juan del 2026-11-10 («complétalo con lo que falte… como postres y café»)",
+   "visto": "2026-11-10",
+   "estado": "por_confirmar"
+  },
+  {
+   "dato": "fotos de platos asignadas por Ocean",
+   "valor": "bistec encebollado (DSC00265), ternera guisada (DSC00627), fricasé de cerdo (DSC00273), rabo encendido (DSC00316-2), jarrete de cordero (DSC00329), volcán de chocolate (DSC00656) y old fashioned (DSC00688): son fotos del restaurante, pero qué plato muestra cada una lo dedujo Ocean (foto_por_confirmar en carta.json)",
+   "fuente": "biblioteca de medios del restaurante, revisada el 2026-11-10",
+   "visto": "2026-11-10",
+   "estado": "por_confirmar"
+  },
+  {
+   "dato": "menú de niños, happy hour de oct-2024 y propina del 18 %",
+   "valor": "estaban en los PDF viejos y no en la carta impresa nueva; el menú digital no los muestra",
+   "fuente": "comparación PDF dic-2024 vs carta impresa nov-2026",
+   "visto": "2026-11-10",
+   "estado": "retirado"
   }
  ],
  "sancho": [

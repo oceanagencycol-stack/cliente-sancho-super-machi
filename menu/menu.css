@@ -1,0 +1,131 @@
+/* Menú digital de Súper Machi — la noche de ladrillo de la web (DESIGN.md), hecha para leerse en la mesa con poca luz.
+   Una sola firma: el carril de las recomendaciones del chef. Lo demás, quieto y legible. */
+@font-face{font-family:'Machi Serif';src:url(/fuentes/machi-serif.woff2) format('woff2');font-weight:400 800;font-style:normal;font-display:swap}
+@font-face{font-family:'Machi Serif';src:url(/fuentes/machi-serif-italic.woff2) format('woff2');font-weight:400 800;font-style:italic;font-display:swap}
+@font-face{font-family:'Machi Text';src:url(/fuentes/machi-text.woff2) format('woff2');font-weight:400 700;font-style:normal;font-display:swap}
+@font-face{font-family:'Machi Display';src:url(/fuentes/machi-display.woff2) format('woff2');font-weight:600 900;font-style:normal;font-display:swap}
+:root{--noche:#150D0B;--muro:#22130F;--junta:#3B241C;--crema:#F2E6D0;--humo:#B9A592;--rojo:#BC2D27;--rojo-claro:#EC6650;--brasa:#F7922B;
+  --serif:'Machi Serif',Georgia,serif;--texto:'Machi Text',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;--display:'Machi Display','Arial Narrow',sans-serif;
+  --lado:1rem;--ancho:68rem;color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:7.5rem}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--noche);color:var(--crema);font:400 1rem/1.5 var(--texto);text-rendering:optimizeLegibility}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--brasa);outline-offset:2px}
+ul{margin:0;padding:0;list-style:none}
+h1,h2,h3,p,figure{margin:0}
+.oculto{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.saltar{position:absolute;left:-999px;top:0;background:var(--brasa);color:var(--noche);padding:.5rem 1rem;z-index:20}
+.saltar:focus{left:0}
+
+/* cabecera */
+.cabecera{display:flex;align-items:center;justify-content:space-between;gap:1rem;max-width:var(--ancho);margin:0 auto;padding:.75rem var(--lado) .25rem}
+.cabecera__marca img{height:2.75rem;width:auto}
+.cabecera__idioma{display:grid;place-items:center;min-width:2.75rem;height:2.75rem;border:1px solid var(--junta);border-radius:999px;font:700 .82rem/1 var(--texto);letter-spacing:.08em;text-decoration:none;color:var(--humo)}
+.cabecera__idioma:hover{color:var(--crema);border-color:var(--humo)}
+
+/* portada */
+.portada{max-width:var(--ancho);margin:0 auto;padding:1.25rem var(--lado) .75rem}
+.portada__titulo{display:flex;align-items:flex-end;gap:.35rem;font:700 clamp(2.6rem,11vw,4.4rem)/.95 var(--serif);letter-spacing:-.03em}
+.llama{width:.62em;height:.62em;flex:none;margin-bottom:.1em;fill:var(--brasa)}
+.llama path{fill:var(--brasa)}
+.portada__bajada{margin-top:.5rem;color:var(--humo);font:italic 500 1.05rem/1.3 var(--serif)}
+
+/* promociones */
+.promos{max-width:var(--ancho);margin:0 auto;padding:.75rem var(--lado) 0}
+.promos ul{display:grid;gap:.6rem}
+@media (min-width:40rem){.promos ul{grid-template-columns:1fr 1fr}}
+.promo{padding:.85rem 1rem;border-left:3px solid var(--rojo);background:var(--muro)}
+.promo__titulo{font:800 1.05rem/1.1 var(--display);letter-spacing:.04em;text-transform:uppercase;color:var(--brasa)}
+.promo p{margin-top:.3rem;color:var(--crema);font-size:.93rem}
+
+/* barra fija: buscador + índice */
+.barra{position:sticky;top:0;z-index:10;margin-top:1rem;background:rgba(21,13,11,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--junta)}
+.buscar{display:block;max-width:var(--ancho);margin:0 auto;padding:.6rem var(--lado) .35rem}
+.buscar input{width:100%;height:2.75rem;padding:0 1rem;border:1px solid var(--junta);border-radius:999px;background:#1C110E;color:var(--crema);font:inherit;font-size:1rem}
+.buscar input::placeholder{color:var(--humo)}
+.indice{max-width:var(--ancho);margin:0 auto;overflow-x:auto;scrollbar-width:none;-webkit-mask:linear-gradient(90deg,#000 92%,transparent)}
+.indice::-webkit-scrollbar{display:none}
+.indice ul{display:flex;gap:.4rem;padding:.25rem var(--lado) .6rem;width:max-content}
+.indice a{display:block;padding:.45rem .8rem;border-radius:999px;background:var(--muro);color:var(--humo);font-size:.88rem;font-weight:600;text-decoration:none;white-space:nowrap}
+.indice a[aria-current=true]{background:var(--rojo);color:var(--crema)}
+
+/* secciones */
+.seccion{max-width:var(--ancho);margin:0 auto;padding:2.25rem var(--lado) .5rem}
+.seccion__cabeza{margin-bottom:1rem}
+.seccion__titulo{font:600 italic clamp(1.9rem,7vw,2.6rem)/1 var(--serif);letter-spacing:-.02em}
+.seccion__nota{margin-top:.4rem;color:var(--humo);font-size:.92rem;max-width:38rem}
+
+/* platos con foto: fila en el teléfono, tarjeta en pantallas grandes */
+.platos{display:grid;gap:1px;background:var(--junta);border-block:1px solid var(--junta)}
+.plato{display:grid;grid-template-columns:1fr 8.5rem;gap:.9rem;align-items:start;padding:1rem 0;background:var(--noche)}
+.plato--sin-foto{grid-template-columns:1fr}
+.plato__nombre{font:700 1.18rem/1.15 var(--serif);letter-spacing:-.01em}
+.plato__desc{margin-top:.3rem;color:var(--humo);font-size:.93rem;line-height:1.45}
+.plato__variantes{margin-top:.35rem;font-size:.88rem;color:var(--crema)}
+.plato__foto{padding:0;border:0;background:none;cursor:zoom-in;border-radius:3px;overflow:hidden}
+@media (min-width:40rem){
+  .platos{grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem;background:none;border:0}
+  .plato,.plato--sin-foto{grid-template-columns:1fr;padding:0;align-content:start}
+  .plato__foto{order:-1}
+}
+@media (min-width:60rem){.platos{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+.foto{position:relative;aspect-ratio:4/3;background:var(--muro);overflow:hidden}
+.foto img{width:100%;height:100%;object-fit:cover}
+.foto__ref{position:absolute;left:0;bottom:0;padding:.15rem .4rem;background:rgba(14,8,7,.78);color:var(--humo);font-size:.62rem;letter-spacing:.02em;line-height:1.3}
+@media (hover:hover){.plato__foto img{transition:transform .5s cubic-bezier(.2,.7,.2,1)}.plato__foto:hover img{transform:scale(1.04)}}
+
+/* etiquetas */
+.etiquetas{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.5rem}
+.et{padding:.12rem .45rem;border:1px solid var(--junta);border-radius:2px;color:var(--humo);font:700 .7rem/1.4 var(--texto);letter-spacing:.05em;text-transform:uppercase}
+.et--oferta{border-color:var(--rojo);color:var(--rojo-claro)}
+.et--hh{border-color:var(--brasa);color:var(--brasa)}
+.et--personas{background:var(--junta);border-color:var(--junta);color:var(--crema)}
+
+/* la firma: el carril del chef */
+.carril{display:grid;grid-auto-flow:column;grid-auto-columns:min(84%,26rem);gap:.85rem;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:.75rem;margin-inline:calc(var(--lado) * -1);padding-inline:var(--lado);scroll-padding-inline:var(--lado);scrollbar-width:thin;scrollbar-color:var(--junta) transparent}
+.destacado{scroll-snap-align:start;background:var(--muro);display:grid;grid-template-rows:auto 1fr}
+.foto--ancha{aspect-ratio:16/9}
+.destacado__texto{padding:.85rem 1rem 1rem}
+.destacado__sello{display:inline-block;margin-bottom:.4rem;padding:.15rem .5rem;background:var(--rojo);color:var(--crema);font:800 .78rem/1.3 var(--display);letter-spacing:.1em;text-transform:uppercase}
+.destacado__nombre{font:700 1.35rem/1.1 var(--serif)}
+.destacado__desc{margin-top:.35rem;color:var(--humo);font-size:.92rem}
+.destacado--firma .destacado__nombre{color:var(--crema)}
+@media (min-width:72rem){.carril{grid-auto-columns:calc((100% - 1.7rem) / 3)}}
+
+/* listas (acompañantes, grupo, bebidas) */
+.lista{columns:1;column-gap:2rem}
+@media (min-width:40rem){.lista{columns:2}}
+@media (min-width:60rem){.seccion--lista .lista{columns:3}}
+.fila{break-inside:avoid;display:block;padding:.6rem 0;border-bottom:1px solid var(--junta)}
+.fila__nombre{font:600 1.04rem/1.25 var(--texto)}
+.fila__desc{display:block;color:var(--humo);font-size:.86rem}
+.fila .etiquetas{margin-top:.3rem}
+.grupo+.grupo{margin-top:1.5rem}
+.grupo__titulo{margin-bottom:.25rem;font:800 1rem/1.2 var(--display);letter-spacing:.08em;text-transform:uppercase;color:var(--brasa)}
+
+/* búsqueda */
+.vacio{max-width:var(--ancho);margin:2rem auto;padding:0 var(--lado);color:var(--humo)}
+[hidden]{display:none!important}
+
+/* pie */
+.pie{max-width:var(--ancho);margin:3rem auto 0;padding:2rem var(--lado) calc(2.5rem + env(safe-area-inset-bottom));border-top:1px solid var(--junta);color:var(--humo);font-size:.9rem;display:grid;gap:.6rem}
+.pie__precios{color:var(--crema);font:600 italic 1.15rem/1.3 var(--serif)}
+.pie__aviso{font-size:.8rem}
+.pie__acciones{display:flex;flex-wrap:wrap;gap:.5rem;margin:.6rem 0}
+.boton{display:inline-flex;align-items:center;min-height:2.75rem;padding:0 1.1rem;border-radius:2px;background:var(--rojo);color:var(--crema);font-weight:700;text-decoration:none}
+.boton:hover{background:#A92823}
+.boton--linea{background:none;border:1px solid var(--junta);color:var(--crema)}
+.boton--linea:hover{background:var(--muro)}
+.pie address{font-style:normal;font-size:.82rem}
+
+/* visor de fotos */
+.visor{max-width:min(94vw,60rem);width:100%;padding:0;border:0;background:var(--noche);color:var(--crema)}
+.visor::backdrop{background:rgba(8,4,3,.86)}
+.visor img{width:100%;height:auto}
+.visor p{padding:.75rem 1rem 1rem;font:700 1.2rem/1.2 var(--serif)}
+.visor form{position:absolute;right:.4rem;top:.4rem}
+.visor__cerrar{width:2.75rem;height:2.75rem;border:0;border-radius:50%;background:rgba(14,8,7,.75);color:var(--crema);font-size:1.6rem;line-height:1;cursor:pointer}

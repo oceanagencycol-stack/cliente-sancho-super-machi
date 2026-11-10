@@ -1,0 +1,2295 @@
+{
+ "restaurante": "El Mesón de Súper Machi",
+ "actualizado": "2026-11-10",
+ "fuente": {
+  "carta_impresa": "Cuatro fotos de la carta impresa vigente que mandó Juan el 2026-11-10 (carnes y pescados, entrantes, recomendaciones del chef, bebidas).",
+  "postres_y_cafe": "content/supermachi/menu.json, transcrito de los PDF de dic-2024 (la carta impresa nueva no trae postres ni café).",
+  "fotos": "real = biblioteca de medios del restaurante; mejorada = foto real escalada con Topaz (ElevenLabs), sin cambiar el plato; referencia = recreada con IA (gpt-image-2.5 en ElevenLabs) porque el restaurante no tiene foto de ese plato. La web marca las de referencia."
+ },
+ "precios": "Se guardan como dato (los de la carta impresa) pero la web no los muestra: pedido de Juan del 2026-11-10.",
+ "avisos": {
+  "crudo": {
+   "es": "El consumo de carnes, aves, mariscos o huevos crudos o poco cocidos puede aumentar el riesgo de enfermedades transmitidas por los alimentos.",
+   "en": "Consuming raw or undercooked meat, poultry, seafood or eggs can increase the risk of foodborne illness."
+  },
+  "acompanantes": {
+   "es": "Todos los platos fuertes incluyen 2 acompañantes a escoger.",
+   "en": "All entrées include your choice of 2 sides."
+  }
+ },
+ "promos": [
+  {
+   "id": "ejecutivo",
+   "es": {
+    "t": "Ejecutivo",
+    "d": "De lunes a viernes hasta las 4 de la tarde. Agrega a tu plato una bebida (cerveza draft, copa de vino o copa de sangría) y flan o café."
+   },
+   "en": {
+    "t": "Lunch special",
+    "d": "Monday to Friday until 4 pm. Add a drink to your plate (draft beer, a glass of wine or sangria) plus flan or coffee."
+   },
+   "p": "+$6.99"
+  },
+  {
+   "id": "barra-libre",
+   "es": {
+    "t": "Miércoles y jueves",
+    "d": "De 7 a 10 de la noche, comes y bebes lo que quieras por un precio fijo. Los platos con la marca «En la oferta» entran."
+   },
+   "en": {
+    "t": "Wednesdays & Thursdays",
+    "d": "From 7 to 10 pm, eat and drink all you want for one fixed price. Dishes tagged «In the deal» are included."
+   },
+   "p": "$35"
+  }
+ ],
+ "secciones": [
+  {
+   "id": "chef",
+   "es": "Recomendaciones del chef",
+   "en": "Chef's picks",
+   "estilo": "destacado",
+   "nota": {
+    "es": "Del Chef Machín",
+    "en": "From Chef Machín"
+   },
+   "platos": [
+    {
+     "id": "cochinillo",
+     "n": "Cochinillo asado estilo segoviano",
+     "n_en": "Whole Segovia-style roast suckling pig",
+     "d": {
+      "es": "Especialidad de la casa. Servido con 2 acompañantes.",
+      "en": "Signature dish. Served with 2 sides."
+     },
+     "p": 369,
+     "foto": {
+      "src": "originales/2025-01_cochinillo-3.png",
+      "tipo": "real",
+      "foco": [
+       55,
+       55
+      ]
+     },
+     "personas": "4–6",
+     "firma": true
+    },
+    {
+     "id": "tabla-mar-tierra",
+     "n": "Tabla Mar y Tierra",
+     "n_en": "Surf & turf platter",
+     "d": {
+      "es": "Langosta, camarones, filete de churrasco, pollo a la parrilla, costillas de cerdo fritas, chorizo español, morcilla frita, tamal en hoja, tostones, yuca frita y más.",
+      "en": "Lobster, shrimp, churrasco steak, grilled chicken, fried pork ribs, Spanish chorizo, fried blood sausage, Cuban-style tamale, fried green plantains, fried cassava and more."
+     },
+     "p": 349,
+     "foto": {
+      "src": "derivados/menu/tabla-mar-tierra.png",
+      "tipo": "mejorada",
+      "base": "originales/2025-01_super-machi-tabla.png",
+      "foco": [
+       50,
+       50
+      ]
+     },
+     "personas": "6–10"
+    },
+    {
+     "id": "picada",
+     "n": "Picada «Super Machi»",
+     "n_en": "Super Machi platter",
+     "d": {
+      "es": "Filete de churrasco, pollo a la parrilla, costillas de cerdo fritas, chorizo español, morcilla frita, tamal en hoja, tostones, yuca frita y más.",
+      "en": "Churrasco steak, grilled chicken, fried pork ribs, Spanish chorizo, fried blood sausage, Cuban-style tamale, fried green plantains, fried cassava and more."
+     },
+     "p": 149,
+     "foto": {
+      "src": "derivados/menu/picada.png",
+      "tipo": "referencia",
+      "foco": [
+       50,
+       55
+      ]
+     },
+     "personas": "4"
+    },
+    {
+     "id": "paella-langosta",
+     "n": "Paella de Langosta y Mariscos",
+     "n_en": "Lobster & seafood paella",
+     "d": {
+      "es": "Arroz español clásico con mariscos. Mínimo 2 personas; precio por persona.",
+      "en": "Classic Spanish rice with seafood. Minimum 2 people; price per person."
+     },
+     "p": 49,
+     "foto": {
+      "src": "originales/2025-01_DSC00369.jpg",
+      "tipo": "real",
+      "foco": [
+       50,
+       50
+      ]
+     },
+     "personas": "2+"
+    },
+    {
+     "id": "tomahawk",
+     "n": "Tomahawk Steak",
+     "n_en": "Tomahawk steak",
+     "d": {
+      "es": "Para compartir entre dos.",
+      "en": "To share between two."
+     },
+     "p": 119,
+     "foto": {
+      "src": "originales/2025-01_DSC00713-1.jpg",
+      "tipo": "real",
+      "foco": [
+       50,
+       55
+      ]
+     },
+     "personas": "2"
+    },
+    {
+     "id": "rib-eye-chef",
+     "n": "Rib Eye Premium",
+     "n_en": "Premium rib eye",
+     "d": {
+      "es": "Ribeye premium de 16 oz a la parrilla.",
+      "en": "16 oz premium ribeye, grilled to perfection."
+     },
+     "p": 49,
+     "foto": {
+      "src": "derivados/menu/rib-eye.png",
+      "tipo": "referencia",
+      "foco": [
+       50,
+       55
+      ]
+     }
+    },
+    {
+     "id": "thermidor-chef",
+     "n": "Langosta Thermidor",
+     "n_en": "Lobster Thermidor",
+     "d": {
+      "es": "Langosta gratinada en salsa Thermidor.",
+      "en": "Lobster baked in a creamy Thermidor sauce."
+     },
+     "p": 69,
+     "foto": {
+      "src": "originales/2025-01_DSC00642.jpg",
+      "tipo": "real",
+      "foco": [
+       45,
+       55
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "entrantes-frios",
+   "es": "Entrantes fríos",
+   "en": "Cold starters",
+   "platos": [
+    {
+     "id": "tabla-mixta",
+     "n": "Tabla Mixta",
+     "n_en": "Mixed board",
+     "d": {
+      "es": "Jamón serrano, queso manchego y chorizo español.",
+      "en": "Serrano ham, Manchego cheese and Spanish chorizo."
+     },
+     "p": 29,
+     "foto": {
+      "src": "derivados/menu/tabla-mixta.png",
+      "tipo": "referencia",
+      "foco": [
+       50,
+       55
+      ]
+     },
+     "oferta": true
+    },
+    {
+     "id": "coctel-camarones",
+     "n": "Cóctel de Camarones",
+     "n_en": "Shrimp cocktail",
+     "d": {
+      "es": "Camarones con nuestra salsa de la casa.",
+      "en": "Shrimp cocktail with our signature sauce."
+     },
+     "p": 14,
+     "foto": {
+      "src": "derivados/menu/coctel-camarones.png",
+      "tipo": "referencia",
+      "foco": [
+       50,
+       55
+      ]
+     },
+     "oferta": true
+    },
+    {
+     "id": "pulpo-vinagreta",
+     "n": "Pulpo a la Vinagreta",
+     "n_en": "Octopus vinaigrette",
+     "d": {
+      "es": "Pulpo en vinagreta.",
+      "en": "Octopus with vinaigrette."
+     },
+     "p": 28,
+     "foto": {
+      "src": "derivados/menu/pulpo-vinagreta.png",
+      "tipo": "referencia",
+      "foco": [
+       50,
+       55
+      ]
+     }
+    },
+    {
+     "id": "ensalada-cesar",
+     "n": "Ensalada César",
+     "n_en": "Caesar salad",
+     "d": {
+      "es": "Lechuga romana, queso parmesano, crutones y aderezo César. También con pollo a la parrilla.",
+      "en": "Crisp romaine lettuce, Parmesan cheese, croutons and Caesar dressing. Also with grilled chicken."
+     },
+     "p": 9,
+     "foto": {
+      "src": "derivados/menu/ensalada-cesar.png",
+      "tipo": "referencia",
+      "foco": [
+       50,
+       55
+      ]
+     },
+     "oferta": true,
+     "variantes": [
+      {
+       "es": "Con pollo",
+       "en": "With grilled chicken",
+       "p": 15
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "entrantes-calientes",
+   "es": "Entrantes calientes",
+   "en": "Hot starters",
+   "platos": [
+    {
+     "id": "pulpo-gallega",
+     "n": "Pulpo a la Gallega",
+     "n_en": "Galician-style octopus",
+     "d": {
+      "es": "Pulpo con pimentón y papas.",
+      "en": "Galician-style octopus with paprika and potatoes."
+     },
+     "p": 29,
+     "foto": {
+      "src": "derivados/menu/pulpo-gallega.png",
+      "tipo": "referencia",
+      "foco": [
+       50,
+       55
+      ]
+     }
+    },
+    {
+     "id": "pulpo-ajillo",
+     "n": "Pulpo al Ajillo",
+     "n_en": "Garlic octopus",
+     "d": {
+      "es": "Pulpo salteado en aceite de oliva con ajo.",
+      "en": "Garlic octopus sautéed in olive oil."
+     },
+     "p": 28,
+     "foto": {
+      "src": "derivados/menu/pulpo-ajillo.png",
+      "tipo": "referencia",
+      "foco": [
+       50,
+       55
+      ]
+     }
+    },
+    {
+     "id": "tamal",
+     "n": "Tamal de la Abuela",
+     "n_en": "Grandma's tamale",
+     "d": {
+      "es": "Con chicharrón y aguacate.",
+      "en": "With pork crackling and avocado."
+     },
+     "p": 11,
+     "foto": {
+      "src": "derivados/menu/tamal.png",
+      "tipo": "referencia",
+      "foco": [
+       50,
+       55
+      ]
+     },
+     "oferta": true
+    },
+    {
+     "id": "croquetas",
+     "n": "Croquetas de la Abuela",
+     "n_en": "Grandma's croquettes",
+     "d": {
+      "es": "Croquetas caseras de jamón ibérico, queso manchego y bacalao.",
+      "en": "Homemade croquettes with Iberian ham, Manchego cheese and cod."
+     },
+     "p": 11,
+     "foto": {
+      "src": "derivados/menu/croquetas.png",
+      "tipo": "referencia",
+      "foco": [
+       50,
+       55
+      ]
+     },
+     "oferta": true
+    },
+    {
+     "id": "eperlan",
+     "n": "Eperlán de Pescado",
+     "n_en": "Fried smelt",
+     "d": {
+      "es": "Pescaditos fritos.",
+      "en": "Fried smelt fish."
+     },
+     "p": 13,
+     "foto": {
+      "src": "derivados/menu/eperlan.png",
+      "tipo": "referencia",
+      "foco": [
+       50,
+       55
+      ]
+     },
+     "oferta": true
+    },
+    {
+     "id": "calamares",
+     "n": "Calamares Fritos",
+     "n_en": "Fried calamari",
+     "d": {
+      "es": "Calamares crujientes.",
+      "en": "Crispy fried calamari."
+     },
+     "p": 15,
+     "foto": {
+      "src": "derivados/menu/calamares.png",
+      "tipo": "referencia",
+      "foco": [
+       50,
+       55
+      ]
+     },
+     "oferta": true
+    },
+    {
+     "id": "chistorras",
+     "n": "Chistorras al Vino",
+     "n_en": "Chistorra in red wine",
+     "d": {
+      "es": "Chistorra española cocinada en vino tinto.",
+      "en": "Spanish sausages simmered in red wine."
+     },
+     "p": 14,
+     "foto": {
+      "src": "derivados/menu/chistorras.png",
+      "tipo": "referencia",
+      "foco": [
+       50,
+       55
+      ]
+     },
+     "oferta": true
+    },
+    {
+     "id": "morcilla",
+     "n": "Morcilla Frita",
+     "n_en": "Fried blood sausage",
+     "d": {
+      "es": "Morcilla española frita.",
+      "en": "Fried Spanish blood sausage."
+     },
+     "p": 14,
+     "foto": {
+      "src": "derivados/menu/morcilla.png",
+      "tipo": "referencia",
+      "foco": [
+       50,
+       55
+      ]
+     },
+     "oferta": true
+    },
+    {
+     "id": "alitas",
+     "n": "Alitas de Pollo",
+     "n_en": "Chicken wings",
+     "d": {
+      "es": "Individual o para compartir.",
+      "en": "Single order or to share."
+     },
+     "p": 11,
+     "foto": {
+      "src": "derivados/menu/alitas.png",
+      "tipo": "referencia",
+      "foco": [
+       50,
+       55
+      ]
+     },
+     "oferta": true,
+     "variantes": [
+      {
+       "es": "Para compartir",
+       "en": "To share",
+       "p": 17
+      }
+     ]
+    },
+    {
+     "id": "tostones-rellenos",
+     "n": "Tostones Rellenos",
+     "n_en": "Stuffed tostones",
+     "d": {
+      "es": "De ropa vieja y de camarones.",
+      "en": "Filled with ropa vieja and with shrimp."
+     },
+     "p": 12,
+     "foto": {
+      "src": "derivados/menu/tostones-rellenos.png",
+      "tipo": "referencia",
+      "foco": [
+       50,
+       55
+      ]
+     },
+     "oferta": true
+    },
+    {
+     "id": "frituras-malanga",
+     "n": "Frituras de Malanga",
+     "n_en": "Malanga fritters",
+     "d": {
+      "es": "Frituras de malanga.",
+      "en": "Fried malanga fritters."
+     },
+     "p": 11,
+     "foto": {
+      "src": "derivados/menu/frituras-malanga.png",
+      "tipo": "referencia",
+      "foco": [
+       50,
+       55
+      ]
+     },
+     "oferta": true
+    },
+    {
+     "id": "chicharrones",
+     "n": "Chicharrones de Cerdo",
+     "n_en": "Pork cracklings",
+     "d": {
+      "es": "Chicharrones crujientes.",
+      "en": "Crispy fried pork rinds."
+     },
+     "p": 13,
+     "foto": {
+      "src": "derivados/menu/chicharrones.png",
+      "tipo": "referencia",
+      "foco": [
+       50,
+       55
+      ]
+     },
+     "oferta": true
+    }
+   ]
+  },
+  {
+   "id": "cremas-sopas",
+   "es": "Cremas y sopas",
+   "en": "Soups",
+   "platos": [
+    {
+     "id": "ajiaco",
+     "n": "Ajiaco Criollo",
+     "n_en": "Cuban ajiaco",
+     "d": {
+      "es": "Sopa tradicional de pollo y papa.",
+      "en": "Traditional chicken and potato soup."
+     },
+     "p": 9,
+     "foto": {
+      "src": "derivados/menu/ajiaco.png",
+      "tipo": "referencia",
+      "foco": [
+       50,
+       55
+      ]
+     }
+    },
+    {
+     "id": "crema-vegetales",
+     "n": "Crema de Vegetales",
+     "n_en": "Cream of vegetables",
+     "d": {
+      "es": "Crema de vegetales mixtos.",
+      "en": "Creamy mixed vegetable soup."
+     },
+     "p": 8,
+     "foto": {
+      "src": "derivados/menu/crema-vegetales.png",
+      "tipo": "referencia",
+      "foco": [
+       50,
+       55
+      ]
+     }
+    },
+    {
+     "id": "sopa-pollo",
+     "n": "Sopa de Pollo",
+     "n_en": "Chicken noodle soup",
+     "d": {
+      "es": "La clásica sopa de pollo con fideos.",
+      "en": "Classic chicken noodle soup."
+     },
+     "p": 7,
+     "foto": {
+      "src": "derivados/menu/sopa-pollo.png",
+      "tipo": "referencia",
+      "foco": [
+       50,
+       55
+      ]
+     }
+    },
+    {
+     "id": "frijoles",
+     "n": "Frijoles Negros",
+     "n_en": "Black bean soup",
+     "d": {
+      "es": "Sopa de frijoles negros.",
+      "en": "Black bean soup."
+     },
+     "p": 6,
+     "foto": {
+      "src": "derivados/menu/frijoles.png",
+      "tipo": "referencia",
+      "foco": [
+       50,
+       55
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "ensaladas",
+   "es": "Ensaladas",
+   "en": "Salads",
+   "platos": [
+    {
+     "id": "ensalada-aguacate",
+     "n": "Ensalada de Aguacate",
+     "n_en": "Avocado salad",
+     "d": {
+      "es": "Aguacate fresco.",
+      "en": "Avocado salad."
+     },
+     "p": 7,
+     "foto": {
+      "src": "derivados/menu/ensalada-aguacate.png",
+      "tipo": "referencia",
+      "foco": [
+       50,
+       55
+      ]
+     }
+    },
+    {
+     "id": "ensalada-casa",
+     "n": "Ensalada de la Casa",
+     "n_en": "House salad",
+     "d": {
+      "es": "Repollo, tomate, aguacate, pepino y cebolla.",
+      "en": "Cabbage, tomato, avocado, cucumber and onion."
+     },
+     "p": 9,
+     "foto": {
+      "src": "derivados/menu/ensalada-casa.png",
+      "tipo": "referencia",
+      "foco": [
+       50,
+       55
+      ]
+     }
+    },
+    {
+     "id": "ensalada-tomate",
+     "n": "Ensalada de Tomate",
+     "n_en": "Tomato salad",
+     "d": {
+      "es": "Tomate fresco.",
+      "en": "Fresh tomato salad."
+     },
+     "foto": {
+      "src": "derivados/menu/ensalada-tomate.png",
+      "tipo": "referencia",
+      "foco": [
+       50,
+       55
+      ]
+     },
+     "por_confirmar": "el precio no se lee en la foto de la carta"
+    }
+   ]
+  },
+  {
+   "id": "carnes",
+   "es": "Carnes y pollos",
+   "en": "Meat & chicken",
+   "nota_avisos": "acompanantes",
+   "platos": [
+    {
+     "id": "ribeye",
+     "n": "Ribeye Premium 16 oz",
+     "n_en": "Premium ribeye 16 oz",
+     "d": {
+      "es": "Ribeye premium de 16 oz a la parrilla.",
+      "en": "16 oz premium ribeye steak, grilled to perfection."
+     },
+     "p": 49,
+     "foto": {
+      "src": "derivados/menu/rib-eye.png",
+      "tipo": "referencia",
+      "foco": [
+       50,
+       55
+      ]
+     }
+    },
+    {
+     "id": "churrasco",
+     "n": "Churrasco 10 oz",
+     "d": {
+      "es": "Churrasco de 10 oz a la parrilla.",
+      "en": "10 oz churrasco steak."
+     },
+     "p": 39,
+     "foto": {
+      "src": "derivados/menu/churrasco.png",
+      "tipo": "referencia",
+      "foco": [
+       50,
+       55
+      ]
+     }
+    },
+    {
+     "id": "bistec-encebollado",
+     "n": "Bistec Encebollado de la Abuela",
+     "n_en": "Grandma's steak & onions",
+     "d": {
+      "es": "Bistec a la cebolla, como lo hacía la abuela.",
+      "en": "Grandma-style steak with onions."
+     },
+     "p": 26,
+     "foto": {
+      "src": "originales/2025-01_DSC00265.jpg",
+      "tipo": "real",
+      "foco": [
+       50,
+       55
+      ]
+     },
+     "foto_por_confirmar": true
+    },
+    {
+     "id": "ternera-guisada",
+     "n": "Ternera Guisada",
+     "n_en": "Braised beef",
+     "d": {
+      "es": "Guiso de res con vegetales.",
+      "en": "Braised beef stew with vegetables."
+     },
+     "p": 18,
+     "foto": {
+      "src": "originales/2025-01_DSC00627.jpg",
+      "tipo": "real",
+      "foco": [
+       50,
+       62
+      ]
+     },
+     "foto_por_confirmar": true
+    },
+    {
+     "id": "milanesa-res",
+     "n": "Milanesa de Res",
+     "n_en": "Beef milanesa",
+     "d": {
+      "es": "Filete de res empanizado con queso.",
+      "en": "Breaded beef cutlet with cheese."
+     },
+     "p": 24,
+     "foto": {
+      "src": "derivados/menu/milanesa-res.png",
+      "tipo": "referencia",
+      "foco": [
+       50,
+       55
+      ]
+     }
+    },
+    {
+     "id": "ropa-vieja",
+     "n": "Ropa Vieja de la Abuela",
+     "n_en": "Grandma's ropa vieja",
+     "d": {
+      "es": "Carne de res deshilachada en salsa de tomate.",
+      "en": "Shredded beef in a rich tomato sauce."
+     },
+     "p": 17,
+     "foto": {
+      "src": "derivados/menu/ropa-vieja.png",
+      "tipo": "referencia",
+      "foco": [
+       50,
+       55
+      ]
+     }
+    },
+    {
+     "id": "palomilla",
+     "n": "Bistec de Palomilla",
+     "n_en": "Palomilla steak",
+     "d": {
+      "es": "Bistec fino de res.",
+      "en": "Thin beef steak."
+     },
+     "p": 23,
+     "foto": {
+      "src": "derivados/menu/palomilla.png",
+      "tipo": "referencia",
+      "foco": [
+       50,
+       55
+      ]
+     }
+    },
+    {
+     "id": "ribeye-cerdo",
+     "n": "Ribeye de Cerdo Premium 16 oz",
+     "n_en": "Premium pork ribeye 16 oz",
+     "d": {
+      "es": "Chuleta de cerdo premium de 16 oz.",
+      "en": "16 oz premium pork ribeye."
+     },
+     "p": 28,
+     "foto": {
+      "src": "derivados/menu/ribeye-cerdo.png",
+      "tipo": "referencia",
+      "foco": [
+       50,
+       55
+      ]
+     }
+    },
+    {
+     "id": "fricase-cerdo",
+     "n": "Fricasé de Cerdo",
+     "n_en": "Pork fricassee",
+     "d": {
+      "es": "Cerdo guisado en salsa criolla.",
+      "en": "Pork fricassee in a savory sauce."
+     },
+     "p": 14,
+     "foto": {
+      "src": "originales/2025-01_DSC00273.jpg",
+      "tipo": "real",
+      "foco": [
+       50,
+       60
+      ]
+     },
+     "foto_por_confirmar": true
+    },
+    {
+     "id": "masas-cerdo",
+     "n": "Masas de Cerdo Fritas",
+     "n_en": "Fried pork chunks",
+     "d": {
+      "es": "Masitas de cerdo fritas.",
+      "en": "Fried pork chunks."
+     },
+     "p": 15,
+     "foto": {
+      "src": "derivados/menu/masas-cerdo.png",
+      "tipo": "referencia",
+      "foco": [
+       50,
+       55
+      ]
+     }
+    },
+    {
+     "id": "pechuga-pollo",
+     "n": "Pechuga de Pollo",
+     "n_en": "Grilled chicken breast",
+     "d": {
+      "es": "Pechuga de pollo a la parrilla.",
+      "en": "Grilled chicken breast."
+     },
+     "p": 16,
+     "foto": {
+      "src": "derivados/menu/pechuga-pollo.png",
+      "tipo": "referencia",
+      "foco": [
+       50,
+       55
+      ]
+     }
+    },
+    {
+     "id": "milanesa-pollo",
+     "n": "Milanesa de Pollo",
+     "n_en": "Chicken milanesa",
+     "d": {
+      "es": "Pechuga empanizada con queso.",
+      "en": "Breaded chicken cutlet with cheese."
+     },
+     "p": 19,
+     "foto": {
+      "src": "derivados/menu/milanesa-pollo.png",
+      "tipo": "referencia",
+      "foco": [
+       50,
+       55
+      ]
+     }
+    },
+    {
+     "id": "bistec-pollo",
+     "n": "Bistec de Pollo",
+     "n_en": "Chicken steak",
+     "d": {
+      "es": "Filete de pollo a la plancha.",
+      "en": "Grilled chicken steak."
+     },
+     "p": 14,
+     "foto": {
+      "src": "derivados/menu/bistec-pollo.png",
+      "tipo": "referencia",
+      "foco": [
+       50,
+       55
+      ]
+     }
+    },
+    {
+     "id": "cordon-blue",
+     "n": "Pollo Cordon Bleu",
+     "n_en": "Chicken cordon bleu",
+     "d": {
+      "es": "Pechuga rellena de jamón y queso.",
+      "en": "Chicken breast stuffed with ham and cheese."
+     },
+     "p": 18,
+     "foto": {
+      "src": "originales/2025-01_DSC00739-1.jpg",
+      "tipo": "real",
+      "foco": [
+       50,
+       35
+      ]
+     }
+    },
+    {
+     "id": "rabo",
+     "n": "Rabo Encendido",
+     "n_en": "Rabo encendido (oxtail)",
+     "d": {
+      "es": "Rabo de res guisado en salsa picante de vino tinto.",
+      "en": "Oxtail stew in a spicy red wine sauce."
+     },
+     "p": 29,
+     "foto": {
+      "src": "originales/2025-01_DSC00316-2.jpg",
+      "tipo": "real",
+      "foco": [
+       50,
+       60
+      ]
+     },
+     "foto_por_confirmar": true
+    },
+    {
+     "id": "chilindron",
+     "n": "Chilindrón de Chivo",
+     "n_en": "Goat chilindrón",
+     "d": {
+      "es": "Chivo guisado con pimientos, cebolla y salsa de tomate.",
+      "en": "Goat stew with peppers, onions and tomato sauce."
+     },
+     "p": 24,
+     "foto": {
+      "src": "derivados/menu/chilindron.png",
+      "tipo": "referencia",
+      "foco": [
+       50,
+       55
+      ]
+     }
+    },
+    {
+     "id": "chuleticas-cordero",
+     "n": "Tiernas Chuleticas de Cordero 16 oz",
+     "n_en": "Lamb chops 16 oz",
+     "d": {
+      "es": "Chuletas de cordero tiernas, 16 oz.",
+      "en": "Tender lamb chops, 16 oz."
+     },
+     "p": 46,
+     "foto": {
+      "src": "originales/2025-01_DSC00307-3.jpg",
+      "tipo": "real",
+      "foco": [
+       50,
+       65
+      ]
+     }
+    },
+    {
+     "id": "jarrete-cordero",
+     "n": "Jarrete de Cordero Premium",
+     "n_en": "Premium lamb shank",
+     "d": {
+      "es": "Jarrete de cordero premium.",
+      "en": "Premium lamb shank."
+     },
+     "p": 34,
+     "foto": {
+      "src": "originales/2025-01_DSC00329.jpg",
+      "tipo": "real",
+      "foco": [
+       68,
+       66
+      ],
+      "zoom": 1.9
+     },
+     "foto_por_confirmar": true
+    }
+   ]
+  },
+  {
+   "id": "pescados",
+   "es": "Pescado y mariscos",
+   "en": "Fish & seafood",
+   "nota_avisos": "acompanantes",
+   "platos": [
+    {
+     "id": "thermidor",
+     "n": "Langosta Thermidor 16 oz",
+     "n_en": "Lobster Thermidor 16 oz",
+     "d": {
+      "es": "Langosta gratinada en salsa Thermidor.",
+      "en": "Lobster baked with creamy Thermidor sauce."
+     },
+     "p": 69,
+     "foto": {
+      "src": "originales/2025-01_DSC00642.jpg",
+      "tipo": "real",
+      "foco": [
+       45,
+       55
+      ]
+     }
+    },
+    {
+     "id": "langosta-grille",
+     "n": "Langosta Grillé 16 oz",
+     "n_en": "Grilled lobster 16 oz",
+     "d": {
+      "es": "Langosta a la parrilla con mantequilla de ajo.",
+      "en": "Grilled lobster with garlic butter."
+     },
+     "p": 64,
+     "foto": {
+      "src": "derivados/menu/langosta-grille.png",
+      "tipo": "mejorada",
+      "base": "derivados/langosta-mantequilla.jpg",
+      "foco": [
+       50,
+       60
+      ]
+     }
+    },
+    {
+     "id": "pulpo-brasa",
+     "n": "Pulpo a la Brasa",
+     "n_en": "Charcoal-grilled octopus",
+     "d": {
+      "es": "Pulpo a la parrilla con aceite de oliva y pimentón.",
+      "en": "Grilled octopus with olive oil and paprika."
+     },
+     "p": 36,
+     "foto": {
+      "src": "derivados/menu/pulpo-brasa.png",
+      "tipo": "mejorada",
+      "base": "originales/2025-01_VID-2_5.jpeg",
+      "foco": [
+       50,
+       50
+      ]
+     }
+    },
+    {
+     "id": "enchilado-langosta",
+     "n": "Enchilado de Langosta 16 oz",
+     "n_en": "Lobster enchilado 16 oz",
+     "d": {
+      "es": "Langosta en salsa criolla picante.",
+      "en": "Lobster in a spicy creole sauce."
+     },
+     "p": 66,
+     "foto": {
+      "src": "derivados/menu/enchilado-langosta.png",
+      "tipo": "referencia",
+      "foco": [
+       50,
+       55
+      ]
+     }
+    },
+    {
+     "id": "camarones-ajillo",
+     "n": "Camarones al Ajillo 12 oz",
+     "n_en": "Garlic shrimp 12 oz",
+     "d": {
+      "es": "Camarones salteados con ajo y aceite de oliva.",
+      "en": "Shrimp sautéed with garlic and olive oil."
+     },
+     "p": 22,
+     "foto": {
+      "src": "derivados/menu/camarones-ajillo.png",
+      "tipo": "referencia",
+      "foco": [
+       50,
+       55
+      ]
+     }
+    },
+    {
+     "id": "enchilado-camarones",
+     "n": "Enchilado de Camarones 12 oz",
+     "n_en": "Shrimp enchilado 12 oz",
+     "d": {
+      "es": "Camarones en salsa criolla picante.",
+      "en": "Shrimp in a spicy creole sauce."
+     },
+     "p": 22,
+     "foto": {
+      "src": "derivados/menu/enchilado-camarones.png",
+      "tipo": "referencia",
+      "foco": [
+       50,
+       55
+      ]
+     }
+    },
+    {
+     "id": "salmon",
+     "n": "Salmón Grillé 10 oz",
+     "n_en": "Grilled salmon 10 oz",
+     "d": {
+      "es": "Salmón a la parrilla.",
+      "en": "Grilled salmon."
+     },
+     "p": 26,
+     "foto": {
+      "src": "derivados/menu/salmon.png",
+      "tipo": "referencia",
+      "foco": [
+       50,
+       55
+      ]
+     }
+    },
+    {
+     "id": "filete-pescado",
+     "n": "Filete de Pescado Fresco Grillé 12 oz",
+     "n_en": "Grilled fresh fish fillet 12 oz",
+     "d": {
+      "es": "Filete de pescado fresco a la parrilla.",
+      "en": "Fresh fish fillet, grilled."
+     },
+     "p": 36,
+     "foto": {
+      "src": "derivados/menu/filete-pescado.png",
+      "tipo": "referencia",
+      "foco": [
+       50,
+       55
+      ]
+     }
+    },
+    {
+     "id": "bacalao",
+     "n": "Bacalao a la Vizcaína",
+     "n_en": "Cod vizcaína",
+     "d": {
+      "es": "Bacalao en salsa vizcaína.",
+      "en": "Codfish in Vizcaína sauce."
+     },
+     "p": 19,
+     "foto": {
+      "src": "derivados/menu/bacalao.png",
+      "tipo": "referencia",
+      "foco": [
+       50,
+       55
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "arroces",
+   "es": "Arroces",
+   "en": "Rice dishes",
+   "nota": {
+    "es": "Se preparan para mínimo dos personas, el precio es por persona y vienen con maduros.",
+    "en": "Prepared for a minimum of two people; price is per person; served with sweet plantains."
+   },
+   "platos": [
+    {
+     "id": "arroz-pollo",
+     "n": "Arroz con Pollo a la Chorrera",
+     "n_en": "Soupy chicken & rice",
+     "d": {
+      "es": "Arroz con pollo en su salsa tradicional.",
+      "en": "Rice with chicken in a traditional sauce."
+     },
+     "p": 16,
+     "foto": {
+      "src": "derivados/menu/arroz-pollo.png",
+      "tipo": "referencia",
+      "foco": [
+       50,
+       55
+      ]
+     }
+    },
+    {
+     "id": "arroz-camarones",
+     "n": "Arroz con Camarones",
+     "n_en": "Shrimp rice",
+     "d": {
+      "es": "Arroz con camarones.",
+      "en": "Rice with shrimp."
+     },
+     "p": 19,
+     "foto": {
+      "src": "derivados/menu/arroz-camarones.png",
+      "tipo": "referencia",
+      "foco": [
+       50,
+       55
+      ]
+     }
+    },
+    {
+     "id": "arroz-langosta",
+     "n": "Arroz con Langosta",
+     "n_en": "Lobster rice",
+     "d": {
+      "es": "Arroz con langosta.",
+      "en": "Rice with lobster."
+     },
+     "p": 69,
+     "foto": {
+      "src": "derivados/menu/arroz-langosta.png",
+      "tipo": "referencia",
+      "foco": [
+       50,
+       55
+      ]
+     }
+    },
+    {
+     "id": "paella-marisco",
+     "n": "Paella de Marisco",
+     "n_en": "Seafood paella",
+     "d": {
+      "es": "Paella de mariscos.",
+      "en": "Seafood paella."
+     },
+     "p": 34,
+     "foto": {
+      "src": "originales/2025-01_DSC00365-1.jpg",
+      "tipo": "real",
+      "foco": [
+       50,
+       50
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "acompanantes",
+   "es": "Acompañantes",
+   "en": "Sides",
+   "estilo": "lista",
+   "platos": [
+    {
+     "id": "arroz-blanco",
+     "n": "Arroz Blanco",
+     "n_en": "White rice",
+     "p": 3
+    },
+    {
+     "id": "arroz-moro",
+     "n": "Arroz Moro",
+     "n_en": "Moros (rice & black beans)",
+     "p": 3.9
+    },
+    {
+     "id": "maduro",
+     "n": "Maduros",
+     "n_en": "Sweet plantains",
+     "p": 3
+    },
+    {
+     "id": "yuca-mojo",
+     "n": "Yuca con Mojo",
+     "n_en": "Yuca with garlic sauce",
+     "p": 3
+    },
+    {
+     "id": "papitas",
+     "n": "Papitas Fritas",
+     "n_en": "French fries",
+     "p": 3.8
+    },
+    {
+     "id": "verduras",
+     "n": "Verduras Mixtas",
+     "n_en": "Mixed vegetables",
+     "p": 3.9
+    },
+    {
+     "id": "mariquitas",
+     "n": "Mariquitas (chicharritas de plátano)",
+     "n_en": "Fried plantain chips",
+     "p": 4
+    },
+    {
+     "id": "tostones",
+     "n": "Tostones",
+     "n_en": "Fried green plantains",
+     "p": 4
+    },
+    {
+     "id": "pure",
+     "n": "Puré de Papa",
+     "n_en": "Mashed potatoes",
+     "p": 3.4
+    }
+   ]
+  },
+  {
+   "id": "grupo",
+   "es": "Menú de grupo",
+   "en": "Group menu",
+   "estilo": "lista",
+   "nota": {
+    "es": "Desde 6 personas. Todos incluyen 2 acompañantes. Se reserva con 1 día de anticipación.",
+    "en": "For 6 people or more. All include 2 sides. Book one day ahead."
+   },
+   "platos": [
+    {
+     "id": "g-lechon",
+     "n": "Lechón Asado",
+     "n_en": "Roast pork",
+     "p": 14
+    },
+    {
+     "id": "g-pollo-asado",
+     "n": "Pollo Asado estilo a la Abuela",
+     "n_en": "Grandmother's roast chicken",
+     "p": 13,
+     "por_confirmar": "el inicio del nombre está cortado en la foto"
+    },
+    {
+     "id": "g-ropa-vieja",
+     "n": "Ropa Vieja",
+     "n_en": "Shredded beef",
+     "p": 15
+    },
+    {
+     "id": "g-vaca-frita",
+     "n": "Vaca Frita",
+     "n_en": "Fried flank steak",
+     "p": 13
+    },
+    {
+     "id": "g-arroz-imperial",
+     "n": "Arroz Imperial",
+     "n_en": "Imperial rice",
+     "p": 12
+    },
+    {
+     "id": "g-costillas",
+     "n": "Costillas de Cerdo al Carbón",
+     "n_en": "Charcoal-grilled pork ribs",
+     "p": 16
+    },
+    {
+     "id": "g-papa",
+     "n": "… con Papa",
+     "n_en": "… with potatoes",
+     "p": 15,
+     "oculto": true,
+     "por_confirmar": "el nombre está cortado en la foto de la carta; no se publica hasta confirmarlo"
+    }
+   ]
+  },
+  {
+   "id": "postres",
+   "es": "Postres",
+   "en": "Desserts",
+   "platos": [
+    {
+     "id": "el-pecado",
+     "n": "El Pecado",
+     "d": {
+      "es": "Torrejas españolas, helado de vainilla y mermelada de guayaba.",
+      "en": "Spanish torrijas, vanilla ice cream and guava marmalade."
+     },
+     "p": 13,
+     "foto": {
+      "src": "derivados/menu/el-pecado.png",
+      "tipo": "referencia",
+      "foco": [
+       50,
+       55
+      ]
+     }
+    },
+    {
+     "id": "volcan",
+     "n": "Volcán de Chocolate con Helado",
+     "n_en": "Chocolate lava cake",
+     "d": {
+      "es": "Volcán de chocolate con helado de vainilla.",
+      "en": "Chocolate lava cake with ice cream."
+     },
+     "p": 10,
+     "foto": {
+      "src": "originales/2025-01_DSC00656.jpg",
+      "tipo": "real",
+      "foco": [
+       50,
+       55
+      ]
+     },
+     "foto_por_confirmar": true
+    },
+    {
+     "id": "cascos-guayaba",
+     "n": "Cascos de Guayaba con Queso",
+     "n_en": "Guava shells with cheese",
+     "d": {
+      "es": "Cascos de guayaba en almíbar con queso crema.",
+      "en": "Guava shells in syrup with cream cheese."
+     },
+     "p": 8,
+     "foto": {
+      "src": "derivados/menu/cascos-guayaba.png",
+      "tipo": "referencia",
+      "foco": [
+       50,
+       55
+      ]
+     }
+    },
+    {
+     "id": "mermelada-guayaba",
+     "n": "Mermelada de Guayaba con Queso",
+     "n_en": "Guava paste with cheese",
+     "d": {
+      "es": "Pasta de guayaba con queso.",
+      "en": "Guava jam with cheese."
+     },
+     "p": 8,
+     "foto": {
+      "src": "derivados/menu/mermelada-guayaba.png",
+      "tipo": "referencia",
+      "foco": [
+       50,
+       55
+      ]
+     }
+    },
+    {
+     "id": "crema-catalana",
+     "n": "Crema Catalana",
+     "n_en": "Crema catalana",
+     "d": {
+      "es": "Crema catalana con su azúcar quemada.",
+      "en": "Catalan cream with caramelized sugar."
+     },
+     "p": 7,
+     "foto": {
+      "src": "originales/2025-01_DSC00429.jpg",
+      "tipo": "real",
+      "foco": [
+       50,
+       50
+      ]
+     }
+    },
+    {
+     "id": "flan",
+     "n": "Flan de Vainilla",
+     "n_en": "Vanilla flan",
+     "d": {
+      "es": "Flan casero de vainilla.",
+      "en": "Vanilla custard."
+     },
+     "p": 6,
+     "foto": {
+      "src": "originales/2025-01_DSC00453.jpg",
+      "tipo": "real",
+      "foco": [
+       50,
+       50
+      ]
+     }
+    },
+    {
+     "id": "arroz-con-leche",
+     "n": "Arroz con Leche",
+     "n_en": "Rice pudding",
+     "d": {
+      "es": "Arroz con leche y canela.",
+      "en": "Rice pudding with cinnamon."
+     },
+     "p": 8,
+     "foto": {
+      "src": "derivados/menu/arroz-con-leche.png",
+      "tipo": "referencia",
+      "foco": [
+       50,
+       55
+      ]
+     },
+     "crudo": true
+    }
+   ]
+  },
+  {
+   "id": "cafe",
+   "es": "Café",
+   "en": "Coffee",
+   "platos": [
+    {
+     "id": "cafe-cubano",
+     "n": "Café Cubano",
+     "n_en": "Cuban coffee",
+     "d": {
+      "es": "Espresso al estilo cubano, con azúcar.",
+      "en": "Cuban-style espresso with sugar."
+     },
+     "p": 3,
+     "foto": {
+      "src": "derivados/menu/cafe-cubano.png",
+      "tipo": "mejorada",
+      "base": "originales/2025-01_cafe-4.png",
+      "foco": [
+       50,
+       45
+      ]
+     }
+    },
+    {
+     "id": "cortadito",
+     "n": "Cortadito",
+     "d": {
+      "es": "Espresso con un poco de leche al vapor.",
+      "en": "Espresso with a little steamed milk."
+     },
+     "p": 4,
+     "foto": {
+      "src": "derivados/menu/cafes-leche.png",
+      "tipo": "referencia",
+      "foco": [
+       30,
+       55
+      ]
+     }
+    },
+    {
+     "id": "cafe-bombon",
+     "n": "Café Bombón",
+     "n_en": "Café bombón",
+     "d": {
+      "es": "Espresso con leche condensada.",
+      "en": "Espresso with sweetened condensed milk."
+     },
+     "p": 6,
+     "foto": {
+      "src": "derivados/menu/cafes-leche.png",
+      "tipo": "referencia",
+      "foco": [
+       50,
+       55
+      ]
+     }
+    },
+    {
+     "id": "capuchino",
+     "n": "Capuchino",
+     "n_en": "Cappuccino",
+     "d": {
+      "es": "Espresso doble, leche al vapor y espuma, en partes iguales.",
+      "en": "Equal parts double espresso, steamed milk and foam."
+     },
+     "p": 5,
+     "foto": {
+      "src": "derivados/menu/cafes-leche.png",
+      "tipo": "referencia",
+      "foco": [
+       75,
+       55
+      ]
+     }
+    },
+    {
+     "id": "espresso",
+     "n": "Café Espresso",
+     "n_en": "Espresso",
+     "d": {
+      "es": "Un espresso sencillo.",
+      "en": "A single shot of espresso."
+     },
+     "p": 3
+    },
+    {
+     "id": "descafeinado",
+     "n": "Café Descafeinado",
+     "n_en": "Decaf coffee",
+     "p": 4
+    },
+    {
+     "id": "infusiones",
+     "n": "Infusiones de Hierbas",
+     "n_en": "Herbal teas",
+     "p": 4
+    }
+   ]
+  },
+  {
+   "id": "cocteles",
+   "es": "Cócteles de la casa",
+   "en": "House cocktails",
+   "platos": [
+    {
+     "id": "mojito",
+     "n": "Mojito Clásico",
+     "n_en": "Classic mojito",
+     "d": {
+      "es": "Ron, hierbabuena, limón, azúcar y soda.",
+      "en": "Rum, mint, lime, sugar and soda."
+     },
+     "p": 14,
+     "foto": {
+      "src": "originales/2025-01_DSC00281.jpg",
+      "tipo": "real",
+      "foco": [
+       50,
+       55
+      ]
+     },
+     "hh": true
+    },
+    {
+     "id": "mojito-maracuya",
+     "n": "Mojito de Maracuyá",
+     "n_en": "Passion fruit mojito",
+     "d": {
+      "es": "Ron, maracuyá, hierbabuena, limón y soda.",
+      "en": "Rum, passion fruit, mint, lime and soda."
+     },
+     "p": 16,
+     "hh": true
+    },
+    {
+     "id": "cuba-libre",
+     "n": "Cuba Libre",
+     "n_en": "Cuba libre",
+     "d": {
+      "es": "Ron, cola y limón.",
+      "en": "Rum, cola and lime."
+     },
+     "p": 13,
+     "hh": true
+    },
+    {
+     "id": "daiquiri",
+     "n": "Daiquirí Clásico",
+     "n_en": "Classic daiquiri",
+     "d": {
+      "es": "Ron, limón y azúcar.",
+      "en": "Rum, lime and sugar."
+     },
+     "p": 13,
+     "hh": true
+    },
+    {
+     "id": "daiquiri-fresa",
+     "n": "Daiquirí de Fresa",
+     "n_en": "Strawberry daiquiri",
+     "d": {
+      "es": "Ron, fresas y limón.",
+      "en": "Rum, strawberries and lime."
+     },
+     "p": 14,
+     "foto": {
+      "src": "originales/2025-01_DSC00612.jpg",
+      "tipo": "real",
+      "foco": [
+       50,
+       50
+      ]
+     },
+     "hh": true
+    },
+    {
+     "id": "pina-colada",
+     "n": "Piña Colada",
+     "n_en": "Piña colada",
+     "d": {
+      "es": "Ron, piña y crema de coco.",
+      "en": "Rum, pineapple and cream of coconut."
+     },
+     "p": 14,
+     "foto": {
+      "src": "originales/2025-01_DSC00291.jpg",
+      "tipo": "real",
+      "foco": [
+       50,
+       55
+      ]
+     },
+     "hh": true
+    },
+    {
+     "id": "margarita",
+     "n": "Margarita Clásica",
+     "n_en": "Classic margarita",
+     "d": {
+      "es": "Tequila, triple sec y limón.",
+      "en": "Tequila, triple sec and lime."
+     },
+     "p": 14,
+     "hh": true
+    },
+    {
+     "id": "margarita-maracuya",
+     "n": "Margarita de Maracuyá",
+     "n_en": "Passion fruit margarita",
+     "d": {
+      "es": "Tequila, maracuyá, triple sec y limón.",
+      "en": "Tequila, passion fruit, triple sec and lime."
+     },
+     "p": 15,
+     "hh": true
+    },
+    {
+     "id": "bloody-mary",
+     "n": "Bloody Mary",
+     "d": {
+      "es": "Vodka, jugo de tomate y especias.",
+      "en": "Vodka, tomato juice and spices."
+     },
+     "p": 13,
+     "hh": true
+    },
+    {
+     "id": "moscow-mule",
+     "n": "Moscow Mule",
+     "n_en": "Moscow mule",
+     "d": {
+      "es": "Vodka, ginger beer y limón.",
+      "en": "Vodka, ginger beer and lime."
+     },
+     "p": 13,
+     "hh": true
+    },
+    {
+     "id": "martini",
+     "n": "Martini",
+     "d": {
+      "es": "Ginebra, vermut y aceituna.",
+      "en": "Gin, vermouth and olive."
+     },
+     "p": 13,
+     "hh": true
+    },
+    {
+     "id": "espresso-martini",
+     "n": "Espresso Martini",
+     "n_en": "Espresso martini",
+     "d": {
+      "es": "Vodka, licor de café y espresso.",
+      "en": "Vodka, coffee liqueur and espresso."
+     },
+     "p": 14,
+     "hh": true
+    },
+    {
+     "id": "old-fashioned",
+     "n": "Old Fashioned",
+     "n_en": "Old fashioned",
+     "d": {
+      "es": "Bourbon, azúcar, bitters y naranja.",
+      "en": "Bourbon, sugar, bitters and orange."
+     },
+     "p": 14,
+     "foto": {
+      "src": "originales/2025-01_DSC00688.jpg",
+      "tipo": "real",
+      "foco": [
+       50,
+       50
+      ]
+     },
+     "hh": true,
+     "foto_por_confirmar": true
+    }
+   ]
+  },
+  {
+   "id": "sangrias",
+   "es": "Sangrías",
+   "en": "Sangria",
+   "estilo": "lista",
+   "platos": [
+    {
+     "id": "sangria-tinta",
+     "n": "Sangría Tinta",
+     "n_en": "Red sangria",
+     "hh": true,
+     "copa": true,
+     "botella": true
+    },
+    {
+     "id": "sangria-blanca",
+     "n": "Sangría Blanca",
+     "n_en": "White sangria",
+     "hh": true,
+     "copa": true,
+     "botella": true
+    }
+   ]
+  },
+  {
+   "id": "vinos",
+   "es": "Vinos",
+   "en": "Wine",
+   "estilo": "lista",
+   "grupos": [
+    {
+     "es": "Espumosos",
+     "en": "Sparkling",
+     "platos": [
+      {
+       "id": "cava",
+       "n": "Cava",
+       "botella": true
+      },
+      {
+       "id": "moet-brut",
+       "n": "Moët & Chandon Brut Impérial",
+       "botella": true
+      },
+      {
+       "id": "moet-ice",
+       "n": "Moët & Chandon Ice Impérial",
+       "botella": true
+      }
+     ]
+    },
+    {
+     "es": "Blancos",
+     "en": "White",
+     "platos": [
+      {
+       "id": "chardonnay",
+       "n": "Chardonnay",
+       "hh": true,
+       "copa": true,
+       "botella": true
+      },
+      {
+       "id": "pinot-grigio",
+       "n": "Pinot Grigio",
+       "hh": true,
+       "copa": true,
+       "botella": true
+      },
+      {
+       "id": "albarino",
+       "n": "Albariño de la Casa",
+       "n_en": "House Albariño",
+       "hh": true,
+       "copa": true,
+       "botella": true
+      },
+      {
+       "id": "sauvignon-blanc",
+       "n": "Sauvignon Blanc",
+       "hh": true,
+       "copa": true,
+       "botella": true
+      }
+     ]
+    },
+    {
+     "es": "Rosados",
+     "en": "Rosé",
+     "platos": [
+      {
+       "id": "rosado",
+       "n": "Rosado de la Casa",
+       "n_en": "House rosé",
+       "hh": true,
+       "copa": true,
+       "botella": true
+      }
+     ]
+    },
+    {
+     "es": "Tintos",
+     "en": "Red",
+     "platos": [
+      {
+       "id": "cabernet",
+       "n": "Cabernet Sauvignon",
+       "hh": true,
+       "copa": true,
+       "botella": true
+      },
+      {
+       "id": "caymus",
+       "n": "Caymus",
+       "d": {
+        "es": "Cabernet Sauvignon · California",
+        "en": "Cabernet Sauvignon · California"
+       },
+       "botella": true
+      },
+      {
+       "id": "saldo",
+       "n": "Saldo",
+       "d": {
+        "es": "Cabernet Sauvignon · California",
+        "en": "Cabernet Sauvignon · California"
+       },
+       "botella": true,
+       "por_confirmar": "la carta dice Cabernet Sauvignon; Saldo suele ser Zinfandel"
+      },
+      {
+       "id": "meiomi",
+       "n": "Meiomi",
+       "d": {
+        "es": "Pinot Noir · California",
+        "en": "Pinot Noir · California"
+       },
+       "botella": true,
+       "errata": "la carta impresa dice «Miomi»"
+      },
+      {
+       "id": "emmolo",
+       "n": "Emmolo",
+       "d": {
+        "es": "Merlot · Napa Valley",
+        "en": "Merlot · Napa Valley"
+       },
+       "botella": true,
+       "errata": "la carta impresa dice «Enmolo»"
+      },
+      {
+       "id": "juan-gil",
+       "n": "Juan Gil Blue",
+       "botella": true
+      },
+      {
+       "id": "capellanes-joven",
+       "n": "Pago de los Capellanes Joven",
+       "d": {
+        "es": "Ribera del Duero",
+        "en": "Ribera del Duero"
+       },
+       "botella": true
+      },
+      {
+       "id": "capellanes-crianza",
+       "n": "Pago de los Capellanes Crianza",
+       "d": {
+        "es": "Ribera del Duero",
+        "en": "Ribera del Duero"
+       },
+       "botella": true
+      },
+      {
+       "id": "arzuaga",
+       "n": "Arzuaga Crianza",
+       "d": {
+        "es": "Ribera del Duero",
+        "en": "Ribera del Duero"
+       },
+       "botella": true
+      },
+      {
+       "id": "protos-tinto-fino",
+       "n": "Protos Tinto Fino",
+       "d": {
+        "es": "Ribera del Duero",
+        "en": "Ribera del Duero"
+       },
+       "botella": true
+      },
+      {
+       "id": "protos-crianza",
+       "n": "Protos Crianza",
+       "d": {
+        "es": "Ribera del Duero",
+        "en": "Ribera del Duero"
+       },
+       "botella": true
+      },
+      {
+       "id": "protos-reserva",
+       "n": "Protos Reserva",
+       "d": {
+        "es": "Ribera del Duero",
+        "en": "Ribera del Duero"
+       },
+       "botella": true
+      },
+      {
+       "id": "riscal",
+       "n": "Marqués de Riscal Reserva",
+       "d": {
+        "es": "Rioja",
+        "en": "Rioja"
+       },
+       "botella": true
+      },
+      {
+       "id": "cab-gran-reserva",
+       "n": "Cabernet Sauvignon Gran Reserva",
+       "botella": true
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cervezas",
+   "es": "Cervezas",
+   "en": "Beer",
+   "estilo": "lista",
+   "platos": [
+    {
+     "id": "modelo",
+     "n": "Modelo Especial"
+    },
+    {
+     "id": "corona",
+     "n": "Corona",
+     "barril": true
+    },
+    {
+     "id": "heineken",
+     "n": "Heineken",
+     "barril": true
+    },
+    {
+     "id": "stella",
+     "n": "Stella Artois"
+    },
+    {
+     "id": "estrella-galicia",
+     "n": "Estrella Galicia",
+     "barril": true
+    },
+    {
+     "id": "1906",
+     "n": "1906 Reserva Especial"
+    },
+    {
+     "id": "miller",
+     "n": "Miller Lite"
+    }
+   ]
+  },
+  {
+   "id": "sin-alcohol",
+   "es": "Sin alcohol",
+   "en": "Non-alcoholic",
+   "estilo": "lista",
+   "platos": [
+    {
+     "id": "limonada",
+     "n": "Limonada Natural",
+     "n_en": "Fresh lemonade"
+    },
+    {
+     "id": "limonada-maracuya",
+     "n": "Limonada de Maracuyá",
+     "n_en": "Passion fruit lemonade"
+    },
+    {
+     "id": "refrescos",
+     "n": "Refrescos",
+     "n_en": "Sodas"
+    },
+    {
+     "id": "agua-mineral",
+     "n": "Agua Mineral (500 ml · 1 L)",
+     "n_en": "Sparkling water (500 ml · 1 L)"
+    },
+    {
+     "id": "agua-natural",
+     "n": "Agua Natural (500 ml · 1 L)",
+     "n_en": "Still water (500 ml · 1 L)"
+    },
+    {
+     "id": "jugo-naranja",
+     "n": "Jugo de Naranja",
+     "n_en": "Orange juice"
+    },
+    {
+     "id": "jugo-mango",
+     "n": "Jugo de Mango",
+     "n_en": "Mango juice"
+    },
+    {
+     "id": "jugo-manzana",
+     "n": "Jugo de Manzana",
+     "n_en": "Apple juice"
+    }
+   ]
+  },
+  {
+   "id": "licores",
+   "es": "Licores",
+   "en": "Spirits",
+   "estilo": "lista",
+   "nota": {
+    "es": "Por trago o por botella.",
+    "en": "By the glass or by the bottle."
+   },
+   "grupos": [
+    {
+     "es": "Ron",
+     "en": "Rum",
+     "platos": [
+      {
+       "id": "ron-0",
+       "n": "Bacardí Superior"
+      },
+      {
+       "id": "ron-1",
+       "n": "Bacardí Añejo"
+      },
+      {
+       "id": "ron-2",
+       "n": "Barceló Imperial"
+      },
+      {
+       "id": "ron-3",
+       "n": "Zacapa 23"
+      },
+      {
+       "id": "ron-4",
+       "n": "Santa Teresa 1796"
+      }
+     ]
+    },
+    {
+     "es": "Whisky / Scotch",
+     "en": "Whisky / Scotch",
+     "platos": [
+      {
+       "id": "whisky-0",
+       "n": "Dewar's"
+      },
+      {
+       "id": "whisky-1",
+       "n": "Chivas Regal 12"
+      },
+      {
+       "id": "whisky-2",
+       "n": "Chivas Regal 18"
+      },
+      {
+       "id": "whisky-3",
+       "n": "Johnnie Walker Black"
+      },
+      {
+       "id": "whisky-4",
+       "n": "Johnnie Walker Blue"
+      },
+      {
+       "id": "whisky-5",
+       "n": "Glenlivet"
+      },
+      {
+       "id": "whisky-6",
+       "n": "Jack Daniel's"
+      },
+      {
+       "id": "whisky-7",
+       "n": "Macallan 12"
+      }
+     ]
+    },
+    {
+     "es": "Tequila",
+     "en": "Tequila",
+     "platos": [
+      {
+       "id": "tequila-0",
+       "n": "Don Julio Blanco"
+      },
+      {
+       "id": "tequila-1",
+       "n": "Don Julio Reposado"
+      },
+      {
+       "id": "tequila-2",
+       "n": "Don Julio Añejo"
+      },
+      {
+       "id": "tequila-3",
+       "n": "Clase Azul Reposado"
+      },
+      {
+       "id": "tequila-4",
+       "n": "Patrón Silver"
+      },
+      {
+       "id": "tequila-5",
+       "n": "Patrón Reposado"
+      },
+      {
+       "id": "tequila-6",
+       "n": "Patrón Añejo"
+      }
+     ]
+    },
+    {
+     "es": "Vodka",
+     "en": "Vodka",
+     "platos": [
+      {
+       "id": "vodka-0",
+       "n": "Tito's Handmade"
+      },
+      {
+       "id": "vodka-1",
+       "n": "Absolut"
+      },
+      {
+       "id": "vodka-2",
+       "n": "Grey Goose"
+      },
+      {
+       "id": "vodka-3",
+       "n": "Ketel One"
+      }
+     ]
+    },
+    {
+     "es": "Gin",
+     "en": "Gin",
+     "platos": [
+      {
+       "id": "gin-0",
+       "n": "Tanqueray"
+      },
+      {
+       "id": "gin-1",
+       "n": "Bombay Sapphire"
+      },
+      {
+       "id": "gin-2",
+       "n": "Hendrick's"
+      }
+     ]
+    },
+    {
+     "es": "Cordiales y licores",
+     "en": "Cordials & liqueurs",
+     "platos": [
+      {
+       "id": "licor-0",
+       "n": "Sambuca"
+      },
+      {
+       "id": "licor-1",
+       "n": "Licor 43"
+      },
+      {
+       "id": "licor-2",
+       "n": "Disaronno Amaretto"
+      },
+      {
+       "id": "licor-3",
+       "n": "Frangelico"
+      },
+      {
+       "id": "licor-4",
+       "n": "Grand Marnier"
+      },
+      {
+       "id": "licor-5",
+       "n": "Cointreau"
+      },
+      {
+       "id": "licor-6",
+       "n": "Jägermeister"
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "fuera_de_la_carta_nueva": {
+  "nota": "Estaban en los PDF de dic-2024 y no aparecen en la carta impresa de nov-2026; no se publican hasta que el restaurante diga si siguen.",
+  "items": [
+   "Menú de niños",
+   "Happy hour viejo (oct-2024)",
+   "Propina del 18 % para grupos de 6 o más"
+  ]
+ }
+}
