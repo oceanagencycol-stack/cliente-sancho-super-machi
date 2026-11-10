@@ -50,6 +50,7 @@ for (const s of carta.secciones || []) {
     }
   }
 }
+if (carta.club?.activo && !/^https:\/\//.test(carta.club.url || '')) errores.push('club.activo necesita club.url (https://…)');
 if (errores.length) { console.error('✗ La carta tiene errores; no se publica:\n  - ' + errores.join('\n  - ')); process.exit(1); }
 if (process.argv.includes('--revisar')) { console.log(`✓ carta válida: ${ids.size} platos`); process.exit(0); }
 
@@ -59,12 +60,18 @@ const T = {
     buscar: 'Buscar un plato o bebida', sin: 'No hay nada con ese nombre en la carta.', secciones: 'Secciones de la carta', promos: 'Promociones',
     oferta: 'En la oferta', hh: 'Happy hour', personas: (n) => `${n} personas`, barril: 'También de barril', copa: 'Copa', botella: 'Botella',
     referencia: 'Imagen de referencia', precios: 'Pregunta los precios a tu mesero.', reservar: 'Reservar por WhatsApp', web: 'Shows y reservas',
-    como: 'Cómo llegar', con: 'También:', ver: 'Ver foto', cerrar: 'Cerrar', notaRef: 'Las fotos marcadas «imagen de referencia» muestran cómo es el plato; el servido en la mesa puede verse distinto.' },
+    como: 'Cómo llegar', con: 'También:', ver: 'Ver foto', cerrar: 'Cerrar',
+    anotar: 'Anotar', pedido: 'Mi pedido', pedidoVacio: 'Toca «+» en un plato para anotarlo. Tu pedido se guarda en este teléfono.',
+    mesero: 'Enseñar al mesero', vaciar: 'Vaciar', nota: 'Nota para la cocina (opcional)', paraMesero: 'Para el mesero', volver: 'Volver',
+    club: 'Club Super Machi', clubTexto: 'Suma visitas y gana premios de la casa. Tu tarjeta va en Apple Wallet o Google Wallet y te avisa cuando tienes un premio.', clubBoton: 'Unirme al club', notaRef: 'Las fotos marcadas «imagen de referencia» muestran cómo es el plato; el servido en la mesa puede verse distinto.' },
   en: { lang: 'en', titulo: 'The menu', bajada: 'Authentic home cooking · Chef Machín', otro: 'ES', otroUrl: '/', otroNombre: 'Español',
     buscar: 'Search a dish or drink', sin: 'Nothing on the menu matches that.', secciones: 'Menu sections', promos: 'Specials',
     oferta: 'In the deal', hh: 'Happy hour', personas: (n) => `serves ${n}`, barril: 'Also on draft', copa: 'Glass', botella: 'Bottle',
     referencia: 'Reference image', precios: 'Ask your server for prices.', reservar: 'Book on WhatsApp', web: 'Shows & bookings',
-    como: 'Directions', con: 'Also:', ver: 'See photo', cerrar: 'Close', notaRef: 'Photos marked «reference image» show what the dish is like; the plate at your table may look different.' },
+    como: 'Directions', con: 'Also:', ver: 'See photo', cerrar: 'Close',
+    anotar: 'Add', pedido: 'My order', pedidoVacio: 'Tap «+» on a dish to add it. Your order is saved on this phone.',
+    mesero: 'Show my server', vaciar: 'Clear', nota: 'Note for the kitchen (optional)', paraMesero: 'For your server', volver: 'Back',
+    club: 'Super Machi Club', clubTexto: 'Earn visits and win house rewards. Your card lives in Apple Wallet or Google Wallet and tells you when a reward is ready.', clubBoton: 'Join the club', notaRef: 'Photos marked «reference image» show what the dish is like; the plate at your table may look different.' },
 };
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 const nombre = (p, l) => (l === 'en' && p.n_en ? p.n_en : p.n);
@@ -94,22 +101,23 @@ function etiquetas(p, l) {
 const variantes = (p, l) => (p.variantes?.length ? `<p class="plato__variantes">${T[l].con} ${p.variantes.map((v) => esc(v[l])).join(' · ')}</p>` : '');
 const buscable = (p) => esc([p.n, p.n_en, p.d?.es, p.d?.en].filter(Boolean).join(' ').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, ''));
 
+const anotar = (p, l) => `<button class="anotar" type="button" data-anotar="${esc(p.id)}" data-nombre="${esc(nombre(p, l))}" aria-label="${T[l].anotar}: ${esc(nombre(p, l))}">+</button>`;
 function plato(p, l) {
   const d = desc(p, l);
   return `<li class="plato${p.foto ? '' : ' plato--sin-foto'}" id="${esc(p.id)}" data-buscar="${buscable(p)}">
-    <div class="plato__texto"><h3 class="plato__nombre">${esc(nombre(p, l))}</h3>${d ? `<p class="plato__desc">${esc(d)}</p>` : ''}${variantes(p, l)}${etiquetas(p, l)}</div>
+    <div class="plato__texto"><h3 class="plato__nombre">${esc(nombre(p, l))}</h3>${d ? `<p class="plato__desc">${esc(d)}</p>` : ''}${variantes(p, l)}${etiquetas(p, l)}${anotar(p, l)}</div>
     ${p.foto ? `<button class="plato__foto" type="button" aria-label="${T[l].ver}: ${esc(nombre(p, l))}">${img(p, l)}</button>` : ''}
   </li>`;
 }
 function filaLista(p, l) {
   const d = desc(p, l);
-  return `<li class="fila" id="${esc(p.id)}" data-buscar="${buscable(p)}"><span class="fila__nombre">${esc(nombre(p, l))}</span>${d ? `<span class="fila__desc">${esc(d)}</span>` : ''}${etiquetas(p, l)}</li>`;
+  return `<li class="fila" id="${esc(p.id)}" data-buscar="${buscable(p)}"><div class="fila__texto"><span class="fila__nombre">${esc(nombre(p, l))}</span>${d ? `<span class="fila__desc">${esc(d)}</span>` : ''}${etiquetas(p, l)}</div>${anotar(p, l)}</li>`;
 }
 function destacado(p, l) {
   const d = desc(p, l);
   return `<li class="destacado${p.firma ? ' destacado--firma' : ''}" id="${esc(p.id)}" data-buscar="${buscable(p)}">
     ${p.foto ? img(p, l, 'ancha') : ''}
-    <div class="destacado__texto">${p.firma ? `<p class="destacado__sello">${l === 'en' ? 'Signature dish' : 'Especialidad de la casa'}</p>` : ''}<h3 class="destacado__nombre">${esc(nombre(p, l))}</h3>${d ? `<p class="destacado__desc">${esc(d)}</p>` : ''}${etiquetas(p, l)}</div>
+    <div class="destacado__texto">${p.firma ? `<p class="destacado__sello">${l === 'en' ? 'Signature dish' : 'Especialidad de la casa'}</p>` : ''}<h3 class="destacado__nombre">${esc(nombre(p, l))}</h3>${d ? `<p class="destacado__desc">${esc(d)}</p>` : ''}${etiquetas(p, l)}${anotar(p, l)}</div>
   </li>`;
 }
 
@@ -131,6 +139,15 @@ function seccion(s, l) {
 const LLAMA = fs.readFileSync(path.join(RAIZ, 'web/public/marca/supermachi-llama.svg'), 'utf8').replace(/<\?xml[^>]*>/, '').replace('<svg', '<svg aria-hidden="true" class="llama"');
 const CSS = fs.readFileSync(path.join(RAIZ, 'menu/menu.css'), 'utf8');
 const JS = fs.readFileSync(path.join(RAIZ, 'menu/menu.js'), 'utf8');
+
+// el club de Pleamar: tarjeta en Apple/Google Wallet. Solo aparece con club.activo (el enlace tiene que funcionar).
+function club(l) {
+  const c = carta.club;
+  if (!c?.activo || !c.url) return '';
+  const t = T[l];
+  return `<section class="club" aria-labelledby="t-club"><div class="club__texto"><h2 class="club__titulo" id="t-club">${esc(c.nombre?.[l] || t.club)}</h2><p>${esc(c.texto?.[l] || t.clubTexto)}</p></div>
+  <a class="boton club__boton" href="${esc(c.url)}" data-club>${t.clubBoton}</a></section>`;
+}
 
 function pagina(l) {
   const t = T[l];
@@ -164,6 +181,7 @@ function pagina(l) {
     <p class="portada__bajada">${t.bajada}</p>
   </div>
   ${promos ? `<section class="promos" aria-label="${t.promos}"><ul role="list">${promos}</ul></section>` : ''}
+  ${club(l)}
   <div class="barra">
     <label class="buscar"><span class="oculto">${t.buscar}</span><input type="search" placeholder="${t.buscar}" autocomplete="off" enterkeyhint="search" data-buscar></label>
     <nav class="indice" aria-label="${t.secciones}"><ul role="list">${secs.map((s) => `<li><a href="#s-${esc(s.id)}">${esc(s[l])}</a></li>`).join('')}</ul></nav>
@@ -183,6 +201,17 @@ function pagina(l) {
   </ul>
   <address>Súper Machi Restaurant · ${DIRECCION} · <a href="tel:+13052663226">305-266-3226</a></address>
 </footer>
+<div class="pedido" data-pedido hidden>
+  <button class="pedido__barra" type="button" data-pedido-abrir aria-expanded="false" aria-controls="pedido-hoja"><span>${t.pedido}</span><b data-pedido-cuenta>0</b></button>
+  <div class="pedido__hoja" id="pedido-hoja" hidden role="dialog" aria-modal="true" aria-labelledby="pedido-titulo">
+    <div class="pedido__cabeza"><h2 id="pedido-titulo">${t.pedido}</h2><button type="button" class="pedido__cerrar" data-pedido-cerrar aria-label="${t.cerrar}">×</button></div>
+    <p class="pedido__vacio" data-pedido-vacio>${t.pedidoVacio}</p>
+    <ul class="pedido__lineas" role="list" data-pedido-lineas></ul>
+    <label class="pedido__nota"><span>${t.nota}</span><textarea rows="2" maxlength="300" data-pedido-nota></textarea></label>
+    <div class="pedido__acciones"><button type="button" class="boton" data-pedido-mesero>${t.mesero}</button><button type="button" class="boton boton--linea" data-pedido-vaciar>${t.vaciar}</button></div>
+  </div>
+  <div class="mesero" data-mesero hidden role="dialog" aria-modal="true" aria-labelledby="mesero-titulo"><p class="mesero__marca">Súper Machi</p><h2 id="mesero-titulo">${t.paraMesero}</h2><ul role="list" data-mesero-lista></ul><p class="mesero__nota" data-mesero-nota></p><button type="button" class="boton" data-mesero-volver>${t.volver}</button></div>
+</div>
 <dialog class="visor" data-visor><form method="dialog"><button class="visor__cerrar" aria-label="${t.cerrar}">×</button></form><img alt="" data-visor-img><p data-visor-titulo></p></dialog>
 <script>${JS}</script>
 </body>

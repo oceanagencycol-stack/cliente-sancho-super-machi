@@ -43,6 +43,19 @@
    "p": "$35"
   }
  ],
+ "club": {
+  "activo": false,
+  "url": "https://pleamar-ochre.vercel.app/go/supermachi-menu",
+  "nombre": {
+   "es": "Club Super Machi",
+   "en": "Super Machi Club"
+  },
+  "texto": {
+   "es": "Suma visitas y gana premios de la casa. Tu tarjeta va en Apple Wallet o Google Wallet y te avisa cuando tienes un premio.",
+   "en": "Earn visits and win house rewards. Your card lives in Apple Wallet or Google Wallet and tells you when a reward is ready."
+  },
+  "nota": "Enlace corto de Pleamar (join_link «supermachi-menu» del club «club-super-machi», origen qr / mesa). Se activa cuando el club exista en Pleamar producción; el premio concreto no se publica hasta que el restaurante lo confirme."
+ },
  "secciones": [
   {
    "id": "chef",

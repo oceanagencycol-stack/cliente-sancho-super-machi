@@ -129,3 +129,49 @@ h1,h2,h3,p,figure{margin:0}
 .visor p{padding:.75rem 1rem 1rem;font:700 1.2rem/1.2 var(--serif)}
 .visor form{position:absolute;right:.4rem;top:.4rem}
 .visor__cerrar{width:2.75rem;height:2.75rem;border:0;border-radius:50%;background:rgba(14,8,7,.75);color:var(--crema);font-size:1.6rem;line-height:1;cursor:pointer}
+
+/* anotar en el pedido */
+.anotar{display:inline-grid;place-items:center;min-width:2.75rem;height:2.75rem;margin-top:.6rem;padding:0 .7rem;border:1.5px solid var(--rojo);border-radius:999px;background:none;color:var(--crema);font:800 1.15rem/1 var(--texto);cursor:pointer}
+.anotar.anotado{background:var(--rojo);border-color:var(--rojo)}
+.anotar:hover{border-color:var(--rojo-claro)}
+.fila{display:flex;align-items:center;gap:.75rem}
+.fila__texto{flex:1;min-width:0}
+.fila .anotar{margin-top:0;min-width:2.5rem;height:2.5rem;flex:none}
+.destacado .anotar{margin-top:.75rem}
+
+/* el club (Pleamar · Wallet) */
+.club{max-width:var(--ancho);margin:.75rem auto 0;padding:0 var(--lado);display:grid;gap:.75rem}
+.club__texto{padding:1rem 1rem .9rem;background:linear-gradient(135deg,#2a1510,#1c100c);border:1px solid var(--junta);border-radius:3px}
+.club__titulo{font:700 1.35rem/1.1 var(--serif);color:var(--crema)}
+.club__texto p{margin-top:.3rem;color:var(--humo);font-size:.92rem}
+.club__boton{justify-content:center}
+@media (min-width:40rem){.club{grid-template-columns:1fr auto;align-items:center}.club__texto{grid-column:1}}
+
+/* mi pedido */
+.pedido{position:fixed;inset:auto 0 0 0;z-index:30;padding:0 var(--lado) calc(.75rem + env(safe-area-inset-bottom));pointer-events:none}
+.pedido__barra{pointer-events:auto;display:flex;align-items:center;justify-content:space-between;gap:1rem;width:min(100%,30rem);margin:0 auto;min-height:3.25rem;padding:0 1.25rem;border:0;border-radius:999px;background:var(--rojo);color:var(--crema);font:700 1rem/1 var(--texto);box-shadow:0 .6rem 1.6rem -.4rem rgba(0,0,0,.7);cursor:pointer}
+.pedido__barra b{display:grid;place-items:center;min-width:1.9rem;height:1.9rem;border-radius:999px;background:var(--crema);color:var(--rojo);font-variant-numeric:tabular-nums}
+.pedido__hoja{pointer-events:auto;position:fixed;inset:auto 0 0 0;max-height:82vh;overflow:auto;padding:1rem var(--lado) calc(5rem + env(safe-area-inset-bottom));background:var(--muro);border-top:1px solid var(--linea-fuerte,#5C3B2F);border-radius:14px 14px 0 0;box-shadow:0 -1rem 2rem rgba(0,0,0,.6)}
+.pedido__hoja>*{max-width:34rem;margin-inline:auto}
+.pedido__cabeza{display:flex;align-items:center;justify-content:space-between}
+.pedido__cabeza h2{font:700 1.5rem/1 var(--serif)}
+.pedido__cerrar{width:2.75rem;height:2.75rem;border:0;background:none;color:var(--crema);font-size:1.7rem;cursor:pointer}
+.pedido__vacio{margin-top:.5rem;color:var(--humo)}
+.pedido__lineas li{display:grid;grid-template-columns:2.2rem 1fr auto;align-items:center;gap:.5rem;padding:.55rem 0;border-bottom:1px solid var(--junta)}
+.pedido__cant{font-weight:800;font-variant-numeric:tabular-nums;color:var(--brasa)}
+.pedido__botones{display:flex;gap:.35rem}
+.pedido__botones button{width:2.5rem;height:2.5rem;border:1px solid var(--junta);border-radius:999px;background:var(--noche);color:var(--crema);font-size:1.2rem;cursor:pointer}
+.pedido__nota{display:grid;gap:.3rem;margin-top:1rem;color:var(--humo);font-size:.88rem}
+.pedido__nota textarea{width:100%;padding:.6rem .75rem;border:1px solid var(--junta);border-radius:3px;background:#1C110E;color:var(--crema);font:inherit;font-size:1rem}
+.pedido__acciones{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+body.hoja-abierta{overflow:hidden}
+body:has(.pedido:not([hidden])) .pie{padding-bottom:6rem}
+/* pantalla para el mesero: letra grande, fondo claro, sin distracciones */
+.mesero{pointer-events:auto;position:fixed;inset:0;z-index:40;overflow:auto;padding:1.5rem var(--lado) 2rem;background:#FFFDF8;color:#150D0B}
+.mesero>*{max-width:34rem;margin-inline:auto}
+.mesero__marca{font:800 .9rem/1 var(--display);letter-spacing:.12em;text-transform:uppercase;color:var(--rojo)}
+.mesero h2{margin-top:.4rem;font:700 2rem/1.05 var(--serif)}
+.mesero ul{margin-top:1rem}
+.mesero li{padding:.6rem 0;border-bottom:1px solid #e6dccb;font:700 1.45rem/1.25 var(--texto)}
+.mesero__nota{margin-top:1rem;font-size:1.15rem;font-style:italic}
+.mesero .boton{margin-top:1.5rem}

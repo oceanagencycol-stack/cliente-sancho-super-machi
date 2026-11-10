@@ -9,6 +9,18 @@ desde el QR de las mesas.
   vive en `ocean-brain/servicios/qr/` (proyecto de Vercel `ocean-qr`).
 - **Archivos para imprimir el QR:** `menu/qr/` (SVG, PNG de 4000 px y PDF).
 
+## Lo que hace el cliente en la mesa
+
+- **Mi pedido:** toca «+» en cualquier plato o bebida, ajusta cantidades, deja una nota para la cocina y lo enseña al
+  mesero en una pantalla clara con letra grande. Se guarda en su teléfono 12 horas (sigue ahí si cierra el navegador o
+  cambia de idioma) y no sale de él: no hay base de datos ni datos personales en el menú.
+- **Club y Wallet (Pleamar):** el bloque «Club Super Machi» lleva al registro del club en Pleamar
+  (`https://pleamar-ochre.vercel.app/go/supermachi-menu`, enlace con origen `qr / mesa / menu-digital`, con
+  `utm_source` = el `src` que trae el QR). Ahí el cliente deja sus datos y recibe su tarjeta en Apple Wallet o Google
+  Wallet; la tarjeta, a su vez, trae «Ver la carta» con la dirección del QR. Se enciende con `"club": {"activo": true}`
+  en `carta.json` cuando el club exista en Pleamar (`scripts/seed-restaurants.ts` con `SEED_SOLO=super-machi`).
+- **Origen del escaneo:** el QR redirige a `…/?src=qr-mesa`; el menú lo conserva al cambiar de idioma y lo pasa al club.
+
 ## Cómo se edita (sin tocar nada impreso)
 
 Todo sale de **un archivo**: `content/supermachi/carta.json`. Se edita en GitHub (botón del lápiz) o en local, y al hacer
