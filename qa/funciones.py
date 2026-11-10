@@ -29,6 +29,10 @@ def comprobar(cond, msg):
 
 hoy = datetime.now(ZoneInfo('America/New_York'))
 dow = (hoy.weekday() + 1) % 7  # 0 = domingo
+# los shows que siguen en cartelera hoy (las pruebas de la cartelera dependen de la fecha en que se corren)
+_ev = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'content', 'supermachi', 'eventos.json')))
+vigentes = sorted(e for e in (x.get('fecha', '') for x in _ev['proximos']) if e >= hoy.strftime('%Y-%m-%d'))
+prox_slug = next((x['id'] for x in sorted(_ev['proximos'], key=lambda x: x.get('fecha', '')) if x.get('fecha', '') >= hoy.strftime('%Y-%m-%d')), None)
 
 with sync_playwright() as p:
     b = p.chromium.launch()
@@ -73,8 +77,8 @@ with sync_playwright() as p:
     comprobar(og.startswith('https://') and 'supermachirestaurante.com' not in og if pg.locator('meta[name="robots"]').count() else og.startswith('https://supermachirestaurante.com'), f'og:image de la vista previa apunta a la vista previa, no a la web vieja ({og})')
     comprobar(pg.locator('.pared__luz').count() == 0, 'en el teléfono no hay luz de puntero')
     proximos = pg.locator('.pared--hero .cartel').count()
-    comprobar(proximos == 6 and pg.locator('.pared--hero .cartel--pasado').count() == 0 and 'mustelier' in pg.locator('.pared--hero').inner_text().lower(), f'la portada muestra la cartelera de noviembre ({proximos} carteles, ninguno apagado)')
-    comprobar('Noviembre ya tiene cartelera: 9 noches' in pg.locator('.shows__cabeza').inner_text(), 'la portada dice cuántas noches trae noviembre')
+    comprobar(proximos == min(6, len(vigentes)) and pg.locator('.pared--hero .cartel--pasado').count() == 0, f'la portada muestra la cartelera vigente ({proximos} carteles de {min(6, len(vigentes))}, ninguno apagado)')
+    comprobar(bool(re.search(r'ya tiene cartelera: \d+ noches', pg.locator('.shows__cabeza').inner_text())), 'la portada dice cuántas noches de show quedan en el mes')
     # la comida primero: el video de la cocina corre en la portada, dice qué plato se ve y se puede pausar
     pg.evaluate('window.scrollTo(0, 0)'); pg.wait_for_timeout(2500)
     comprobar(pg.locator('.escena .video.rodando').count() == 1, 'el video de la cocina corre en la portada')
@@ -114,7 +118,7 @@ with sync_playwright() as p:
 
     print('Súper Machi · reserva desde el plano')
     pg.goto(SM + '/eventos/', wait_until='networkidle')
-    comprobar(pg.locator('.proximos .cartel').count() == 9 and pg.locator('.vacio').count() == 0, 'la cartelera tiene los 9 shows de noviembre')
+    comprobar(pg.locator('.proximos .cartel').count() == len(vigentes) and (pg.locator('.vacio').count() == 0) == bool(vigentes), f'la cartelera tiene los {len(vigentes)} shows que siguen')
     pg.evaluate("window.scrollTo(0, document.querySelector('.archivo .pared').getBoundingClientRect().top + scrollY + 200)"); pg.wait_for_timeout(2600)
     comprobar(pg.locator('.archivo .cartel--luz').count() >= 1, 'la luz del escenario enciende el cartel apagado que cruza el centro de la pantalla')
     pg.evaluate('window.scrollTo(0, 0)')
@@ -130,12 +134,15 @@ with sync_playwright() as p:
 
     print('Súper Machi · un show de noviembre')
     pg.goto(SM + '/eventos/2026-11-07-manuel-alveraiz/', wait_until='networkidle')
-    comprobar(pg.locator('.evento--pasado').count() == 0 and pg.locator('#reservar').count() == 1 and pg.locator('a[href="/eventos/2026-11-07-manuel-alveraiz.ics"]').count() == 1, 'un show próximo ofrece reservar y añadir al calendario')
+    if prox_slug:
+        pg.goto(SM + f'/eventos/{prox_slug}/', wait_until='networkidle')
+        comprobar(pg.locator('.evento--pasado').count() == 0 and pg.locator('#reservar').count() == 1 and pg.locator(f'a[href="/eventos/{prox_slug}.ics"]').count() == 1, f'un show próximo ({prox_slug}) ofrece reservar y añadir al calendario')
+        ics = ctx.request.get(SM + f'/eventos/{prox_slug}.ics')
+        comprobar(ics.status == 200 and f'DTSTART;VALUE=DATE:{prox_slug[:10].replace("-", "")}' in ics.text() and 'text/calendar' in ics.headers.get('content-type', ''), 'el .ics del show')
+        pg.goto(SM + '/eventos/2026-11-07-manuel-alveraiz/', wait_until='networkidle')
     comprobar('Bartolo El Gozador' in pg.locator('.evento__sub').inner_text(), 'el subtítulo del flyer (Deni DJ e invitado, «Gozador» como lo corrigió Juan)')
     lds = [json.loads(x) for x in pg.locator('script[type="application/ld+json"]').all_inner_texts()]
     comprobar(any(l.get('@type') == 'Event' and l.get('startDate') == '2026-11-07' for l in lds), 'JSON-LD Event del 7 de noviembre')
-    ics = ctx.request.get(SM + '/eventos/2026-11-07-manuel-alveraiz.ics')
-    comprobar(ics.status == 200 and 'DTSTART;VALUE=DATE:20261107' in ics.text() and 'text/calendar' in ics.headers.get('content-type', ''), 'el .ics del show')
     pg.goto(SM + '/eventos/2026-11-28-laritza-bacallao/', wait_until='networkidle')
     comprobar('Laritza Bacallao en la casa, antes' in pg.locator('main').inner_text(), 'un show de noviembre enlaza las veces que el artista ya pasó por la casa')
 

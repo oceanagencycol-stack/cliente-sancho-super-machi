@@ -6,6 +6,11 @@
 |---|---|---|---|---|
 | `supermachi-web` | `sites/supermachi` | `node ../../web/build.mjs supermachi` | `dist` | `echo sin dependencias` |
 | `sancho-web` | `sites/sancho` | `node ../../web/build.mjs sancho` | `dist` | `echo sin dependencias` |
+| `supermachi-menu` | `sites/supermachi-menu` | `node ../../menu/build.mjs` | `dist` | `echo sin dependencias` |
+
+El menú digital (https://supermachi-menu.vercel.app, desde el 2026-11-10) se publica con cada push a `main`; el QR impreso
+apunta a https://qr.oceanindustries.com.co/supermachi (proyecto `ocean-qr`, en el repo `ocean-brain`, `servicios/qr/`), que
+redirige con 307 al menú. Ver `menu/README.md`.
 
 Framework: *Other*. «Include source files outside of the Root Directory»: activado (el build lee `web/` y `content/`).
 Cada push a `main` publica las dos. El build no instala nada: las fotos, los videos, las fuentes y los logos ya van

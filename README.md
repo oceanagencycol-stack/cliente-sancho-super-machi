@@ -28,6 +28,11 @@ Repo de Ocean Industries para rehacer desde cero las webs de **Sancho Restaurant
 | `qa/` | `serve.py` (sirve `dist/` como Vercel; si cambia `vercel.json`, se reinicia), `funciones.py` (76 pruebas en navegador), `ver.py` (capturas de teléfono y escritorio). |
 | `tools/` | `extraer.py` (la extracción) y `logos.py` (los logos vectoriales). |
 
+## Menú digital (desde el 2026-11-10)
+
+`menu/` genera la carta para el QR de las mesas desde `content/supermachi/carta.json` (carta impresa de nov-2026 + postres
+y café de los PDF viejos, sin precios, ES/EN). Se edita ese archivo y se publica solo. Detalle en `menu/README.md`.
+
 ## Comandos
 
 ```bash
