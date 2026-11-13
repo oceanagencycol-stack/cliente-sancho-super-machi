@@ -28,7 +28,12 @@
     "t": "Lunch special",
     "d": "Monday to Friday until 4 pm. Add a drink to your plate (draft beer, a glass of wine or sangria) plus flan or coffee."
    },
-   "p": "+$6.99"
+   "p": "+$6.99",
+   "cuando": {
+    "dias": [1, 2, 3, 4, 5],
+    "hasta": "16:00",
+    "nota": "los días y la hora salen de su propio texto; el menú marca «ahora» con la hora de Miami"
+   }
   },
   {
    "id": "barra-libre",
@@ -40,7 +45,13 @@
     "t": "Wednesdays & Thursdays",
     "d": "From 7 to 10 pm, eat and drink all you want for one fixed price. Dishes tagged «In the deal» are included."
    },
-   "p": "$35"
+   "p": "$35",
+   "cuando": {
+    "dias": [3, 4],
+    "desde": "19:00",
+    "hasta": "22:00",
+    "nota": "los días y la hora salen de su propio texto; el menú marca «ahora» con la hora de Miami"
+   }
   }
  ],
  "club": {

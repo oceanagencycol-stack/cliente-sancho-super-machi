@@ -11,8 +11,21 @@ desde el QR de las mesas.
 
 ## Lo que hace el cliente en la mesa
 
-- **Mi pedido:** toca «+» en cualquier plato o bebida, ajusta cantidades, deja una nota para la cocina y lo enseña al
-  mesero en una pantalla clara con letra grande. Se guarda en su teléfono 12 horas (sigue ahí si cierra el navegador o
+- **La cocina primero:** abre con el video de la cocina de la portada de la web (el mismo de `web/public/media/supermachi/video`,
+  que el build copia a `/video/`) y el letrero dice qué plato se ve. El clip se pide después de cargar la página, solo en
+  pantalla y nunca con movimiento reducido ni ahorro de datos; siempre tiene pausa.
+- **Promociones con «ahora»:** cada promo lleva `cuando` en `carta.json` (días 0 = domingo … 6 = sábado y horas, sacados de su
+  propio texto); con la hora de Miami el menú marca «Ahora» o «Hoy desde las …» y pone primero la que está en curso.
+- **Ficha del plato:** se toca un plato y sube su ficha con la foto en grande (crece desde la de la carta), todo el texto, las
+  etiquetas y el botón «Anotar». Se pasa al plato anterior o siguiente de la sección con las flechas o deslizando la foto;
+  hacia abajo se cierra. Cada ficha tiene su enlace (`/#p-<id>`, p. ej. `/#p-cochinillo`) y el botón «atrás» del teléfono la cierra.
+- **Buscar y filtrar:** la lupa abre el buscador (sin tildes, en los dos idiomas, resalta lo encontrado y lleva al primer
+  resultado) y los filtros «Para compartir», «En la oferta» y «Happy hour», que salen de `personas`, `oferta` y `hh`.
+- **Secciones:** la barra fija sigue la sección que se lee; el botón de cuadritos abre todas las secciones con su foto.
+
+- **Mi pedido:** toca «+» en cualquier plato o bebida (pasa a «− 1 +»; un aviso permite deshacer), ajusta cantidades, pone
+  el número de mesa si quiere, deja una nota para la cocina y lo enseña al mesero en una pantalla clara con letra grande,
+  ordenada por secciones como se lee la carta (la pantalla no se apaga mientras se enseña). Se guarda en su teléfono 12 horas (sigue ahí si cierra el navegador o
   cambia de idioma) y no sale de él: no hay base de datos ni datos personales en el menú.
 - **Club y Wallet (Pleamar):** el bloque «Club Super Machi» lleva al registro del club en Pleamar
   (`https://pleamar-ochre.vercel.app/go/supermachi-menu`, enlace con origen `qr / mesa / menu-digital`, con
@@ -58,4 +71,5 @@ node menu/build.mjs            # genera sites/supermachi-menu/dist y su vercel.j
 node menu/build.mjs --revisar  # solo valida la carta
 python3 menu/tools/fotos.py    # recorta las fotos nuevas (necesita git lfs pull para los originales)
 python3 menu/tools/qr.py       # vuelve a generar los archivos del QR
+python3 qa/serve.py supermachi-menu 4310 & python3 qa/menu.py   # pruebas del menú en un navegador (todo en verde)
 ```
