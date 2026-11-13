@@ -355,6 +355,8 @@ ${panelSecciones(l)}
 fs.rmSync(DIST, { recursive: true, force: true });
 fs.mkdirSync(path.join(DIST, 'en'), { recursive: true });
 fs.cpSync(path.join(PUBLICO, 'fotos'), path.join(DIST, 'fotos'), { recursive: true });
+// el logo de noche y la cabecera (cochinillo, foto real) que usa la tarjeta del Club Super Machi en Apple/Google Wallet (Pleamar)
+fs.cpSync(path.join(PUBLICO, 'wallet'), path.join(DIST, 'wallet'), { recursive: true });
 fs.mkdirSync(path.join(DIST, 'fuentes'), { recursive: true });
 for (const f of ['machi-serif.woff2', 'machi-serif-italic.woff2', 'machi-text.woff2', 'machi-display.woff2'])
   fs.copyFileSync(path.join(RAIZ, 'web/public/fuentes', f), path.join(DIST, 'fuentes', f));
