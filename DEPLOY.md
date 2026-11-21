@@ -17,7 +17,13 @@ Cada push a `main` publica las dos. El build no instala nada: las fotos, los vid
 optimizados en `web/public/` (los videos, unos 9–10 MB por web, van en git normal y no en LFS: Vercel no baja LFS). `sites/<sitio>/vercel.json` lo escribe el build y se commitea: si cambias redirecciones o la CSP, corre el
 build en local y commitea el `vercel.json` nuevo (Vercel lo lee antes de construir).
 
-## Vista previa (hoy)
+## Lanzadas (20-nov-2026)
+
+Las dos webs están **lanzadas**: Build Command de Vercel con `--lanzar` (sin banner ni noindex, canonical al dominio del
+restaurante, robots abierto). Datos aprobados por el restaurante (Juan Diego, 20-nov-2026). Para volver a vista previa:
+quitar `--lanzar` del Build Command y correr el build en local para commitear el `vercel.json` con el noindex.
+
+## Vista previa (hasta el 20-nov-2026)
 
 - **Lo que lleva la vista previa:**
   - el banner «Vista previa privada»;

@@ -32,9 +32,9 @@
   {
    "dato": "horario",
    "valor": "L–J 11:00–22:00; V–D 11:00–02:00",
-   "fuente": "https://supermachirestaurante.com (slider de la portada, API: página modificada 2026-10-16)",
-   "visto": "2026-11-02",
-   "estado": "por_confirmar",
+   "fuente": "https://supermachirestaurante.com (slider de la portada, API: página modificada 2026-10-16) + aprobación del restaurante de la web publicada (Juan Diego Valencia en el chat de Ocean, 2026-11-20 20:17: «las web de los restaurantes ya están verificadas… tenemos autorización para utilizar toda la información»)",
+   "visto": "2026-11-20",
+   "estado": "verificado",
    "nota": "solo aparece en el slider; Google Business manda"
   },
   {
@@ -48,33 +48,33 @@
   {
    "dato": "buffet de almuerzo",
    "valor": "$12.99, L–V 11:00 a. m.–4:00 p. m.; «incluye 2 proteínas y 3 platos fuertes»",
-   "fuente": "https://supermachirestaurante.com/buffet-cubano/ y portada",
-   "visto": "2026-11-02",
-   "estado": "por_confirmar",
+   "fuente": "https://supermachirestaurante.com/buffet-cubano/ y portada + aprobación del restaurante de la web publicada (Juan Diego Valencia en el chat de Ocean, 2026-11-20 20:17: «las web de los restaurantes ya están verificadas… tenemos autorización para utilizar toda la información»)",
+   "visto": "2026-11-20",
+   "estado": "verificado",
    "nota": "qué incluye exactamente"
   },
   {
    "dato": "menú (carta, happy hour, postres y café, bebidas)",
    "valor": "248 ítems en content/supermachi/menu.json",
-   "fuente": "los PDF que enlaza https://supermachirestaurante.com/nuestro-menu/ (diciembre de 2024)",
-   "visto": "2026-11-02",
-   "estado": "por_confirmar",
+   "fuente": "los PDF que enlaza https://supermachirestaurante.com/nuestro-menu/ (diciembre de 2024) + aprobación del restaurante de la web publicada (Juan Diego Valencia en el chat de Ocean, 2026-11-20 20:17: «las web de los restaurantes ya están verificadas… tenemos autorización para utilizar toda la información»)",
+   "visto": "2026-11-20",
+   "estado": "verificado",
    "nota": "precios de hace casi dos años; el restaurante confirma los vigentes. El enlace «Medio Día» apunta al PDF de postres"
   },
   {
    "dato": "cochinillo segoviano",
    "valor": "$290, 6–8 personas, con 2 acompañantes (PDF dic-2024); la tienda vieja: $290–$380, «hasta 10 personas»",
-   "fuente": "PDF del menú + https://supermachirestaurante.com/producto/cochinillo-segoviano/ (API de la tienda)",
-   "visto": "2026-11-02",
-   "estado": "por_confirmar",
+   "fuente": "PDF del menú + https://supermachirestaurante.com/producto/cochinillo-segoviano/ (API de la tienda) + aprobación del restaurante de la web publicada (Juan Diego Valencia en el chat de Ocean, 2026-11-20 20:17: «las web de los restaurantes ya están verificadas… tenemos autorización para utilizar toda la información»)",
+   "visto": "2026-11-20",
+   "estado": "verificado",
    "nota": "tamaños y precios vigentes"
   },
   {
    "dato": "Tabla Mar y Tierra",
    "valor": "$349, 6–10 personas (PDF); la tienda vieja: «10–14 personas», sin precio",
-   "fuente": "PDF del menú + API de la tienda",
-   "visto": "2026-11-02",
-   "estado": "por_confirmar"
+   "fuente": "PDF del menú + API de la tienda + aprobación del restaurante de la web publicada (Juan Diego Valencia en el chat de Ocean, 2026-11-20 20:17: «las web de los restaurantes ya están verificadas… tenemos autorización para utilizar toda la información»)",
+   "visto": "2026-11-20",
+   "estado": "verificado"
   },
   {
    "dato": "propina en grupos",
@@ -148,9 +148,9 @@
   {
    "dato": "el cochinillo se reserva un día antes",
    "valor": "«Especialidad de la casa: cochinillo estilo segoviano. Reserva un día antes al 305.266.3226»",
-   "fuente": "letrero de la fachada en la foto media/supermachi/originales/2025-01_DSC00073-Editar.jpg (enero de 2025)",
-   "visto": "2026-11-02",
-   "estado": "por_confirmar",
+   "fuente": "letrero de la fachada en la foto media/supermachi/originales/2025-01_DSC00073-Editar.jpg (enero de 2025) + aprobación del restaurante de la web publicada (Juan Diego Valencia en el chat de Ocean, 2026-11-20 20:17: «las web de los restaurantes ya están verificadas… tenemos autorización para utilizar toda la información»)",
+   "visto": "2026-11-20",
+   "estado": "verificado",
    "nota": "la foto es de enero de 2025; el caballete de la misma foto dice «Buffet 9.99», hoy la web dice $12.99, por eso la web nueva recorta la foto sin el caballete"
   },
   {
@@ -170,37 +170,39 @@
   {
    "dato": "menú de grupo: plato «… con Papa» ($15)",
    "valor": "el nombre está cortado en la foto; no se publica",
-   "fuente": "foto de la carta impresa, 2026-11-10",
-   "visto": "2026-11-10",
-   "estado": "por_confirmar"
+   "fuente": "foto de la carta impresa, 2026-11-10 + aprobación del restaurante de la web publicada (Juan Diego Valencia en el chat de Ocean, 2026-11-20 20:17: «las web de los restaurantes ya están verificadas… tenemos autorización para utilizar toda la información»)",
+   "visto": "2026-11-20",
+   "estado": "retirado",
+   "nota": "No se publica: no se puede leer en la carta."
   },
   {
    "dato": "menú de grupo: «Pollo Asado estilo a la Abuela»",
    "valor": "se lee «…Asado estilo a la Abuela / …ther's roast chicken»; se publica como pollo asado",
-   "fuente": "foto de la carta impresa, 2026-11-10",
-   "visto": "2026-11-10",
-   "estado": "por_confirmar"
+   "fuente": "foto de la carta impresa, 2026-11-10 + aprobación del restaurante de la web publicada (Juan Diego Valencia en el chat de Ocean, 2026-11-20 20:17: «las web de los restaurantes ya están verificadas… tenemos autorización para utilizar toda la información»)",
+   "visto": "2026-11-20",
+   "estado": "verificado"
   },
   {
    "dato": "Ensalada de Tomate: precio",
    "valor": "no se lee en la foto",
-   "fuente": "foto de la carta impresa, 2026-11-10",
-   "visto": "2026-11-10",
-   "estado": "por_confirmar"
+   "fuente": "foto de la carta impresa, 2026-11-10 + aprobación del restaurante de la web publicada (Juan Diego Valencia en el chat de Ocean, 2026-11-20 20:17: «las web de los restaurantes ya están verificadas… tenemos autorización para utilizar toda la información»)",
+   "visto": "2026-11-20",
+   "estado": "retirado",
+   "nota": "No se publica: no se puede leer en la carta."
   },
   {
    "dato": "postres y café siguen en la carta",
    "valor": "la carta impresa nueva no los trae; el menú digital los muestra con los de dic-2024",
-   "fuente": "content/supermachi/menu.json (PDF dic-2024) + pedido de Juan del 2026-11-10 («complétalo con lo que falte… como postres y café»)",
-   "visto": "2026-11-10",
-   "estado": "por_confirmar"
+   "fuente": "content/supermachi/menu.json (PDF dic-2024) + pedido de Juan del 2026-11-10 («complétalo con lo que falte… como postres y café») + aprobación del restaurante de la web publicada (Juan Diego Valencia en el chat de Ocean, 2026-11-20 20:17: «las web de los restaurantes ya están verificadas… tenemos autorización para utilizar toda la información»)",
+   "visto": "2026-11-20",
+   "estado": "verificado"
   },
   {
    "dato": "fotos de platos asignadas por Ocean",
    "valor": "bistec encebollado (DSC00265), ternera guisada (DSC00627), fricasé de cerdo (DSC00273), rabo encendido (DSC00316-2), jarrete de cordero (DSC00329), volcán de chocolate (DSC00656) y old fashioned (DSC00688): son fotos del restaurante, pero qué plato muestra cada una lo dedujo Ocean (foto_por_confirmar en carta.json)",
-   "fuente": "biblioteca de medios del restaurante, revisada el 2026-11-10",
-   "visto": "2026-11-10",
-   "estado": "por_confirmar"
+   "fuente": "biblioteca de medios del restaurante, revisada el 2026-11-10 + aprobación del restaurante de la web publicada (Juan Diego Valencia en el chat de Ocean, 2026-11-20 20:17: «las web de los restaurantes ya están verificadas… tenemos autorización para utilizar toda la información»)",
+   "visto": "2026-11-20",
+   "estado": "verificado"
   },
   {
    "dato": "menú de niños, happy hour de oct-2024 y propina del 18 %",
