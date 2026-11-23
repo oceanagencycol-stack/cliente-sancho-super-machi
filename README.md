@@ -3,8 +3,8 @@
 Repo de Ocean Industries para rehacer desde cero las webs de **Sancho Restaurant Miami** y **El Mesón de Súper Machi**
 (propuesta OI-PR-2026-SM). Primero se archivó todo lo que tenían publicado; sobre eso se construyeron las dos webs nuevas.
 
-- **Súper Machi** = la casa de los eventos: cartelera con una página por show, reserva por WhatsApp desde el plano de la
-  sala (VIP, Salón 1, Salón 2, barra), menú completo en HTML con buscador y «Mi comanda», grupos (cochinillo, tablas),
+- **Súper Machi** = la casa de los eventos: cartelera con una página por show, reserva en la web desde el plano de la
+  sala (VIP, Salón 1, Salón 2, barra; ver «Reservas en la web» abajo), menú completo en HTML con buscador y «Mi comanda», grupos (cochinillo, tablas),
   buffet de almuerzo, club y visita.
 - **Sancho** = cocina española de calidad al mejor precio: el sol de la semana (la promo de hoy con la hora de Miami),
   la semana completa, almuerzo y menú ejecutivo, pedidos en línea y a domicilio, club y visita.
@@ -32,6 +32,26 @@ Repo de Ocean Industries para rehacer desde cero las webs de **Sancho Restaurant
 
 `menu/` genera la carta para el QR de las mesas desde `content/supermachi/carta.json` (carta impresa de nov-2026 + postres
 y café de los PDF viejos, sin precios, ES/EN). Se edita ese archivo y se publica solo. Detalle en `menu/README.md`.
+
+## Reservas en la web (Súper Machi, desde el 2026-11-23)
+
+Pedido de Juan (audio del 17-nov): en EE. UU. la gente reserva en la página, no abriendo WhatsApp. Los botones «Reservar
+mesa» llevan a `/reservar/` (`/en/reserve/`); la cartelera y cada show próximo tienen el mismo formulario (zona en el plano,
+día, hora según el horario, personas, nombre, WhatsApp y nota).
+
+1. El navegador manda la reserva a `/api/reservar` (`sites/supermachi/api/reservar.js`, función de Vercel: revisa el origen,
+   una trampa para bots y un límite por IP).
+2. La función la pasa al flujo de n8n **«Súper Machi · reservas desde la web»** (`XmFmnuE22xuYAjSU`) con un secreto en la
+   cabecera. La dirección y el secreto están en las variables de entorno del proyecto `supermachi-web`
+   (`SM_RESERVAS_URL`, `SM_RESERVAS_SECRETO`); nunca en el repo.
+3. n8n, desde **el WhatsApp del restaurante** (305-266-3226, instancia `supermachi` del Evolution de Ocean), le escribe al
+   cliente «recibimos tu solicitud» con los datos, y le deja al restaurante una nota «RESERVA DESDE LA WEB» en su propio
+   chat. El restaurante confirma la mesa en el chat con el cliente.
+4. Si la línea no está conectada o n8n no responde, la web manda esa misma reserva por WhatsApp a mano (como antes):
+   la reserva no se pierde.
+
+La línea se vincula (o se revisa con `?estado=1`) en la página privada del flujo «Súper Machi · vincular WhatsApp»
+(`iwpZbafGEsel4Lrn`); ver `DEPLOY.md`.
 
 ## Comandos
 

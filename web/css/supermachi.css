@@ -182,7 +182,20 @@ body::after{content:"";position:fixed;inset:0;z-index:95;pointer-events:none;opa
 .reserva__form{display:grid;gap:1.1rem}
 .reserva__zonas{border:0;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:.5rem}
 .reserva__zonas legend{font-weight:600;margin-bottom:.5rem;padding:0}
-.reserva__fila{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+.reserva__fila{display:grid;grid-template-columns:repeat(auto-fit,minmax(8.5rem,1fr));gap:.8rem}
+.reserva__fila--datos{grid-template-columns:repeat(auto-fit,minmax(13rem,1fr))}
+.reserva__form .campo{min-width:0}
+.reserva__form .campo input,.reserva__form .campo select{width:100%;min-width:0}
+.reserva__form textarea{min-height:4.5rem;padding:.6rem .8rem;border:1.5px solid var(--linea-fuerte);border-radius:var(--radio,.25rem);background:var(--campo-fondo);font:inherit;font-weight:400;color:inherit;resize:vertical}
+.reserva__trampa{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.reserva__error{margin:0;padding:.6rem .8rem;border-left:3px solid var(--acento);background:var(--campo-fondo);font-weight:600}
+.reserva__form .boton[disabled]{opacity:.7;cursor:progress}
+.reserva__listo{padding:1.25rem 1.4rem;border:1px solid var(--acento);margin-top:1.5rem}
+.reserva__listo:focus{outline:none}
+.reserva__listo-titulo{font-family:var(--font-serif);font-weight:700;font-size:1.6rem;margin:0 0 .5rem}
+.reserva__listo p{max-width:34em}
+.reserva-info{padding:clamp(1.25rem,3vw,2rem) 0;color:var(--humo);display:grid;gap:.6rem}
+.reserva-info p{margin:0;max-width:44em}
 .reserva__nota{font-size:.9rem;color:var(--humo)}
 .reserva__form .boton{justify-self:start}
 .reserva__plano{max-width:28rem;width:100%;justify-self:center}

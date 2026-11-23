@@ -40,6 +40,16 @@ quitar `--lanzar` del Build Command y correr el build en local para commitear el
   `content/<sitio>/local.json`. Así la tarjeta de WhatsApp no muestra la web vieja. Al lanzar (`--lanzar`) pasan al dominio
   del restaurante.
 
+## Reservas en la web: variables y la línea de WhatsApp
+
+- Proyecto `supermachi-web`, variables (Production y Preview, tipo *sensitive*): `SM_RESERVAS_URL` (el webhook del flujo de
+  n8n `XmFmnuE22xuYAjSU`) y `SM_RESERVAS_SECRETO` (la cabecera `x-reserva-secreto` que exige ese flujo). Si se cambia una,
+  se cambia en los dos lados.
+- **Vincular el WhatsApp del restaurante** (una vez, con el celular del 305-266-3226 en la mano):
+  la página del flujo de n8n «Súper Machi · vincular WhatsApp (305 266 3226)» (`iwpZbafGEsel4Lrn`; su dirección se ve en el
+  nodo «Abrir página» y no va en el repo: con ella cualquiera podría vincular otro celular). `?estado=1` dice si sigue conectada. Si el celular cierra la sesión de «Dispositivos vinculados», las reservas vuelven a
+  salir por WhatsApp a mano hasta que se vincule de nuevo.
+
 ## Acciones de consola que solo hace Juan (o el cliente)
 
 1. **Confirmar con el restaurante lo que está en `por_confirmar`** (`data/fuentes.json`): precios vigentes del menú de

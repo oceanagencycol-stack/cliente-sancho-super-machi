@@ -12,6 +12,7 @@ const R = {
   almuerzo: { es: '/almuerzo/', en: '/en/lunch/' },
   club: { es: '/club/', en: '/en/club/' },
   visita: { es: '/visita/', en: '/en/visit/' },
+  reservar: { es: '/reservar/', en: '/en/reserve/' },
   privacidad: { es: '/privacidad/', en: '/en/privacy/' },
 };
 const evRuta = (id, lang) => (lang === 'en' ? `/en/shows/${id}/` : `/eventos/${id}/`);
@@ -44,7 +45,7 @@ function cabecera(ctx, { ruta, alterna }) {
   <nav class="cabecera__nav" aria-label="${lang === 'en' ? 'Main' : 'Principal'}">${nav(ctx, items, ruta, 'cabecera__lista')}</nav>
   <div class="cabecera__fin">
     ${idioma(ctx, alterna || R.inicio[lang === 'es' ? 'en' : 'es'])}
-    <a class="boton boton--cabecera" href="${wa(ctx.local.whatsapp, t(MSG.reservar, lang))}" rel="noopener" data-ev="click_whatsapp">${lang === 'en' ? 'Reserve a table' : 'Reservar mesa'}</a>
+    <a class="boton boton--cabecera" href="${R.reservar[lang]}" data-ev="click_reserve">${lang === 'en' ? 'Reserve a table' : 'Reservar mesa'}</a>
     <button class="cabecera__abrir" type="button" aria-expanded="false" aria-controls="menu-movil" data-nav-abrir><span>${ui.menu}</span></button>
   </div>
   <div class="cabecera__movil" id="menu-movil" hidden>${nav(ctx, items, ruta, 'cabecera__movil-lista')}</div>
@@ -59,7 +60,7 @@ function pie(ctx, { alterna }) {
   <div><h2 class="pie__titulo">${ui.direccion}</h2>${direccion(ctx)}<p><a href="${local.mapa}" rel="noopener" data-ev="click_directions">${ui.comoLlegar} →</a></p></div>
   <div><h2 class="pie__titulo">${ui.horario}</h2>${horario(ctx)}</div>
   <div><h2 class="pie__titulo">${lang === 'en' ? 'Reservations' : 'Reservas'}</h2>
-    <p>WhatsApp ${telefono(ctx)}</p><p>RSVP ${telefono(ctx, local.rsvp)}</p>
+    <p><a href="${R.reservar[lang]}">${lang === 'en' ? 'Reserve online' : 'Reserva en la web'} →</a></p><p>WhatsApp ${telefono(ctx)}</p><p>RSVP ${telefono(ctx, local.rsvp)}</p>
     <h2 class="pie__titulo">${ui.redes}</h2>${redes(ctx)}</div>
   <div class="pie__base">
     <p>© ${new Date().getFullYear()} El Mesón de Súper Machi · 7931 NW 2nd St, Miami, FL 33126</p>
@@ -71,7 +72,7 @@ function pie(ctx, { alterna }) {
 function acciones(ctx) {
   const { lang, local } = ctx; const ui = UI[lang];
   return h`<nav class="acciones" aria-label="${lang === 'en' ? 'Quick actions' : 'Acciones rápidas'}">
-  <a href="${wa(local.whatsapp, t(MSG.reservar, lang))}" rel="noopener" data-ev="click_whatsapp" class="acciones__principal">${ui.reservar}</a>
+  <a href="${R.reservar[lang]}" data-ev="click_reserve" class="acciones__principal">${ui.reservar}</a>
   <a href="${tel(local.telefono)}" data-ev="click_call">${ui.llamar}</a>
   <a href="${local.mapa}" rel="noopener" data-ev="click_directions">${lang === 'en' ? 'Map' : 'Mapa'}</a>
   <a href="${R.menu[lang]}">${ui.menu}</a>
@@ -119,27 +120,46 @@ function plano(ctx) {
   </svg>`;
 }
 
-function reserva(ctx, { evento = null } = {}) {
-  const { lang, local } = ctx; const ui = UI[lang];
+// la reserva en la web (desde el 23-nov-2026, pedido de Juan: en EE. UU. se reserva en la página). El formulario va a
+// /api/reservar (sites/supermachi/api/reservar.js) → n8n → el WhatsApp del restaurante le escribe al cliente que llegó su
+// solicitud y le deja la nota al restaurante. Si eso falla (o no hay JS), la misma reserva se manda por WhatsApp a mano.
+const HORAS = (() => { const r = []; for (let m = 11 * 60; m <= 23 * 60 + 30; m += 30) r.push(`${String(Math.floor(m / 60)).padStart(2, '0')}:${String(m % 60).padStart(2, '0')}`); return r; })();
+
+function reserva(ctx, { evento = null, titulo = 2 } = {}) {
+  const { lang, local } = ctx; const en = lang === 'en';
   const zonas = ctx.eventos.zonas;
   const personas = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 20];
+  const hx = titulo === 1 ? 'h1' : 'h2';
   return h`<section class="reserva" id="reservar" aria-labelledby="reserva-t">
     <div class="reserva__texto">
-      <h2 id="reserva-t" class="titulo-2">${lang === 'en' ? 'Pick your spot' : 'Elige dónde sentarte'}</h2>
-      <p>${lang === 'en' ? 'The room faces the stage: VIP up front, then Room 1 and Room 2, and the bar along the side. Tell us where you’d like to sit and we’ll confirm on WhatsApp.' : 'La sala mira al escenario: el VIP adelante, luego el Salón 1 y el Salón 2, y la barra a un lado. Dinos dónde quieres sentarte y te confirmamos por WhatsApp.'}</p>
-      <form class="reserva__form" data-reserva data-wa="${local.whatsapp}" data-lang="${lang}" ${evento ? h`data-evento="${evento.artista} · ${fechaLarga(evento.fecha, lang)}"` : ''}>
-        <fieldset class="reserva__zonas"><legend>${lang === 'en' ? 'Area' : 'Zona'}</legend>
+      ${raw(`<${hx} id="reserva-t" class="titulo-${titulo === 1 ? 1 : 2}">`)}${titulo === 1 ? (en ? 'Reserve your table' : 'Reserva tu mesa') : (en ? 'Pick your spot' : 'Elige dónde sentarte')}${raw(`</${hx}>`)}
+      <p>${en ? 'The room faces the stage: VIP up front, then Room 1 and Room 2, and the bar along the side. Choose your spot, the day and the time; the confirmation reaches your WhatsApp.' : 'La sala mira al escenario: el VIP adelante, luego el Salón 1 y el Salón 2, y la barra a un lado. Elige dónde, el día y la hora; la confirmación te llega por WhatsApp.'}</p>
+      <form class="reserva__form" data-reserva data-wa="${local.whatsapp}" data-lang="${lang}" data-franjas='${JSON.stringify(local.horario.franjas)}' ${evento ? h`data-evento="${evento.artista} · ${fechaLarga(evento.fecha, lang)}"` : ''} novalidate>
+        <fieldset class="reserva__zonas"><legend>${en ? 'Area' : 'Zona'}</legend>
           ${zonas.map((z, i) => h`<label class="chip"><input type="radio" name="zona" value="${t(z, lang)}" data-zona="${z.id}" ${raw(i === 1 ? 'checked' : '')}><span>${t(z, lang)}</span></label>`)}
         </fieldset>
         <div class="reserva__fila">
-          <label class="campo"><span>${lang === 'en' ? 'Guests' : 'Personas'}</span>
+          ${evento ? h`<input type="hidden" name="fecha" value="${evento.fecha}">` : h`<label class="campo"><span>${en ? 'Date' : 'Fecha'}</span><input type="date" name="fecha" data-hoy-min required></label>`}
+          <label class="campo"><span>${en ? 'Time' : 'Hora'}</span>
+            <select name="hora" required>${HORAS.map((x) => h`<option value="${x}" ${raw(x === '20:00' ? 'selected' : '')}>${hora(x, lang)}</option>`)}</select></label>
+          <label class="campo"><span>${en ? 'Guests' : 'Personas'}</span>
             <select name="personas">${personas.map((n) => h`<option ${raw(n === 2 ? 'selected' : '')}>${n === 20 ? '20+' : n}</option>`)}</select></label>
-          ${evento ? '' : h`<label class="campo"><span>${lang === 'en' ? 'Date' : 'Fecha'}</span><input type="date" name="fecha" data-hoy-min></label>`}
         </div>
-        <label class="campo"><span>${lang === 'en' ? 'Name' : 'Nombre'}</span><input type="text" name="nombre" autocomplete="name" maxlength="60"></label>
-        <button class="boton boton--grande" type="submit" data-ev="click_whatsapp">${lang === 'en' ? 'Send on WhatsApp' : 'Enviar por WhatsApp'}</button>
-        <p class="reserva__nota">${lang === 'en' ? 'Prefer to call? Show reservations (RSVP): ' : '¿Prefieres llamar? Reservas para los shows (RSVP): '}${telefono(ctx, local.rsvp)}</p>
+        <div class="reserva__fila reserva__fila--datos">
+          <label class="campo"><span>${en ? 'Name' : 'Nombre'}</span><input type="text" name="nombre" autocomplete="name" maxlength="60" required></label>
+          <label class="campo"><span>WhatsApp</span><input type="tel" name="telefono" autocomplete="tel" inputmode="tel" maxlength="20" placeholder="(305) 555-0123" required></label>
+        </div>
+        <label class="campo"><span>${en ? 'Anything we should know? (optional)' : '¿Algo que debamos saber? (opcional)'}</span><textarea name="nota" rows="2" maxlength="300" placeholder="${en ? 'Birthday, high chair, allergies…' : 'Cumpleaños, silla para bebé, alergias…'}"></textarea></label>
+        <label class="reserva__trampa" aria-hidden="true">Empresa <input type="text" name="empresa" tabindex="-1" autocomplete="off"></label>
+        <p class="reserva__error" data-reserva-error role="alert" hidden></p>
+        <button class="boton boton--grande" type="submit" data-ev="click_reserve">${en ? 'Reserve' : 'Reservar'}</button>
+        <p class="reserva__nota">${en ? 'Prefer to write or call? ' : '¿Prefieres escribir o llamar? '}<a href="${wa(local.whatsapp, t(MSG.reservar, lang))}" rel="noopener" data-ev="click_whatsapp">WhatsApp</a> · ${en ? 'show reservations (RSVP): ' : 'reservas de shows (RSVP): '}${telefono(ctx, local.rsvp)}</p>
       </form>
+      <div class="reserva__listo" data-reserva-listo tabindex="-1" hidden>
+        <p class="reserva__listo-titulo">${en ? 'Request received!' : '¡Solicitud recibida!'}</p>
+        <p data-reserva-listo-texto></p>
+        <p><button class="boton boton--sutil" type="button" data-reserva-otra>${en ? 'Make another reservation' : 'Hacer otra reserva'}</button></p>
+      </div>
     </div>
     <div class="reserva__plano">${plano(ctx)}</div>
   </section>`;
@@ -174,7 +194,7 @@ function escena(ctx) {
     <div class="escena__texto">
       <h1 class="escena__titulo" id="hero-t">${en ? h`Fire in the kitchen, a <em>show</em> in the room` : h`Fuego en la cocina, <em>show</em> en la sala`}</h1>
       <p class="escena__entrada">${en ? 'Whole Segovia-style suckling pig, meats off the grill, lobster tail and the Cuban classics. And a live show almost every Friday and Saturday.' : 'Cochinillo segoviano entero, carnes a la brasa, cola de langosta y la cocina cubana de siempre. Y casi cada viernes y sábado, show en vivo.'}</p>
-      <p class="escena__acciones"><a class="boton boton--grande" href="${wa(ctx.local.whatsapp, t(MSG.reservar, lang))}" rel="noopener" data-ev="click_whatsapp">${en ? 'Reserve a table' : 'Reservar mesa'}</a> <a class="boton boton--claro boton--grande boton--flecha" href="${R.menu[lang]}">${en ? 'See the menu' : 'Ver el menú'}${icono('flecha')}</a></p>
+      <p class="escena__acciones"><a class="boton boton--grande" href="${R.reservar[lang]}" data-ev="click_reserve">${en ? 'Reserve a table' : 'Reservar mesa'}</a> <a class="boton boton--claro boton--grande boton--flecha" href="${R.menu[lang]}">${en ? 'See the menu' : 'Ver el menú'}${icono('flecha')}</a></p>
     </div>
     <p class="escena__plato" aria-hidden="true" data-tramos='${JSON.stringify(tramos)}'><span data-plato>${tramos[0].n}</span></p>
   </section>`;
@@ -296,7 +316,7 @@ export function paginas(ctx0) {
 
     // ---- cartelera
     {
-      const cuerpo = h`${cabezaPlato(ctx, { titulo: lang === 'en' ? 'Shows' : 'Cartelera', entrada: lang === 'en' ? 'Dinner with a show at El Mesón. Reserve your table on WhatsApp; when a show sells tickets, they’re on DigitalTike.' : 'Cena con show en el mesón. Reserva tu mesa por WhatsApp; cuando un show vende entradas, están en DigitalTike.', foto: 'escenario' })}
+      const cuerpo = h`${cabezaPlato(ctx, { titulo: lang === 'en' ? 'Shows' : 'Cartelera', entrada: lang === 'en' ? 'Dinner with a show at El Mesón. Reserve your table right here; when a show sells tickets, they’re on DigitalTike.' : 'Cena con show en el mesón. Reserva tu mesa aquí mismo; cuando un show vende entradas, están en DigitalTike.', foto: 'escenario' })}
         <section class="proximos" aria-labelledby="prox-t">
           <h2 class="titulo-2" id="prox-t">${lang === 'en' ? 'Coming up' : 'Próximos shows'}</h2>
           ${proximos.length ? pared(ctx, proximos, { eager: true }) : h`<div class="vacio">
@@ -397,6 +417,16 @@ export function paginas(ctx0) {
           <p><a class="boton boton--grande" href="${wa(ctx.local.whatsapp, L(MSG.club))}" rel="noopener" data-ev="click_whatsapp">${lang === 'en' ? 'Save me a spot' : 'Quiero entrar'}</a></p>
         </section>`;
       out.push({ ruta: R.club[lang], html: pagina(ctx, { ruta: R.club[lang], alterna: R.club[lang === 'es' ? 'en' : 'es'], titulo: 'Club', descripcion: lang === 'en' ? 'Join the Súper Machi club: hear about every show first.' : 'El club de Súper Machi: entérate primero de cada show.', cuerpo, cls: 'p-club' }) });
+    }
+
+    // ---- reservar (la página a la que llevan los botones «Reservar mesa»)
+    {
+      const cuerpo = h`${reserva(ctx, { titulo: 1 })}
+        <section class="reserva-info" aria-label="${lang === 'en' ? 'Good to know' : 'Bueno saber'}">
+          <p>${lang === 'en' ? 'Coming for a show? Reserve from the show’s page and we’ll know which night.' : '¿Vienes a un show? Reserva desde la página del show y sabremos qué noche.'} <a href="${R.cartelera[lang]}">${lang === 'en' ? 'See the lineup' : 'Ver la cartelera'} →</a></p>
+          <p>${lang === 'en' ? 'Groups of 6 or more: an 18% gratuity is added. For suckling pig or a platter for the table, see' : 'Grupos de 6 o más: se suma un 18 % de propina. Para el cochinillo o una tabla para la mesa, mira'} <a href="${R.grupos[lang]}">${lang === 'en' ? 'Groups' : 'Grupos'}</a>.</p>
+        </section>`;
+      out.push({ ruta: R.reservar[lang], html: pagina(ctx, { ruta: R.reservar[lang], alterna: R.reservar[lang === 'es' ? 'en' : 'es'], titulo: lang === 'en' ? 'Reserve a table' : 'Reservar mesa', descripcion: lang === 'en' ? 'Reserve your table at El Mesón de Súper Machi in Miami: pick the room, the day and the time, and get the confirmation on WhatsApp.' : 'Reserva tu mesa en El Mesón de Súper Machi, Miami: elige el salón, el día y la hora, y recibe la confirmación por WhatsApp.', cuerpo, jsonld: [ctx.jsonldLocal(lang)], cls: 'p-reservar' }) });
     }
 
     // ---- visita

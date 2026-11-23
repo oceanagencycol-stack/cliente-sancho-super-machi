@@ -79,16 +79,88 @@
     if (r) { r.checked = true; r.dispatchEvent(new Event('change')); r.focus({ preventScroll: true }); }
   });
   marcar();
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const d = new FormData(form);
-    const en = LANG === 'en';
-    const fechaTxt = (v) => { if (!v) return ''; const [y, m, dd] = v.split('-').map(Number); return new Date(Date.UTC(y, m - 1, dd)).toLocaleDateString(en ? 'en-US' : 'es-US', { weekday: 'long', day: 'numeric', month: 'long', timeZone: 'UTC' }); };
+  const en = LANG === 'en';
+
+  // las horas que se ofrecen según el día: desde que abre hasta una hora antes de cerrar (hasta las 11:30 p. m. si cierra
+  // de madrugada) y, si es hoy, desde dentro de una hora
+  let franjas = []; try { franjas = JSON.parse(form.dataset.franjas || '[]'); } catch { /* todas las horas */ }
+  const selHora = $('select[name="hora"]', form);
+  const todas = [...selHora.options].map((o) => ({ v: o.value, t: o.textContent }));
+  const campoFecha = $('[name="fecha"]', form);
+  const horasDel = (iso) => {
+    if (!iso || !franjas.length) return todas;
+    const [y, m, dd] = iso.split('-').map(Number); const dow = new Date(Date.UTC(y, m - 1, dd)).getUTCDay();
+    const ahora = ahoraMiami();
+    const desde = iso === ahora.iso ? ahora.min + 60 : 0;
+    return todas.filter((o) => { const x = aMin(o.v); return x >= desde && franjas.some((f) => f.dias.includes(dow) && x >= aMin(f.abre) && (aMin(f.cierra) <= aMin(f.abre) || x <= aMin(f.cierra) - 60)); });
+  };
+  const ponerHoras = () => {
+    const antes = selHora.value; const lista = horasDel(campoFecha?.value);
+    selHora.replaceChildren(...lista.map((o) => new Option(o.t, o.v)));
+    if (!lista.length) selHora.append(new Option(en ? 'No times left that day' : 'Ya no quedan horas ese día', ''));
+    selHora.value = lista.some((o) => o.v === antes) ? antes : (lista.find((o) => o.v >= '20:00') || lista[lista.length - 1] || { v: '' }).v;
+  };
+  campoFecha?.addEventListener('change', ponerHoras);
+  ponerHoras();
+
+  const fechaTxt = (v) => { if (!v) return ''; const [y, m, dd] = v.split('-').map(Number); return new Date(Date.UTC(y, m - 1, dd)).toLocaleDateString(en ? 'en-US' : 'es-US', { weekday: 'long', day: 'numeric', month: 'long', timeZone: 'UTC' }); };
+  const horaTxt = (v) => todas.find((o) => o.v === v)?.t || v;
+  const digitos = (v) => { let n = String(v || '').replace(/\D/g, ''); if (n.length === 10) n = '1' + n; return n; };
+  const error = $('[data-reserva-error]', form);
+  const decir = (txt, campo) => { error.textContent = txt; error.hidden = !txt; if (campo) campo.focus(); };
+  // el mismo pedido, por WhatsApp a mano (sin JS de servidor o si la línea automática no responde)
+  const porWhatsApp = (d) => {
     const lineas = [en ? 'Hi! I’d like to reserve at Super Machi.' : 'Hola, quiero reservar en Súper Machi.'];
-    if (form.dataset.evento) lineas.push(`${en ? 'Show' : 'Show'}: ${form.dataset.evento}`);
-    if (d.get('fecha')) lineas.push(`${en ? 'Date' : 'Fecha'}: ${fechaTxt(d.get('fecha'))}`);
-    lineas.push(`${en ? 'Area' : 'Zona'}: ${d.get('zona') || '-'}`, `${en ? 'Guests' : 'Personas'}: ${d.get('personas')}`);
-    if (d.get('nombre')) lineas.push(`${en ? 'Name' : 'Nombre'}: ${String(d.get('nombre')).slice(0, 60)}`);
+    if (form.dataset.evento) lineas.push(`Show: ${form.dataset.evento}`);
+    if (d.fecha) lineas.push(`${en ? 'Date' : 'Fecha'}: ${fechaTxt(d.fecha)}`);
+    if (d.hora) lineas.push(`${en ? 'Time' : 'Hora'}: ${horaTxt(d.hora)}`);
+    lineas.push(`${en ? 'Area' : 'Zona'}: ${d.zona || '-'}`, `${en ? 'Guests' : 'Personas'}: ${d.personas}`);
+    if (d.nombre) lineas.push(`${en ? 'Name' : 'Nombre'}: ${d.nombre}`);
+    if (d.nota) lineas.push(`${en ? 'Note' : 'Nota'}: ${d.nota}`);
     location.href = `https://wa.me/${form.dataset.wa}?text=${encodeURIComponent(lineas.join('\n'))}`;
+  };
+  const listo = $('[data-reserva-listo]');
+  $('[data-reserva-otra]')?.addEventListener('click', () => { listo.hidden = true; form.hidden = false; form.reset(); marcar(); ponerHoras(); $('input[name="nombre"]', form).focus(); });
+
+  let enviando = false;
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (enviando) return;
+    const f = new FormData(form);
+    const d = Object.fromEntries(['zona', 'personas', 'fecha', 'hora', 'nombre', 'telefono', 'nota', 'empresa'].map((k) => [k, String(f.get(k) || '').trim()]));
+    d.nombre = d.nombre.slice(0, 60); d.nota = d.nota.slice(0, 300);
+    if (form.dataset.evento) d.evento = form.dataset.evento;
+    d.lang = LANG;
+    if (!d.fecha || d.fecha < hoy) return decir(en ? 'Choose the day.' : 'Elige el día.', campoFecha);
+    if (!d.hora) return decir(en ? 'Choose a time (or another day).' : 'Elige una hora (u otro día).', selHora);
+    if (d.nombre.length < 2) return decir(en ? 'Tell us your name.' : 'Dinos tu nombre.', $('input[name="nombre"]', form));
+    const n = digitos(d.telefono);
+    if (n.length < 8 || n.length > 15) return decir(en ? 'Write your WhatsApp number (with area code).' : 'Escribe tu número de WhatsApp (con el código de área).', $('input[name="telefono"]', form));
+    decir('');
+    const boton = $('button[type="submit"]', form); const txt = boton.textContent;
+    enviando = true; boton.disabled = true; boton.textContent = en ? 'Sending…' : 'Enviando…';
+    let r = null;
+    try {
+      const ctl = new AbortController(); const t = setTimeout(() => ctl.abort(), 25000);
+      const resp = await fetch('/api/reservar', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(d), signal: ctl.signal });
+      clearTimeout(t);
+      r = { status: resp.status, ...(await resp.json().catch(() => ({}))) };
+    } catch { r = null; }
+    enviando = false; boton.disabled = false; boton.textContent = txt;
+    if (r && r.ok) {
+      const visible = n.length === 11 && n[0] === '1' ? `+1 (${n.slice(1, 4)}) ${n.slice(4, 7)}-${n.slice(7)}` : '+' + n;
+      const pila = d.nombre.split(' ')[0];
+      $('[data-reserva-listo-texto]', listo).textContent = r.cliente
+        ? (en ? `Thanks, ${pila}. We just sent a message to your WhatsApp (${visible}) with your request for ${fechaTxt(d.fecha)} at ${horaTxt(d.hora)}. The restaurant will confirm your table in that same chat.` : `Gracias, ${pila}. Te acabamos de escribir a tu WhatsApp (${visible}) con tu solicitud para el ${fechaTxt(d.fecha)} a las ${horaTxt(d.hora)}. El restaurante te confirma la mesa en ese mismo chat.`)
+        : (en ? `Thanks, ${pila}. The restaurant has your request for ${fechaTxt(d.fecha)} at ${horaTxt(d.hora)} and will call you at ${visible} to confirm.` : `Gracias, ${pila}. El restaurante ya tiene tu solicitud para el ${fechaTxt(d.fecha)} a las ${horaTxt(d.hora)} y te llama al ${visible} para confirmar.`);
+      form.hidden = true; listo.hidden = false; listo.focus();
+      return;
+    }
+    if (r && r.status === 400) {
+      const campo = { nombre: 'nombre', telefono: 'telefono', fecha: 'fecha', hora: 'hora' }[r.error];
+      return decir(en ? 'Please check that field.' : 'Revisa ese dato, por favor.', campo ? $(`[name="${campo}"]`, form) : null);
+    }
+    // la línea automática no respondió: la reserva no se pierde, sale por WhatsApp con un toque
+    porWhatsApp(d);
   });
 })();

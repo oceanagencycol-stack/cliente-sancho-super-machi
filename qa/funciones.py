@@ -8,7 +8,7 @@ import json
 import re
 import sys
 import urllib.request
-from datetime import datetime
+from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 from playwright.sync_api import sync_playwright
 
@@ -67,7 +67,7 @@ with sync_playwright() as p:
     pg.on('console', lambda m: errores.append(m.text) if m.type == 'error' else None)
     pg.goto(SM + '/', wait_until='networkidle')
     comprobar(pg.locator('h1').count() == 1, 'una sola h1 en la portada')
-    comprobar('wa.me/13052663226' in (pg.locator('.acciones__principal').get_attribute('href') or ''), 'el botón Reservar del teléfono va al WhatsApp del restaurante')
+    comprobar((pg.locator('.acciones__principal').get_attribute('href') or '') == '/reservar/' and pg.locator('.cabecera a[href="/reservar/"]').count() == 1, 'el botón Reservar (teléfono y cabecera) lleva a la reserva en la web')
     comprobar(pg.locator('.pared--hero .cartel').count() >= 3, 'la pared de carteles de la portada')
     comprobar(pg.locator('.horario__vivo').first.is_visible(), 'el estado «abierto/cerrado» se ve')
     lds = [json.loads(x) for x in pg.locator('script[type="application/ld+json"]').all_inner_texts()]
@@ -126,11 +126,42 @@ with sync_playwright() as p:
     comprobar(pg.locator('input[data-zona="salon-2"]').is_checked(), 'tocar el Salón 2 en el plano lo elige')
     comprobar('activa' in (pg.locator('.plano__zona[data-zona="salon-2"]').get_attribute('class') or ''), 'el plano marca la zona elegida')
     pg.select_option('select[name="personas"]', '4')
-    pg.fill('input[name="fecha"]', '2026-12-31'); pg.fill('input[name="nombre"]', 'Prueba QA')
+    # un sábado (cierra de madrugada) y un martes (cierra a las 10 p. m.) de dentro de una semana o más
+    sabado = (hoy + timedelta(days=7 + (5 - hoy.weekday()) % 7)).strftime('%Y-%m-%d')
+    martes = (hoy + timedelta(days=7 + (1 - hoy.weekday()) % 7)).strftime('%Y-%m-%d')
+    pg.fill('input[name="fecha"]', martes); pg.dispatch_event('input[name="fecha"]', 'change')
+    comprobar(pg.locator('select[name="hora"] option[value="21:00"]').count() == 1 and pg.locator('select[name="hora"] option[value="21:30"]').count() == 0, 'un martes ofrece hasta las 9 p. m. (cierra a las 10)')
+    fecha_qa = sabado
+    pg.fill('input[name="fecha"]', fecha_qa); pg.dispatch_event('input[name="fecha"]', 'change')
+    comprobar(pg.locator('select[name="hora"] option[value="11:00"]').count() == 1 and pg.locator('select[name="hora"] option[value="23:30"]').count() == 1, 'un sábado ofrece de 11 a. m. a 11:30 p. m.')
+    pg.select_option('select[name="hora"]', '20:30')
+    pg.fill('input[name="nombre"]', 'Prueba QA')
+    pg.click('.reserva__form button[type="submit"]')
+    comprobar(pg.locator('[data-reserva-error]').is_visible() and pg.evaluate('document.activeElement.name') == 'telefono', 'sin WhatsApp, la reserva lo pide y pone el cursor ahí')
+    pg.fill('input[name="telefono"]', '(305) 555-0100'); pg.fill('textarea[name="nota"]', 'Cumpleaños')
+    pedidos_api = []
+    def api_ok(r):
+        pedidos_api.append(json.loads(r.request.post_data or '{}'))
+        r.fulfill(status=200, content_type='application/json', body='{"ok":true,"cliente":true}')
+    pg.route('**/api/reservar', api_ok)
+    pg.click('.reserva__form button[type="submit"]')
+    pg.wait_for_selector('[data-reserva-listo]:not([hidden])', timeout=5000)
+    d = pedidos_api[0] if pedidos_api else {}
+    comprobar(d.get('zona') == 'Salón 2' and d.get('personas') == '4' and d.get('fecha') == fecha_qa and d.get('hora') == '20:30' and d.get('nombre') == 'Prueba QA' and d.get('telefono') == '(305) 555-0100' and d.get('nota') == 'Cumpleaños' and d.get('lang') == 'es', f'la reserva llega completa a /api/reservar: {d}')
+    comprobar('+1 (305) 555-0100' in pg.locator('[data-reserva-listo]').inner_text() and pg.locator('.reserva__form').is_hidden(), 'la web confirma que se envió y a qué WhatsApp le llega')
+    pg.unroute('**/api/reservar')
+
+    print('Súper Machi · /reservar/ y respaldo por WhatsApp')
+    pg.goto(SM + '/reservar/', wait_until='networkidle')
+    comprobar(pg.locator('h1#reserva-t').count() == 1 and pg.locator('.plano').count() == 1, 'la página de reservar, con el plano')
+    pg.route('**/api/reservar', lambda r: r.fulfill(status=503, content_type='application/json', body='{"ok":false,"error":"linea"}'))
+    pg.fill('input[name="fecha"]', fecha_qa); pg.dispatch_event('input[name="fecha"]', 'change')
+    pg.select_option('select[name="hora"]', '21:00')
+    pg.fill('input[name="nombre"]', 'Prueba QA'); pg.fill('input[name="telefono"]', '3055550100')
     with pg.expect_navigation(url=re.compile(r'https://wa\.me/.*')):
         pg.click('.reserva__form button[type="submit"]')
     texto = urllib.request.unquote(pg.url)
-    comprobar('Zona: Salón 2' in texto and 'Personas: 4' in texto and 'Nombre: Prueba QA' in texto and '31 de diciembre' in texto, f'mensaje de WhatsApp: {texto[-160:]}')
+    comprobar('wa.me/13052663226' in texto and 'Zona: Salón 1' in texto and 'Personas: 2' in texto and 'Nombre: Prueba QA' in texto and 'Hora: 9 p. m.' in texto and 'Fecha: sábado' in texto, f'si la línea no responde, la reserva sale por WhatsApp: {texto[-200:]}')
 
     print('Súper Machi · un show de noviembre')
     pg.goto(SM + '/eventos/2026-11-07-manuel-alveraiz/', wait_until='networkidle')
