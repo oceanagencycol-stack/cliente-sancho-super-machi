@@ -142,7 +142,7 @@
     let r = null;
     try {
       const ctl = new AbortController(); const t = setTimeout(() => ctl.abort(), 25000);
-      const resp = await fetch('/api/reservar', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(d), signal: ctl.signal });
+      const resp = await fetch('/api/reservar/', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(d), signal: ctl.signal });
       clearTimeout(t);
       r = { status: resp.status, ...(await resp.json().catch(() => ({}))) };
     } catch { r = null; }

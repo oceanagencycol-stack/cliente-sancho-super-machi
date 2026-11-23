@@ -143,18 +143,18 @@ with sync_playwright() as p:
     def api_ok(r):
         pedidos_api.append(json.loads(r.request.post_data or '{}'))
         r.fulfill(status=200, content_type='application/json', body='{"ok":true,"cliente":true}')
-    pg.route('**/api/reservar', api_ok)
+    pg.route('**/api/reservar**', api_ok)
     pg.click('.reserva__form button[type="submit"]')
     pg.wait_for_selector('[data-reserva-listo]:not([hidden])', timeout=5000)
     d = pedidos_api[0] if pedidos_api else {}
     comprobar(d.get('zona') == 'Salón 2' and d.get('personas') == '4' and d.get('fecha') == fecha_qa and d.get('hora') == '20:30' and d.get('nombre') == 'Prueba QA' and d.get('telefono') == '(305) 555-0100' and d.get('nota') == 'Cumpleaños' and d.get('lang') == 'es', f'la reserva llega completa a /api/reservar: {d}')
     comprobar('+1 (305) 555-0100' in pg.locator('[data-reserva-listo]').inner_text() and pg.locator('.reserva__form').is_hidden(), 'la web confirma que se envió y a qué WhatsApp le llega')
-    pg.unroute('**/api/reservar')
+    pg.unroute('**/api/reservar**')
 
     print('Súper Machi · /reservar/ y respaldo por WhatsApp')
     pg.goto(SM + '/reservar/', wait_until='networkidle')
     comprobar(pg.locator('h1#reserva-t').count() == 1 and pg.locator('.plano').count() == 1, 'la página de reservar, con el plano')
-    pg.route('**/api/reservar', lambda r: r.fulfill(status=503, content_type='application/json', body='{"ok":false,"error":"linea"}'))
+    pg.route('**/api/reservar**', lambda r: r.fulfill(status=503, content_type='application/json', body='{"ok":false,"error":"linea"}'))
     pg.fill('input[name="fecha"]', fecha_qa); pg.dispatch_event('input[name="fecha"]', 'change')
     pg.select_option('select[name="hora"]', '21:00')
     pg.fill('input[name="nombre"]', 'Prueba QA'); pg.fill('input[name="telefono"]', '3055550100')
