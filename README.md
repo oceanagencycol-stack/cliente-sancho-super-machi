@@ -49,6 +49,12 @@ día, hora según el horario, personas, nombre, WhatsApp y nota).
    chat. El restaurante confirma la mesa en el chat con el cliente.
 4. Si la línea no está conectada o n8n no responde, la web manda esa misma reserva por WhatsApp a mano (como antes):
    la reserva no se pierde.
+5. Sin JavaScript el formulario se envía solo a `/api/reservar/`, que responde con una redirección: a «solicitud recibida»
+   (`/reservar/listo/`, noindex) o, si algo falla, a WhatsApp con la reserva ya escrita.
+6. n8n rechaza horas que ya pasaron (hoy, con menos de 30 minutos) y no vuelve a mandar la misma reserva (mismo teléfono,
+   día y hora) si llega repetida en 15 minutos. El botón «Reservar mesa» del menú digital también lleva a `/reservar/`.
+
+Pruebas: `qa/funciones.py` (que corre también `qa/api_reservar.cjs`, la función con n8n simulado; no manda nada).
 
 La línea se vincula (o se revisa con `?estado=1`) en la página privada del flujo «Súper Machi · vincular WhatsApp»
 (`iwpZbafGEsel4Lrn`); ver `DEPLOY.md`.

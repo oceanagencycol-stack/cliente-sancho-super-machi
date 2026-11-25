@@ -174,7 +174,7 @@ for (const x of extras) {
 }
 
 // ---------------------------------------------------------------- sitemap y robots
-const indexables = lista.filter((p) => !p.archivo);
+const indexables = lista.filter((p) => !p.archivo && !p.noindex);
 fs.writeFileSync(path.join(salida, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${indexables.map((p) => `<url><loc>${D}${p.ruta}</loc></url>`).join('\n')}\n</urlset>\n`);
 fs.writeFileSync(path.join(salida, 'robots.txt'), previa ? 'User-agent: *\nDisallow: /\n\n# las tarjetas de vista previa de los enlaces (WhatsApp, iMessage, Facebook, X, Slack, Telegram, LinkedIn)\nUser-agent: facebookexternalhit\nUser-agent: Facebot\nUser-agent: WhatsApp\nUser-agent: Twitterbot\nUser-agent: Slackbot-LinkExpanding\nUser-agent: TelegramBot\nUser-agent: LinkedInBot\nAllow: /\n' : `User-agent: *\nAllow: /\n\nSitemap: ${D}/sitemap.xml\n`);
 

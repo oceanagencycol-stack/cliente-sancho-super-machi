@@ -114,6 +114,31 @@
       "permanent": true
     },
     {
+      "source": "/reservas/",
+      "destination": "/reservar/",
+      "permanent": true
+    },
+    {
+      "source": "/reservaciones/",
+      "destination": "/reservar/",
+      "permanent": true
+    },
+    {
+      "source": "/reserva/",
+      "destination": "/reservar/",
+      "permanent": true
+    },
+    {
+      "source": "/en/reservations/",
+      "destination": "/en/reserve/",
+      "permanent": true
+    },
+    {
+      "source": "/en/reservation/",
+      "destination": "/en/reserve/",
+      "permanent": true
+    },
+    {
       "source": "/producto/05-de-diciembre-maylus-cabaret/",
       "destination": "/eventos/2025-12-05-maylu-s-cabaret/",
       "permanent": true

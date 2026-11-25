@@ -13,6 +13,7 @@ const R = {
   club: { es: '/club/', en: '/en/club/' },
   visita: { es: '/visita/', en: '/en/visit/' },
   reservar: { es: '/reservar/', en: '/en/reserve/' },
+  reservaLista: { es: '/reservar/listo/', en: '/en/reserve/done/' },
   privacidad: { es: '/privacidad/', en: '/en/privacy/' },
 };
 const evRuta = (id, lang) => (lang === 'en' ? `/en/shows/${id}/` : `/eventos/${id}/`);
@@ -134,7 +135,7 @@ function reserva(ctx, { evento = null, titulo = 2 } = {}) {
     <div class="reserva__texto">
       ${raw(`<${hx} id="reserva-t" class="titulo-${titulo === 1 ? 1 : 2}">`)}${titulo === 1 ? (en ? 'Reserve your table' : 'Reserva tu mesa') : (en ? 'Pick your spot' : 'Elige dónde sentarte')}${raw(`</${hx}>`)}
       <p>${en ? 'The room faces the stage: VIP up front, then Room 1 and Room 2, and the bar along the side. Choose your spot, the day and the time; the confirmation reaches your WhatsApp.' : 'La sala mira al escenario: el VIP adelante, luego el Salón 1 y el Salón 2, y la barra a un lado. Elige dónde, el día y la hora; la confirmación te llega por WhatsApp.'}</p>
-      <form class="reserva__form" data-reserva data-wa="${local.whatsapp}" data-lang="${lang}" data-franjas='${JSON.stringify(local.horario.franjas)}' ${evento ? h`data-evento="${evento.artista} · ${fechaLarga(evento.fecha, lang)}"` : ''} novalidate>
+      <form class="reserva__form" method="post" action="/api/reservar/" data-reserva data-wa="${local.whatsapp}" data-lang="${lang}" data-franjas='${JSON.stringify(local.horario.franjas)}' ${evento ? h`data-evento="${evento.artista} · ${fechaLarga(evento.fecha, lang)}"` : ''} novalidate>
         <fieldset class="reserva__zonas"><legend>${en ? 'Area' : 'Zona'}</legend>
           ${zonas.map((z, i) => h`<label class="chip"><input type="radio" name="zona" value="${t(z, lang)}" data-zona="${z.id}" ${raw(i === 1 ? 'checked' : '')}><span>${t(z, lang)}</span></label>`)}
         </fieldset>
@@ -150,6 +151,7 @@ function reserva(ctx, { evento = null, titulo = 2 } = {}) {
           <label class="campo"><span>WhatsApp</span><input type="tel" name="telefono" autocomplete="tel" inputmode="tel" maxlength="20" placeholder="(305) 555-0123" required></label>
         </div>
         <label class="campo"><span>${en ? 'Anything we should know? (optional)' : '¿Algo que debamos saber? (opcional)'}</span><textarea name="nota" rows="2" maxlength="300" placeholder="${en ? 'Birthday, high chair, allergies…' : 'Cumpleaños, silla para bebé, alergias…'}"></textarea></label>
+        <input type="hidden" name="lang" value="${lang}">${evento ? h`<input type="hidden" name="evento" value="${evento.artista} · ${fechaLarga(evento.fecha, lang)}">` : ''}
         <label class="reserva__trampa" aria-hidden="true">Empresa <input type="text" name="empresa" tabindex="-1" autocomplete="off"></label>
         <p class="reserva__error" data-reserva-error role="alert" hidden></p>
         <button class="boton boton--grande" type="submit" data-ev="click_reserve">${en ? 'Reserve' : 'Reservar'}</button>
@@ -429,6 +431,18 @@ export function paginas(ctx0) {
       out.push({ ruta: R.reservar[lang], html: pagina(ctx, { ruta: R.reservar[lang], alterna: R.reservar[lang === 'es' ? 'en' : 'es'], titulo: lang === 'en' ? 'Reserve a table' : 'Reservar mesa', descripcion: lang === 'en' ? 'Reserve your table at El Mesón de Súper Machi in Miami: pick the room, the day and the time, and get the confirmation on WhatsApp.' : 'Reserva tu mesa en El Mesón de Súper Machi, Miami: elige el salón, el día y la hora, y recibe la confirmación por WhatsApp.', cuerpo, jsonld: [ctx.jsonldLocal(lang)], cls: 'p-reservar' }) });
     }
 
+    // ---- reserva recibida (adonde llega el formulario cuando el navegador no corre JavaScript)
+    {
+      const en = lang === 'en';
+      const cuerpo = h`<section class="reserva reserva--lista" aria-labelledby="listo-t"><div class="reserva__texto">
+        <h1 id="listo-t" class="titulo-1">${en ? 'Request received!' : '¡Solicitud recibida!'}</h1>
+        <p>${en ? 'We just sent a message to your WhatsApp with your request. The restaurant will confirm your table in that same chat.' : 'Te acabamos de escribir a tu WhatsApp con tu solicitud. El restaurante te confirma la mesa en ese mismo chat.'}</p>
+        <p>${en ? 'Didn’t get it? Write to us at ' : '¿No te llegó? Escríbenos al '}<a href="${wa(ctx.local.whatsapp, t(MSG.reservar, lang))}" rel="noopener">WhatsApp ${telefono(ctx)}</a>.</p>
+        <p><a class="boton" href="${R.cartelera[lang]}">${en ? 'See the lineup' : 'Ver la cartelera'}</a> <a class="boton boton--sutil" href="${R.reservar[lang]}">${en ? 'Make another reservation' : 'Hacer otra reserva'}</a></p>
+      </div></section>`;
+      out.push({ ruta: R.reservaLista[lang], noindex: true, html: pagina(ctx, { ruta: R.reservaLista[lang], alterna: R.reservaLista[lang === 'es' ? 'en' : 'es'], titulo: en ? 'Request received' : 'Solicitud recibida', descripcion: en ? 'Your reservation request reached El Mesón de Súper Machi.' : 'Tu solicitud de reserva llegó a El Mesón de Súper Machi.', cuerpo, noindex: true, cls: 'p-reservar' }) });
+    }
+
     // ---- visita
     {
       const cuerpo = h`${cabezaPlato(ctx, { titulo: lang === 'en' ? 'Visit' : 'Visítanos', entrada: lang === 'en' ? 'On NW 2nd St, by NW 79th Ave, in Miami.' : 'En la NW 2nd St, a la altura de la NW 79th Ave, en Miami.', foto: 'mesa' })}
@@ -467,6 +481,8 @@ function redirecciones(todos) {
     ['/construccion/', '/'], ['/prueba-imc/', '/'], ['/hello-world/', '/'], ['/category/(.*)', '/'], ['/author/(.*)', '/'],
     ['/blocks/(.*)', '/'], ['/producto/cochinillo-segoviano/', '/grupos/#cochinillo'], ['/producto/tabla-mar-y-tierra/', '/grupos/#tabla-mar-y-tierra'],
     ['/producto/tabla-mar-tierra/', '/grupos/#tabla-mar-y-tierra'], ['/producto/ticket/', '/eventos/'],
+    // las direcciones que la gente adivina para reservar
+    ['/reservas/', '/reservar/'], ['/reservaciones/', '/reservar/'], ['/reserva/', '/reservar/'], ['/en/reservations/', '/en/reserve/'], ['/en/reservation/', '/en/reserve/'],
   ];
   for (const e of todos) {
     if (e.url_vieja) r.push([new URL(e.url_vieja).pathname, `/eventos/${e.id}/`]);

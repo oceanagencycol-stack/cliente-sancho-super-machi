@@ -6,7 +6,9 @@ Contra una vista previa protegida de Vercel: COMPARTIR_SM y COMPARTIR_SA con el 
 import os
 import json
 import re
+import subprocess
 import sys
+from pathlib import Path
 import urllib.request
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
@@ -236,10 +238,17 @@ with sync_playwright() as p:
     pg = nojs.new_page()
     pg.goto(SM + '/menu/')
     comprobar(pg.locator('.plato').count() > 200 and pg.locator('.plato__mas').first.is_hidden(), 'sin JS el menú se ve entero y sin botones de comanda')
+    pg.goto(SM + '/reservar/')
+    f = pg.locator('form.reserva__form')
+    comprobar(f.get_attribute('method') == 'post' and f.get_attribute('action') == '/api/reservar/' and pg.locator('form.reserva__form input[name="lang"]').get_attribute('value') == 'es', 'sin JS el formulario de reserva se envía a /api/reservar/ (que responde con redirección)')
     pg.goto(SA + '/')
     comprobar(pg.locator('.sol__panel:visible').count() == 1 and pg.locator('.dia__fondo:visible').count() == 1, 'sin JS el sol muestra un día con su plato')
     nojs.close()
     b.close()
+
+print('la función /api/reservar/ (simulada)')
+_api = subprocess.run(['node', str(Path(__file__).with_name('api_reservar.cjs'))], capture_output=True, text=True)
+comprobar(_api.returncode == 0, 'qa/api_reservar.cjs: ' + (_api.stdout.strip().splitlines() or ['sin salida'])[-1] + (' ' + _api.stdout[-400:] if _api.returncode else ''))
 
 print(f'\n{ok} comprobaciones bien' + ('' if not fallos else f', {len(fallos)} fallos'))
 print('todo en verde' if not fallos else '\n'.join('✗ ' + f for f in fallos))

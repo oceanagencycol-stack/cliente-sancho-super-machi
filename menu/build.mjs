@@ -68,7 +68,7 @@ const T = {
     resultados: (n) => (n === 1 ? '1 resultado' : `${n} resultados`), secciones: 'Secciones de la carta', seccionesBoton: 'Secciones', promos: 'Promociones', filtros: 'Filtrar la carta',
     fCompartir: 'Para compartir', fOferta: 'En la oferta', fHH: 'Happy hour',
     oferta: 'En la oferta', hh: 'Happy hour', personas: (n) => `${n} personas`, barril: 'También de barril', copa: 'Copa', botella: 'Botella',
-    referencia: 'Imagen de referencia', precios: 'Pregunta los precios a tu mesero.', reservar: 'Reservar por WhatsApp', web: 'Shows y reservas',
+    referencia: 'Imagen de referencia', precios: 'Pregunta los precios a tu mesero.', reservar: 'Reservar mesa', web: 'Shows y reservas',
     como: 'Cómo llegar', con: 'También:', cerrar: 'Cerrar', ver: 'Ver', firma: 'Especialidad de la casa', crudo: 'Ver el aviso sobre alimentos crudos al final de la carta',
     anotar: 'Anotar', quitar: 'Quitar uno', anotarBoton: 'Anotar en mi pedido', anotado: (n) => `${n} en tu pedido`, pedido: 'Mi pedido', verPedido: 'Ver pedido',
     pedidoVacio: 'Toca «+» en un plato para anotarlo. Tu pedido se guarda solo en este teléfono.', mesa: 'Mesa', mesaAyuda: 'Número de mesa (opcional)',
@@ -81,7 +81,7 @@ const T = {
     resultados: (n) => (n === 1 ? '1 result' : `${n} results`), secciones: 'Menu sections', seccionesBoton: 'Sections', promos: 'Specials', filtros: 'Filter the menu',
     fCompartir: 'To share', fOferta: 'In the deal', fHH: 'Happy hour',
     oferta: 'In the deal', hh: 'Happy hour', personas: (n) => `serves ${n}`, barril: 'Also on draft', copa: 'Glass', botella: 'Bottle',
-    referencia: 'Reference image', precios: 'Ask your server for prices.', reservar: 'Book on WhatsApp', web: 'Shows & bookings',
+    referencia: 'Reference image', precios: 'Ask your server for prices.', reservar: 'Reserve a table', web: 'Shows & bookings',
     como: 'Directions', con: 'Also:', cerrar: 'Close', ver: 'See', firma: 'Signature dish', crudo: 'See the note on raw food at the end of the menu',
     anotar: 'Add', quitar: 'Remove one', anotarBoton: 'Add to my order', anotado: (n) => `${n} in your order`, pedido: 'My order', verPedido: 'View order',
     pedidoVacio: 'Tap «+» on a dish to add it. Your order is saved only on this phone.', mesa: 'Table', mesaAyuda: 'Table number (optional)',
@@ -296,7 +296,7 @@ function pagina(l) {
   <p class="pie__aviso" id="aviso-crudo">${hayCrudo ? '* ' : ''}${esc(tx(carta.avisos.crudo, l))}</p>
   ${hayRef ? `<p class="pie__aviso">${t.notaRef}</p>` : ''}
   <ul class="pie__acciones" role="list">
-    <li><a class="boton" href="https://wa.me/${WHATSAPP}">${t.reservar}</a></li>
+    <li><a class="boton" href="${URL_WEB}${l === 'en' ? '/en/reserve/' : '/reservar/'}">${t.reservar}</a></li>
     <li><a class="boton boton--linea" href="${URL_WEB}${l === 'en' ? '/en/' : '/'}">${t.web}</a></li>
     <li><a class="boton boton--linea" href="https://www.google.com/maps/search/?api=1&amp;query=${encodeURIComponent('Super Machi Restaurant ' + DIRECCION)}">${t.como}</a></li>
   </ul>

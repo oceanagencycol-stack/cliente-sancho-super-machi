@@ -8,7 +8,7 @@ import { UI } from './i18n.mjs';
 // la foto de cada día ({"1": [[srcset o url, sizes, media], …]}), pide primero la de hoy (es el LCP de la portada de Sancho)
 export const ARRANQUE = "(function(d){var e=d.documentElement;e.className+=' js';try{var w=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',weekday:'short'}).format(new Date()),n=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].indexOf(w),j=d.getElementById('precarga-hoy');e.setAttribute('data-hoy',n);if(j)(JSON.parse(j.textContent)[n]||[]).forEach(function(p){var l=d.createElement('link');l.rel='preload';l.as='image';l.type='image/avif';l.setAttribute('fetchpriority','high');if(p[1]){l.setAttribute('imagesrcset',p[0]);l.setAttribute('imagesizes',p[1])}else l.href=p[0];if(p[2])l.media=p[2];d.head.appendChild(l)})}catch(x){}})(document)";
 
-export function pagina(ctx, { ruta, alterna, titulo, descripcion, cuerpo, jsonld = [], og = null, cls = '', precargas = '' }) {
+export function pagina(ctx, { ruta, alterna, titulo, descripcion, cuerpo, jsonld = [], og = null, cls = '', precargas = '', noindex = false }) {
   const { sitio, lang, assets } = ctx;
   const ui = UI[lang];
   const url = sitio.dominio + ruta;
@@ -21,7 +21,7 @@ export function pagina(ctx, { ruta, alterna, titulo, descripcion, cuerpo, jsonld
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>${titulos}</title>
 <meta name="description" content="${descripcion}">
-${cuando(ctx.previa, () => h`<meta name="robots" content="noindex, nofollow">`)}
+${cuando(ctx.previa || noindex, () => h`<meta name="robots" content="noindex, nofollow">`)}
 <link rel="canonical" href="${url}">
 ${cuando(altEs, () => h`<link rel="alternate" hreflang="es" href="${sitio.dominio + altEs}">`)}
 ${cuando(altEn, () => h`<link rel="alternate" hreflang="en" href="${sitio.dominio + altEn}">`)}
