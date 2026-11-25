@@ -9,7 +9,7 @@
 // - sin JavaScript (el formulario se envía solo, form-urlencoded): redirige (303) a «solicitud recibida», o a WhatsApp con la
 //   reserva ya escrita si algo falla. Así la reserva no se pierde nunca.
 
-const PERMITIDOS = /^https:\/\/((www\.)?supermachirestaurante\.com|supermachi-web(-[a-z0-9-]+)?\.vercel\.app|supermachi-[a-z0-9-]+-ocean-agency\.vercel\.app)$/;
+const PERMITIDOS = /^https:\/\/((www\.)?supermachirestaurante\.com|supermachi-web(-[a-z0-9-]+)?\.vercel\.app|supermachi-propuesta\.vercel\.app|supermachi-[a-z0-9-]+-ocean-agency\.vercel\.app)$/;
 const WHATSAPP = '13052663226';
 const VISTOS = new Map(); // límite suave por IP (por instancia de la función): 6 reservas cada 10 minutos
 const VENTANA = 10 * 60 * 1000;

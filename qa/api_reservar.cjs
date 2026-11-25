@@ -33,6 +33,10 @@ function n8n(status, json) { global.fetch = async (url, o) => { llamadas.push({ 
   let r = res(); await manejar(req({ method: 'GET' }), r);
   comprobar(r.statusCode === 405, 'GET → 405');
 
+  n8n(200, { ok: true, cliente: true });
+  r = res(); await manejar(req({ origin: 'https://supermachi-propuesta.vercel.app', body: BUENA }), r);
+  comprobar(r.statusCode === 200, 'la propuesta (supermachi-propuesta.vercel.app) puede reservar');
+
   r = res(); await manejar(req({ origin: 'https://otra.com', body: BUENA }), r);
   comprobar(r.statusCode === 403, 'otro origen → 403');
 
