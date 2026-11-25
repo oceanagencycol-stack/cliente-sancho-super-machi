@@ -42,6 +42,10 @@ quitar `--lanzar` del Build Command y correr el build en local para commitear el
 
 ## Reservas en la web: variables y la línea de WhatsApp
 
+- **Sancho:** proyecto `sancho-web`, variables `SA_RESERVAS_URL` (flujo de n8n «Sancho · reservas desde la web»,
+  `h2gObUFIMMrL4YmJ`) y `SA_RESERVAS_SECRETO`. La línea (786-889-2197, instancia `sancho`) se vincula en la página del flujo
+  «Sancho · vincular WhatsApp (786 889 2197)» (`kMFbcdFnBRXI9rit`); su dirección no va en el repo. Propuesta:
+  proyecto `sancho-propuesta` → https://sancho-propuesta.vercel.app (Build Command `node ../../web/build.mjs sancho --propuesta`).
 - **Propuesta para el cliente:** proyecto `supermachi-propuesta` (sin git conectado) con la rama `reservas-web` publicada
   como producción en https://supermachi-propuesta.vercel.app (pública; Build Command `node ../../web/build.mjs supermachi --propuesta`:
   los datos aprobados, noindex y un banner de «Propuesta»; mismas
