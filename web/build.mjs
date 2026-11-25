@@ -1,5 +1,5 @@
 // Genera una de las dos webs como HTML estático. Sin dependencias: corre igual en el portátil que en Vercel.
-//   node web/build.mjs <sancho|supermachi> [--salida dir] [--lanzar]
+//   node web/build.mjs <sancho|supermachi> [--salida dir] [--lanzar | --propuesta]
 // Por defecto escribe sites/<sitio>/dist/ (lo que publica Vercel) y sites/<sitio>/vercel.json (se commitea).
 // --lanzar quita el banner de vista previa y el noindex: solo cuando el cliente aprueba (ver DEPLOY.md).
 import fs from 'node:fs';
@@ -15,12 +15,15 @@ const id = args.find((a) => !a.startsWith('--') && !args[args.indexOf(a) - 1]?.s
 if (!['sancho', 'supermachi'].includes(id)) { console.error('uso: node web/build.mjs <sancho|supermachi> [--salida dir] [--lanzar]'); process.exit(1); }
 const salida = args.includes('--salida') ? path.resolve(args[args.indexOf('--salida') + 1]) : path.join(ROOT, 'sites', id, 'dist');
 const previa = !args.includes('--lanzar');
+// --propuesta: una rama para mostrarle al cliente (proyecto supermachi-propuesta): los datos ya aprobados, como al lanzar,
+// pero con noindex y un banner que dice que es una propuesta y no la web publicada
+const propuesta = previa && args.includes('--propuesta');
 
 const leer = (p) => JSON.parse(fs.readFileSync(path.join(ROOT, p), 'utf8'));
 
 // Lanzar no publica nada dudoso: mientras un dato del sitio siga «por_confirmar» en data/fuentes.json, --lanzar se niega.
 // Cada uno se confirma con el restaurante (estado «verificado», con fuente y fecha) o sale de content/ (estado «retirado»).
-if (!previa) {
+if (!previa || propuesta) {
   const pendientes = (leer('data/fuentes.json')[id] || []).filter((d) => d.estado === 'por_confirmar');
   if (pendientes.length) {
     console.error(`--lanzar se niega: ${pendientes.length} datos de ${id} siguen por confirmar en data/fuentes.json.\n`
@@ -100,7 +103,7 @@ const lugar = () => ({
   address: { '@type': 'PostalAddress', streetAddress: local.direccion.calle, addressLocality: local.direccion.ciudad, addressRegion: local.direccion.estado, postalCode: local.direccion.cp, addressCountry: 'US' },
 });
 const ctx0 = {
-  sitio, local, media, videos, previa, hoy,
+  sitio, local, media, videos, previa, propuesta, hoy,
   assets: { css: '/' + cssNombre, js: '/' + jsNombre },
   menu: id === 'supermachi' ? leer('content/supermachi/menu.json') : null,
   eventos: id === 'supermachi' ? leer('content/supermachi/eventos.json') : null,

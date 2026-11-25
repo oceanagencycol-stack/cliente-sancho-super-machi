@@ -49,7 +49,7 @@ ${jsonld.map((j) => h`<script type="application/ld+json">${raw(JSON.stringify(j)
 </head>
 <body class="${cls}">
 <a class="saltar" href="#contenido">${ui.saltar}</a>
-${cuando(ctx.previa, () => h`<p class="previa" role="note">${ui.previa}</p>`)}
+${cuando(ctx.previa, () => h`<p class="previa" role="note">${ctx.propuesta ? ui.propuesta : ui.previa}</p>`)}
 ${sitio.cabecera(ctx, { ruta, alterna })}
 <main id="contenido" tabindex="-1">
 ${cuerpo}

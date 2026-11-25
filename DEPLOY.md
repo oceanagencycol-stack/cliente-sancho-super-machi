@@ -43,7 +43,8 @@ quitar `--lanzar` del Build Command y correr el build en local para commitear el
 ## Reservas en la web: variables y la línea de WhatsApp
 
 - **Propuesta para el cliente:** proyecto `supermachi-propuesta` (sin git conectado) con la rama `reservas-web` publicada
-  como producción en https://supermachi-propuesta.vercel.app (pública, con banner de vista previa y noindex; mismas
+  como producción en https://supermachi-propuesta.vercel.app (pública; Build Command `node ../../web/build.mjs supermachi --propuesta`:
+  los datos aprobados, noindex y un banner de «Propuesta»; mismas
   variables `SM_RESERVAS_*`). Para actualizarla, un deploy nuevo de esa rama al proyecto. Se borra cuando la rama pase a `main`.
 
 - Proyecto `supermachi-web`, variables (Production y Preview, tipo *sensitive*): `SM_RESERVAS_URL` (el webhook del flujo de
