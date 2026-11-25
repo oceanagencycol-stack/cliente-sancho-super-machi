@@ -148,16 +148,14 @@ const ctx0 = {
   },
   privacidad: (lang) => (lang === 'en'
     ? h`<section class="texto"><h1 class="titulo-1">Privacy</h1>
-      ${id === 'supermachi' ? h`<p>This website does not use cookies, trackers or advertising tags.</p>
-      <p>When you reserve here, your name, WhatsApp number, the day, time, guests, area and your note go to the restaurant’s WhatsApp, which writes to you to confirm. They are used only to manage your reservation and to reply to you, and they are not shared with anyone else. When you write to us on WhatsApp or call, the same applies.</p>` : h`<p>This website does not use cookies, trackers or advertising tags, and it has no forms that store your data.</p>
-      <p>When you reserve or write to us, you do it on WhatsApp or by phone: what you send reaches the restaurant through that channel and is used only to answer you and manage your reservation.</p>`}
+      <p>This website does not use cookies, trackers or advertising tags.</p>
+      <p>When you book here, your name, WhatsApp number, the day, time, party size${id === 'supermachi' ? ', area' : ''} and your note go to the restaurant’s WhatsApp, which writes to you to confirm. They are used only to manage your reservation and to reply to you, and they are not shared with anyone else. When you write to us on WhatsApp or call, the same applies.</p>
       <p>If you use “My order list” on the menu, the list is saved only on your phone, and you can clear it at any time.</p>
       <p>Links to Instagram, Facebook, TikTok, Google Maps and delivery apps take you to those services, which have their own privacy policies.</p>
       <p>Questions: ${local.telefono}.</p></section>`
     : h`<section class="texto"><h1 class="titulo-1">Privacidad</h1>
-      ${id === 'supermachi' ? h`<p>Esta web no usa cookies, rastreadores ni etiquetas de publicidad.</p>
-      <p>Cuando reservas aquí, tu nombre, tu número de WhatsApp, el día, la hora, las personas, la zona y tu nota le llegan al WhatsApp del restaurante, que te escribe para confirmar. Solo se usan para manejar tu reserva y responderte, y no se comparten con nadie más. Lo mismo vale cuando nos escribes por WhatsApp o llamas.</p>` : h`<p>Esta web no usa cookies, rastreadores ni etiquetas de publicidad, y no tiene formularios que guarden tus datos.</p>
-      <p>Cuando reservas o nos escribes, lo haces por WhatsApp o por teléfono: lo que mandas le llega al restaurante por ese canal y solo se usa para responderte y manejar tu reserva.</p>`}
+      <p>Esta web no usa cookies, rastreadores ni etiquetas de publicidad.</p>
+      <p>Cuando reservas aquí, tu nombre, tu número de WhatsApp, el día, la hora, las personas${id === 'supermachi' ? ', la zona' : ''} y tu nota le llegan al WhatsApp del restaurante, que te escribe para confirmar. Solo se usan para manejar tu reserva y responderte, y no se comparten con nadie más. Lo mismo vale cuando nos escribes por WhatsApp o llamas.</p>
       <p>Si usas «Mi comanda» en el menú, la lista se guarda solo en tu teléfono y puedes vaciarla cuando quieras.</p>
       <p>Los enlaces a Instagram, Facebook, TikTok, Google Maps y las apps de domicilio te llevan a esos servicios, que tienen sus propias políticas.</p>
       <p>Preguntas: ${local.telefono}.</p></section>`),
@@ -206,6 +204,9 @@ const vercel = {
   ],
 };
 fs.writeFileSync(path.join(ROOT, 'sites', id, 'vercel.json'), JSON.stringify(vercel, null, 2) + '\n');
+// el núcleo de /api/reservar/ (web/lib/reservar-api.cjs) se copia a la función del sitio; se commitea como el vercel.json
+fs.mkdirSync(path.join(ROOT, 'sites', id, 'api'), { recursive: true });
+fs.copyFileSync(path.join(WEB, 'lib', 'reservar-api.cjs'), path.join(ROOT, 'sites', id, 'api', '_nucleo.cjs'));
 
 const peso = (f) => fs.statSync(path.join(salida, f)).size;
 console.log(`${id}: ${lista.length} páginas, ${extras.length} extras, ${redirecciones.length} redirecciones · css ${(peso(cssNombre) / 1024).toFixed(1)} KB · js ${(peso(jsNombre) / 1024).toFixed(1)} KB · ${previa ? 'vista previa (noindex)' : 'LANZAMIENTO'} → ${path.relative(process.cwd(), salida)}`);

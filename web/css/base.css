@@ -266,3 +266,20 @@ img.llega{transition:opacity .7s cubic-bezier(.16,1,.3,1)}
 
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
   ::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}}
+
+/* la reserva en la web (web/lib/reserva.mjs), igual en los dos sitios; cada sitio pone su fondo y su color */
+.reserva__form{display:grid;gap:1.1rem}
+.reserva__fila{display:grid;grid-template-columns:repeat(auto-fit,minmax(8.5rem,1fr));gap:.8rem}
+.reserva__fila--datos{grid-template-columns:repeat(auto-fit,minmax(13rem,1fr))}
+.reserva__form .campo{min-width:0}
+.reserva__form .campo input,.reserva__form .campo select{width:100%;min-width:0}
+.reserva__form textarea{min-height:4.5rem;padding:.6rem .8rem;border:1.5px solid var(--linea-fuerte);border-radius:var(--radio,.25rem);background:var(--campo-fondo);font:inherit;font-weight:400;color:inherit;resize:vertical}
+.reserva__trampa{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.reserva__error{margin:0;padding:.6rem .8rem;border-left:3px solid var(--acento);background:var(--campo-fondo);font-weight:600}
+.reserva__form .boton[disabled]{opacity:.7;cursor:progress}
+.reserva__listo{padding:1.25rem 1.4rem;border:1px solid var(--acento);margin-top:1.5rem}
+.reserva__listo:focus{outline:none}
+.reserva__listo-titulo{font-family:var(--font-serif,inherit);font-weight:700;font-size:1.6rem;margin:0 0 .5rem}
+.reserva__listo p{max-width:34em}
+.reserva__form .boton{justify-self:start}
+.reserva__nota{font-size:.9rem;color:var(--texto-2)}

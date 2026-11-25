@@ -52,6 +52,31 @@
       "source": "/blocks/(.*)",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/reservas/",
+      "destination": "/reservar/",
+      "permanent": true
+    },
+    {
+      "source": "/reservaciones/",
+      "destination": "/reservar/",
+      "permanent": true
+    },
+    {
+      "source": "/reserva/",
+      "destination": "/reservar/",
+      "permanent": true
+    },
+    {
+      "source": "/en/reservations/",
+      "destination": "/en/book/",
+      "permanent": true
+    },
+    {
+      "source": "/en/reserve/",
+      "destination": "/en/book/",
+      "permanent": true
     }
   ],
   "headers": [

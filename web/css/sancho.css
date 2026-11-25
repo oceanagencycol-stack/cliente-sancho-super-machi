@@ -273,3 +273,14 @@ html[data-hoy="0"] .hoy-0 .semana__mano-dia,html[data-hoy="1"] .hoy-1 .semana__m
   .almuerzo__foto,.musica__foto,.visita__foto{overflow:hidden;border-radius:var(--radio)}
   .almuerzo__foto img,.musica__foto img,.visita__foto img{animation:acercar linear both;animation-timeline:view();animation-range:entry 0% cover 55%}
 }}
+
+/* la reserva en la web (/reservar/): el formulario a la izquierda; la foto del salón, el horario y «pedir» a la derecha */
+.reserva{display:grid;gap:clamp(1.5rem,4vw,3rem);padding:clamp(1.5rem,4vw,3rem) 0}
+.reserva__texto>p{color:var(--texto-2);margin:1rem 0 1.5rem;max-width:34em}
+.reserva__lado{display:grid;gap:1.25rem;align-content:start}
+.reserva__foto{display:block;border-radius:var(--radio);overflow:hidden}
+.reserva__foto img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
+.reserva__pedir{margin:0}
+.reserva__listo-titulo{font-family:var(--font-display);font-weight:800}
+.reserva--lista{max-width:40rem}
+@media (min-width:62rem){.reserva{grid-template-columns:1.15fr 1fr;align-items:start}}

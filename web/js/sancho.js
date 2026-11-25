@@ -89,3 +89,5 @@
     dia.addEventListener('pointerleave', () => { tx = 0; ty = 0; if (!raf) raf = requestAnimationFrame(paso); });
   }
 })();
+
+iniciarReserva();

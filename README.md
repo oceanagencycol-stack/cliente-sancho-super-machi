@@ -33,7 +33,13 @@ Repo de Ocean Industries para rehacer desde cero las webs de **Sancho Restaurant
 `menu/` genera la carta para el QR de las mesas desde `content/supermachi/carta.json` (carta impresa de nov-2026 + postres
 y café de los PDF viejos, sin precios, ES/EN). Se edita ese archivo y se publica solo. Detalle en `menu/README.md`.
 
-## Reservas en la web (Súper Machi, desde el 2026-11-23)
+## Reservas en la web (Súper Machi desde el 2026-11-23, Sancho desde el 2026-11-25)
+
+Las dos webs usan las mismas piezas: el formulario `web/lib/reserva.mjs`, su JS `iniciarReserva` en `web/js/comun.js`,
+los estilos en `web/css/base.css` y la función `web/lib/reservar-api.cjs` (el build la copia a `sites/<sitio>/api/_nucleo.cjs`;
+`sites/<sitio>/api/reservar.js` solo pone los datos del sitio). Sancho: `/reservar/` y `/en/book/`, sin zonas, flujo de n8n
+«Sancho · reservas desde la web» con el WhatsApp 786-889-2197 (instancia `sancho`) y variables `SA_RESERVAS_URL` y
+`SA_RESERVAS_SECRETO` en el proyecto `sancho-web`. Lo de abajo describe Súper Machi; Sancho funciona igual.
 
 Pedido de Juan (audio del 17-nov): en EE. UU. la gente reserva en la página, no abriendo WhatsApp. Los botones «Reservar
 mesa» llevan a `/reservar/` (`/en/reserve/`); la cartelera y cada show próximo tienen el mismo formulario (zona en el plano,
